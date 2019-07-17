@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?38db5b6ef50c39b2a0984dab4ed5d001";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+	
+	<title>Splay 树的实现及其应用 |  潮与雪 - Rapiz</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="/js/utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--baidu-->
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ee85bf87ae3384d909e2bbab6d9d1f58";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!--font-->
+<script type="text/javascript" src="https://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+<script type="text/javascript">
+   $youziku.load("body", "c1b0ca6cecf2423585df02659c7c50f1", "SourceHan-S-SC");
+   /*$youziku.load("#id1,.class1,h1", "c1b0ca6cecf2423585df02659c7c50f1", "SourceHan-S-SC");*/
+   /*．．．*/
+   $youziku.draw();
+</script>
+</head>
+
+<body>
+<div id = "wrap">
+    <header id = "header">
+    <div id="nav">
+		<div id = "nav-items">
+      
+        <div class="underline-trans"><a href="/" >Home</a></div>
+      
+        <div class="underline-trans"><a href="/links" >Links</a></div>
+      
+        <div class="underline-trans"><a href="/portal" >Protal</a></div>
+      
+		</ul>
+	</div>
+</header>
+
+
+	<main class = 'main' onchange="FanfouFix();">
+		<article class="post markdown-body">
+  <div class="post-title">
+    <h2 class="title">Splay 树的实现及其应用</h2>
+  </div>
+   <div class="post-meta">
+         
+    <blockquote><p>Splay 代码谁家短？</blockquote>
+    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义-Definition"><span class="toc-text">定义 Definition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作-Operation"><span class="toc-text">操作 Operation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#伸展-Splay"><span class="toc-text">伸展 Splay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平衡树操作"><span class="toc-text">平衡树操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#合并-Merge"><span class="toc-text">合并 Merge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除-Delete"><span class="toc-text">删除 Delete</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展"><span class="toc-text">扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#标记-Tag"><span class="toc-text">标记 Tag</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#清除标记-Clear"><span class="toc-text">清除标记 Clear</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#懒惰插入-删除-Lazy-Operations"><span class="toc-text">懒惰插入/删除 Lazy Operations</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#储存"><span class="toc-text">储存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚点"><span class="toc-text">虚点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#辅助过程"><span class="toc-text">辅助过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主要操作"><span class="toc-text">主要操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用"><span class="toc-text">应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-text">后记</span></a></li></ol>
+    <span class="post-author">By Rapiz</span>
+    <span class="post-time">2016-12-20</span>
+  </div>
+  <div class="post-content">
+    </p>
+<p><s>本篇文章前面都是废话，重点在于 Splay 压行，猛击键盘 End 键前往页面底部</s></p>
+<h2 id="定义-Definition"><a href="#定义-Definition" class="headerlink" title="定义 Definition"></a>定义 Definition</h2><p>Splay 树是一种二叉平衡树的替代品，支持平衡树的所有操作，和 AVL 树严格的 $O(logN)$ 不同，其每次操作的均摊复杂度为 $O(logN)$。它不根据子树 size 或其他附加域进行调整，而是在每次操作后对树进行 Splay （伸展）操作。</p>
+<blockquote>
+<p>Splay 树往往用来维护序列。将每个节点的权值赋为序列下标，建树，这样得到的树的中序遍历即是原数列的下标（1, 2, 3, 4 …)。又因为旋转操作可以维持二叉查找树左小右大的性质，即中序遍历不变，因而建立在旋转操作基础上的伸展操作也不会改变其中序遍历。</p>
+</blockquote>
+<h2 id="操作-Operation"><a href="#操作-Operation" class="headerlink" title="操作 Operation"></a>操作 Operation</h2><h3 id="伸展-Splay"><a href="#伸展-Splay" class="headerlink" title="伸展 Splay"></a>伸展 Splay</h3><p>我们要支持这样一种操作：Splay(o, t)，将以节点 o 为根的子树旋转为节点 t 的一个儿子。保证 o 是 t 的后代。</p>
+<p>容易想到，我们可以将 o 不断向上旋转直到它为 t 的一个儿子。这样可以实现单旋 Splay 树，但是这种数据结构的时间复杂度没有保证。</p>
+<p>使用分三种情况的旋转策略可以使均摊复杂度达到 $O(logN)$。相关资料有很多，不再赘述。</p>
+<h3 id="平衡树操作"><a href="#平衡树操作" class="headerlink" title="平衡树操作"></a>平衡树操作</h3><p>求前驱、后继、第 k 大、插入操作都可以按二叉搜索树的方法实现，最后将操作节点伸展到根来保证均摊复杂度。</p>
+<p>由于我们实现了伸展操作，所以我们还能更简单的实现合并和删除。</p>
+<h3 id="合并-Merge"><a href="#合并-Merge" class="headerlink" title="合并 Merge"></a>合并 Merge</h3><p>设 o 子树中的所有元素都小于 t 子树中的元素。Merge(o, t) 将 o 作为 t 的左儿子。</p>
+<p>将 t 中的最小元素伸展到根，此时 t 子树一定没有左儿子。因此可以将 o 作为 t 的左儿子。</p>
+<h3 id="删除-Delete"><a href="#删除-Delete" class="headerlink" title="删除 Delete"></a>删除 Delete</h3><p>将待删除节点伸展到根，丢弃根节点，合并根节点的两颗子树。<br>区间删除同样很简单，留给读者思考。</p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h3 id="标记-Tag"><a href="#标记-Tag" class="headerlink" title="标记 Tag"></a>标记 Tag</h3><p>思想和线段树的标记是一样的，大部分线段树可做的都可做。</p>
+<p>关键在于标记下传和更新信息的时机。</p>
+<p>回忆一下线段树 down 的时机：访问子树时。</p>
+<p>这一点在 Splay 树中仍然成立，不过发生了一些微妙的变化。</p>
+<p>我们知道，线段树中当当前区间完全被待查区间包含时就可以立即返回，此时不需要访问当前区间的子区间，因此不用 down。</p>
+<p>但是，Splay 树中当前结点即为待查节点时，不能立即返回，而是应该先 push 再返回。</p>
+<p>我们明明没有访问子树，为什么也要 push 呢？</p>
+<p>关键在于，我们实际上访问子树了。因为每次操作后都要将待查节点伸展到根，所以每次查询必定会对待查节点进行旋转。旋转中用到了待查节点的子节点。我们忘记了这一次访问。</p>
+<h3 id="清除标记-Clear"><a href="#清除标记-Clear" class="headerlink" title="清除标记 Clear"></a>清除标记 Clear</h3><p>如果我们通过某种方式得到了要伸展的结点，但是从该节点到根的路径上有标记，那么我们就不能直接伸展它。<br>而自底向上的边伸展边 push 显然是错的。</p>
+<p>所以我们可以自底向上走直到根，结点入栈。然后不断对栈顶结点执行 push 直到栈空。</p>
+<h3 id="懒惰插入-删除-Lazy-Operations"><a href="#懒惰插入-删除-Lazy-Operations" class="headerlink" title="懒惰插入/删除 Lazy Operations"></a>懒惰插入/删除 Lazy Operations</h3><p>实践中常用 <code>cnt[]</code> 表示某个节点上的数的出现次数。注意 <code>cnt</code> 虽然可以是 0， 但不能是负数。</p>
+<p>有了懒惰插入/删除，大部分操作还是很容易实现。</p>
+<p>不过求前驱/后继的时候开始变得有点微妙。</p>
+<p>如果没有空点，求 o 的前驱，可以把 o 伸展到根，从 o 的左儿子开始，一直向右走直到没有右儿子为止。对称地，有求后继的方法。</p>
+<p>由于有了空点，我们甚至不能判断一个节点有没有左右儿子。因为以左/右儿子为根的子树里可能全是空点。</p>
+<p>从 o 的左儿子开始：<br>如果当前节点是空点，那么如果右子树不全空就走右节点，否则就走左节点。<br>如果当前结点不是空点，那么如果右子树不全空就走右节点，否则当前结点就是后继。</p>
+<p>它的正确性基于这样的想法：先前不存在空点时，我们可以根据当前节点为界缩小搜索范围，因为后继大于等于当前结点，所以只用考虑右子树。但是现在引入了空点，当前结点为空时根本无法根据当前结点的值缩小搜索范围，也就是必须同时考虑左右子树。但由于右子树一定比左子树优，所以如果右子树非空，只用考虑右子树。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>下文讨论数组+迭代实现。</p>
+<h3 id="储存"><a href="#储存" class="headerlink" title="储存"></a>储存</h3><p>为了储存一棵树，我们维护以下信息：</p>
+<pre><code class="C++">fa[o]; // father of o
+ch[o][0], ch[o][1] // left child and right child of o
+sz[o]; // size of o
+rt; // root of tree</code></pre>
+<h3 id="虚点"><a href="#虚点" class="headerlink" title="虚点"></a>虚点</h3><p>为了方便，我们定义 0 号节点为 null。于是同时规定：</p>
+<pre><code class="c++">sz[0] = 0;
+fa[0] = 0;
+//...</code></pre>
+<p> 0 号节点为逻辑 null。它不能被任何函数操作。也就是任何以 0 为操作节点的函数应该立刻返回。</p>
+<h3 id="辅助过程"><a href="#辅助过程" class="headerlink" title="辅助过程"></a>辅助过程</h3><p>为了操作树的结构，我们编写以下函数：</p>
+<pre><code class="C++">int gd(int o) {// return x is which child
+  return ch[fa[o]][1] == o;
+}
+void lk(int x, int y, int d){ // make x become a child of y
+  //ignore virutal node
+  if (y) ch[y][d] = x;
+  if (x) fa[x] = y;
+}
+int cut(int o) { // cut o from its father. rarely used.
+  ch[fa[o]][gd(o)] = 0;
+  fa[o] = 0;
+  return o;
+}
+void rot(int o) {//roate o up
+  // must guratee that there is no tag from o to the root
+  int x = fa[o], d = gd(o);
+  lk(o, fa[x], gd(x));
+  lk(ch[o][d^1], x, d);
+  lk(x, o, d^1);
+  up(x);// up x before o becasue x is child of o
+  up(o);
+  if (x == rt) rt = o;
+}</code></pre>
+<p>为了维护标记：</p>
+<pre><code class="C++">void up(int o); // update info from children of o
+void down(int o); // give tags of o to its children</code></pre>
+<p>为了清楚， 在操作树的函数中，我们只允许 <code>rot</code> 调用 <code>up</code> 和 <code>down</code> 维护附加域。其他场合 <code>lk</code> , <code>cut</code> 必须和 <code>up</code> , <code>down</code> 配套使用。而不是把 <code>up</code> 和 <code>down</code> 写在他们里面。</p>
+<p><code>up</code> 中要对虚点的附加域赋无影响的值或者特判儿子是否为虚点。</p>
+<h3 id="主要操作"><a href="#主要操作" class="headerlink" title="主要操作"></a>主要操作</h3><p>Splay 树的核心操作在于伸展。自底向上的伸展操作要求被伸展节点到根的链上没有标记。这一条件实际上很好满足。我们在查找满足条件的节点时就已经对这一条链上的标记全部 <code>push</code> 了。</p>
+<pre><code class="C++">int kth(int o, int k) {// find k-th node
+  while (k) {
+  down(o);
+    if (k == sz[lch] + 1) return o;
+    else if (k &lt;= sz[lch]) o = lch;
+    else k -= sz[lch] + 1, o = rch;
+  }
+  return o;
+}
+int splay(int o, int t) {// rotate o up until o is a child of t, used with kth()
+  while(fa[o] != t) {
+    int x = fa[o];
+    if (fa[x] != t) gd(o) == gd(x) ? rot(x) : rot(o);
+    rot(o);
+  }
+  return o;
+}</code></pre>
+<p>有了以上函数就可以进行 [l, r] 区间修改了。只需要把一个端点伸展到根，另一个端点伸展到根的子树。两个端点“之间夹住的部分”就是要修改的区间。注意此处的端点不一定就是第 l 大和第 r 大，细节留给读者思考。</p>
+<p>不过有些题目更加复杂，要求支持区间 “剪切”，即把一段区间拿出来插入到另一个位置。这时候组合使用上述函数就好了。此处我想给出一个比较精炼的操作，合并 Merge。</p>
+<pre><code class="C++">inline int merge(int o, int t) {//make o become the left child of t
+  kth(t, 1);
+  t = splay(kth(t, 1), fa[t]);
+  lk(o, t, 0);
+  up(t);
+  return t;
+}</code></pre>
+<p>刚刚提到的剪切操作就可以用 kth + splay + merge 实现。</p>
+<p>上面给出的 <code>merge</code> 暴露了笔者实现中最 ugly 的一个地方：<code>t = splay(kth(t, 1), fa[t]);</code>。这行的含义是将以 t 为根的树中的最左节点伸展到根。那为什么是个赋值语句呢？原因在于，以 t 为根的子树的根改变了。而旋到 rt 的时候不需要赋值，因为旋到 rt 的时候，<code>rot</code>过程中的一个<code>if</code>语句修复了这个问题。<br>可能另一种写法会让这个实现稍微漂亮一些：去掉 rot 中的判断，靠人在每次调用时判断是否要赋值。这样根的行为统一了，也让维护 Splay 森林变得可行。代价是：你必须非常小心，在必要的时候修改 rt 。</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><table>
+<thead>
+<tr>
+<th>Prob</th>
+<th>Hint</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BZOJ 3323 文艺平衡树</td>
+<td>区间翻转</td>
+</tr>
+<tr>
+<td>BZOJ 1251 序列终结者</td>
+<td>区间翻转，询问最值</td>
+</tr>
+<tr>
+<td>BZOJ 1895 supermemo</td>
+<td>区间加，翻转，剪切，询问最值。点插入，删除。</td>
+</tr>
+<tr>
+<td>BZOJ 1056 排名系统</td>
+<td>专治操作完不伸展</td>
+</tr>
+<tr>
+<td>BZOJ 1552 robotic sort</td>
+<td>区间反转，清除标记，splay 的灵活运用</td>
+</tr>
+<tr>
+<td>BZOJ 3224 普通平衡树</td>
+<td>像普通平衡树一样使用 Splay</td>
+</tr>
+</tbody></table>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>这是普通平衡树的代码。<br>前驱后继写的比较飘逸。</p>
+<pre><code class="c++">#include &lt;cstdio&gt;
+#define lch ch[o][0]
+#define rch ch[o][1]
+namespace I {
+  const int L = 1 &lt;&lt; 15;
+  char buf[L], *s, *t;
+  inline char gc() {
+    if (s == t) t = (s = buf) + fread(buf, 1, L, stdin);
+    if (s == t) return EOF;
+    return *s++;
+  }
+  inline int gi() {
+    int r = 0, f = 1, ch = gc();
+    while (!(ch &lt;= &#39;9&#39; &amp;&amp; ch &gt;= &#39;0&#39;)) {
+      if (ch == &#39;-&#39;) f = -1;
+      ch = gc();
+    }
+    while (ch &lt;= &#39;9&#39; &amp;&amp; ch &gt;= &#39;0&#39;) r = r*10 + ch - &#39;0&#39;, ch = gc();
+    return r*f;
+  }
+}using I::gi;
+const int N = 1e5 + 10;
+int n, st[N], nsz = 1, ch[N][2], cnt[N], sz[N], rt = 1, fa[N];
+inline int gd(int o) {return ch[fa[o]][1] == o;}
+inline void up(int o) {sz[o] = sz[lch] + sz[rch] + cnt[o];}
+inline void lk(int x, int y, int d) {
+  if (x) fa[x] = y;
+  if (y) ch[y][d] = x;
+}
+inline void rot(int o) {
+  int x = fa[o], d = gd(o);
+  lk(o, fa[x], gd(x));
+  lk(ch[o][d^1], x, d);
+  lk(x, o, d^1);
+  up(x);
+  up(o);
+  if (x == rt) rt = o;
+}
+void splay(int o, int t) {
+  while (fa[o] != t) {
+    int x = fa[o];
+    if (fa[x] != t) gd(o) == gd(x) ? rot(x) : rot(o);
+    rot(o);
+  }
+}
+int tar;
+inline int newnode(int v) {
+  st[++nsz] = v;
+  cnt[nsz] = 1;
+  up(nsz);
+  return nsz;
+}
+void insert(int o, int v) {
+  if (v &lt; st[o]) {
+    if (lch) insert(lch, v);
+    else lk(tar = newnode(v), o, 0);
+  }
+  else if (v &gt; st[o]) {
+    if (rch) insert(rch, v);
+    else lk(tar = newnode(v), o, 1);
+  }
+  else ++cnt[tar = o];
+  up(o);
+}
+void remove(int o, int v) {
+  if (!o) return;
+  if (v &lt; st[o]) remove(lch, v);
+  else if (v &gt; st[o]) remove(rch, v);
+  else --cnt[o];
+  up(o);
+}
+int rank(int o, int v) {
+  if (v &lt; st[o]) return rank(lch, v);
+  else if (v &gt; st[o]) return sz[lch] + cnt[o] + rank(rch, v);
+  else return tar = o, sz[lch] + 1;
+}
+int kth(int o, int k) {
+  while (k) {
+    if (k &lt;= sz[lch]) o = lch;
+    else if ((k -= sz[lch]) &lt;= cnt[o]) return st[tar = o];
+    else k -= cnt[o], o = rch;
+  }
+  return st[tar = o];
+}
+inline int sp(int v, int t) {
+  insert(rt, v);
+  remove(rt, v);
+  rank(rt, v);
+  splay(tar, 0);
+  int o = ch[rt][t], r;
+  t ^= 1;
+  while (o) {
+    if (cnt[o]) {
+      r = st[o];
+      if (sz[ch[o][t]]) o = ch[o][t];
+      else break;
+    }
+    else o = sz[ch[o][t]] ? ch[o][t] : ch[o][t^1];
+  }
+  return r;
+}
+
+int main() {
+  n = gi();
+  while (n--) {
+    int op = gi(), x = gi();
+    if (op == 1) insert(rt, x), splay(tar, 0);
+    else if (op == 2) remove(rt, x);
+    else if (op == 3) printf(&quot;%d\n&quot;, rank(rt, x)), splay(tar, 0);
+    else if (op == 4) printf(&quot;%d\n&quot;, kth(rt, x)), splay(tar, 0);
+    else if (op == 5) printf(&quot;%d\n&quot;, sp(x, 0));
+    else if (op == 6) printf(&quot;%d\n&quot;, sp(x, 1));
+  }
+}
+/* Debug
+ * rank 的递归边界是 sz[lch] + 1
+ * 有虚点求前驱后继
+ */</code></pre>
+<p><a href="http://spaceq.is-programmer.com/posts/39746.html?utm_source=tuicool&utm_medium=referral" target="_blank" rel="noopener">网上有篇文章说是“终极”模板</a>。我觉得这个板子写的很好。推荐看一看。</p>
+<p>借鉴了一下，我写出了更短的代码，没有强行压行。</p>
+<p>三行插入，两行伸展，一行求前驱后继。</p>
+<p>——容我中二。我这个是极限模板。比他的模板短 34 行。</p>
+<p>当然还有强行压行的空间，但是那样并没有简化逻辑。</p>
+<pre><code class="c++">#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstdlib&gt;
+using std::min;
+const int N = 1e5 + 10, INF = ~0u&gt;&gt;2;
+int n, st[N], nsz, rt, ch[N][2], fa[N], ans;
+inline void lk(int x, int y, int d) {
+  if (x) fa[x] = y;
+  if (y) ch[y][d] = x;
+}
+inline int gd(int o) {return ch[fa[o]][1] == o;}
+inline void rot(int o) {
+  int x = fa[o], d = gd(o);
+  lk(o, fa[x], gd(x));
+  lk(ch[o][d^1], x, d);
+  lk(x, o, d^1);
+  if (x == rt) rt = o;
+}
+inline int newnode(int v) {
+  st[++nsz] = v;
+  return nsz;
+}
+void splay(int o) {
+  for (int x; x = fa[o]; rot(o))
+    if(fa[x]) rot(gd(o) == gd(x) ? x : o);
+}
+void insert(int o, int v) {
+  for (int p; p = ch[o][v &gt;= st[o]]; o = p) ;
+  lk(newnode(v), o, v &gt;= st[o]);
+  splay(nsz);
+}
+int sp(int o, int t) {
+  for (o = ch[o][t], t ^= 1; ch[o][t]; o = ch[o][t]) ;
+  return st[o];
+}
+int main() {
+  scanf(&quot;%d&quot;, &amp;n);
+  rt = newnode(INF);
+  insert(rt, -INF);
+  bool f = 0;
+  while (n--) {
+    int x;
+    scanf(&quot;%d&quot;, &amp;x);
+    insert(rt, x);
+    ans += f ? min(abs(x - sp(rt, 0)), abs(x - sp(rt, 1))) : (f = 1, x);
+  }
+  printf(&quot;%d\n&quot;, ans);
+}</code></pre>
+<pre><code class="宠物收养所">#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cmath&gt;
+#include &lt;cstdlib&gt;
+const int V = 80010, M = 1000000;
+int n, sta = 3, ch[V][2], fa[V], cnt[V], st[V], top, rt, sz, ans;
+inline int gd(int o) {return ch[fa[o]][1] == o;}
+inline void lk(int x, int y, int d) {
+    if (x) fa[x] = y;
+    if (y) ch[y][d] = x;
+}
+inline void rot(int o) {
+    int x = fa[o], d = gd(o);
+    lk(o, fa[x], gd(x));
+    lk(ch[o][d^1], x, d);
+    lk(x, o, d^1);
+    if (x == rt) rt = o;
+}
+inline void splay(int o) {
+    for (;fa[o];rot(o)) if (fa[fa[o]]) rot(gd(o) == gd(fa[o]) ? fa[o] : o);
+}
+inline int sp(int o, int d){// 0 -&gt; prev, 1 - &gt; succ, assume o is rt
+    for (o = ch[o][d], d^=1; ch[o][d]; o = ch[o][d]);
+    return o;
+}
+inline int insert(int x) {
+    for (int o = rt; o; ) if (x == st[o]) {cnt[o]++;return o;}
+    else if (ch[o][x &gt; st[o]]) o = ch[o][x &gt; st[o]];
+    else {
+        st[++top] = x;
+        cnt[top] = 1;
+        lk(top, o, x &gt; st[o]);
+        return top;
+    }
+    return 0;
+}
+inline int find(int x) {
+    int o = rt;
+    while(1) if (x == st[o]) return o;
+    else if (ch[o][x &gt; st[o]]) o = ch[o][x &gt; st[o]];
+    else break;
+    return o;
+}
+void remove(int o) {
+    cnt[o]--;
+    if (!cnt[o]) {
+        splay(o);
+        int d = bool(ch[o][1]), x = ch[o][d];
+        if (!x) return;
+        fa[rt = x] = 0;
+        for (d^=1;ch[x][d];x = ch[x][d]);
+        lk(ch[o][d], x, d);
+    }
+}
+int main() {
+//    freopen(&quot;input&quot;, &quot;r&quot;, stdin);
+    scanf(&quot;%d&quot;, &amp;n);
+    while (n--) {
+        int t, x;scanf(&quot;%d%d&quot;, &amp;t, &amp;x);
+        if (t == sta) splay(insert(x)), sz++;
+        else if (t == (sta^1)) {
+            int o = find(x);
+            splay(o);
+            if (st[o] == x) ;
+            else {
+                int tt = sp(o, 0);
+                if (tt &amp;&amp; abs(st[tt] - x) &lt;= abs(st[o] - x)) o = tt;
+                tt = sp(o, 1);
+                if (tt &amp;&amp; abs(st[tt] - x) &lt; abs(st[o] - x)) o = tt;
+            }
+            remove(o);
+            ans = (ans + abs(st[o] - x))%M;
+            sz--;
+        }
+        else {
+            st[rt = ++top] = x;
+            cnt[top] = 1;
+            sta = t;
+            sz++;
+        }
+        if (!sz) sta = 3;
+    }
+    printf(&quot;%d\n&quot;, ans);
+}
+</code></pre>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>Splay 树的实现太多了。它本身就很灵活。记录下几个调的时候杀时间的点，按杀伤力排行：</p>
+<ol>
+<li>前驱后继中的空点</li>
+<li>rank 的递归边界是 lch + 1</li>
+<li>insert 中使用 lk + newnode 新建节点</li>
+<li>rot 中修改 rt</li>
+</ol>
+  </div>
+  <!--hightlight.js-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+<!--  <script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>-->
+	<script src="/js/hljs-line-number.js"></script>
+  <script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  </script>
+<!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+  <script>hljs.initHighlighting();</script> -->
+
+</article>
+
+<!-- 如果不是首页且没使用 `comments: false` 关闭评论，则尝试加载评论 -->
+
+    <!-- 配置中启用多说时，导入相应代码 -->
+    <!-- 以上皆关闭且 Hexo 配置中设置了 disqus_shortname 时，导入相应代码 -->
+    
+        <!-- 文件分离和变量的使用，使代码能较好的兼容 Hexo 主配置 -->
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'rapiz'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+    
+
+
+	</main>
+</div>
+</body>
+</html>

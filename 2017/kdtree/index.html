@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?38db5b6ef50c39b2a0984dab4ed5d001";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+	
+	<title>k-d Tree |  潮与雪 - Rapiz</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="/js/utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--baidu-->
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ee85bf87ae3384d909e2bbab6d9d1f58";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!--font-->
+<script type="text/javascript" src="https://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+<script type="text/javascript">
+   $youziku.load("body", "c1b0ca6cecf2423585df02659c7c50f1", "SourceHan-S-SC");
+   /*$youziku.load("#id1,.class1,h1", "c1b0ca6cecf2423585df02659c7c50f1", "SourceHan-S-SC");*/
+   /*．．．*/
+   $youziku.draw();
+</script>
+</head>
+
+<body>
+<div id = "wrap">
+    <header id = "header">
+    <div id="nav">
+		<div id = "nav-items">
+      
+        <div class="underline-trans"><a href="/" >Home</a></div>
+      
+        <div class="underline-trans"><a href="/links" >Links</a></div>
+      
+        <div class="underline-trans"><a href="/portal" >Protal</a></div>
+      
+		</ul>
+	</div>
+</header>
+
+
+	<main class = 'main' onchange="FanfouFix();">
+		<article class="post markdown-body">
+  <div class="post-title">
+    <h2 class="title">k-d Tree</h2>
+  </div>
+   <div class="post-meta">
+         
+    <blockquote><p>充满暴力倾向的空间二叉搜索树</blockquote>
+    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一句话不说你们又不高兴"><span class="toc-text">一句话不说你们又不高兴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闷声写大题"><span class="toc-text">闷声写大题</span></a></li></ol>
+    <span class="post-author">By Rapiz</span>
+    <span class="post-time">2017-02-17</span>
+  </div>
+  <div class="post-content">
+    </p>
+<h2 id="一句话不说你们又不高兴"><a href="#一句话不说你们又不高兴" class="headerlink" title="一句话不说你们又不高兴"></a>一句话不说你们又不高兴</h2><p>k-d Tree 可以处理 k 维空间内的最近（第二近、第三近……）邻点查询。</p>
+<p>回忆一下二叉搜索树。<br>每个节点存个值，左子树节点的值都比它小，右子树节点的值都比它大。</p>
+<p>问题扩展到 k 维空间内，每个点由一个 k 维向量表示其坐标。<br>如果树中节点 u 以第 d 维坐标作为分割依据，那么 u 的左子树的第 d 维坐标都比它小，右子树……</p>
+<p>这样的树就是 k-d Tree</p>
+<p><a href="http://trinkle.is-programmer.com/2015/7/22/kdtree.112655.html" target="_blank" rel="noopener">详情看ppt</a><br><em>注意他那样建树寻址的代价非常小。如果你用全局数组就会t飞2648</em><br><em>所以推荐大家有初始化建树的时候写结构体，否则就写数组或指针吧。结构体飞来飞去太难看了。</em></p>
+<h2 id="闷声写大题"><a href="#闷声写大题" class="headerlink" title="闷声写大题"></a>闷声写大题</h2><table>
+<thead>
+<tr>
+<th>Prob</th>
+<th>Hint</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2648-SJY摆棋子</td>
+<td>kdtree 不需要重建</td>
+</tr>
+<tr>
+<td>4066-简单题</td>
+<td>kdtree 区域查询 需要重建</td>
+</tr>
+<tr>
+<td>3053-The-Closet-M-Points</td>
+<td>真k dtree，不带修改</td>
+</tr>
+</tbody></table>
+<pre><code class="c++">//2648
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cctype&gt;
+namespace I {
+    const int L = 1 &lt;&lt; 15 | 1;
+    char *s, *t, buf[L];
+    inline char gc() {
+        if (s == t) t = (s = buf) + fread(buf, 1, L, stdin);
+        return *s++;
+    }
+    inline int gi() {
+        int ch = gc(), x = 0;
+        while (!isdigit(ch)) ch = gc();
+        while (isdigit(ch)) x = x*10 + ch -&#39;0&#39;, ch = gc();
+        return x;
+    }
+}using I::gi;
+using std::max;
+using std::min;
+const int N = int(5e5 + 10) &lt;&lt; 1;
+const double fac = 0.7;
+int n, m, D, mem, rt;
+struct ND {
+    int d[2], mn[2], mx[2], ch[2];
+    bool operator&lt;(const ND&amp; b)const {return d[D] &lt; b.d[D];}
+    inline void rd() {
+        d[0] = gi(), d[1] = gi();
+    }
+}a[N];
+inline void up(int o) {
+    for (int i = 0; i &lt; 2; i++) {
+        a[o].mn[i] = a[o].mx[i] = a[o].d[i];
+        for (int j = 0; j &lt; 2; j++) if (a[o].ch[j]) {
+            a[o].mn[i] = min(a[o].mn[i], a[a[o].ch[j]].mn[i]);
+            a[o].mx[i] = max(a[o].mx[i], a[a[o].ch[j]].mx[i]);
+        }
+    }
+}
+int build(int l, int r, int t) {
+    if (l &gt; r) return 0;
+    int mid = l + r &gt;&gt; 1;
+    D = t;
+    std::nth_element(a + l, a + mid, a + r + 1);
+    a[mid].ch[0] = build(l, mid - 1, t^1);
+    a[mid].ch[1] = build(mid + 1, r, t^1);
+    up(mid);
+    return mid;
+}
+void in(int&amp; o, int p, int t) {
+    if (!o) o = p;
+    else in(a[o].ch[a[p].d[t] &gt; a[o].d[t]], p, t^1);
+    up(o);
+}
+int x, y, ans;
+inline int val(int o) {
+    return o ? max(max(a[o].mn[0] - x, x - a[o].mx[0]), 0) + max(max(a[o].mn[1] - y, y - a[o].mx[1]), 0): 1e9;
+}
+void query(int o) {
+    if (!o) return;
+    ans = min(abs(a[o].d[0] - x) + abs(a[o].d[1] - y), ans);
+    int gd[2];
+    gd[0] = val(a[o].ch[0]), gd[1] = val(a[o].ch[1]);
+    int t = gd[1] &lt; gd[0];
+    if (gd[t] &lt; ans) query(a[o].ch[t]);
+    t^=1;
+    if (gd[t] &lt; ans) query(a[o].ch[t]);
+}
+int main() {
+    n = gi(), m = gi();
+    for (int i = 1; i &lt;= n; i++) {
+        a[++mem].rd();
+        up(i);
+    }
+    rt = build(1, mem, 0);
+    while (m--) {
+        int t = gi();
+        x = gi(), y = gi();
+        if (t == 1) {
+            ++mem;
+            a[mem].d[0] = x, a[mem].d[1] = y;
+            up(mem);
+            in(rt, mem, 0);
+        }
+        else if (t == 2) {
+            ans = 1e9;
+            query(rt);
+            printf(&quot;%d\n&quot;, ans);
+        }
+    }
+}</code></pre>
+<pre><code class="c++">//4066
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;vector&gt;
+const double fac = 0.7;
+int n, m, D, ans, sz;
+struct ND{
+    int d[2], l[2], r[2], sz, w, s;
+    ND* ch[2];
+    ND(int x, int y, int v) {d[0] = x, d[1] = y, w = v;up();}
+    inline void up() {
+        l[0] = r[0] = d[0];
+        l[1] = r[1] = d[1];
+        s = w;
+        sz = 1;
+        for (int j = 0; j &lt; 2; j++) if (ch[j]) {
+            s += ch[j]-&gt;s;
+            sz += ch[j]-&gt;sz;
+            for (int i = 0; i &lt; 2; i++)
+                l[i] = std::min(l[i], ch[j]-&gt;l[i]),
+                r[i] = std::max(r[i], ch[j]-&gt;r[i]);
+        }
+    }
+}*rt;
+bool cmp(ND* a, ND* b) {
+    return a-&gt;d[D] &lt; b-&gt;d[D];
+}
+ND* po[int(5e5 + 1) &lt;&lt; 2];
+ND* build(int l, int r, int d) {
+    if (l &gt; r) return 0;
+    D = d;
+    int mid = l + r &gt;&gt; 1;
+    std::nth_element(po + l, po + mid, po + r + 1, cmp);
+    ND* p = po[mid];
+    p-&gt;ch[0] = build(l, mid - 1, d^1);
+    p-&gt;ch[1] = build(mid + 1, r, d^1);
+    p-&gt;up();
+    return p;
+}
+void dfs(ND* u) {
+    if (!u) return;
+    dfs(u-&gt;ch[0]);
+    po[++sz] = u;
+    dfs(u-&gt;ch[1]);
+}
+void rebuild(ND*&amp; u, int d) {
+    sz = 0;
+    dfs(u);
+    u = build(1, sz, d);
+}
+void in(ND*&amp; o, ND* p, int d) {
+    if (!o) o = p;
+    else in(o-&gt;ch[p-&gt;d[d] &gt;= o-&gt;d[d]], p, d^1);
+    o-&gt;up();
+    int s = 0;
+    for (int i = 0; i &lt; 2; i++) if (o-&gt;ch[i]) s = std::max(s, o-&gt;ch[i]-&gt;sz);
+    if (s &gt; o-&gt;sz*fac) rebuild(o, d);
+}
+int x0, x1, y0, y1;
+int query(ND* o) {
+    if (!o || o-&gt;l[0] &gt; x1 || o-&gt;r[0] &lt; x0 || o-&gt;l[1] &gt; y1 || o-&gt;r[1] &lt; y0) return 0;
+    if (x0 &lt;= o-&gt;l[0] &amp;&amp; o-&gt;r[0] &lt;= x1 &amp;&amp;
+            y0 &lt;= o-&gt;l[1] &amp;&amp; o-&gt;r[1] &lt;= y1) return o-&gt;s;
+    int s = 0;
+    if (x0 &lt;= o-&gt;d[0] &amp;&amp; o-&gt;d[0] &lt;= x1 &amp;&amp;
+            y0 &lt;= o-&gt;d[1] &amp;&amp; o-&gt;d[1] &lt;= y1) s += o-&gt;w;
+    return s + query(o-&gt;ch[0]) + query(o-&gt;ch[1]);
+}
+int main() {
+//  freopen(&quot;input&quot;, &quot;r&quot;, stdin);
+//  freopen(&quot;bzoj_4066.in&quot;, &quot;r&quot;, stdin);
+//  freopen(&quot;bzoj_4066.out&quot;, &quot;w&quot;, stdout);
+    scanf(&quot;%d&quot;, &amp;n);
+    while (1) {
+        int t;
+        scanf(&quot;%d&quot;, &amp;t);
+        if (t == 1) {
+            int x, y, w;
+            scanf(&quot;%d%d%d&quot;, &amp;x, &amp;y, &amp;w);
+            x^=ans, y^=ans, w^=ans;
+            ND* p = new ND(x, y, w);
+            in(rt, p, 0);
+        }
+        else if (t == 2) {
+            scanf(&quot;%d%d%d%d&quot;, &amp;x0, &amp;y0, &amp;x1, &amp;y1);
+            x0 ^= ans, x1^=ans, y0^=ans,y1^=ans;
+            printf(&quot;%d\n&quot;, ans = query(rt));
+        }
+        else break;
+    }
+}</code></pre>
+<pre><code class="c++">//3053
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#include &lt;cassert&gt;
+#define nxd ((d + 1)%k)
+using std::min;
+using std::max;
+const int N = 5e4 + 10, K = 5, M = 15, INF = 2e9 + 1;
+int n, D, k, m, ans[M];
+struct P{
+    int d[K], mn[K], mx[K], ch[2];
+    bool operator&lt;(const P&amp; b)const {return d[D] &lt; b.d[D];}
+    inline void rd() {
+        for (int i = 0; i &lt; k; i++) scanf(&quot;%d&quot;, &amp;d[i]);
+    }
+}a[N];
+inline void up(int o) {
+    for (int i = 0; i &lt; k; i++) a[o].mn[i] = a[o].mx[i] = a[o].d[i];
+    for (int i = 0; i &lt; 2; i++) if (a[o].ch[i])
+        for (int j = 0; j &lt; k; j++) a[o].mn[j] = min(a[o].mn[j], a[a[o].ch[i]].mn[j]), a[o].mx[j] = max(a[o].mx[j], a[a[o].ch[i]].mx[j]);
+}
+inline int sq(int x) {return x*x;}
+inline int dis(int x, int y) {
+    if (!x || !y) return INF;
+    int s = 0;
+    for (int i = 0; i &lt; k; i++) s += sq(a[x].d[i] - a[y].d[i]);
+    return s;
+}
+int build(int l, int r, int d) {
+    if (l &gt; r) return 0;
+    int mid = l + r &gt;&gt; 1;
+    D = d;
+    std::nth_element(a + l, a + mid, a + r + 1);
+    a[mid].ch[0] = build(l, mid - 1, nxd);
+    a[mid].ch[1] = build(mid + 1, r, nxd);
+    up(mid);
+    return mid;
+}
+int acnt;
+inline void addans(int o) {
+    int dd = dis(o, n + 1);
+    for (int i = 1; i &lt;= min(acnt + 1, m); i++) if (dd &lt; dis(ans[i], n + 1)) {
+        for (int j = acnt; j &gt; i; j--) ans[j] = ans[j - 1];
+        ans[i] = o;
+        acnt = min(acnt + 1, m);
+        break;
+    }
+//  for (int i = 1; i &lt; acnt; i++) assert(dis(ans[i], n + 1) &lt; dis(ans[i + 1], n + 1));
+}
+inline int val(int o) {
+    if (o) {
+        int s = 0;
+        for (int i = 0, c = n + 1; i &lt; k; i++) s += sq(max(max(a[o].mn[i] - a[c].d[i], a[c].d[i] - a[o].mx[i]), 0));
+        return s;
+    }
+    else return INF;
+}
+void query(int o) {
+    if (!o) return;
+    addans(o);
+    int gd[2];
+    gd[0] = val(a[o].ch[0]), gd[1] = val(a[o].ch[1]);
+    int t = gd[1] &lt; gd[0], dd = dis(ans[m], n + 1);
+    if (dd &gt;= gd[t]) query(a[o].ch[t]);
+    t ^= 1;
+    dd = dis(ans[m], n + 1);
+    if (dd &gt;= gd[t]) query(a[o].ch[t]);
+}
+int rt;
+void solve() {
+    for (int i = 1; i &lt;= n; i++) a[i].rd(), up(i);
+    rt = build(1, n, 0);
+    int q;
+    scanf(&quot;%d&quot;, &amp;q);
+    while (q--) {
+        for (int i = 0; i &lt; k; i++) scanf(&quot;%d&quot;, &amp;a[n + 1].d[i]);
+        scanf(&quot;%d&quot;, &amp;m);
+        memset(ans, 0, sizeof(ans));
+        acnt = 0;
+        query(rt);
+        printf(&quot;the closest %d points are:\n&quot;, m);
+        for (int i = 1; i &lt;= m; i++) {
+            for (int j = 0; j &lt; k; j++) printf(&quot;%d&quot;, a[ans[i]].d[j]), j == k - 1 ? 0: putchar(&#39; &#39;);
+            putchar(&#39;\n&#39;);
+        }
+    }
+}
+int main() {
+    //freopen(&quot;input&quot;, &quot;r&quot;, stdin);
+    while (scanf(&quot;%d%d&quot;, &amp;n, &amp;k) == 2) solve();
+}</code></pre>
+  </div>
+  <!--hightlight.js-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+<!--  <script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>-->
+	<script src="/js/hljs-line-number.js"></script>
+  <script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  </script>
+<!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+  <script>hljs.initHighlighting();</script> -->
+
+</article>
+
+<!-- 如果不是首页且没使用 `comments: false` 关闭评论，则尝试加载评论 -->
+
+    <!-- 配置中启用多说时，导入相应代码 -->
+    <!-- 以上皆关闭且 Hexo 配置中设置了 disqus_shortname 时，导入相应代码 -->
+    
+        <!-- 文件分离和变量的使用，使代码能较好的兼容 Hexo 主配置 -->
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'rapiz'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+    
+
+
+	</main>
+</div>
+</body>
+</html>

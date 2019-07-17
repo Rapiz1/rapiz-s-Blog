@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?38db5b6ef50c39b2a0984dab4ed5d001";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+	
+	<title>关于动态规划的一点思考 |  潮与雪 - Rapiz</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="/js/utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--baidu-->
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ee85bf87ae3384d909e2bbab6d9d1f58";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!--font-->
+<script type="text/javascript" src="https://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+<script type="text/javascript">
+   $youziku.load("body", "c1b0ca6cecf2423585df02659c7c50f1", "SourceHan-S-SC");
+   /*$youziku.load("#id1,.class1,h1", "c1b0ca6cecf2423585df02659c7c50f1", "SourceHan-S-SC");*/
+   /*．．．*/
+   $youziku.draw();
+</script>
+</head>
+
+<body>
+<div id = "wrap">
+    <header id = "header">
+    <div id="nav">
+		<div id = "nav-items">
+      
+        <div class="underline-trans"><a href="/" >Home</a></div>
+      
+        <div class="underline-trans"><a href="/links" >Links</a></div>
+      
+        <div class="underline-trans"><a href="/portal" >Protal</a></div>
+      
+		</ul>
+	</div>
+</header>
+
+
+	<main class = 'main' onchange="FanfouFix();">
+		<article class="post markdown-body">
+  <div class="post-title">
+    <h2 class="title">关于动态规划的一点思考</h2>
+  </div>
+   <div class="post-meta">
+         
+    <blockquote><p>最短路图？最优决策图！</blockquote>
+    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#边界"><span class="toc-text">边界</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#初始值"><span class="toc-text">初始值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不可到达的状态"><span class="toc-text">不可到达的状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不可递推的状态"><span class="toc-text">不可递推的状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最小字典序方案"><span class="toc-text">最小字典序方案</span></a></li></ol>
+    <span class="post-author">By Rapiz</span>
+    <span class="post-time">2016-10-01</span>
+  </div>
+  <div class="post-content">
+    </p>
+<h2 id="边界"><a href="#边界" class="headerlink" title="边界"></a>边界</h2><h3 id="初始值"><a href="#初始值" class="headerlink" title="初始值"></a>初始值</h3><p>我们只对可以到达的状态进行循环赋值。那么在循环开始前初始值可赋为正无穷或负无穷，这样取 max 或 min 后会使不可到达的情况永远不会被考虑。</p>
+<pre><code>memset(f,0x3f,sizeof(f));//INF
+memset(f,0xc0,sizeof(f));//-INF</code></pre><h3 id="不可到达的状态"><a href="#不可到达的状态" class="headerlink" title="不可到达的状态"></a>不可到达的状态</h3><p>不进行循环。</p>
+<h3 id="不可递推的状态"><a href="#不可递推的状态" class="headerlink" title="不可递推的状态"></a>不可递推的状态</h3><p>状态转移方程的循环变量在这个状态下为空集。</p>
+<p><strong>确定边界的关键是状态的定义。</strong></p>
+<h2 id="最小字典序方案"><a href="#最小字典序方案" class="headerlink" title="最小字典序方案"></a>最小字典序方案</h2><p><strong>UVa1599 [NEERC2010] Ideal Path</strong></p>
+<p>输入一个无权无向图，每条边有一个编号（不保证不重复），输出 $1\leadsto n$ 最短路中编号序列字典序最小的一条。</p>
+<p>不妨先考虑1的单源最短路。这样我们得到一个最短路图DAG。<br>我们想在这个图上找到到n的最小字典序路径。<br>朴素的想法是，可以按路径编号安排dfs，找到n即输出路径并终止程序。<br>但是，问题在于输入不保证路径编号两两不同，因此如果出现两条编号同样小的边时，我们就不能找到一条路径就返回。<br>由于没有也不能使用<code>vis[]</code>进行标记，因此复杂度不是 $O(V+E)$ 而是阶乘级。<br>BOOM。</p>
+<p>换个方法？<br>倒着来，从n开始考虑它是从哪些状态转移而来的，每次选择字典序最小的决策。<br>但是编号不保证不同，因此选择字典序最小的决策这一行为是不确定的。</p>
+<p>假如编号保证不同，<br>这样做也是不对的。因为字典序是从第一个字符开始比大小，如果要贪，必定是第一个数贪最小，这样依次往后贪。而我们倒推决策恰好是从n推到1向决策数列里填数。这样贪是不对的。</p>
+<p>如果我们考虑 n 的单源最短路，再从 1 向 n 倒推决策，问题就迎刃而解了。<br>且慢，再多想一些，n 到 1 的最短路 和 1 到 n 的最短路是一回事，所以我们可以这样搞。<br>且慢，原题没有保证编号不同，所以无法选出字典序最小的决策。<br>那我们就从这里分叉，同时考虑这两个决策转移到的状态。<br>如果某个时刻决策能比出大小了，就可以扔掉大的决策。<br>如果推到 1 时还没比出大小，说明我们找出了多条字典序最小路径。</p>
+<p>这就是bfs。可以用队列实现。</p>
+<p>有一种特化的队列实现，在这个情景下很好用，可以省下一些存储量。<br>使用vector。<br>一个 vector 代表当前队列中的节点，依次取出扩展，扩展出的新节点加到vector2里。处理完vector后令 vector=vector2 。如果把这些放在一个 for 循环里，就可以知道当前的扩展次数。听上去没有比 queue 优美？也许你应该试一试。</p>
+<p>实际上，这道题就是动态规划输出最小字典序。<br>定义 dis 是 1 的单源最短路。<br>那么 dis[u] 即为状态，每次的决策是边。</p>
+<p>但是我们为什么搞了个 n 的单源最短路？</p>
+<p>不妨先考虑所有编号不同的情况。<br>求出 1 的单源最短路。<br>从 1 开始搜</p>
+<p><strong>NOI1998 免费馅饼</strong></p>
+<p>题面略去。要求输出字典序最小方案。</p>
+  </div>
+  <!--hightlight.js-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+<!--  <script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>-->
+	<script src="/js/hljs-line-number.js"></script>
+  <script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  </script>
+<!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+  <script>hljs.initHighlighting();</script> -->
+
+</article>
+
+<!-- 如果不是首页且没使用 `comments: false` 关闭评论，则尝试加载评论 -->
+
+    <!-- 配置中启用多说时，导入相应代码 -->
+    <!-- 以上皆关闭且 Hexo 配置中设置了 disqus_shortname 时，导入相应代码 -->
+    
+        <!-- 文件分离和变量的使用，使代码能较好的兼容 Hexo 主配置 -->
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'rapiz'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+    
+
+
+	</main>
+</div>
+</body>
+</html>

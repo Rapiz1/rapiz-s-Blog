@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?38db5b6ef50c39b2a0984dab4ed5d001";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+	
+	<title>Link-Cut-Tree 一日通 |  潮与雪 - Rapiz</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="/js/utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--baidu-->
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ee85bf87ae3384d909e2bbab6d9d1f58";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!--font-->
+<script type="text/javascript" src="https://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+<script type="text/javascript">
+   $youziku.load("body", "c1b0ca6cecf2423585df02659c7c50f1", "SourceHan-S-SC");
+   /*$youziku.load("#id1,.class1,h1", "c1b0ca6cecf2423585df02659c7c50f1", "SourceHan-S-SC");*/
+   /*．．．*/
+   $youziku.draw();
+</script>
+</head>
+
+<body>
+<div id = "wrap">
+    <header id = "header">
+    <div id="nav">
+		<div id = "nav-items">
+      
+        <div class="underline-trans"><a href="/" >Home</a></div>
+      
+        <div class="underline-trans"><a href="/links" >Links</a></div>
+      
+        <div class="underline-trans"><a href="/portal" >Protal</a></div>
+      
+		</ul>
+	</div>
+</header>
+
+
+	<main class = 'main' onchange="FanfouFix();">
+		<article class="post markdown-body">
+  <div class="post-title">
+    <h2 class="title">Link-Cut-Tree 一日通</h2>
+  </div>
+   <div class="post-meta">
+         
+    <blockquote><p>先定一个小目标，比方说今天睡一个小时。</blockquote>
+    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#上手"><span class="toc-text">上手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改造-Splay"><span class="toc-text">改造 Splay</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#旋转"><span class="toc-text">旋转</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#splay"><span class="toc-text">splay</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#从子节点更新"><span class="toc-text">从子节点更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#access"><span class="toc-text">access</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#维护边"><span class="toc-text">维护边</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+    <span class="post-author">By Rapiz</span>
+    <span class="post-time">2017-02-21</span>
+  </div>
+  <div class="post-content">
+    </p>
+<h2 id="上手"><a href="#上手" class="headerlink" title="上手"></a>上手</h2><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>我写的东西都是为了补充这些资料，所以先浏览下这些  ：</p>
+<p>QTREE解法的一些研究 - Yang Zhe <em>一个论文，自己搜吧</em><br><a href="http://www.cnblogs.com/kuangbin/archive/2013/09/03/3300141.html" target="_blank" rel="noopener">Kuangbin 写的这个模板题的代码</a><br><a href="http://blog.csdn.net/tgop_knight/article/details/44539555" target="_blank" rel="noopener">语言还挺生动的。。</a><br><a href="http://www.cnblogs.com/zinthos/p/3900225.html" target="_blank" rel="noopener">Yang Zhe 论文注解版</a></p>
+<p>然后。。如果你发现你学不会。。就看<a href="#codea">代码</a>。。就能学会了。。。</p>
+<h3 id="改造-Splay"><a href="#改造-Splay" class="headerlink" title="改造 Splay"></a>改造 Splay</h3><p>哎。。感觉真的没什么讲的，主要是 access 的实现还有 rot 和 fa 的变异。<br>access 大家都能看懂了。。</p>
+<p>fa 和 splay 里的 fa 不一样了。一颗 splay 的根也可以有 fa，代表这棵 splay 维护的路径的最上端节点的fa。（这样做的主要原因是方便access)<br>原来我们认为一个节点没有 fa 就是根，现在都有 fa 了怎么办呢？就再开一个bool rt[]表示它是不是根<br><em>为了区别和 splay 的不同，我把 fa 改叫 pre 了</em><br>然后我们需要 <a href="../../2016/Splay">splay 里的代码</a> 把判根的方法从 fa[]是否空 改到 rt[]真假  (这点主要影响splay函数)，还要维护新fa的性质。</p>
+<h4 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h4><p>举个例子，rot</p>
+<pre><code class="cpp">inline void rot(int o) {
+    int d = gd(o), x = pre[o];
+  //这段是把 o 替换到 x 原来的位置
+    pre[o] = pre[x];//不管 x 是不是根，它的父亲都将成为 o 的父亲
+    if (rt[x]) rt[x] = 0, rt[o] = 1; //如果 x 是根，就不改 pre[x] 的儿子，因为 ch[pre[x]][0/1] 都不是 x，因为他们都不在一颗 splay 里
+    else ch[pre[x]][gd(x)] = o; //x 不是根，按普通 splay 一样连下
+  //处理孩子之类的
+    lk(ch[o][d^1], x, d);
+    lk(x, o, d^1);
+    up(x);
+    up(o);
+}</code></pre>
+<h4 id="splay"><a href="#splay" class="headerlink" title="splay"></a>splay</h4><p>除了到达根的条件，其他不变。</p>
+<h4 id="从子节点更新"><a href="#从子节点更新" class="headerlink" title="从子节点更新"></a>从子节点更新</h4><p>然后你懂的，splay 一般要 up。<br>up 的时机？<br>Splay 的结构改变的时候。<br>实际上只存在一种情况, Splay 的结构会改动：ch[] 改动的时候。<br>也就是 ch[]改动 &lt;-当且仅当-&gt; 调用 up</p>
+<p>为什么pre[]和up没这种关系我就不证了。如果理解lct的话就明白，不理解的话我解释一下这点反而会更迷？</p>
+<p>然后写的时候注意下改ch[]就要up就行, 也就是accees，cut和传统项目splay。</p>
+<h4 id="access"><a href="#access" class="headerlink" title="access"></a>access</h4><p>没啥难懂的。自己去看 kuangbin 代码吧。注意access里的每次pre都是跳到上一个链而不是在splay中移动就行。</p>
+<h3 id="维护边"><a href="#维护边" class="headerlink" title="维护边"></a>维护边</h3><p>把边也转化成点，见<a href="http://blog.csdn.net/t14t41t/article/details/47665627" target="_blank" rel="noopener">水管局长</a></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><em>通过抄标程学算法（逃</em><br><span id="codea"></span>这种比较复杂的数据结构啊，说说真的是没啥用，详细描述过程也没用，还是看代码和写代码吧。<br>就像 splay 这种东西，没什么可讲的，就是看谁写的比较精妙。</p>
+<blockquote>
+<p>魔鬼在细节中</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Prob</th>
+<th>Hint</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2049 SDOI2008 Cave洞穴勘探</td>
+<td>摸鱼</td>
+</tr>
+<tr>
+<td>3091 城市旅行</td>
+<td>本来早上起来想写道裸题休闲一下，结果随机抽中了一道数学期望…不会数学期望就去搜<a href="http://blog.csdn.net/leijp1430/article/details/50769777" target="_blank" rel="noopener">题解</a>，<a href="http://blog.csdn.net/huzecong/article/details/8733618" target="_blank" rel="noopener">题解2</a>吧</td>
+</tr>
+<tr>
+<td>2631-Tree</td>
+<td>md卡常，lltle，用uint能过</td>
+</tr>
+<tr>
+<td>3282-Tree</td>
+<td>休闲</td>
+</tr>
+<tr>
+<td>2157-旅游</td>
+<td>明明是树剖题。不过可以用lct做，试下把边转换成点的技巧。<em>我没仔细看题以为有link-cut操作才写的树剖</em></td>
+</tr>
+<tr>
+<td>水管局长</td>
+<td>瓶颈居然是找边……排序lowerbound, 注意uv定序</td>
+</tr>
+<tr>
+<td>1180-CROATIAN2009-OTOCI</td>
+<td>淼淼淼，安慰自己今天不是特别颓废，至少膜chad学了不存rt的写法对吧？。。。顺便把自己的lct压到最短</td>
+</tr>
+</tbody></table>
+<pre><code class="cpp">//1180-OTOCI
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+const int N = 3e4 + 10;
+int n, m, pre[N], ch[N][2], w[N], s[N];
+bool rev[N];
+inline int gd(int o) {return ch[pre[o]][1] == o;}
+inline void lk(int x, int y, int d) {
+    if (x) pre[x] = y;
+    if (y) ch[y][d] = x;
+}
+inline bool rt(int o) {return ch[pre[o]][gd(o)] != o;}
+inline void mkr(int o) {if (o) std::swap(ch[o][1], ch[o][0]), rev[o] ^= 1;}
+inline void down(int o) {if (rev[o]) mkr(ch[o][0]), mkr(ch[o][1]), rev[o] = 0;}
+inline void up(int o) {
+    s[o] = w[o] + s[ch[o][0]] + s[ch[o][1]];
+}
+inline void rot(int o) {
+    int x = pre[o], d = gd(o);
+    pre[o] = pre[x];
+    if (!rt(x)) ch[pre[x]][gd(x)] = o;
+    lk(ch[o][d^1], x, d);
+    lk(x, o, d^1);
+    up(x), up(o);
+}
+void clear(int o) {
+    if (!rt(o)) clear(pre[o]);
+    down(o);
+}
+inline void splay(int o) {
+    for (clear(o); !rt(o); rot(o))
+        if (!rt(pre[o])) rot(gd(o) == gd(pre[o]) ? pre[o] : o);
+}
+inline void access(int o) {
+    for (int x = 0; o; o = pre[x = o])
+        splay(o), ch[o][1] = x, up(o);
+}
+inline void mkrt(int o) {access(o), splay(o), mkr(o);}
+int find(int o) {return pre[o] ? find(pre[o]) : o;}
+inline void link(int u, int v){mkrt(u),pre[u] = v;}
+char cmd[20];
+int main() {
+//    freopen(&quot;input&quot;, &quot;r&quot;, stdin);
+    scanf(&quot;%d&quot;, &amp;n);
+    for (int i = 1; i &lt;= n; i++) scanf(&quot;%d&quot;, w + i), up(i);
+    scanf(&quot;%d&quot;, &amp;m);
+    while (m--) {
+        int u, v;
+        scanf(&quot;%s%d%d&quot;, cmd, &amp;u, &amp;v);
+        if (cmd[0] == &#39;b&#39;) {
+            if (find(u) == find(v)) puts(&quot;no&quot;);
+            else {
+                puts(&quot;yes&quot;);
+                link(u, v);
+            }
+        }
+        else if (cmd[0] == &#39;p&#39;) splay(u), w[u] = v, up(u);
+        else if (cmd[0] == &#39;e&#39;) {
+            if (find(u) == find(v)) {
+                mkrt(u), access(v), splay(v);
+                printf(&quot;%d\n&quot;, s[v]);
+            }
+            else puts(&quot;impossible&quot;);
+        }
+    }
+}
+</code></pre>
+<pre><code class="cpp">//2049-SDOI2008-Cave
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cassert&gt;
+#define file(x) &quot;sdoi2008_cave.&quot; #x
+const int N = 1e4 + 10;
+int n, m, pre[N], ch[N][2];
+bool rt[N], rev[N];
+char cmd[20];
+inline void mkr(int o) {
+    if (!o) return;
+    rev[o] ^= 1;
+    std::swap(ch[o][0], ch[o][1]);
+}
+inline void down(int o) {
+    if (rev[o]) mkr(ch[o][0]), mkr(ch[o][1]), rev[o] = 0;
+}
+inline int gd(int o) {return ch[pre[o]][1] == o;}
+inline void lk(int x, int y, int d) {
+    if (x) pre[x] = y;
+    if (y) ch[y][d] = x;
+}
+inline void rot(int o) {
+    int d = gd(o), x = pre[o];
+    if (rt[x]) pre[o] = pre[x], rt[x] = 0, rt[o] = 1;
+    else lk(o, pre[x], gd(x));
+    lk(ch[o][d^1], x, d);
+    lk(x, o, d^1);
+//    up(x), up(o);
+}
+void clear(int o) {
+    if (!rt[o]) clear(pre[o]);
+    down(o);
+}
+void splay(int o) {
+    for (clear(o); !rt[o]; rot(o))
+        if (!rt[pre[o]]) rot(gd(o) == gd(pre[o]) ? pre[o] : o);
+}
+void access(int o) {
+    for (int x = 0; o;) {
+        splay(o);
+        rt[ch[o][1]] = 1, rt[ch[o][1] = x] = 0;
+        o = pre[x = o];
+    }
+}
+inline void mkrt(int o) {
+    access(o);
+    splay(o);
+    mkr(o);
+}
+inline void cut(int u, int v) {
+    mkrt(u);
+    access(v);
+    splay(v);
+    pre[ch[v][0]] = pre[v], rt[ch[v][0]] = 1;
+    pre[v] = ch[v][0] = 0;
+}
+inline void link(int u, int v) {
+    mkrt(u);
+    pre[u] = v;
+}
+inline bool query(int u, int v) {
+    while (pre[u]) u = pre[u];
+    while (pre[v]) v = pre[v];
+    return u == v;
+}
+int main() {
+//    freopen(file(in), &quot;r&quot;, stdin);
+//    freopen(file(out), &quot;w&quot;, stdout);
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 0; i &lt;= n; i++) rt[i] = 1;
+    while (m--) {
+        int x, y;
+        scanf(&quot;%s%d%d&quot;, cmd, &amp;x, &amp;y);
+        if (cmd[0] == &#39;Q&#39;) puts(query(x, y) ? &quot;Yes&quot; : &quot;No&quot;);
+        else if (cmd[0] == &#39;C&#39;) link(x, y);
+        else cut(x, y);
+    }
+}</code></pre>
+<pre><code class="cpp">//3091 城市旅行
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+const int N = 5e4 + 10;
+typedef long long ll;
+int n, m, pre[N], ch[N][2];
+bool rt[N], rev[N];
+ll ad[N], w[N], s[N], sz[N], ls[N], rs[N], e[N];
+inline void up(int o) {
+    s[o] = w[o] + s[ch[o][0]] + s[ch[o][1]];
+    sz[o] = 1 + sz[ch[o][0]] + sz[ch[o][1]];
+    ls[o] = ls[ch[o][0]] + (sz[ch[o][0]] + 1)*s[ch[o][1]] + ls[ch[o][1]] + w[o]*(sz[ch[o][0]] + 1);
+    rs[o] = rs[ch[o][1]] + (sz[ch[o][1]] + 1)*s[ch[o][0]] + rs[ch[o][0]] + w[o]*(sz[ch[o][1]] + 1);
+    e[o] = e[ch[o][0]] + e[ch[o][1]] + (sz[ch[o][0]] + 1)*rs[ch[o][1]] + (sz[ch[o][1]] + 1)*ls[ch[o][0]] + (sz[ch[o][0]] + 1)*(sz[ch[o][1]] + 1)*w[o];
+}
+inline void mkad(int o, ll x) {
+    if (o)  {
+        s[o] += x*sz[o],
+        w[o] += x,
+        ad[o] += x;
+        ll u = sz[o]*(sz[o] + 1)*x/2;
+        ls[o] += u, rs[o] += u;
+        e[o] += x*sz[o]*(sz[o] + 1)*(sz[o] + 2)/6;
+    }
+}
+inline void mkr(int o) {if (o) std::swap(ch[o][0], ch[o][1]), std::swap(ls[o], rs[o]), rev[o] ^= 1;}
+inline void down(int o) {
+    if (ad[o]) mkad(ch[o][0], ad[o]), mkad(ch[o][1], ad[o]), ad[o] = 0;
+    if (rev[o]) mkr(ch[o][0]), mkr(ch[o][1]), rev[o] = 0;
+}
+inline int gd(int o) {return ch[pre[o]][1] == o;}
+inline void lk(int x, int y, int d) {
+    if (x) pre[x] = y;
+    if (y) ch[y][d] = x;
+}
+inline void rot(int o) {
+    int d = gd(o), x = pre[o];
+    pre[o] = pre[x];
+    if (rt[x]) rt[x] = 0, rt[o] = 1;
+    else ch[pre[x]][gd(x)] = o;
+    lk(ch[o][d^1], x, d);
+    lk(x, o, d^1);
+    up(x);
+    up(o);
+}
+inline void clear(int o) {
+    if (!rt[o]) clear(pre[o]);
+    down(o);
+}
+inline void splay(int o) {
+    for (clear(o); !rt[o]; rot(o))
+        if (!rt[pre[o]]) rot(gd(o) == gd(pre[o]) ? pre[o] : o);
+}
+inline void access(int o) {
+    for (int x = 0; o; ) {
+        splay(o);
+        rt[ch[o][1]] = 1, rt[ch[o][1] = x] = 0;
+        up(o);
+        o = pre[x = o];
+    }
+}
+inline void mkrt(int o) {
+    access(o);
+    splay(o);
+    mkr(o);
+}
+inline int find(int u) {for(;pre[u]; u = pre[u]); return u;}
+inline void cut(int u, int v) {
+    if (find(u) != find(v)) return;
+    mkrt(u);
+    access(v);
+    splay(v);
+    if (ch[v][0] == u &amp;&amp; ch[u][1] == 0) {
+        pre[ch[v][0]] = pre[v], rt[ch[v][0]] = 1;
+        pre[v] = ch[v][0] = 0;
+        up(v);
+    }
+}
+inline void link(int u, int v) {
+    if (find(u) == find(v)) return;
+    mkrt(u);
+    pre[u] = v;
+}
+ll gcd(ll a, ll b) {return b ? gcd(b, a%b) : a;}
+std::vector&lt;int&gt; to[N];
+void dfs(int u, int fa) {
+    for (int i = 0; i &lt; (int)to[u].size(); i++) if (to[u][i] != fa) pre[to[u][i]] = u, dfs(to[u][i], u);
+}
+int main() {
+//    freopen(&quot;input&quot;, &quot;r&quot;, stdin);
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; i++) scanf(&quot;%lld&quot;, w + i), rt[i] = 1, up(i);
+    for (int i = 1; i &lt; n; i++) {
+        int u, v;
+        scanf(&quot;%d%d&quot;, &amp;u, &amp;v);
+        to[u].push_back(v);
+        to[v].push_back(u);
+    }
+    dfs(1, 0);
+    while (m--) {
+        int t, u, v;
+        scanf(&quot;%d%d%d&quot;, &amp;t, &amp;u, &amp;v);
+        if (t == 1) cut(u, v);
+        else if (t == 2) link(u, v);
+        else if (t == 3) {
+            int d;
+            scanf(&quot;%d&quot;, &amp;d);
+            if (find(u) != find(v)) continue;
+            mkrt(u);
+            access(v);
+            splay(v);
+            mkad(v, d);
+        }
+        else {
+            if (find(u) != find(v)) {
+                puts(&quot;-1&quot;);
+                continue;
+            }
+            mkrt(u);
+            access(v);
+            splay(v);
+            ll c = e[v], m = sz[v]*(sz[v] + 1)/2, d = gcd(c, m);
+            printf(&quot;%lld/%lld\n&quot;, c/d, m/d);
+        }
+    }
+}</code></pre>
+<pre><code class="c++">//2631-tree
+#include &lt;cstdio&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+typedef unsigned int ll;
+const int N = 1e5 + 10;
+const ll M = 51061;
+std::vector&lt;int&gt; to[N];
+int n, m, pre[N], ch[N][2];
+ll sz[N], ad[N], mu[N], w[N], s[N];
+bool rt[N], rev[N];
+void dfs(int u, int fa) {
+    pre[u] = fa;
+    for (int i = 0; i &lt; (int)to[u].size(); i++) if (to[u][i] != fa) dfs(to[u][i], u);
+}
+inline void up(int o) {
+    sz[o] = 1 + sz[ch[o][0]] + sz[ch[o][1]];
+    s[o] = (w[o] + s[ch[o][0]] + s[ch[o][1]])%M;
+}
+inline void mkr(int o) {
+    rev[o] ^= 1, std::swap(ch[o][0], ch[o][1]);
+}
+inline void mkad(int o, ll x) {
+    if (o) {
+        s[o] = (s[o] + sz[o]*x)%M;
+        w[o] = (w[o] + x)%M;
+        ad[o] = (ad[o] + x)%M;
+    }
+}
+inline void mkmu(int o, ll x) {
+    if (o) {
+        s[o] = x*s[o]%M;
+        w[o] = x*w[o]%M;
+        ad[o] = ad[o]*x%M;
+        mu[o] = mu[o]*x%M;
+    }
+}
+inline void down(int o) {
+    if (rev[o]) mkr(ch[o][0]), mkr(ch[o][1]), rev[o] = 0;
+    if (mu[o] != 1) mkmu(ch[o][0], mu[o]), mkmu(ch[o][1], mu[o]), mu[o] = 1;
+    if (ad[o]) mkad(ch[o][0], ad[o]), mkad(ch[o][1], ad[o]), ad[o] = 0;
+}
+inline void lk(int x, int y, int d) {
+    if (x) pre[x] = y;
+    if (y) ch[y][d] = x;
+}
+inline int gd(int o) {return ch[pre[o]][1] == o;}
+inline void rot(int o) {
+    int x = pre[o], d = gd(o);
+    pre[o] = pre[x];
+    if (rt[x]) rt[x] = 0, rt[o] = 1;
+    else ch[pre[x]][gd(x)] = o;
+    lk(ch[o][d^1], x, d);
+    lk(x, o, d^1);
+    up(x);
+    up(o);
+}
+void clear(int o) {
+    if (!rt[o]) clear(pre[o]);
+    down(o);
+}
+inline void splay(int o) {
+    for (clear(o); !rt[o]; rot(o))
+        if (!rt[pre[o]]) rot(gd(o) == gd(pre[o]) ? pre[o] : o);
+}
+inline void access(int o) {
+    for (int x = 0; o;) {
+        splay(o);
+        rt[ch[o][1]] = 1, rt[ch[o][1] = x] = 0;
+        up(o);
+        o = pre[x = o];
+    }
+}
+inline void mkrt(int u) {
+    access(u);
+    splay(u);
+    mkr(u);
+}
+inline void link(int u, int v) {
+    mkrt(u);
+    pre[u] = v;
+}
+inline void cut(int u, int v) {
+    mkrt(u);
+    access(v);
+    splay(v);
+    pre[ch[v][0]] = pre[v], rt[ch[v][0]] = 1;
+    pre[v] = ch[v][0] = 0;
+    up(v);
+}
+inline void select(int u, int v) {
+    mkrt(u);
+    access(v);
+    splay(v);
+}
+char cmd[5];
+int main() {
+//    freopen(&quot;input&quot;, &quot;r&quot;, stdin);
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt; n; i++) {
+        rt[i] = w[i] = mu[i] = 1;
+        up(i);
+        int u, v;scanf(&quot;%d%d&quot;, &amp;u ,&amp;v);
+        to[u].push_back(v);
+        to[v].push_back(u);
+    }
+    rt[n] = w[n] = mu[n] = 1;
+    up(n);
+    dfs(1, 0);
+    while (m--) {
+        int u0, v0, c, u1, v1;
+        scanf(&quot;%s%d%d&quot;, cmd, &amp;u0, &amp;v0);
+        if (cmd[0] == &#39;+&#39;) {
+            scanf(&quot;%d&quot;, &amp;c);
+            select(u0, v0);
+            mkad(v0, c);
+        }
+        else if (cmd[0] == &#39;-&#39;) {
+            scanf(&quot;%d%d&quot;, &amp;u1, &amp;v1);
+            cut(u0, v0);
+            link(u1, v1);
+        }
+        else if (cmd[0] == &#39;*&#39;) {
+            scanf(&quot;%d&quot;, &amp;c);
+            select(u0, v0);
+            mkmu(v0, c);
+        }
+        else if (cmd[0] == &#39;/&#39;) {
+            select(u0, v0);
+            printf(&quot;%u\n&quot;, s[v0]);
+        }
+    }
+}
+</code></pre>
+<pre><code class="cpp">//水管局长
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cctype&gt;
+#include &lt;map&gt;
+#define file(x) &quot;tube.&quot;#x
+#define f(x) re
+typedef long long ll;
+const int M = 1e6 + 10, N = 1e5 +10 +M, Q = 1e5 + 10, V = 1e5 + 10;
+namespace I {
+    const int L = 1 &lt;&lt; 15 | 1;
+    char *s,*t, buf[L];
+    inline char gc() {
+        if (s == t) t = (s = buf) + fread(buf, 1, L, stdin);
+        return *s++;
+    }
+    inline int gi() {
+        int ch = gc(), x = 0;
+        while (!isdigit(ch)) ch = gc();
+        while (isdigit(ch)) x = x*10 + ch - &#39;0&#39;, ch = gc();
+        return x;
+    }
+}using I::gi;
+int n, m, q, ch[N][2], pre[N], hed[N], nxt[M &lt;&lt; 2], w[N], mxi[N], st[M &lt;&lt; 2], th[M];
+bool rt[N], rev[N];
+struct EDGE{int u, v, w;
+    bool rm, in;
+    bool operator&lt;(const EDGE&amp; b)const {
+        return w &lt; b.w;
+    }
+    inline void rd() {
+        u = gi(), v = gi(), w = gi();
+    }
+}e[M], qu[Q];
+bool cmp2(int i, int j) {return e[i].u &lt; e[j].u || (e[i].u == e[j].u &amp;&amp; e[i].v &lt; e[j].v);}
+inline ll zip(ll u, ll v) {
+    if (u &gt; v) std::swap(u, v);
+    return u*V + v;
+}
+inline void _add(int u, int v){
+    static int sz = 0;
+    st[++sz] = v;
+    nxt[sz] = hed[u], hed[u] = sz;
+}
+inline void add(int u, int v){
+    _add(u, v), _add(v, u);
+}
+namespace Kruskal {
+    int p[N];
+    int find(int x) {return p[x] == x ? x : p[x] = find(p[x]);}
+    void solve() {
+        for (int i = 1; i &lt;= m; i++) p[i] = i;
+        std::sort(e + 1, e + 1 + m);
+        for (int i = 1; i &lt;= m; i++) if (!e[i].rm) {
+            int u = find(e[i].u), v = find(e[i].v);
+            if (u == v) continue;
+            p[u] = v;
+            e[i].in = 1;
+        }
+    }
+}
+inline void mkr(int o) {if(o) std::swap(ch[o][0], ch[o][1]), rev[o] ^= 1;}
+inline void down(int o) {if (rev[o]) mkr(ch[o][0]), mkr(ch[o][1]), rev[o] = 0;}
+inline void up(int o) {
+    mxi[o] = o &gt; n ? o : 0;
+    for (int i = 0; i &lt; 2; i++) if (w[mxi[ch[o][i]]] &gt; w[mxi[o]]) mxi[o] = mxi[ch[o][i]];
+}
+inline int gd(int o) {return ch[pre[o]][1] == o;}
+inline void lk(int x, int y, int d) {
+    if (x) pre[x] = y;
+    if (y) ch[y][d] = x;
+}
+//inline bool rt(int o) {return ch[pre[o]][0] == o || ch[pre[o]][1] == o;}
+inline void rot(int o) {
+    int x = pre[o], d = gd(o);
+    pre[o] = pre[x];
+    if (rt[x]) rt[x] = 0, rt[o] = 1;
+    else ch[pre[x]][gd(x)] = o;
+    lk(ch[o][d^1], x, d);
+    lk(x, o, d^1);
+    up(x);
+    up(o);
+}
+void clear(int o) {
+    if (!rt[o]) clear(pre[o]);
+    down(o);
+}
+inline void splay(int o) {
+    for (clear(o); !rt[o]; rot(o))
+        if (!rt[pre[o]]) rot(gd(o) == gd(pre[o]) ? pre[o] : o);
+}
+inline void access(int o) {
+    for (int x = 0; o; ) {
+        splay(o);
+        rt[ch[o][1]] = 1, rt[ch[o][1] = x] = 0;
+        up(o);
+        o = pre[x = o];
+    }
+}
+inline void mkrt(int o) {
+    access(o);
+    splay(o);
+    mkr(o);
+}
+inline void link(int u, int v) {mkrt(u), pre[u] = v;}
+inline void cut(int u, int v) {
+    mkrt(u);
+    access(v);
+    splay(v);
+    pre[u] = pre[v], rt[u] = 1;
+    pre[v] = ch[v][0] = 0;
+    up(v);
+}
+void dfs(int u, int fa) {
+    pre[u] = fa;
+    rt[u] = 1;
+    up(u);
+    for (int g = hed[u], v; v = st[g]; g = nxt[g]) if (v != fa) dfs(v, u);
+}
+inline int query(int u, int v) {
+    mkrt(u),access(v), splay(v);
+    return mxi[v];
+}
+int find(int u, int v) {
+    if (u &gt; v) std::swap(u, v);
+    e[m + 1].u = u, e[m + 1].v = v;
+    int p = std::lower_bound(th + 1, th + 1 + m, m + 1, cmp2) - th;
+    return th[p];
+}
+int main() {
+//    freopen(&quot;input&quot;, &quot;r&quot;, stdin);
+//    freopen(file(in), &quot;r&quot;, stdin);
+//    freopen(file(out), &quot;w&quot;, stdout);
+    n = gi(), m = gi(), q = gi();
+    for (int i = 1; i &lt;= m; i++) e[i].rd(), th[i] = i;
+    std::sort(th + 1, th + 1 + m, cmp2);
+    for (int i = 1; i &lt;= q; i++) {
+        qu[i].rd();
+        if (qu[i].u == 2) {
+            e[find(qu[i].v, qu[i].w)].rm = 1;
+        }
+    }
+    Kruskal::solve();
+    std::sort(th + 1, th + 1 + m, cmp2);
+    for (int i = 1; i &lt;= m; i++) {
+        if (e[i].in) {
+            add(e[i].u, n + i);
+            add(e[i].v, n + i);
+        }
+        w[n + i] = e[i].w;
+    }
+    dfs(1, 0);
+    for (int i = q; i; i--) if (qu[i].u == 1) qu[i].v = w[query(qu[i].v, qu[i].w)];
+    else {
+        int x = query(qu[i].v, qu[i].w), id = find(qu[i].v, qu[i].w);
+        if (w[n + id] &lt; w[x]) {
+            cut(x, e[x - n].u);
+            cut(x, e[x - n].v);
+            link(n + id, qu[i].v);
+            link(n + id, qu[i].w);
+        }
+    }
+    for (int i = 1; i &lt;= q; i++) if (qu[i].u == 1) printf(&quot;%d\n&quot;, qu[i].v);
+}</code></pre>
+<p>后注：<br>这些代码也有点时间了，有些地方写的很naive，比如水管局长的cut。<br>推荐阅读第一个代码，不开数组维护rt的版本。简单很多。<br>然后水管局长的cut可以splayx然后更简单。</p>
+  </div>
+  <!--hightlight.js-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+<!--  <script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>-->
+	<script src="/js/hljs-line-number.js"></script>
+  <script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  </script>
+<!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+  <script>hljs.initHighlighting();</script> -->
+
+</article>
+
+<!-- 如果不是首页且没使用 `comments: false` 关闭评论，则尝试加载评论 -->
+
+    <!-- 配置中启用多说时，导入相应代码 -->
+    <!-- 以上皆关闭且 Hexo 配置中设置了 disqus_shortname 时，导入相应代码 -->
+    
+        <!-- 文件分离和变量的使用，使代码能较好的兼容 Hexo 主配置 -->
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'rapiz'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+    
+
+
+	</main>
+</div>
+</body>
+</html>
