@@ -61,7 +61,7 @@ int lca(int u, int v) {
     //下面这个循环必须从大到小。考虑二进制下 1 + 1 = 10
     for (int k = K - 1; k &gt;= 0; k--) if (anc[u][k] != anc[v][k])
         u = anc[u][k], v = anc[v][k];
-    return u == v ? anc[u][0];
+    return u == v ? u : anc[u][0];
 }</code></pre>
   </div>
   <!--hightlight.js-->
