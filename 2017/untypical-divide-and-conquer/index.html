@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">非典型分治</h2>
   </div>
@@ -48,6 +50,7 @@
 <p>操作 A 对操作 B 实际上有贡献的充要条件是，时间序 A &lt; B, 影响序 A &lt; B。</p>
 <p>算法过程是这样的：<br>假设输入序列按时间序递增（一般的确如此），我们将左、右两部分同时按影响序排序，然后合并成一个影响序递增的序列。合并过程中只处理左半部分修改，右半部分查询。然后很容易按归纳法证明正确性了。</p>
 <p><em>然后你发现时间序也是一种影响序，所以以上均为我瞎bb。世界上只有元素之前会不会偏序影响的道理。</em></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -55,7 +58,8 @@
 <th>Hint</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1176" target="_blank" rel="noopener">BZOJ1176 Mokia</a></td>
 <td>入门题</td>
 </tr>
@@ -83,9 +87,11 @@
 <td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3262" target="_blank" rel="noopener">BZOJ3262 陌上花开</a></td>
 <td>注意去重。第一次排序的时候三维都要比较，强行造出时间序</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>感觉我的代码还是比较清晰的，希望能帮到你。</p>
-<pre><code class="c++">//动态逆序对
+<pre><code class="lang-c++">//动态逆序对
 #include &lt;cstdio&gt;
 #include &lt;stack&gt;
 #include &lt;cstring&gt;
@@ -148,8 +154,9 @@ int main() {
     solve(1, n + m);
     for (int i = 1; i &lt;= n + m; i++) ans[i] += ans[i - 1];
     for (int i = n; i &lt; n + m; i++) printf(&quot;%lld\n&quot;, ans[i]);
-}</code></pre>
-<pre><code class="c++">//陌上花开
+}
+</code></pre>
+<pre><code class="lang-c++">//陌上花开
 #include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 #include &lt;stack&gt;
@@ -215,10 +222,12 @@ int main() {
     solve(1, tot);
     for (int i = 1; i &lt;= n; i++) ans[qu[i].a + qu[i].w - 1] += qu[i].w;
     for (int i = 0; i &lt; n; i++) printf(&quot;%d\n&quot;, ans[i]);
-}</code></pre>
+}
+</code></pre>
 <h3 id="See-Also"><a href="#See-Also" class="headerlink" title="See Also"></a>See Also</h3><p><a href="https://fancypei.github.io/2016/06/14/CDQ/#bzoj-2961-共点圆" target="_blank" rel="noopener">CDQ分治 by Fancy</a><br><a href="http://zyk1997.github.io/2015/06/22/CDQ/" target="_blank" rel="noopener">CDQ分治 by zyk1997</a></p>
 <h2 id="整体二分"><a href="#整体二分" class="headerlink" title="整体二分"></a>整体二分</h2><p><a href="http://www.cnblogs.com/zig-zag/archive/2013/04/18/3027707.html" target="_blank" rel="noopener">入门</a><br><a href="http://www.cnblogs.com/sagitta/p/5982251.html" target="_blank" rel="noopener">带修改</a></p>
 <p>自己脑补吧。<br>带修改时天然时间序方便了很多，并且我们可以把修改只分到一侧。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -226,7 +235,8 @@ int main() {
 <th>Hint</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2527" target="_blank" rel="noopener">BZOJ2527 Meteors</a></td>
 <td>注意会爆long long…</td>
 </tr>
@@ -234,7 +244,9 @@ int main() {
 <td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3110" target="_blank" rel="noopener">BZOJ3110 K大数查询</a></td>
 <td>还是会爆long long</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
   </div>
   <!--hightlight.js-->
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
@@ -278,5 +290,20 @@ int main() {
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

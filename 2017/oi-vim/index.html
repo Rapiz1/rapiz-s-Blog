@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">OI 中的 Vim</h2>
   </div>
@@ -43,7 +45,8 @@
     </p>
 <h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Arch Linux: <code>pacman -S gvim</code><br>Windows: <a href="www.baidu.com">www.baidu.com</a><br>注意 Linux 下 <code>vim</code> 和 <code>gvim</code> 两个包是冲突的。安装 <code>gvim</code> 可以使用两者（GUI 和非 GUI)。</p>
 <h2 id="Configurations"><a href="#Configurations" class="headerlink" title="Configurations"></a>Configurations</h2><h3 id="Compile-and-Run"><a href="#Compile-and-Run" class="headerlink" title="Compile and Run"></a>Compile and Run</h3><p>关于编译可以看看这篇<a href="http://easwy.com/blog/archives/advanced-vim-skills-quickfix-mode/" target="_blank" rel="noopener">文章</a>。<br>我们想在新窗口中运行，还想要运行结束后按任意键继续来看输出。<br>我使用 Konsole 作为终端模拟器，所以我可以这样写命令：</p>
-<pre><code>konsole -e &#39;sh -c &quot;./prog;read -p done&quot;&#39;</code></pre><p>这样会新窗口执行程序并且最后输出一行’done’。<br>然后就是一些 Vim 的知识了。不再赘述。</p>
+<pre><code>konsole -e &#39;sh -c &quot;./prog;read -p done&quot;&#39;
+</code></pre><p>这样会新窗口执行程序并且最后输出一行’done’。<br>然后就是一些 Vim 的知识了。不再赘述。</p>
 <h3 id="Color"><a href="#Color" class="headerlink" title="Color"></a>Color</h3><p>Molokai 不错，但是这个不是自带主题。<br>evening 是很经典的一个自带主题，赛场你可以用它。</p>
 <h3 id="Tabs"><a href="#Tabs" class="headerlink" title="Tabs"></a>Tabs</h3><p><code>gt</code> 下一个标签</p>
 <h3 id="Tree-views"><a href="#Tree-views" class="headerlink" title="Tree-views"></a>Tree-views</h3><h2 id="My-vimrc"><a href="#My-vimrc" class="headerlink" title="My .vimrc"></a>My <code>.vimrc</code></h2><pre><code>set number &quot;行号
@@ -59,7 +62,8 @@ map&lt;F12&gt; :w&lt;Enter&gt;:make&lt;Enter&gt;
 map&lt;F11&gt; &lt;F12&gt;&lt;Enter&gt;&lt;F10&gt;
 inoremap { {}&lt;Esc&gt;i &quot;{}补全
 colo molokai
-sy on &quot;语法高亮</code></pre>
+sy on &quot;语法高亮
+</code></pre>
   </div>
   <!--hightlight.js-->
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
@@ -103,5 +107,20 @@ sy on &quot;语法高亮</code></pre>
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

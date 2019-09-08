@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">Splay 树的实现及其应用</h2>
   </div>
@@ -73,17 +75,19 @@
 <p>它的正确性基于这样的想法：先前不存在空点时，我们可以根据当前节点为界缩小搜索范围，因为后继大于等于当前结点，所以只用考虑右子树。但是现在引入了空点，当前结点为空时根本无法根据当前结点的值缩小搜索范围，也就是必须同时考虑左右子树。但由于右子树一定比左子树优，所以如果右子树非空，只用考虑右子树。</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>下文讨论数组+迭代实现。</p>
 <h3 id="储存"><a href="#储存" class="headerlink" title="储存"></a>储存</h3><p>为了储存一棵树，我们维护以下信息：</p>
-<pre><code class="C++">fa[o]; // father of o
+<pre><code class="lang-C++">fa[o]; // father of o
 ch[o][0], ch[o][1] // left child and right child of o
 sz[o]; // size of o
-rt; // root of tree</code></pre>
+rt; // root of tree
+</code></pre>
 <h3 id="虚点"><a href="#虚点" class="headerlink" title="虚点"></a>虚点</h3><p>为了方便，我们定义 0 号节点为 null。于是同时规定：</p>
-<pre><code class="c++">sz[0] = 0;
+<pre><code class="lang-c++">sz[0] = 0;
 fa[0] = 0;
-//...</code></pre>
+//...
+</code></pre>
 <p> 0 号节点为逻辑 null。它不能被任何函数操作。也就是任何以 0 为操作节点的函数应该立刻返回。</p>
 <h3 id="辅助过程"><a href="#辅助过程" class="headerlink" title="辅助过程"></a>辅助过程</h3><p>为了操作树的结构，我们编写以下函数：</p>
-<pre><code class="C++">int gd(int o) {// return x is which child
+<pre><code class="lang-C++">int gd(int o) {// return x is which child
   return ch[fa[o]][1] == o;
 }
 void lk(int x, int y, int d){ // make x become a child of y
@@ -105,14 +109,16 @@ void rot(int o) {//roate o up
   up(x);// up x before o becasue x is child of o
   up(o);
   if (x == rt) rt = o;
-}</code></pre>
+}
+</code></pre>
 <p>为了维护标记：</p>
-<pre><code class="C++">void up(int o); // update info from children of o
-void down(int o); // give tags of o to its children</code></pre>
+<pre><code class="lang-C++">void up(int o); // update info from children of o
+void down(int o); // give tags of o to its children
+</code></pre>
 <p>为了清楚， 在操作树的函数中，我们只允许 <code>rot</code> 调用 <code>up</code> 和 <code>down</code> 维护附加域。其他场合 <code>lk</code> , <code>cut</code> 必须和 <code>up</code> , <code>down</code> 配套使用。而不是把 <code>up</code> 和 <code>down</code> 写在他们里面。</p>
 <p><code>up</code> 中要对虚点的附加域赋无影响的值或者特判儿子是否为虚点。</p>
 <h3 id="主要操作"><a href="#主要操作" class="headerlink" title="主要操作"></a>主要操作</h3><p>Splay 树的核心操作在于伸展。自底向上的伸展操作要求被伸展节点到根的链上没有标记。这一条件实际上很好满足。我们在查找满足条件的节点时就已经对这一条链上的标记全部 <code>push</code> 了。</p>
-<pre><code class="C++">int kth(int o, int k) {// find k-th node
+<pre><code class="lang-C++">int kth(int o, int k) {// find k-th node
   while (k) {
   down(o);
     if (k == sz[lch] + 1) return o;
@@ -128,26 +134,30 @@ int splay(int o, int t) {// rotate o up until o is a child of t, used with kth()
     rot(o);
   }
   return o;
-}</code></pre>
+}
+</code></pre>
 <p>有了以上函数就可以进行 [l, r] 区间修改了。只需要把一个端点伸展到根，另一个端点伸展到根的子树。两个端点“之间夹住的部分”就是要修改的区间。注意此处的端点不一定就是第 l 大和第 r 大，细节留给读者思考。</p>
 <p>不过有些题目更加复杂，要求支持区间 “剪切”，即把一段区间拿出来插入到另一个位置。这时候组合使用上述函数就好了。此处我想给出一个比较精炼的操作，合并 Merge。</p>
-<pre><code class="C++">inline int merge(int o, int t) {//make o become the left child of t
+<pre><code class="lang-C++">inline int merge(int o, int t) {//make o become the left child of t
   kth(t, 1);
   t = splay(kth(t, 1), fa[t]);
   lk(o, t, 0);
   up(t);
   return t;
-}</code></pre>
+}
+</code></pre>
 <p>刚刚提到的剪切操作就可以用 kth + splay + merge 实现。</p>
 <p>上面给出的 <code>merge</code> 暴露了笔者实现中最 ugly 的一个地方：<code>t = splay(kth(t, 1), fa[t]);</code>。这行的含义是将以 t 为根的树中的最左节点伸展到根。那为什么是个赋值语句呢？原因在于，以 t 为根的子树的根改变了。而旋到 rt 的时候不需要赋值，因为旋到 rt 的时候，<code>rot</code>过程中的一个<code>if</code>语句修复了这个问题。<br>可能另一种写法会让这个实现稍微漂亮一些：去掉 rot 中的判断，靠人在每次调用时判断是否要赋值。这样根的行为统一了，也让维护 Splay 森林变得可行。代价是：你必须非常小心，在必要的时候修改 rt 。</p>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><table>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>Prob</th>
 <th>Hint</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>BZOJ 3323 文艺平衡树</td>
 <td>区间翻转</td>
 </tr>
@@ -171,9 +181,11 @@ int splay(int o, int t) {// rotate o up until o is a child of t, used with kth()
 <td>BZOJ 3224 普通平衡树</td>
 <td>像普通平衡树一样使用 Splay</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>这是普通平衡树的代码。<br>前驱后继写的比较飘逸。</p>
-<pre><code class="c++">#include &lt;cstdio&gt;
+<pre><code class="lang-c++">#include &lt;cstdio&gt;
 #define lch ch[o][0]
 #define rch ch[o][1]
 namespace I {
@@ -290,13 +302,14 @@ int main() {
 /* Debug
  * rank 的递归边界是 sz[lch] + 1
  * 有虚点求前驱后继
- */</code></pre>
-<p><a href="http://spaceq.is-programmer.com/posts/39746.html?utm_source=tuicool&utm_medium=referral" target="_blank" rel="noopener">网上有篇文章说是“终极”模板</a>。我觉得这个板子写的很好。推荐看一看。</p>
+ */
+</code></pre>
+<p><a href="http://spaceq.is-programmer.com/posts/39746.html?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="noopener">网上有篇文章说是“终极”模板</a>。我觉得这个板子写的很好。推荐看一看。</p>
 <p>借鉴了一下，我写出了更短的代码，没有强行压行。</p>
 <p>三行插入，两行伸展，一行求前驱后继。</p>
 <p>——容我中二。我这个是极限模板。比他的模板短 34 行。</p>
 <p>当然还有强行压行的空间，但是那样并没有简化逻辑。</p>
-<pre><code class="c++">#include &lt;cstdio&gt;
+<pre><code class="lang-c++">#include &lt;cstdio&gt;
 #include &lt;algorithm&gt;
 #include &lt;cstdlib&gt;
 using std::min;
@@ -343,8 +356,9 @@ int main() {
     ans += f ? min(abs(x - sp(rt, 0)), abs(x - sp(rt, 1))) : (f = 1, x);
   }
   printf(&quot;%d\n&quot;, ans);
-}</code></pre>
-<pre><code class="宠物收养所">#include &lt;cstdio&gt;
+}
+</code></pre>
+<pre><code class="lang-宠物收养所">#include &lt;cstdio&gt;
 #include &lt;algorithm&gt;
 #include &lt;cstring&gt;
 #include &lt;cmath&gt;
@@ -480,5 +494,20 @@ int main() {
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">树上莫队和树上分块</h2>
   </div>
@@ -49,7 +51,10 @@
 <p>为什么是$\frac{1}{3}$?<br>下证复杂度。</p>
 <p>假设读者掌握了普通莫队复杂度的证明。</p>
 <p>我们把左右端点看成 x,y 轴，按$T$划分。此时平面被分为$T\times T$的正方形。每个正方形是现在的一块，其边长为$T$,面积为$T^2$。<br>可以说是先按一个轴分块之后再按另一个轴分块，也可以说是二维的分块。<br>每个块内的操作按时间排序。<br><span style="color:red;">靠北啊下面写错了好多次好丢人</span><br>考虑修改：<br>块内共$N$，共$(N/T)^2$块，总复杂度$N^3/T^2$。<br>跨块单次$N$，共$(N/T)^2$块，总复杂度$N^3/T^2$。<br>考虑端点：<br>每次$T$，复杂度$NT$。</p>
-<p>我们要找到合适的 $T$ 使总复杂度最小，于是令<br>$$N^3/T^2 = NT$$<br>即解得<br>$$T = N^{2/3}$$<br>回代得算法总复杂度为$O(N^{5/3})$</p>
+<p>我们要找到合适的 $T$ 使总复杂度最小，于是令</p>
+<script type="math/tex; mode=display">N^3/T^2 = NT</script><p>即解得</p>
+<script type="math/tex; mode=display">T = N^{2/3}</script><p>回代得算法总复杂度为$O(N^{5/3})$</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -57,11 +62,14 @@
 <th>Hint</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2120" target="_blank" rel="noopener">BZOJ2120 数颜色</a></td>
 <td>这题有很麻烦的分块做法。带修改莫队简单不少</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
   </div>
   <!--hightlight.js-->
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
@@ -105,5 +113,20 @@
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

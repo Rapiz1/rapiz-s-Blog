@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">(浅谈)^2 线性代数</h2>
   </div>
@@ -35,39 +37,20 @@
          
     <blockquote><p>标题的意思是比浅谈更浅谈</blockquote>
     
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">没写完呢还</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#判定"><span class="toc-text">判定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向量组的秩"><span class="toc-text">向量组的秩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行列式"><span class="toc-text">行列式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定理"><span class="toc-text">定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#排列"><span class="toc-text">排列</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">没写完呢还</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#线性相关和线性无关"><span class="toc-text">线性相关和线性无关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定理"><span class="toc-text">定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判定"><span class="toc-text">判定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向量组的秩"><span class="toc-text">向量组的秩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行列式"><span class="toc-text">行列式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义-1"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定理-1"><span class="toc-text">定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#排列"><span class="toc-text">排列</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li></ol>
     <span class="post-author">By Rapiz</span>
     <span class="post-time">2017-02-11</span>
   </div>
   <div class="post-content">
     </p>
-<h1>没写完呢还</h1>
-*略去基本概念*
-写这篇文章一是总结一下自己的线代知识，二是写一些意识流证明，不像书上那样太罗(yan)嗦(jin)。
-## 线性相关和线性无关
-### 定义
-**定义 2.1.1**
-对于 n 维向量 $a_1 \dots a_n$，若存在不全为零的 $\lambda_1 \dots \lambda_n$ 使得 $\lambda_1a_1 \dots \lambda_na_n = 0$，则称$a_1 \dots a_n$线性相关，否则线性无关。
-### 定理
-**定理 2.1.1**
-$a_1 \dots a_n\ 线性相关 \Leftrightarrow 其中某个向量是其余向量的线性组合$
-证明：
-左边到右边：将定义中的非零系数项移到右边再除去系数即可得到该项为等式左边的线性组。
-右边到左边：将所有项移到等式一边立得。
-**定理 2.1.2**
-$向量组 \{a_1 \dots a_n\} 线性相关 \Leftrightarrow 存在 a_i 是它前面的向量 a_j (j < i) 的线性组合$
-证明：
-左边到右边：若 $a_i$ 是后面一些向量的线性组合，并且所有向量的系数不为0，考虑这个向量组。通过移项可以得到这个向量组中任意一个向量都是其余向量的线性组合。所以可以得到该向量组中最后一个向量是前面向量的线性组合。证毕。
-右边到左边：显然。
-**定理 2.1.3**
-对于某个向量组，若存在它的一个非空子集线性相关，则该向量组线性相关;若它的任意非空子集都线性无关，则该向量组线性无关。
-证明显然。
-
+<p></p><h1>没写完呢还</h1><br><em>略去基本概念</em><br>写这篇文章一是总结一下自己的线代知识，二是写一些意识流证明，不像书上那样太罗(yan)嗦(jin)。<p></p>
+<h2 id="线性相关和线性无关"><a href="#线性相关和线性无关" class="headerlink" title="线性相关和线性无关"></a>线性相关和线性无关</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><strong>定义 2.1.1</strong><br>对于 n 维向量 $a_1 \dots a_n$，若存在不全为零的 $\lambda_1 \dots \lambda_n$ 使得 $\lambda_1a_1 \dots \lambda_na_n = 0$，则称$a_1 \dots a_n$线性相关，否则线性无关。</p>
+<h3 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h3><p><strong>定理 2.1.1</strong><br>$a_1 \dots a_n\ 线性相关 \Leftrightarrow 其中某个向量是其余向量的线性组合$<br>证明：<br>左边到右边：将定义中的非零系数项移到右边再除去系数即可得到该项为等式左边的线性组。<br>右边到左边：将所有项移到等式一边立得。<br><strong>定理 2.1.2</strong><br>$向量组 {a_1 \dots a_n} 线性相关 \Leftrightarrow 存在 a_i 是它前面的向量 a_j (j &lt; i) 的线性组合$<br>证明：<br>左边到右边：若 $a_i$ 是后面一些向量的线性组合，并且所有向量的系数不为0，考虑这个向量组。通过移项可以得到这个向量组中任意一个向量都是其余向量的线性组合。所以可以得到该向量组中最后一个向量是前面向量的线性组合。证毕。<br>右边到左边：显然。<br><strong>定理 2.1.3</strong><br>对于某个向量组，若存在它的一个非空子集线性相关，则该向量组线性相关;若它的任意非空子集都线性无关，则该向量组线性无关。<br>证明显然。</p>
 <p><em>其实还有很多定理，但是看上去不是很有用啊……</em></p>
 <h3 id="判定"><a href="#判定" class="headerlink" title="判定"></a>判定</h3><p>根据线性相关／无关的定义，高斯消元判断是否能解出不全为零的$\lambda_1\dots \lambda_n$　即可。</p>
 <h2 id="向量组的秩"><a href="#向量组的秩" class="headerlink" title="向量组的秩"></a>向量组的秩</h2><p>对于一个向量组，它的所有极大线性无关组的大小全部相等。大小即为向量组的秩。<br>证明：不会证不想证</p>
-<h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>你觉得我会看定义？</p>
-<h3 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h3><h4 id="排列"><a href="#排列" class="headerlink" title="排列"></a>排列</h4><p>一个排列进行一次对换后奇偶性一定变化。<br>这是个很妙的性质吧？</p>
+<h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>你觉得我会看定义？</p>
+<h3 id="定理-1"><a href="#定理-1" class="headerlink" title="定理"></a>定理</h3><h4 id="排列"><a href="#排列" class="headerlink" title="排列"></a>排列</h4><p>一个排列进行一次对换后奇偶性一定变化。<br>这是个很妙的性质吧？</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>线性代数/李尚志/高等教育出版社</p>
   </div>
   <!--hightlight.js-->
@@ -112,5 +95,20 @@ $向量组 \{a_1 \dots a_n\} 线性相关 \Leftrightarrow 存在 a_i 是它前�
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

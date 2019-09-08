@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">可持久化数据结构</h2>
   </div>
@@ -45,14 +47,16 @@
 <p>你有一棵线段树。<br>你还有一棵线段树。<br>Uhhhhhh……<br>你有一颗可持久化线段树</p>
 </blockquote>
 <p>可以访问任意时刻的数据结构。<br>我们一般对“时间”概念不感兴趣。<br>不如说是把很多数据版本搓到一起，节省出时空。</p>
-<h2 id="可持久化线段树"><a href="#可持久化线段树" class="headerlink" title="可持久化线段树"></a>可持久化线段树</h2><table>
+<h2 id="可持久化线段树"><a href="#可持久化线段树" class="headerlink" title="可持久化线段树"></a>可持久化线段树</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>Prob</th>
 <th>Hint</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>lydsy</td>
 <td></td>
 </tr>
@@ -72,8 +76,10 @@
 <td>3932-CQOI2015-任务查询系统</td>
 <td><em>我调了一上午。悄悄问蒟蒻，logN是哪个N</em></td>
 </tr>
-</tbody></table>
-<pre><code class="c++">//3933任务查询系统
+</tbody>
+</table>
+</div>
+<pre><code class="lang-c++">//3933任务查询系统
 
 #include &lt;cstdio&gt;
 #include &lt;cstring&gt;
@@ -136,8 +142,10 @@ int main() {
         int k = 1 + (a*ans + b)%c;
         printf(&quot;%lld\n&quot;, ans = query(tt[x], k, 1, mxp));
     }
-}</code></pre>
+}
+</code></pre>
 <h2 id="可持久化并查集"><a href="#可持久化并查集" class="headerlink" title="可持久化并查集"></a>可持久化并查集</h2><p>看上去很厉害的样子，其实我们可以用主席树对它嘿嘿嘿。<br>把<code>fa[]</code>放到主席树里再按秩合并即可。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -145,7 +153,8 @@ int main() {
 <th>Hint</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>lydsy</td>
 <td></td>
 </tr>
@@ -157,9 +166,11 @@ int main() {
 <td>3674-可持久化并查集加强版</td>
 <td>嘿嘿嘿嘿</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>注意一开始build会用去O(2n)个节点，所以nlogn是不够用的。<br>还有这个代码里没判已经联通的点的合并。如果不判，一个节点和自己不断合并可以破坏秩。<br><em>感谢nbc提高了我的姿势水平</em></p>
-<pre><code class="c++">//可持久化并查集加强版
+<pre><code class="lang-c++">//可持久化并查集加强版
 #include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 #include &lt;algorithm&gt;
@@ -231,7 +242,8 @@ int main() {
         }
         rt[i] = now;
     }
-}</code></pre>
+}
+</code></pre>
   </div>
   <!--hightlight.js-->
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
@@ -275,5 +287,20 @@ int main() {
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

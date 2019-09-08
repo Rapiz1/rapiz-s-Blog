@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">关于动态规划的一点思考</h2>
   </div>
@@ -43,7 +45,8 @@
     </p>
 <h2 id="边界"><a href="#边界" class="headerlink" title="边界"></a>边界</h2><h3 id="初始值"><a href="#初始值" class="headerlink" title="初始值"></a>初始值</h3><p>我们只对可以到达的状态进行循环赋值。那么在循环开始前初始值可赋为正无穷或负无穷，这样取 max 或 min 后会使不可到达的情况永远不会被考虑。</p>
 <pre><code>memset(f,0x3f,sizeof(f));//INF
-memset(f,0xc0,sizeof(f));//-INF</code></pre><h3 id="不可到达的状态"><a href="#不可到达的状态" class="headerlink" title="不可到达的状态"></a>不可到达的状态</h3><p>不进行循环。</p>
+memset(f,0xc0,sizeof(f));//-INF
+</code></pre><h3 id="不可到达的状态"><a href="#不可到达的状态" class="headerlink" title="不可到达的状态"></a>不可到达的状态</h3><p>不进行循环。</p>
 <h3 id="不可递推的状态"><a href="#不可递推的状态" class="headerlink" title="不可递推的状态"></a>不可递推的状态</h3><p>状态转移方程的循环变量在这个状态下为空集。</p>
 <p><strong>确定边界的关键是状态的定义。</strong></p>
 <h2 id="最小字典序方案"><a href="#最小字典序方案" class="headerlink" title="最小字典序方案"></a>最小字典序方案</h2><p><strong>UVa1599 [NEERC2010] Ideal Path</strong></p>
@@ -102,5 +105,20 @@ memset(f,0xc0,sizeof(f));//-INF</code></pre><h3 id="不可到达的状态"><a hr
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">线段树四倍空间</h2>
   </div>
@@ -38,12 +40,11 @@
     <span class="post-time">2019-09-08</span>
   </div>
   <div class="post-content">
-    <p>区间长：$$n$$</p>
-<p>树的<strong>层数</strong>（即画出来的线段树示意图有多少层）： $$x=\lceil\log_2 n\rceil+1$$</p>
-<p>等比数列求和：$$\frac{a_1(1-q^x)}{1-q}=a_1(2^x-1) = 2^x - 1 = 2^{\lceil\log_2 n\rceil+1}-1 = 2\times2^{\lceil\log_2 n\rceil}-1$$</p>
+    <p>区间长：<script type="math/tex">n</script></p>
+<p>树的<strong>层数</strong>（即画出来的线段树示意图有多少层）： <script type="math/tex">x=\lceil\log_2 n\rceil+1</script></p>
+<p>等比数列求和：<script type="math/tex">\frac{a_1(1-q^x)}{1-q}=a_1(2^x-1) = 2^x - 1 = 2^{\lceil\log_2 n\rceil+1}-1 = 2\times2^{\lceil\log_2 n\rceil}-1</script></p>
 <p>放缩：</p>
-<p>$$2\times2^{\lceil\log_2 n\rceil}-1 \leq 2\times2^{\log_2 n + 1}-1=4\times2^{\log_2 n}-1 = 4n-1 \lt 4n$$</p>
-<p>即线段树中的节点数量小于 $4n$</p>
+<script type="math/tex; mode=display">2\times2^{\lceil\log_2 n\rceil}-1 \leq 2\times2^{\log_2 n + 1}-1=4\times2^{\log_2 n}-1 = 4n-1 \lt 4n</script><p>即线段树中的节点数量小于 $4n$</p>
   </div>
   <!--hightlight.js-->
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
@@ -87,5 +88,20 @@
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

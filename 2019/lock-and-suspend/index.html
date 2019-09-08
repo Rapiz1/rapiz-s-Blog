@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">xss-lock, systemd 实现自动锁屏和挂起</h2>
   </div>
@@ -49,13 +51,15 @@
 <h2 id="logind"><a href="#logind" class="headerlink" title="logind"></a>logind</h2><p><code>/etc/systemd/login.conf</code></p>
 <pre><code>[Login]
 IdleAction=suspend
-IdleActionSec=10min</code></pre><p>空闲 10 分钟后挂起</p>
+IdleActionSec=10min
+</code></pre><p>空闲 10 分钟后挂起</p>
 <h2 id="xss-lock"><a href="#xss-lock" class="headerlink" title="xss-lock"></a>xss-lock</h2><p>能够在 systemd suspend 前自动运行锁屏脚本，并在 xset 设置的时间 dim 屏幕</p>
 <p>示例：<code>xss-locker -n dim-screen.sh -- locker</code></p>
 <h2 id="i3"><a href="#i3" class="headerlink" title="i3"></a>i3</h2><pre><code>exec --no-startup-id xset s 60 60
 exec --no-startup-id xset -dpms
 exec --no-startup-id xss-lock -n ~/Source/cmdlet/dim-screen.sh -- locker
-s</code></pre>
+s
+</code></pre>
   </div>
   <!--hightlight.js-->
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
@@ -99,5 +103,20 @@ s</code></pre>
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

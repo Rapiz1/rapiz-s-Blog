@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">一分钟理解线性筛</h2>
   </div>
@@ -42,7 +44,7 @@
   <div class="post-content">
     </p>
 <p>先上代码</p>
-<pre><code class="cpp">for (int i = 2; i &lt; N; i++) {//筛出严格小于 N 的素数
+<pre><code class="lang-cpp">for (int i = 2; i &lt; N; i++) {//筛出严格小于 N 的素数
   if (!vis[i]) pri.push_back(i), vis[i] = 1;
   for (int j = 0; j &lt; pri.size(); j++) {
     long long v = (long long)i*pri[j]; //是否要用 ll 要看你筛素数的范围
@@ -51,7 +53,8 @@
     if (i%pri[j] == 0) break; //剪枝魔法
   }
 }
-//严格小于N的素数（除了1）被放进了pri数组里。所以你如果想要完整的有序素数表，要在一开始push 1并且把第三行j的初值改到1。</code></pre>
+//严格小于N的素数（除了1）被放进了pri数组里。所以你如果想要完整的有序素数表，要在一开始push 1并且把第三行j的初值改到1。
+</code></pre>
 <p>假如没有第7行，这个代码肯定是对的（尽管我们感觉效率不太高）。<br>那第七行是个什么意思呢。<br>它保证了 <strong>每个数只会被其最小的质因子筛去</strong>。<br>我们把每个合数表示成 x = s*p 的形式。其中 p 是 x 的最小质因子。<br>然后我们每次筛法枚举的 i 相当于 s。<br>设break时的下标为k。<br>由于 pri[] 有序，那么显然 pri[k] 是 i 的最小质因子，并且 pri[k] &gt; pri[1 … k - 1]。</p>
 <p>对于 pri[1 &lt;= j &lt;= k - 1]， i*pri[j] 中 i 的最小质因子 pri[k] 都大于 pri[j]，所以i*pri[j]的最小质因子是 pri[j]。<br>所以 i 就是 s, pri[j] 就是 p。</p>
 <p>对于 pri[j &gt; k]，i*pri[j] 中 i 有质因子 pri[k]，并且 pri[k] &lt; pri[j]，所以 pri[j] 不可能是最小质因子。因此break，不循环了。</p>
@@ -98,5 +101,20 @@
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

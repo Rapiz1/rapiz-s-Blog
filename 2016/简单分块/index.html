@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">简单分块</h2>
   </div>
@@ -46,11 +48,13 @@
 <pre><code>维护数列, 支持两种操作：
 1. 将 [l, r] 内的数加上 v
 2. 询问 a[i] 的值
-操作数小于等于 1e5</code></pre><p>线段树当然是可以线段树的，而且时间复杂度更优。<br>然而分块同样可以解决这个问题，并且更好写。<br>维护每个块加上的值，每个数的实际值，询问时用实际值加上所在块被加上的值。<br><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1317" target="_blank" rel="noopener">1317. 数列操作c</a></p>
+操作数小于等于 1e5
+</code></pre><p>线段树当然是可以线段树的，而且时间复杂度更优。<br>然而分块同样可以解决这个问题，并且更好写。<br>维护每个块加上的值，每个数的实际值，询问时用实际值加上所在块被加上的值。<br><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1317" target="_blank" rel="noopener">1317. 数列操作c</a></p>
 <pre><code>维护数列，支持两种操作：
 1. 将 [l, r] 加上 v
 2. 询问 [l, r] 中数的和
-操作数小于等于 1e5</code></pre><p>线段树当然……</p>
+操作数小于等于 1e5
+</code></pre><p>线段树当然……</p>
 <p>维护每个块被加上的值，每个块的和，每个数的实际值。</p>
 <p>可见，分块的想法十分简单。用分块解决问题的难点在于维护块的哪些信息，如何维护或合并这些信息来支持修改和询问。</p>
   </div>
@@ -96,5 +100,20 @@
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

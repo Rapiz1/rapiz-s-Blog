@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">k-d Tree</h2>
   </div>
@@ -46,14 +48,16 @@
 <p>问题扩展到 k 维空间内，每个点由一个 k 维向量表示其坐标。<br>如果树中节点 u 以第 d 维坐标作为分割依据，那么 u 的左子树的第 d 维坐标都比它小，右子树……</p>
 <p>这样的树就是 k-d Tree</p>
 <p><a href="http://trinkle.is-programmer.com/2015/7/22/kdtree.112655.html" target="_blank" rel="noopener">详情看ppt</a><br><em>注意他那样建树寻址的代价非常小。如果你用全局数组就会t飞2648</em><br><em>所以推荐大家有初始化建树的时候写结构体，否则就写数组或指针吧。结构体飞来飞去太难看了。</em></p>
-<h2 id="闷声写大题"><a href="#闷声写大题" class="headerlink" title="闷声写大题"></a>闷声写大题</h2><table>
+<h2 id="闷声写大题"><a href="#闷声写大题" class="headerlink" title="闷声写大题"></a>闷声写大题</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>Prob</th>
 <th>Hint</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>2648-SJY摆棋子</td>
 <td>kdtree 不需要重建</td>
 </tr>
@@ -65,8 +69,10 @@
 <td>3053-The-Closet-M-Points</td>
 <td>真k dtree，不带修改</td>
 </tr>
-</tbody></table>
-<pre><code class="c++">//2648
+</tbody>
+</table>
+</div>
+<pre><code class="lang-c++">//2648
 #include &lt;cstdio&gt;
 #include &lt;algorithm&gt;
 #include &lt;cstring&gt;
@@ -158,8 +164,9 @@ int main() {
             printf(&quot;%d\n&quot;, ans);
         }
     }
-}</code></pre>
-<pre><code class="c++">//4066
+}
+</code></pre>
+<pre><code class="lang-c++">//4066
 #include &lt;cstdio&gt;
 #include &lt;algorithm&gt;
 #include &lt;cstring&gt;
@@ -250,8 +257,9 @@ int main() {
         }
         else break;
     }
-}</code></pre>
-<pre><code class="c++">//3053
+}
+</code></pre>
+<pre><code class="lang-c++">//3053
 #include &lt;cstdio&gt;
 #include &lt;algorithm&gt;
 #include &lt;cstring&gt;
@@ -342,7 +350,8 @@ void solve() {
 int main() {
     //freopen(&quot;input&quot;, &quot;r&quot;, stdin);
     while (scanf(&quot;%d%d&quot;, &amp;n, &amp;k) == 2) solve();
-}</code></pre>
+}
+</code></pre>
   </div>
   <!--hightlight.js-->
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
@@ -386,5 +395,20 @@ int main() {
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

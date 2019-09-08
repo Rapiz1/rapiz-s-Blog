@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">字符串算法</h2>
   </div>
@@ -35,7 +37,7 @@
          
     <blockquote><p>想起了从前被字符串支配的恐惧</blockquote>
     
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#记号"><span class="toc-text">记号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KMP"><span class="toc-text">KMP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#border"><span class="toc-text">border</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#性质"><span class="toc-text">性质</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用"><span class="toc-text">应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NOI2014-动物园"><span class="toc-text">NOI2014 动物园</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BZOJ3620-梦中曾见"><span class="toc-text">BZOJ3620 梦中曾见</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BZOJ4698-SDOI2008-Sandy的卡片"><span class="toc-text">BZOJ4698 SDOI2008 Sandy的卡片</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AC-自动机"><span class="toc-text">AC 自动机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3230-相似子串"><span class="toc-text">3230 相似子串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2251-外星联络"><span class="toc-text">2251 外星联络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1396-识别子串"><span class="toc-text">1396 识别子串</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后缀自动机"><span class="toc-text">后缀自动机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problems-Set"><span class="toc-text">Problems Set</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#记号"><span class="toc-text">记号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KMP"><span class="toc-text">KMP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#border"><span class="toc-text">border</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#性质"><span class="toc-text">性质</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用"><span class="toc-text">应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NOI2014-动物园"><span class="toc-text">NOI2014 动物园</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BZOJ3620-梦中曾见"><span class="toc-text">BZOJ3620 梦中曾见</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BZOJ4698-SDOI2008-Sandy的卡片"><span class="toc-text">BZOJ4698 SDOI2008 Sandy的卡片</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AC-自动机"><span class="toc-text">AC 自动机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后缀数组"><span class="toc-text">后缀数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#应用-1"><span class="toc-text">应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3238-差异"><span class="toc-text">3238 差异</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3230-相似子串"><span class="toc-text">3230 相似子串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2251-外星联络"><span class="toc-text">2251 外星联络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1396-识别子串"><span class="toc-text">1396 识别子串</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后缀自动机"><span class="toc-text">后缀自动机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Problems-Set"><span class="toc-text">Problems Set</span></a></li></ol></li></ol>
     <span class="post-author">By Rapiz</span>
     <span class="post-time">2016-11-01</span>
   </div>
@@ -44,17 +46,20 @@
 <h2 id="记号"><a href="#记号" class="headerlink" title="记号"></a>记号</h2><p>在本文中，一般有<br>n 为字符串长度。<br>[l, r] 为字符串的一个子串（闭区间）。<br>[pos] 为第pos个字符。<br>pre(i) 表示字符串的长度为 i 的前缀。<br>suf(i) 表示字符串的长度为 i 的后缀。<br>下标从 1 开始。</p>
 <h2 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h2><p>前置知识：理解 KMP 模板<br>O(N) 求出 1…n 的 <em>最长非原串</em>border</p>
 <h3 id="border"><a href="#border" class="headerlink" title="border"></a>border</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>若 pre(i) ==  suf(i)， 我们把 i 叫做这个字符串的一个 border。</p>
-<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><p>性质1：<br>若一个字符串存在一个长为 b 的 border， 那么 n - b 是这个字符串的一个循环节。<br><em>此时我们说的循环节允许最后一个循环节不完整出现，比如12312312也可以有循环节123</em><br>证明：<br>虽然看上去很厉害，不过证明相当简单。<br>设循环节长 $l = n - b$<br>求证即为<br>$$\forall i \in [1, n - l], [i] = [i + l]$$</p>
-<p>因为存在长为 b 的 border，那么根据 border 的定义有：<br>$$\forall i \in [1, b], [i] = [n - b + i]$$<br>接下来做的事情，就是将 $l = n - b$ 这个式子代入上式来消去 $b,n$，就证完了！$$\forall i \in [1, n - l], [i] = [l + i]$$</p>
+<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><p>性质1：<br>若一个字符串存在一个长为 b 的 border， 那么 n - b 是这个字符串的一个循环节。<br><em>此时我们说的循环节允许最后一个循环节不完整出现，比如12312312也可以有循环节123</em><br>证明：<br>虽然看上去很厉害，不过证明相当简单。<br>设循环节长 $l = n - b$<br>求证即为</p>
+<script type="math/tex; mode=display">\forall i \in [1, n - l], [i] = [i + l]</script><p>因为存在长为 b 的 border，那么根据 border 的定义有：</p>
+<script type="math/tex; mode=display">\forall i \in [1, b], [i] = [n - b + i]</script><p>接下来做的事情，就是将 $l = n - b$ 这个式子代入上式来消去 $b,n$，就证完了！<script type="math/tex">\forall i \in [1, n - l], [i] = [l + i]</script></p>
 <p>性质2:<br>border 的 border 还是 border<br>太简单了不写了。</p>
-<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><table>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>Prob</th>
 <th>Hint</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>1009 GT考试</td>
 <td>KMP思路的dp，矩阵加速dp</td>
 </tr>
@@ -78,9 +83,11 @@
 <td>3942 Censor</td>
 <td>需要栈</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h4 id="NOI2014-动物园"><a href="#NOI2014-动物园" class="headerlink" title="NOI2014 动物园"></a>NOI2014 动物园</h4><p>维护两个东西：<br>p2, 前 i 个字符的小于等于n/2的最长 border<br>num[i], 前 i 个字符的最长 border 含有多少 border<br>KMP 主要利用了性质2。</p>
-<pre><code class="cpp">#include &lt;cstdio&gt;
+<pre><code class="lang-cpp">#include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 #define file(x) &quot;zoo.&quot;#x
 typedef long long ll;
@@ -109,9 +116,10 @@ int main() {
     int n;
     scanf(&quot;%d&quot;, &amp;n);
     for (int i = 1; i &lt;= n; i++) scanf(&quot;%s&quot;, s + 1), printf(&quot;%lld\n&quot;, solve());
-}</code></pre>
+}
+</code></pre>
 <h4 id="BZOJ3620-梦中曾见"><a href="#BZOJ3620-梦中曾见" class="headerlink" title="BZOJ3620 梦中曾见"></a>BZOJ3620 梦中曾见</h4><p>判断有长度在[k,len(s)/2]的 border 的子串 s 有多少个。<br>我们可以求出最长的「中间有空」的 border，然后判断是否不小于 k。<br>这个 border 的求法和动物园中的差不多。</p>
-<pre><code class="cpp">#include &lt;cstdio&gt;
+<pre><code class="lang-cpp">#include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 const int L = 15010;
 int n, nxt[L], k;
@@ -131,9 +139,10 @@ int main() {
         }
     }
     printf(&quot;%lld\n&quot;, ans);
-}</code></pre>
+}
+</code></pre>
 <h4 id="BZOJ4698-SDOI2008-Sandy的卡片"><a href="#BZOJ4698-SDOI2008-Sandy的卡片" class="headerlink" title="BZOJ4698 SDOI2008 Sandy的卡片"></a>BZOJ4698 SDOI2008 Sandy的卡片</h4><p>题目中给出的条件可以转化为，两个序列差分后，除了第一项都相同。<br>在这个相等意义下的最长公共子串。<br>所以我们先将所有子串都差分。<br>然后枚举第一个串的一个后缀，在所有串上跑 KMP，对这些串上的匹配长度取最小值，就是当前后缀的答案。然后对所有后缀的答案取最大值。<br>注意跑 KMP 的时候强制让第一个字符匹配上，这是这题的相等条件。怎么强制看代码。</p>
-<pre><code class="cpp">#include &lt;cstdio&gt;
+<pre><code class="lang-cpp">#include &lt;cstdio&gt;
 #include &lt;algorithm&gt;
 #include &lt;cstring&gt;
 const int N = 1010, L = 110;
@@ -168,9 +177,11 @@ int main() {
         if (an != 1e9) ans = std::max(ans, an);
     }
     printf(&quot;%d\n&quot;, ans);
-}</code></pre>
+}
+</code></pre>
 <h2 id="AC-自动机"><a href="#AC-自动机" class="headerlink" title="AC 自动机"></a>AC 自动机</h2><p>不少题会在上面dp，走多少步怎么怎么样的方法数，可以用矩阵乘法。这个没什么说的。</p>
 <p>然后就是插入一个串记录匹配次数。暴力方法是每到一个节点都把fail能走到的节点cnt++。不那么暴力的方法就是最后再按倒bfs序 cnt[fail[x]] += cnt[x]。<br>还有一种角度，把fail指针看成父指针，我们就得到了一颗fail树。这样每次匹配就是某个节点一直到根节点的树链上的点都cnt++。<br>或者不向上更新，每次只让一个点cnt++。考虑它的影响：对，就是他所有祖先实际上都被匹配了一次。那我们可以不修改他们，而是询问他们的子树和来得到他们被匹配的次数。这其实算是树上的技巧。主要在NOI打字机那道题里用了。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -178,7 +189,8 @@ int main() {
 <th>Hint</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>1030 文本生成器</td>
 <td>dp</td>
 </tr>
@@ -198,12 +210,11 @@ int main() {
 <td>2580 VideoGame</td>
 <td>dp</td>
 </tr>
-<tr>
-<td>## 后缀数组</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>先做完罗穗骞论文里的题。</p>
+</tbody>
+</table>
+</div>
+<h2 id="后缀数组"><a href="#后缀数组" class="headerlink" title="后缀数组"></a>后缀数组</h2><p>先做完罗穗骞论文里的题。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -211,7 +222,8 @@ int main() {
 <th>Hint</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>1031-JSOI2007-字符加密Cipher</td>
 <td>复制粘贴一次再遍历sa，忽略不合法的后缀即可</td>
 </tr>
@@ -235,40 +247,16 @@ int main() {
 <td>1396 识别子串</td>
 <td>sa+线段树（试手标记永久化的好机会）</td>
 </tr>
-<tr>
-<td>### 应用</td>
-<td></td>
-</tr>
-<tr>
-<td>#### 3238 差异</td>
-<td></td>
-</tr>
-<tr>
-<td>那个len的求和自己推式子吧。化到一个sigma就可以用了（on）。</td>
-<td></td>
-</tr>
-<tr>
-<td>然后后面那个求和我们能看出来是对所有后缀之间的lcp长度求和。</td>
-<td></td>
-</tr>
-<tr>
-<td>所以在height数组上，对于每个i，我们求后缀sa[k](1 &lt;= k &lt;= i)与sa[i]的lcp（也就是一段数的最小值）加起来就好了。</td>
-<td></td>
-</tr>
-<tr>
-<td>这个东西就和后缀数组没关系了，单纯的优化一些数求和的问题。</td>
-<td></td>
-</tr>
-<tr>
-<td>可以用单调栈解决。单调栈中维护有前面num个后缀到现在的最小值是val。再维护单调栈中val x num。每次答案加上val x num就行了。</td>
-<td></td>
-</tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
+<h3 id="应用-1"><a href="#应用-1" class="headerlink" title="应用"></a>应用</h3><h4 id="3238-差异"><a href="#3238-差异" class="headerlink" title="3238 差异"></a>3238 差异</h4><p>那个len的求和自己推式子吧。化到一个sigma就可以用了（on）。<br>然后后面那个求和我们能看出来是对所有后缀之间的lcp长度求和。<br>所以在height数组上，对于每个i，我们求后缀sa<a href="1 &lt;= k &lt;= i">k</a>与sa[i]的lcp（也就是一段数的最小值）加起来就好了。<br>这个东西就和后缀数组没关系了，单纯的优化一些数求和的问题。<br>可以用单调栈解决。单调栈中维护有前面num个后缀到现在的最小值是val。再维护单调栈中val x num。每次答案加上val x num就行了。</p>
 <p>如果你感觉单调栈写起来很迷，那可能是因为这里没搞清楚：</p>
-<pre><code class="plain">sa[i-1]       sa[i]
-      \ h[i] /</code></pre>
+<pre><code class="lang-plain">sa[i-1]       sa[i]
+      \ h[i] /
+</code></pre>
 <p>看完再想想单调栈究竟在维护什么，看我代码也行。</p>
-<pre><code class="cpp">#include &lt;cstdio&gt;
+<pre><code class="lang-cpp">#include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 #include &lt;cassert&gt;
 const int N = 5e5 + 10;
@@ -313,11 +301,12 @@ int main() {
         sk[top++] = (T){h[i], cnt};
     }
     printf(&quot;%lld\n&quot;, ans);
-}</code></pre>
+}
+</code></pre>
 <h4 id="3230-相似子串"><a href="#3230-相似子串" class="headerlink" title="3230 相似子串"></a>3230 相似子串</h4><p>我们回顾一下论文内容，本质不同的子串数目。考虑按sa顺序，每次加进来一个后缀，新产生 n - sa[i] + 0 个子串，其中 h[i] 个与前面的重复，所以新产生的本质不同的子串数目是前者减去后者。<br>再想想，新产生的这些子串是哪些呢？<br>是起点在 sa[i]，终点必须严格大于 h[i] 的这些串。因为终点不到 h[i] 的都可以成为 sa[i-1] 的一个前缀，这说明他们在前面已经存在了。</p>
 <p>然后根据以上我们就能二分出字典序中第x个子串是哪个后缀的前缀。设是第k个后缀。长度就是x-sub[k]+h[i]。加h[i]的原因见上面一行。<br>然后我们就知道了串的开头和结尾位置。剩下的就是个基本应用了。</p>
 <p>实现上有点技巧。一定注意为了求公共前缀/后缀这里不能分隔符再倒着写一边。这样就没办法用这个后缀数组找子串位置了。所以可以先找出位置再这样reverse算。<br>注意子串个数和输入的询问都会爆int，巨坑</p>
-<pre><code class="cpp">#include &lt;cstdio&gt;
+<pre><code class="lang-cpp">#include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 #include &lt;algorithm&gt;
 using std::min;
@@ -384,9 +373,10 @@ int main() {
     }
     for (int i = 1; i &lt;= q; i++) printf(&quot;%lld\n&quot;, ans[i]);
 }
-//子串个数会爆int，输入询问同理</code></pre>
+//子串个数会爆int，输入询问同理
+</code></pre>
 <h4 id="2251-外星联络"><a href="#2251-外星联络" class="headerlink" title="2251 外星联络"></a>2251 外星联络</h4><p>直接看代码末尾的那几行吧。<br>为什么从 h[i] + 1 开始枚举？<br>想想上一题就知道了。这保证我们每次枚举到的串都不存在于前面，也就是没有把本质相同的串多输出了。</p>
-<pre><code class="cpp">#include &lt;cstdio&gt;
+<pre><code class="lang-cpp">#include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 #include &lt;cassert&gt;
 const int N = 6010;
@@ -421,7 +411,7 @@ int main() {
 }
 </code></pre>
 <h4 id="1396-识别子串"><a href="#1396-识别子串" class="headerlink" title="1396 识别子串"></a>1396 识别子串</h4><p>题目要求识别子串不能重复出现。<br>我们不妨考虑不重复出现的子串覆盖到了哪些字符。<br>还是按sa顺序来考虑sa[i]的前缀来考虑所有子串。<br>sa[i]有多少前缀重复出现过了？L = max(h[i], h[i + 1])就是其他地方出过的最长前缀。<br>这意味着从 L + 1 开始的子串都是合法的——没有重复出现过。<br>这样，{sa[i],L+1}这一个串可以成为它覆盖到的字符的识别串，长度显然。这里用个线段树把区间答案min了。<br>然后考虑sa[i]的其他合法前缀，L+2 … n 依然对覆盖到的字符有贡献，设这个字符位置为 p， 贡献就是 p - sa[i] + 1，其中 p &gt;= L + 2。<em>p也可以取到L+1，这时和上一行的情况贡献一样。</em><br>然后我们可以用个vector，把sa[i]放到位置L+2里。这个计算过程估计用代码（在我代码的末尾部分）可以看得更清楚，毕竟是非常直观的算法。</p>
-<pre><code class="cpp">#include &lt;cstdio&gt;
+<pre><code class="lang-cpp">#include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 #include &lt;vector&gt;
 #include &lt;algorithm&gt;
@@ -495,14 +485,16 @@ int main() {
 </ol>
 <hr>
 <p>广义sam<br><a href="http://dwjshift.logdown.com/posts/304570" target="_blank" rel="noopener">dwj</a><br>15年论文（注意15年有两篇关于sam的，这是第一篇）</p>
-<h3 id="Problems-Set"><a href="#Problems-Set" class="headerlink" title="Problems Set"></a>Problems Set</h3><table>
+<h3 id="Problems-Set"><a href="#Problems-Set" class="headerlink" title="Problems Set"></a>Problems Set</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>Prob</th>
 <th>Hint</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>SUBLEX</td>
 <td>字典序第k大子串 sam（也可以sa</td>
 </tr>
@@ -562,7 +554,9 @@ int main() {
 <td>3277 串</td>
 <td>神</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
   </div>
   <!--hightlight.js-->
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
@@ -606,5 +600,20 @@ int main() {
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

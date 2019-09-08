@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">从 C 到 JavaScript 01</h2>
   </div>
@@ -42,24 +44,28 @@
   <div class="post-content">
     </p>
 <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><pre><code>var x = 0;// valid
-y = 0; // also valid</code></pre><p>声明不是必需的。</p>
+y = 0; // also valid
+</code></pre><p>声明不是必需的。</p>
 <h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>不需要进行类型声明的语言被称为弱类型语言。<br>注意，弱类型是不需要声明类型，而不是不存在类型的语言。<br>JavaScript是弱类型语言，包含字符串、数值、布尔值类型。<br>字符串：单引号与双引号无区分。包括它本身时需要转义。<br>数值：所有数值都是浮点数。<br>布尔值：true, false</p>
 <p>字符串、数组、布尔值都被称为离散值。离散值在某一时刻只能具有一个值。<br>相对地，如果想在某一时刻使一变量对应多个值，我们可以使用数组。</p>
-<pre><code>var x = Array(4);</code></pre><p>Array 是关键字。4 是可选的长度参数。<br>和 C 一样，下标从 0 开始。</p>
+<pre><code>var x = Array(4);
+</code></pre><p>Array 是关键字。4 是可选的长度参数。<br>和 C 一样，下标从 0 开始。</p>
 <p>数组可以被这样赋值。</p>
 <pre><code>var x = Array();
 x[0] = &#39;cogs&#39;;
 x[1] = &quot;spoj&quot;;
 x[2] = &#39;countonthetree&#39;;
 
-var y = Array(&quot;haoi&quot;, 2017, &quot;fake&quot;);</code></pre><blockquote>
+var y = Array(&quot;haoi&quot;, 2017, &quot;fake&quot;);
+</code></pre><blockquote>
 <p>对，Array(3) 和 Array(3,3) 的行为完全不一致……前者创建一个3空元素的数组，后者创建一个长度为2，内容为两个3的数组。</p>
 </blockquote>
 <p>事实上，js 中数组的能力远远超出我们以往认知中的 C/C++ 数组。来看看这样的用法：</p>
 <pre><code>var x = Array();
 x[&#39;cydiater&#39;] = Array(&#39;very&#39;, &#39;niubi&#39;);
 x[&#39;rapiz&#39;] = Array(&#39;is&#39;, 1, &#39;fish&#39;);
-x[&#39;rapiz&#39;][&#39;fans&#39;] = Array(&#39;zqr&#39;, &#39;kzf&#39;);</code></pre><ul>
+x[&#39;rapiz&#39;][&#39;fans&#39;] = Array(&#39;zqr&#39;, &#39;kzf&#39;);
+</code></pre><ul>
 <li>一个数组可以包含不同类型的数据。</li>
 <li>一个数组可以用字符串、数值作为下标。</li>
 <li>一个数组可以包括数组。</li>
@@ -86,16 +92,19 @@ do while();
 for(a;b;c) {
 statement
 }
-for(;;);</code></pre><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>终于来到这里。</p>
+for(;;);
+</code></pre><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>终于来到这里。</p>
 <pre><code>function liveALife(gift, efforts) {
   var threeyears = [&#39;battle&#39;, &#39;commitment&#39;, &#39;ash&#39;];
   for(var i = 0; i &lt; 3; i++) {
     alert(threeyears[i]);
   }
   return false;
-}</code></pre><p>以 <code>function</code> 开头，括号中声明形参。<br>弱类型，所以直接 <code>function</code>, 直接写行参，<code>return</code> 不必需。</p>
+}
+</code></pre><p>以 <code>function</code> 开头，括号中声明形参。<br>弱类型，所以直接 <code>function</code>, 直接写行参，<code>return</code> 不必需。</p>
 <h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>JS 中的对象，具有两种形式的数据，属性和方法。<br>假设我们有一个 <code>GodCow</code> 对象，我们可以这样声明它的实例。</p>
-<pre><code>var cydiater = new GodCow();</code></pre><p>前面的 Array 就是 JavaScript 的一个内建对象。还有很多有用的对象被内建在 JS 中。</p>
+<pre><code>var cydiater = new GodCow();
+</code></pre><p>前面的 Array 就是 JavaScript 的一个内建对象。还有很多有用的对象被内建在 JS 中。</p>
   </div>
   <!--hightlight.js-->
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
@@ -139,5 +148,20 @@ for(;;);</code></pre><h3 id="函数"><a href="#函数" class="headerlink" title=
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">记录一些坑点</h2>
   </div>
@@ -54,13 +56,14 @@
 <p>按时间分治不用把算答案的那些东西放到节点上……只用存操作，在dfs的时候可以再算。否则又t又m</p>
 <p>1&lt;&lt;50毁一生<br>1ll&lt;&lt;50<br><em>2017/3/24</em></p>
 <hr>
-<p>如果你想在数组里处理一段有相同性质的元素（比如权值）<br>注意循环会不会处理第一个元素。<br>比较好的写法是先声明一个起始坐标 ‘int beg = i’<br>然后’while (i &lt;= n &amp;&amp; w[i] == w[beg]) {<br>  //something<br>  i++<br>}’<br>注意i结束时是超尾的，所以要么循环结束之后立刻i–，要么把外层循环的i增去掉</p>
+<p>如果你想在数组里处理一段有相同性质的元素（比如权值）<br>注意循环会不会处理第一个元素。<br>比较好的写法是先声明一个起始坐标 ‘int beg = i’<br>然后’while (i &lt;= n &amp;&amp; w[i] == w[beg]) {<br>  //something<br>  i++<br>}’<br>注意i结束时是超尾的，所以要么循环结束之后立刻i—，要么把外层循环的i增去掉</p>
 <p>还有一种写法</p>
 <pre><code>for (int i = 1, j; i &lt;= n; i = j) {
     for (j = i; j &lt;= n &amp;&amp; w[j] == w[i]; j++) {
       //something
     }
-}</code></pre><p>看起来还是第二种比较好<br>垃圾垃圾真垃圾，模拟我都写不好<br><em>2013/3/22</em></p>
+}
+</code></pre><p>看起来还是第二种比较好<br>垃圾垃圾真垃圾，模拟我都写不好<br><em>2013/3/22</em></p>
 <hr>
 <p>子串个数是很容易爆int的，sa求得时候要注意<br><em>2017/3/15</em></p>
 <hr>
@@ -71,9 +74,8 @@
 <li>分隔符不能用一样的</li>
 <li>cmp别写成s，应该写rk</li>
 <li>‘z’ 就是 122 了……很容易爆char的……</li>
-<li>因为用了越界rk为0的性质，所以要开两倍空间和初始化rk</li>
+<li>因为用了越界rk为0的性质，所以要开两倍空间和初始化rk<br><em>2017/3/13</em></li>
 </ol>
-<p><em>2017/3/13</em></p>
 <hr>
 <p>200*200 = 40000结果是四个零不是三个零。。。</p>
 <p>心血来潮把共轭边和边的顺序写反了然后导致需要访问边的时候爆炸……</p>
@@ -84,16 +86,14 @@
 <li>bfs不push(s)</li>
 <li>bfs队列循环内q.push(v), lv[v] = lv[u] + 1 u写成s……</li>
 <li>dfs不判lv[v] == lv[u] + 1</li>
-<li>sz = 1</li>
+<li>sz = 1<br><em>2017/3/5</em></li>
 </ol>
-<p><em>2017/3/5</em></p>
 <hr>
 <p>括号位置错误，不等号进去了，参数大爆炸。<br><em>2017/2/25</em></p>
 <hr>
 <ul>
-<li>splay，线段树中的null节点不要影响答案！！特别是需要维护min和max的时候。第三次犯了！！</li>
+<li>splay，线段树中的null节点不要影响答案！！特别是需要维护min和max的时候。第三次犯了！！<br><em>2017/2/20</em></li>
 </ul>
-<p><em>2017/2/20</em></p>
 <hr>
 <ul>
 <li>假如你数据生成器不小心造了超边界1的数据，你可能要调一上午。</li>
@@ -104,9 +104,8 @@
 <hr>
 <ul>
 <li>你到底要怎么切块</li>
-<li>离散化后没还原</li>
+<li>离散化后没还原<br><em>2017/2/11</em></li>
 </ul>
-<p><em>2017/2/11</em></p>
   </div>
   <!--hightlight.js-->
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
@@ -150,5 +149,20 @@
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

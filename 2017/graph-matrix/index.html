@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">邻接矩阵乘法两则</h2>
   </div>
@@ -42,7 +44,7 @@
   <div class="post-content">
     <br>见08年论文矩阵乘法。</p>
 <h2 id="USACO-奶牛接力"><a href="#USACO-奶牛接力" class="headerlink" title="USACO 奶牛接力"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1470" target="_blank" rel="noopener">USACO 奶牛接力</a></h2><p>dp中涉及转移可以用邻接矩阵？<br>我还是迷迷糊糊不太会扩展。</p>
-<pre><code class="c++">//奶牛接力
+<pre><code class="lang-c++">//奶牛接力
 #include &lt;cstdio&gt;
 #include &lt;algorithm&gt;
 #include &lt;cstring&gt;
@@ -78,9 +80,10 @@ int main() {
         n &gt;&gt;= 1, mul(f, f);
     }
     printf(&quot;%d\n&quot;, t[a][b]);
-}</code></pre>
+}
+</code></pre>
 <h2 id="SCOI2009-迷路"><a href="#SCOI2009-迷路" class="headerlink" title="SCOI2009 迷路"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1297" target="_blank" rel="noopener">SCOI2009 迷路</a></h2><p>大家都会做边权为1。<br>然后这个问题也可以转化为边权为1。<br>我一开始把一个带权边拆成许多边权为1的边，可惜会超时。<br>然后这个题正解是<a href="http://blog.csdn.net/clove_unique/article/details/51492780" target="_blank" rel="noopener">看这个博客的图</a></p>
-<pre><code class="c++">//SCOI2009 迷路
+<pre><code class="lang-c++">//SCOI2009 迷路
 #include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 const int N = 1010, M = 2009;
@@ -111,7 +114,8 @@ int main(){
         t&gt;&gt;=1, mul(f, f);
     }
     printf(&quot;%d\n&quot;, r[1][n]);
-}</code></pre>
+}
+</code></pre>
   </div>
   <!--hightlight.js-->
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
@@ -155,5 +159,20 @@ int main(){
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

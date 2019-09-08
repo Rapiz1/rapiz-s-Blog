@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">求解 2-SAT</h2>
   </div>
@@ -46,8 +48,7 @@
 <p>一个布尔变量有真假两种情况。所以我们令点 $u_i$ 代表第 i 个变量为真，点$u’_i$ 代表第 i 个变量为假。</p>
 <p>然后我们搞一点事情。考虑一个点  $u’_i\in V$  ，即 $b_i=0$，要想 $b_i\vee b_j$ 为真，必须有$b_j=1$ 即 $u_j\in S$。</p>
 <p>也就是：</p>
-<p>$$u’_i\in S\rightarrow u_j \in V$$</p>
-<p>……那我们顺手连个边好了。</p>
+<script type="math/tex; mode=display">u'_i\in S\rightarrow u_j \in V</script><p>……那我们顺手连个边好了。</p>
 <p>记一个简单析取式为两个有序二元对，就这样连边：</p>
 <p>$\forall (b_i,b_j)\rightarrow (u’_i,u_j) \in E$</p>
 <p>现在我们有一个完整的图 $G$ 了。</p>
@@ -66,19 +67,13 @@
 <h2 id="转化"><a href="#转化" class="headerlink" title="转化"></a>转化</h2><p>这个太裸了。出题人不可能让你写裸题吧。所以我们的二元运算不仅可以是析取（OR），还可以是XOR，AND，以及任何能构造推出关系的运算……</p>
 <p>实际上，图 $G$ 中的边表示“推出”这一含义。</p>
 <p>为了缩短篇幅，我们用 $x,y$ 表示两个布尔变量，列几种典型操作的推出关系。</p>
-<h4 id="OR"><a href="#OR" class="headerlink" title="OR"></a>OR</h4><p>$$!x\rightarrow y$$</p>
-<p>$$!y\rightarrow x$$</p>
-<h4 id="XOR"><a href="#XOR" class="headerlink" title="XOR"></a>XOR</h4><p>$$x\Leftrightarrow !y$$</p>
-<p>$$y\Leftrightarrow !x$$</p>
-<h4 id="AND"><a href="#AND" class="headerlink" title="AND"></a>AND</h4><p>AND 非常特殊，它要求两个变量都为真。</p>
+<h4 id="OR"><a href="#OR" class="headerlink" title="OR"></a>OR</h4><script type="math/tex; mode=display">!x\rightarrow y</script><script type="math/tex; mode=display">!y\rightarrow x</script><h4 id="XOR"><a href="#XOR" class="headerlink" title="XOR"></a>XOR</h4><script type="math/tex; mode=display">x\Leftrightarrow !y</script><script type="math/tex; mode=display">y\Leftrightarrow !x</script><h4 id="AND"><a href="#AND" class="headerlink" title="AND"></a>AND</h4><p>AND 非常特殊，它要求两个变量都为真。</p>
 <p>我们先介绍如果要求一个变量必须为真时的做法。</p>
 <p>$!x\rightarrow x$</p>
 <p>显然，这是个矛盾式。如果我们把它加到图中，那么一旦选择了 $x$ 的假点，就会不可避免的顺着边到达 $x $ 的真点，从而推出矛盾。所以所有选择 $x$ 的假点的情况都会变成非法情况从而排除。</p>
 <p>那么 AND 的做法也就显而易见了。</p>
 <h4 id="NOT-XOR"><a href="#NOT-XOR" class="headerlink" title="NOT XOR"></a>NOT XOR</h4><p>XOR 可以看成相异操作，那么 NOT XOR 就是必须相同。</p>
-<p>$$x\Leftrightarrow y$$</p>
-<p>$$-x\Leftrightarrow -y$$</p>
-<h4 id="NOT-AND"><a href="#NOT-AND" class="headerlink" title="NOT AND"></a>NOT AND</h4><p>用摩根律转化为OR。</p>
+<script type="math/tex; mode=display">x\Leftrightarrow y</script><script type="math/tex; mode=display">-x\Leftrightarrow -y</script><h4 id="NOT-AND"><a href="#NOT-AND" class="headerlink" title="NOT AND"></a>NOT AND</h4><p>用摩根律转化为OR。</p>
   </div>
   <!--hightlight.js-->
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
@@ -122,5 +117,20 @@
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

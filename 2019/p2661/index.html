@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">你知道 DFS 树吗？</h2>
   </div>
@@ -44,7 +46,7 @@
 <p>《算法导论》基本的图算法</p>
 <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p><a href="https://www.luogu.org/problem/P2661" target="_blank" rel="noopener">信息传递</a>：找出有向图的最小环</p>
 <p>有人提出用 Tarjan 算法，这当然可以。但是这道题只是用了 Tarjan 算法中的一部分。更具体的说，经过阅读算导上的定义和性质后，我们发现只需要找出后向边，就可以计算出答案。</p>
-<pre><code class="c++">/*
+<pre><code class="lang-c++">/*
  *     ____              _    
  *    / __ \____ _____  (_)___
  *   / /_/ / __ `/ __ \/ /_  /
@@ -127,5 +129,20 @@ int main() {
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

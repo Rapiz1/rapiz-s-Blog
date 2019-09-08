@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">记一次回滚 Arch 内核的过程</h2>
   </div>
@@ -40,10 +42,13 @@
   <div class="post-content">
     <p>这回<code>sudo pacman -Syu</code>后发现 <code>shutdown</code>, <code>suspend</code> 这些操作都出问题了。我在<code>#archlinux-cn</code>里问了下，得知很有可能是新内核出了 Bug。所以我决定先回滚一下内核看问题能不能解决。</p>
 <h2 id="内核的安装和编译"><a href="#内核的安装和编译" class="headerlink" title="内核的安装和编译"></a>内核的安装和编译</h2><p>首先安装LTS内核，当然你选择其他内核也行（记得要把我命令中的<code>linux-lts</code>换成对应的名称）</p>
-<pre><code>sudo pacman -S linux-lts</code></pre><p>然后编译</p>
-<pre><code>sudo mkinitcpio -p linux-lts</code></pre><p>这时候内核文件已经在<code>/boot</code>下了<br>可以看到</p>
+<pre><code>sudo pacman -S linux-lts
+</code></pre><p>然后编译</p>
+<pre><code>sudo mkinitcpio -p linux-lts
+</code></pre><p>这时候内核文件已经在<code>/boot</code>下了<br>可以看到</p>
 <pre><code>initramfs-linux-lts.img
-vmlinuz-linux-lts</code></pre><h2 id="从新内核启动"><a href="#从新内核启动" class="headerlink" title="从新内核启动"></a>从新内核启动</h2><p>如果你使用 Grub，在启动项里或许已经能看到了。当然我不用 Grub 所以我也不知道:)<br>我之前一直使用 EFISTUB 直接启动内核，并且装了一个 rEFInd 以防万一。<br>所以接下来我将修改这两项使之指向新内核。</p>
+vmlinuz-linux-lts
+</code></pre><h2 id="从新内核启动"><a href="#从新内核启动" class="headerlink" title="从新内核启动"></a>从新内核启动</h2><p>如果你使用 Grub，在启动项里或许已经能看到了。当然我不用 Grub 所以我也不知道:)<br>我之前一直使用 EFISTUB 直接启动内核，并且装了一个 rEFInd 以防万一。<br>所以接下来我将修改这两项使之指向新内核。</p>
 <h3 id="efibootmgr"><a href="#efibootmgr" class="headerlink" title="efibootmgr"></a>efibootmgr</h3><p>efibootmgr 可以设置从 EFISTUB 启动。<br>添加启动项的命令应该看起来像这样<br><code>sudo efibootmgr -d /dev/sdX -p Y -c -L &quot;Arch Linux&quot; -l /vmlinuz-linux -u &quot;root=/dev/sdBZ rw initrd=/initramfs-linux.img&quot;</code><br>/dev/sdX 和 Y 是 ESP 分区所在的硬盘名称和分区. 让 root= 指向你的root分区，如果你想用UUID指定可以写root=UUID=xxxxxxxx。-u 后面跟内核启动参数。<br>一般笔记本都会加一个 intel 微码的参数。如果你当时装过微码就肯定知道我在说什么。没有也无妨。<br>下面是我实际执行的命令。如果你不需要 intel 微码请把 <code>initrd=/intel-ucode.img</code> 删去。<br><code>sudo efibootmgr -d /dev/sda -p 1 -c -L &quot;Arch Linux with LTS kernel&quot; -l /vmlinuz-linux-lts -u &quot;root=UUID=xxxxxxxxxx rw quiet initrd=/intel-ucode.img initrd=/initramfs-linux-lts.img&quot;</code></p>
 <h3 id="rEFInd"><a href="#rEFInd" class="headerlink" title="rEFInd"></a>rEFInd</h3><p>只需要编辑 <code>/boot/refind_linux.conf</code> 把里面的 <code>initramfs-linux</code> 改成 <code>initramfs-linux-lts</code> 就好了。</p>
 <p>重启就可以进入新内核了。<br>执行 <code>uname -r</code> 查看现在到底在运行哪个内核。</p>
@@ -92,5 +97,20 @@ vmlinuz-linux-lts</code></pre><h2 id="从新内核启动"><a href="#从新内核
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

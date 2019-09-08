@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">Work on Linux</h2>
   </div>
@@ -76,7 +78,8 @@ set autoread &quot;auto read whenever the file is modified
 set tabstop=2 &quot;tab size
 set makeprg=g++\ %\ -o\ %:r\ -Wall
 colo molokai &quot;set color schelme
-sy on &quot;synatx highlight</code></pre><h3 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h3><p>Append <code>set max-value-size unlimited</code> to <code>~/.gdbinit</code> so as to display large arrary.</p>
+sy on &quot;synatx highlight
+</code></pre><h3 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h3><p>Append <code>set max-value-size unlimited</code> to <code>~/.gdbinit</code> so as to display large arrary.</p>
 <h3 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h3><p>Atom is a modern editor with lots of plugins.</p>
 <h4 id="nvm"><a href="#nvm" class="headerlink" title="nvm"></a>nvm</h4><p>Atom depends on nodejs and npm.<br>However, <code>sudo npm</code> may make a mess.<br><code>nvm</code> is such a shell function that it helps with nodejs version management and <code>sudo</code> issues.<br>You can find nvm on GitHub.</p>
 <h4 id="npm-cnpm"><a href="#npm-cnpm" class="headerlink" title="npm/cnpm"></a>npm/cnpm</h4><p>For some reason THEY block nodejs.org, so cnpm is a good choice for those in China. Taobao maintains a mirror of nodejs.org.</p>
@@ -125,5 +128,20 @@ sy on &quot;synatx highlight</code></pre><h3 id="GDB"><a href="#GDB" class="head
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

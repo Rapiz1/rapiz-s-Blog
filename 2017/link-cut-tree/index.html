@@ -27,7 +27,9 @@
 
 
 	<main class = 'main' onchange="FanfouFix();">
-		<article class="post markdown-body">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
   <div class="post-title">
     <h2 class="title">Link-Cut-Tree 一日通</h2>
   </div>
@@ -47,7 +49,7 @@
 <h3 id="改造-Splay"><a href="#改造-Splay" class="headerlink" title="改造 Splay"></a>改造 Splay</h3><p>哎。。感觉真的没什么讲的，主要是 access 的实现还有 rot 和 fa 的变异。<br>access 大家都能看懂了。。</p>
 <p>fa 和 splay 里的 fa 不一样了。一颗 splay 的根也可以有 fa，代表这棵 splay 维护的路径的最上端节点的fa。（这样做的主要原因是方便access)<br>原来我们认为一个节点没有 fa 就是根，现在都有 fa 了怎么办呢？就再开一个bool rt[]表示它是不是根<br><em>为了区别和 splay 的不同，我把 fa 改叫 pre 了</em><br>然后我们需要 <a href="../../2016/Splay">splay 里的代码</a> 把判根的方法从 fa[]是否空 改到 rt[]真假  (这点主要影响splay函数)，还要维护新fa的性质。</p>
 <h4 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h4><p>举个例子，rot</p>
-<pre><code class="cpp">inline void rot(int o) {
+<pre><code class="lang-cpp">inline void rot(int o) {
     int d = gd(o), x = pre[o];
   //这段是把 o 替换到 x 原来的位置
     pre[o] = pre[x];//不管 x 是不是根，它的父亲都将成为 o 的父亲
@@ -58,7 +60,8 @@
     lk(x, o, d^1);
     up(x);
     up(o);
-}</code></pre>
+}
+</code></pre>
 <h4 id="splay"><a href="#splay" class="headerlink" title="splay"></a>splay</h4><p>除了到达根的条件，其他不变。</p>
 <h4 id="从子节点更新"><a href="#从子节点更新" class="headerlink" title="从子节点更新"></a>从子节点更新</h4><p>然后你懂的，splay 一般要 up。<br>up 的时机？<br>Splay 的结构改变的时候。<br>实际上只存在一种情况, Splay 的结构会改动：ch[] 改动的时候。<br>也就是 ch[]改动 &lt;-当且仅当-&gt; 调用 up</p>
 <p>为什么pre[]和up没这种关系我就不证了。如果理解lct的话就明白，不理解的话我解释一下这点反而会更迷？</p>
@@ -69,6 +72,7 @@
 <blockquote>
 <p>魔鬼在细节中</p>
 </blockquote>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -76,7 +80,8 @@
 <th>Hint</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>2049 SDOI2008 Cave洞穴勘探</td>
 <td>摸鱼</td>
 </tr>
@@ -104,8 +109,10 @@
 <td>1180-CROATIAN2009-OTOCI</td>
 <td>淼淼淼，安慰自己今天不是特别颓废，至少膜chad学了不存rt的写法对吧？。。。顺便把自己的lct压到最短</td>
 </tr>
-</tbody></table>
-<pre><code class="cpp">//1180-OTOCI
+</tbody>
+</table>
+</div>
+<pre><code class="lang-cpp">//1180-OTOCI
 #include &lt;cstdio&gt;
 #include &lt;algorithm&gt;
 const int N = 3e4 + 10;
@@ -172,7 +179,7 @@ int main() {
     }
 }
 </code></pre>
-<pre><code class="cpp">//2049-SDOI2008-Cave
+<pre><code class="lang-cpp">//2049-SDOI2008-Cave
 #include &lt;cstdio&gt;
 #include &lt;algorithm&gt;
 #include &lt;cassert&gt;
@@ -250,8 +257,9 @@ int main() {
         else if (cmd[0] == &#39;C&#39;) link(x, y);
         else cut(x, y);
     }
-}</code></pre>
-<pre><code class="cpp">//3091 城市旅行
+}
+</code></pre>
+<pre><code class="lang-cpp">//3091 城市旅行
 #include &lt;cstdio&gt;
 #include &lt;algorithm&gt;
 #include &lt;vector&gt;
@@ -377,8 +385,9 @@ int main() {
             printf(&quot;%lld/%lld\n&quot;, c/d, m/d);
         }
     }
-}</code></pre>
-<pre><code class="c++">//2631-tree
+}
+</code></pre>
+<pre><code class="lang-c++">//2631-tree
 #include &lt;cstdio&gt;
 #include &lt;vector&gt;
 #include &lt;algorithm&gt;
@@ -512,7 +521,7 @@ int main() {
     }
 }
 </code></pre>
-<pre><code class="cpp">//水管局长
+<pre><code class="lang-cpp">//水管局长
 #include &lt;cstdio&gt;
 #include &lt;algorithm&gt;
 #include &lt;cctype&gt;
@@ -675,7 +684,8 @@ int main() {
         }
     }
     for (int i = 1; i &lt;= q; i++) if (qu[i].u == 1) printf(&quot;%d\n&quot;, qu[i].v);
-}</code></pre>
+}
+</code></pre>
 <p>后注：<br>这些代码也有点时间了，有些地方写的很naive，比如水管局长的cut。<br>推荐阅读第一个代码，不开数组维护rt的版本。简单很多。<br>然后水管局长的cut可以splayx然后更简单。</p>
   </div>
   <!--hightlight.js-->
@@ -720,5 +730,20 @@ int main() {
 
 	</main>
 </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
