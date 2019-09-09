@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <head><meta name="generator" content="Hexo 3.9.0">
 	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>线段树四倍空间 |  潮与雪 - Rapiz</title>
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>线段树复习 |  潮与雪 - Rapiz</title>
 	<link rel="stylesheet" href="/css/style.css">
 	<script src="/js/utils.js"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -31,20 +31,27 @@
 -->
 <article class="post markdown-body">
   <div class="post-title">
-    <h2 class="title">线段树四倍空间</h2>
+    <h2 class="title">线段树复习</h2>
   </div>
    <div class="post-meta">
          
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#四倍空间"><span class="toc-text">四倍空间</span></a></li></ol>
     <span class="post-author">By Rapiz</span>
     <span class="post-time">2019-09-08</span>
   </div>
   <div class="post-content">
-    <p>区间长：<script type="math/tex">n</script></p>
+    <h2 id="四倍空间"><a href="#四倍空间" class="headerlink" title="四倍空间"></a>四倍空间</h2><p>区间长：<script type="math/tex">n</script></p>
 <p>树的<strong>层数</strong>（即画出来的线段树示意图有多少层）： <script type="math/tex">x=\lceil\log_2 n\rceil+1</script></p>
 <p>等比数列求和：<script type="math/tex">\frac{a_1(1-q^x)}{1-q}=a_1(2^x-1) = 2^x - 1 = 2^{\lceil\log_2 n\rceil+1}-1 = 2\times2^{\lceil\log_2 n\rceil}-1</script></p>
 <p>放缩：</p>
 <script type="math/tex; mode=display">2\times2^{\lceil\log_2 n\rceil}-1 \leq 2\times2^{\log_2 n + 1}-1=4\times2^{\log_2 n}-1 = 4n-1 \lt 4n</script><p>即线段树中的节点数量小于 $4n$</p>
+<hr>
+<p>mktag(o) 根据操作更新 o 的信息</p>
+<ul>
+<li>应该能够与其他 tag 合并</li>
+<li>不应该使用子节点的信息重新计算</li>
+</ul>
+<p>down(o) 下发标记，清空o标记为默认值</p>
   </div>
   <!--hightlight.js-->
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
@@ -87,22 +94,6 @@
 
 
 	</main>
-</div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-
-<script src=https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
