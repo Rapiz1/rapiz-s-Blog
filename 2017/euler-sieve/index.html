@@ -53,7 +53,6 @@
     if (i%pri[j] == 0) break; //剪枝魔法
   }
 }
-//严格小于N的素数（除了1）被放进了pri数组里。所以你如果想要完整的有序素数表，要在一开始push 1并且把第三行j的初值改到1。
 </code></pre>
 <p>假如没有第7行，这个代码肯定是对的（尽管我们感觉效率不太高）。<br>那第七行是个什么意思呢。<br>它保证了 <strong>每个数只会被其最小的质因子筛去</strong>。<br>我们把每个合数表示成 x = s*p 的形式。其中 p 是 x 的最小质因子。<br>然后我们每次筛法枚举的 i 相当于 s。<br>设break时的下标为k。<br>由于 pri[] 有序，那么显然 pri[k] 是 i 的最小质因子，并且 pri[k] &gt; pri[1 … k - 1]。</p>
 <p>对于 pri[1 &lt;= j &lt;= k - 1]， i*pri[j] 中 i 的最小质因子 pri[k] 都大于 pri[j]，所以i*pri[j]的最小质因子是 pri[j]。<br>所以 i 就是 s, pri[j] 就是 p。</p>
@@ -100,6 +99,22 @@
 
 
 	</main>
-</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+
+<script src=https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
