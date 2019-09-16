@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<head><meta name="generator" content="Hexo 3.9.0">
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>再谈分块 |  潮与雪 - Rapiz</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="/js/utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div id = "wrap">
+    <header id = "header">
+    <div id="nav">
+		<div id = "nav-items">
+      
+        <div class="underline-trans"><a href="/" >Home</a></div>
+      
+        <div class="underline-trans"><a href="/links" >Links</a></div>
+      
+        <div class="underline-trans"><a href="/portal" >Protal</a></div>
+      
+		</ul>
+	</div>
+</header>
+
+
+	<main class = 'main' onchange="FanfouFix();">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
+  <div class="post-title">
+    <h2 class="title">再谈分块</h2>
+  </div>
+   <div class="post-meta">
+         
+    <blockquote><p>POJ2104 K-th Number ( NEEREC 2004 )<br></blockquote>
+    
+    
+    <span class="post-author">By Rapiz</span>
+    <span class="post-time">2019-09-16</span>
+  </div>
+  <div class="post-content">
+    </p>
+<pre><code class="lang-c++">/*
+ *     ____              _    
+ *    / __ \____ _____  (_)___
+ *   / /_/ / __ `/ __ \/ /_  /
+ *  / _, _/ /_/ / /_/ / / / /_
+ * /_/ |_|\__,_/ .___/_/ /___/
+ *            /_/             
+ *           code@rapiz.me
+ *          Sun, 15 Sep 2019 20:58:10 +0800
+ */
+#pragma GCC optimize(3)
+#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+#include &lt;cctype&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#define xxx(x) cerr&lt;&lt;(#x)&lt;&lt;&quot;: &quot;&lt;&lt;x&lt;&lt;endl;
+#define fastios ios::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+using namespace std;
+namespace IO {
+  const int LEN = 1&lt;&lt;15;
+  char buf[LEN], *s, *t;
+  inline char gc() {
+    if (s == t) t = (s=buf) + fread(buf, 1, LEN, stdin);
+    return *s++;
+  }
+  inline int gi() {
+    int x = 0, rev = 1, ch = gc();
+    while (!isdigit(ch)) {
+      if (ch == &#39;-&#39;) rev = -1;
+      ch = gc();
+    }
+    while (isdigit(ch)) {
+      x=x*10+ch-&#39;0&#39;;
+      ch=gc();
+    }
+    return x*rev;
+  }
+}
+using IO::gi;
+const int N = 2e5 + 10;
+int B, n, m, a[N], l, r, k,b[N], all[N];
+void init() {
+  memcpy(b, a, sizeof a);
+  memcpy(all,a, sizeof a);
+  sort(all + 1, all + 1 + n);
+  for (int i = 1; i &lt;= n; i = i/B*B + B) {
+    int j = min(i/B*B + B, n + 1);
+    sort(b + i, b + j);
+  }
+}
+inline int check(int x) {
+  int ret = 0, ll = l/B*B + B - 1, rr = r/B*B;
+  if (l/B != r/B) {
+    for (int i = l; i &lt;= ll; i++) {
+      ret += x &gt;= a[i];
+    }
+    for (int i = rr; i &lt;= r; i++) {
+      ret += x &gt;= a[i];
+    }
+    for (int i = l/B + 1; i &lt; r/B; i++)  {
+      int lb = max(i*B, 1), ub = min(lb + B, n + 1);
+      ret += upper_bound(b + lb, b + ub, x) - (b + lb);
+    }
+  }
+  else {
+    for (int i = l; i &lt;= r; i++) {
+      ret += x &gt;= a[i];
+    }
+  }
+  return ret;
+}
+void solve() {
+  int xl = 1, xr = n;
+  while (xl &lt; xr) {
+    int tar = (xl + xr) &gt;&gt; 1;
+    if (check(all[tar]) &gt;= k) {
+      xr = tar;
+    }
+    else {
+      xl = tar + 1;
+    }
+  }
+  printf(&quot;%d\n&quot;, all[xl]);
+}
+int main() {
+  n = gi(), m = gi();
+  B = max(sqrt(n*log2(n)), 1.0);
+  for (int i = 1; i &lt;= n; i++) a[i] = gi();
+  init();
+  while (m--) {
+    l = gi(), r = gi(), k = gi();
+    solve();
+  }
+}
+</code></pre>
+<ol>
+<li>块的大小至少为1</li>
+<li>分类左右端点在同一块，不同块</li>
+<li>块的端点$min(1, \dots), max(n, \dots)$</li>
+</ol>
+  </div>
+  <!--hightlight.js-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+<!--  <script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>-->
+	<script src="/js/hljs-line-number.js"></script>
+  <script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  </script>
+<!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+  <script>hljs.initHighlighting();</script> -->
+
+</article>
+
+<!-- 如果不是首页且没使用 `comments: false` 关闭评论，则尝试加载评论 -->
+
+    <!-- 配置中启用多说时，导入相应代码 -->
+    <!-- 以上皆关闭且 Hexo 配置中设置了 disqus_shortname 时，导入相应代码 -->
+    
+        <!-- 文件分离和变量的使用，使代码能较好的兼容 Hexo 主配置 -->
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'rapiz'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+    
+
+
+	</main>
+</div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+
+<script src=https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
