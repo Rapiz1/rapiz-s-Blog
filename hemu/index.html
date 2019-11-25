@@ -60,7 +60,9 @@
         if (found == level) {
             var button = document.getElementById('next_button');
             button.removeAttribute('disabled');
+            button.onclick = next;
         }
+        e.style.backgroundColor = '';
         e.setAttribute('disabled','');
     }
     function next() {
@@ -77,6 +79,7 @@
             if (buttons[i].attributes['id'] && buttons[i].attributes['id'].value == 'next_button') {
                 buttons[i].style.display = 'block';
                 buttons[i].setAttribute('disabled','');
+                buttons[i].onclick = null;
             }
             else{
             buttons[i].style.display = 'none';
@@ -95,7 +98,7 @@
                 this.div.className='ball mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored';
                 console.log(isLarge);
                 if (isLarge) this.div.className+=' large';
-                //this.div.style.backgroundColor='#' + Math.floor(Math.random() * 0xffffff).toString(16);
+                this.div.style.backgroundColor='#' + Math.floor(Math.random() * 0xffffff).toString(16);
                 this.x=random(0,window.innerWidth-100);
                 this.y=random(0,window.innerHeight-100);
             }
