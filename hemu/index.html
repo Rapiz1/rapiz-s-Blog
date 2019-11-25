@@ -40,12 +40,13 @@
     <button onclick="level=1;game()" class ="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Level 1</button>
     <button onclick="level=2;game()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Level 2</button>
     <button onclick="level=3;game()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Level 3</button>
-    <button id="next_button" onclick="next()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Next</button>
+    <button id="next_button" onclick="next()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" disabled>Next</button>
     </div>
     <script>
     var level = 1;
     var nowTimer = null;
     var num=10;//定义生成小球数目
+    var found = 0;
     var ding = document.getElementById('ding');
     function clearGame() {
         var body = document.getElementsByTagName('body')[0];
@@ -54,18 +55,28 @@
             body.removeChild(ball);
         }
     }
+    function identify(e) {
+        found++;
+        if (found == level) {
+            var button = document.getElementById('next_button');
+            button.removeAttribute('disabled');
+        }
+        e.setAttribute('disabled','');
+    }
     function next() {
         if (nowTimer != null) clearTimeout(nowTimer);
         clearGame();
         game();
     }
     function game(){
+        found = 0;
         ding.play();
         nowTimer = setTimeout(next, 1000*10);
         buttons = document.getElementsByTagName('button');
         for (var i = 0; i < buttons.length; i++) {
             if (buttons[i].attributes['id'] && buttons[i].attributes['id'].value == 'next_button') {
                 buttons[i].style.display = 'block';
+                buttons[i].setAttribute('disabled','');
             }
             else{
             buttons[i].style.display = 'none';
@@ -84,7 +95,7 @@
                 this.div.className='ball mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored';
                 console.log(isLarge);
                 if (isLarge) this.div.className+=' large';
-                this.div.style.backgroundColor='#' + Math.floor(Math.random() * 0xffffff).toString(16);
+                //this.div.style.backgroundColor='#' + Math.floor(Math.random() * 0xffffff).toString(16);
                 this.x=random(0,window.innerWidth-100);
                 this.y=random(0,window.innerHeight-100);
             }
@@ -93,7 +104,7 @@
         for(var i=0;i<num;i++){
             var ball=new Ball(i < level);
             if (i < level) {
-                ball.div.onclick = next;
+                ball.div.onclick = function(){identify(this)};
             }
             document.body.appendChild(ball.div);
             aBall.push(ball);
