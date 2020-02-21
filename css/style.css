@@ -485,6 +485,7 @@ a[href="http://fanfou.com/"] {
 }
 #banner-text {
   text-align: center;
+  user-select: none;
   height: 100%;
 }
 #banner-text h1 {
