@@ -486,12 +486,15 @@ a[href="http://fanfou.com/"] {
 #banner-text {
   text-align: center;
   user-select: none;
-  height: 100%;
+  height: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 #banner-text h1 {
+  margin: 0;
   font-size: 10em;
   display: inline-block;
-  margin-bottom: auto;
   transition: all ease 1s;
   cursor: pointer;
 }
@@ -500,5 +503,6 @@ a[href="http://fanfou.com/"] {
   color: rgba(0,0,0,0.8);
 }
 #banner-text h3 {
+  margin: 0;
   font-weight: normal;
 }
