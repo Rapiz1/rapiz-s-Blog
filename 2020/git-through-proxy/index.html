@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<head><meta name="generator" content="Hexo 3.9.0">
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>为通过 SSH 的 Git 配置代理 |  潮与雪 - Rapiz</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="/js/utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div id = "wrap">
+    <header id = "header">
+    <div id="nav">
+		<div id = "nav-items">
+      
+        <div class="underline-trans"><a href="/" >Home</a></div>
+      
+        <div class="underline-trans"><a href="/links" >Links</a></div>
+      
+        <div class="underline-trans"><a href="/portal" >Portal</a></div>
+      
+		</ul>
+	</div>
+</header>
+
+
+	<main class = 'main' onchange="FanfouFix();">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
+  <div class="post-title">
+    <h2 class="title">为通过 SSH 的 Git 配置代理</h2>
+  </div>
+   <div class="post-meta">
+         
+    <blockquote><p>查了一大堆，说什么方法的都有……</blockquote>
+    
+    
+    <span class="post-author">By Rapiz</span>
+    <span class="post-time">2020-02-21</span>
+  </div>
+  <div class="post-content">
+    <br>一开始在<code>~/.ssh/config</code>里加这个不管用。</p>
+<pre><code>Host github.com
+    User                    git
+    ProxyCommand            nc -x 127.0.0.1:1080 %h %p
+</code></pre><p>一直是啥密匙交换错误，无法解析主机啥的。<br>我一开始还以为是加密问题。<br>后来仔细一看，不对劲啊  <code>can&#39;t resolve host 127.0.0.1:1080</code><br>这主机都解析不了还指望解析啥……<br>然后又查了查，发现<code>ubuntu</code>的<code>netcat</code>不支持<code>-x</code>。但我寻思我用 <code>arch</code>啊。<code>man</code>了一下发现果然没有这个选项……<br><code>pacman -Ss netcat</code>发现有<code>openbsd-netcat</code>。换掉<code>gnu-netcat</code>，解决。</p>
+  </div>
+  <!--hightlight.js-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+<!--  <script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>-->
+	<script src="/js/hljs-line-number.js"></script>
+  <script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  </script>
+<!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+  <script>hljs.initHighlighting();</script> -->
+
+</article>
+
+<!-- 如果不是首页且没使用 `comments: false` 关闭评论，则尝试加载评论 -->
+
+    <!-- 配置中启用多说时，导入相应代码 -->
+    <!-- 以上皆关闭且 Hexo 配置中设置了 disqus_shortname 时，导入相应代码 -->
+    
+        <!-- 文件分离和变量的使用，使代码能较好的兼容 Hexo 主配置 -->
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'rapiz'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+    
+
+
+	</main>
+</div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+
+<script src=https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

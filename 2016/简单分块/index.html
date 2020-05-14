@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<head><meta name="generator" content="Hexo 3.9.0">
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>简单分块 |  潮与雪 - Rapiz</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="/js/utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div id = "wrap">
+    <header id = "header">
+    <div id="nav">
+		<div id = "nav-items">
+      
+        <div class="underline-trans"><a href="/" >Home</a></div>
+      
+        <div class="underline-trans"><a href="/links" >Links</a></div>
+      
+        <div class="underline-trans"><a href="/portal" >Portal</a></div>
+      
+		</ul>
+	</div>
+</header>
+
+
+	<main class = 'main' onchange="FanfouFix();">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
+  <div class="post-title">
+    <h2 class="title">简单分块</h2>
+  </div>
+   <div class="post-meta">
+         
+    <blockquote><p>大力出奇迹。</blockquote>
+    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思想"><span class="toc-text">思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用"><span class="toc-text">应用</span></a></li></ol>
+    <span class="post-author">By Rapiz</span>
+    <span class="post-time">2016-12-26</span>
+  </div>
+  <div class="post-content">
+    </p>
+<h2 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h2><p>把数列均等地切为若干部分，这些小的部分叫做块。从而一个对区间的询问会包含一些块和两个长度小于一个块的区间。<br>对于每个块，我们暴力维护它的一些信息。然后通过一些方法合并这些信息得到答案。</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1316" target="_blank" rel="noopener">COGS1316 数列操作b</a></p>
+<pre><code>维护数列, 支持两种操作：
+1. 将 [l, r] 内的数加上 v
+2. 询问 a[i] 的值
+操作数小于等于 1e5
+</code></pre><p>线段树当然是可以线段树的，而且时间复杂度更优。<br>然而分块同样可以解决这个问题，并且更好写。<br>维护每个块加上的值，每个数的实际值，询问时用实际值加上所在块被加上的值。<br><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1317" target="_blank" rel="noopener">1317. 数列操作c</a></p>
+<pre><code>维护数列，支持两种操作：
+1. 将 [l, r] 加上 v
+2. 询问 [l, r] 中数的和
+操作数小于等于 1e5
+</code></pre><p>线段树当然……</p>
+<p>维护每个块被加上的值，每个块的和，每个数的实际值。</p>
+<p>可见，分块的想法十分简单。用分块解决问题的难点在于维护块的哪些信息，如何维护或合并这些信息来支持修改和询问。</p>
+  </div>
+  <!--hightlight.js-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+<!--  <script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>-->
+	<script src="/js/hljs-line-number.js"></script>
+  <script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  </script>
+<!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+  <script>hljs.initHighlighting();</script> -->
+
+</article>
+
+<!-- 如果不是首页且没使用 `comments: false` 关闭评论，则尝试加载评论 -->
+
+    <!-- 配置中启用多说时，导入相应代码 -->
+    <!-- 以上皆关闭且 Hexo 配置中设置了 disqus_shortname 时，导入相应代码 -->
+    
+        <!-- 文件分离和变量的使用，使代码能较好的兼容 Hexo 主配置 -->
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'rapiz'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+    
+
+
+	</main>
+</div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+
+<script src=https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

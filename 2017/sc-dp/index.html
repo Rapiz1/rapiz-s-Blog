@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<head><meta name="generator" content="Hexo 3.9.0">
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>Naive States Compressing Dynamic Programming |  潮与雪 - Rapiz</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="/js/utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div id = "wrap">
+    <header id = "header">
+    <div id="nav">
+		<div id = "nav-items">
+      
+        <div class="underline-trans"><a href="/" >Home</a></div>
+      
+        <div class="underline-trans"><a href="/links" >Links</a></div>
+      
+        <div class="underline-trans"><a href="/portal" >Portal</a></div>
+      
+		</ul>
+	</div>
+</header>
+
+
+	<main class = 'main' onchange="FanfouFix();">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
+  <div class="post-title">
+    <h2 class="title">Naive States Compressing Dynamic Programming</h2>
+  </div>
+   <div class="post-meta">
+         
+    <blockquote><p>为平凡的标题献上趣味</blockquote>
+    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初级"><span class="toc-text">初级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中级"><span class="toc-text">中级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高级"><span class="toc-text">高级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1x2骨牌覆盖"><span class="toc-text">1x2骨牌覆盖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1x2-L型覆盖"><span class="toc-text">1x2 + L型覆盖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-x-r-覆盖"><span class="toc-text">1 x r 覆盖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实战"><span class="toc-text">实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#NOI2000-炮兵阵地"><span class="toc-text">NOI2000 炮兵阵地</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2734-HNOI2012-集合选数"><span class="toc-text">2734 HNOI2012 集合选数</span></a></li></ol></li></ol>
+    <span class="post-author">By Rapiz</span>
+    <span class="post-time">2017-02-28</span>
+  </div>
+  <div class="post-content">
+    </p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>状态压缩 - 周伟</p>
+<h2 id="初级"><a href="#初级" class="headerlink" title="初级"></a>初级</h2><p><a href="http://218.28.19.228/cogs/problem/problem.php?pid=654" target="_blank" rel="noopener">特殊方格棋盘</a><br>在n*n(n≤20)的方格棋盘上放置n 个车，某些格子不能放，求使它们不能互相攻击的方案总数。</p>
+<pre><code class="lang-cpp">#include &lt;cstdio&gt;
+#define file(x) &quot;examone.&quot; #x
+const int N = 25, L = 1 &lt;&lt; 20 | 1;
+typedef long long ll;
+int n, m, a[N];
+ll f[L];
+int main() {
+    freopen(file(in), &quot;r&quot;, stdin);
+    freopen(file(out), &quot;w&quot;, stdout);
+    scanf(&quot;%d%d&quot;, &amp;n ,&amp;m);
+    while (m--) {
+        int x, y;
+        scanf(&quot;%d%d&quot;, &amp;x, &amp;y);
+        a[x] |= 1 &lt;&lt; y - 1;
+    }
+    int l = 1 &lt;&lt; n;
+    f[0] = 1;
+    for (int k = 1; k &lt;= n; k++) {
+        for (int s = l - 1; s; s--) {
+            for (int x = s&amp;~a[k]; x; x -= x&amp;-x)
+                f[s] += f[s&amp;~(x&amp;-x)];
+        }
+    }
+    printf(&quot;%lld\n&quot;, f[l - 1]);
+}
+</code></pre>
+<h2 id="中级"><a href="#中级" class="headerlink" title="中级"></a>中级</h2><p><a href="http://218.28.19.228/cogs/problem/problem.php?pid=657" target="_blank" rel="noopener">657. 放棋子</a><br>给出一个 n x m 的棋盘 (n 、 m≤80,n x m ≤ 80) ，要在棋盘上放 k(k ≤ 20) 个棋子， 使得任意两个棋子不相邻。每次试验随机分配一种方案，求首次放置即出现合法方案的概率，答案用既约分数表示（格式是分母在前）。<br><em>预处理每行可能的状态再暴力dp</em><br>状态：i行状态s，所有总共放了j个棋子</p>
+<pre><code class="lang-cpp">#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#define file(x) &quot;examtwo.&quot; #x
+typedef long long ll;
+int c[300], cc[300], num, n, m, k;
+ll f[80][300][25];
+void dfs(int p, int cnt, int s) {
+    if (p &gt; m) {
+        c[++num] = s;
+        cc[num] = cnt;
+        return;
+    }
+    if (cnt &gt; k) return;
+    if (p &gt; 1 &amp;&amp; s&amp;(1 &lt;&lt; p - 2));
+    else dfs(p + 1, cnt + 1, s|(1 &lt;&lt; p - 1));
+    dfs(p + 1, cnt, s);
+}
+ll comb(int y, int x) {
+    ll r = 1;
+    for (int k = 1; k &lt;= x; k++) r *= y - k + 1;
+    for (int i = 1; i &lt;= x; i++) r /= i;
+    return r;
+}
+ll gcd(ll x, ll y) {return y ? gcd(y, x%y) : x;}
+int main() {
+    freopen(file(in), &quot;r&quot;, stdin);
+    freopen(file(out), &quot;w&quot;, stdout);
+    scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;k);
+    if (m &gt; n) std::swap(n, m);
+    dfs(1, 0, 0);
+    f[0][0][0] = 1;
+    for (int i = 1; i &lt;= n; i++) {
+        for (int j = 1, s; j &lt;= num; j++) {
+            s = c[j];
+            for (int h = cc[j]; h &lt;= k; h++) {
+                for (int g = 1, ss; g &lt;= num; g++) if (!((ss = c[g])&amp;s)) f[i][s][h] += f[i-1][ss][h - cc[j]];
+            }
+        }
+    }
+    ll par = comb(n*m, k), chi = 0;
+    for (int i = 0; i &lt; 300; i++) chi += f[n][i][k];
+    ll d = gcd(par, chi);
+    printf(&quot;%lld/%lld\n&quot;, par/d, chi/d);
+}
+</code></pre>
+<h2 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h2><h3 id="1x2骨牌覆盖"><a href="#1x2骨牌覆盖" class="headerlink" title="1x2骨牌覆盖"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1518" target="_blank" rel="noopener">1x2骨牌覆盖</a></h3><p>$f[i][s]$表示第i行覆盖状态为s，前i-1行完全覆盖的方案数</p>
+<p>怎么转移呢？<br>倒着$f[i-1]$不太好写。<br>所以找从$f[i][s]$出发能更新到的状态。</p>
+<p>dfs(当前列，第i行状态，第i+1行状态) 表示当前列左边的列都被完全覆盖<br>每次枚举在第i+1行的决策：竖着放，横着放，不放。<br>列数超出m时用出发时的状态更新i+1行状态。</p>
+<p>第一行的答案直接搜出。<br>利用1~n-1即可更新出2~n的答案。</p>
+<pre><code class="lang-cpp">#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#define file(x) &quot;examfive.&quot; #x
+const int N = 12, V = 1 &lt;&lt; 11 | 1;
+typedef long long ll;
+int n, m;
+ll f[N][V], fr;
+inline int set(int x, int p, int v) {
+    if (v) return x | (1 &lt;&lt; p - 1);
+    else return x &amp; ~(1 &lt;&lt; p - 1);
+}
+inline int get(int x, int p) {return x &gt;&gt;(p - 1)&amp;1;}
+void dfs(int r, int c, int s0, int s1) {
+    if (c &gt; m) {
+        f[r + 1][s1] += fr;
+        return;
+    }
+    if (get(s0, c) &amp;&amp; get(s0, c + 1)) dfs(r, c + 2, s0, set(set(s1, c, 1), c + 1, 1));
+    if (!get(s0, c)) dfs(r, c + 1, set(s0, c, 1), set(s1, c, 1));
+    else dfs(r, c + 1, s0, s1);
+}
+void init(int c, int s) {
+    if (c &gt; m) f[1][s] = 1;
+    else {
+        if (c + 1 &lt;= m) init(c + 2, set(set(s, c, 1), c + 1, 1));
+        init(c + 1, s);
+    }
+}
+int main() {
+    freopen(file(in), &quot;r&quot;, stdin);
+    freopen(file(out), &quot;w&quot;, stdout);
+    while (scanf(&quot;%d%d&quot;, &amp;n, &amp;m)){
+        if (n == 0 &amp;&amp; m == 0) break;
+        memset(f, 0, sizeof(f));
+        init(1, 0);
+        for (int i = 1; i &lt; n; i++)
+            for (int j = 0; j &lt; 1 &lt;&lt; m; j++)
+                if (f[i][j]) fr = f[i][j], dfs(i, 1, j, 0);
+        printf(&quot;%lld\n&quot;, f[n][(1 &lt;&lt; m) - 1]);
+    }
+}
+</code></pre>
+<h3 id="1x2-L型覆盖"><a href="#1x2-L型覆盖" class="headerlink" title="1x2 + L型覆盖"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1519" target="_blank" rel="noopener">1x2 + L型覆盖</a></h3><p><em>L形可以旋转</em><br>基本上和上一题都一样。<br>但是dfs到c列的时候不再表示左边的列完全覆盖，而是表示c-2列及其左边的列完全覆盖。<br>这样最后更新答案(c=m + 1时)的时候需要判一下m-1是不是完全覆盖，如果是再加上。<br>因为存在 左右反转的「形 放置，所以最多影响到c-1列，因此我们定义了c-2列及左边完全覆盖。并且容易知道c-2列未覆盖时需要及时剪枝。因为怎么放置都影响不到它了。<br>代码和以上细节有出入。</p>
+<pre><code class="lang-cpp">#include &lt;cstdio&gt;
+#include &lt;cassert&gt;
+#define file(x) &quot;examsix.&quot; #x
+const int N = 1 &lt;&lt; 10;
+typedef long long ll;
+int n, m;
+ll f[10][N];
+inline int set(int x, int p, int v) {
+    if (v) return x | (1 &lt;&lt; p - 1);
+    else return x &amp; ~(1 &lt;&lt; p - 1);
+}
+inline int get(int x, int p){return x &gt;&gt; (p - 1)&amp;1;}
+void init(int c, int s) {
+    if (c &gt; m) f[1][s] = 1;
+    else {
+        if (c + 1 &lt;= m) init(c + 2, set(set(s, c, 1), c + 1, 1));
+        init(c + 1, s);
+    }
+}
+ll fr;
+void dfs(int r, int c, int s0, int s1) {
+    if (c - 2 &gt;= 1 &amp;&amp; !get(s0, c - 2)) return;
+    if (c &gt; m) {
+        if (s0 == (1 &lt;&lt; m) - 1) f[r + 1][s1] += fr;
+    }
+    else {
+        if (c + 1 &lt;= m) {
+            if (!get(s0, c))  dfs(r, c + 2, set(s0, c, 1), set(set(s1, c, 1), c + 1, 1));
+            if (get(s0, c) &amp;&amp; !get(s0, c + 1)) dfs(r, c + 2, set(s0, c + 1, 1), set(set(s1, c, 1), c + 1, 1));
+            if (get(s0, c)) dfs(r, c + 2, s0, set(set(s1, c, 1), c + 1, 1));
+            if (!get(s0, c) &amp;&amp; !get(s0, c + 1)) dfs(r, c + 1, set(set(s0, c, 1), c + 1, 1), set(s1, c, 1));
+        }
+        if (c - 1 &gt;= 1 &amp;&amp; !get(s0 ,c) &amp;&amp; !get(s0, c - 1)) dfs(r, c + 1, set(set(s0, c, 1), c - 1, 1), set(s1, c, 1));
+        if (!get(s0, c)) dfs(r, c + 1, set(s0, c, 1), set(s1, c, 1));
+        dfs(r, c + 1, s0, s1);
+    }
+}
+int main() {
+    freopen(file(in), &quot;r&quot;, stdin);
+    freopen(file(out), &quot;w&quot;, stdout);
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    init(1, 0);
+    for (int i = 1; i &lt; n; i++)
+        for (int s = 0; s &lt; 1 &lt;&lt; m; s++) if (fr = f[i][s])
+             dfs(i, 1, s, 0);
+    printf(&quot;%lld\n&quot;, f[n][(1 &lt;&lt; m) - 1]);
+}
+</code></pre>
+<h3 id="1-x-r-覆盖"><a href="#1-x-r-覆盖" class="headerlink" title="1 x r 覆盖"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1520" target="_blank" rel="noopener">1 x r 覆盖</a></h3><p>恩……我前几题的做法貌似没法再做了。抄了萌帝的代码。<br>一次性枚举所有转移。</p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><h3 id="NOI2000-炮兵阵地"><a href="#NOI2000-炮兵阵地" class="headerlink" title="NOI2000 炮兵阵地"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=301" target="_blank" rel="noopener">NOI2000 炮兵阵地</a></h3><p>先对每行搜出合法状态再开(i, 第i行状态，第i-1行状态)转移</p>
+<pre><code class="lang-cpp">#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#define file(x) &quot;cannon.&quot; #x
+const int N = 61;
+int n, m, f[101][N][N], num, s[N], ans, rm[101];
+char buf[11];
+inline int set(int s, int p, int v) {
+    if (v) return s|(1 &lt;&lt; p - 1);
+    else return s &amp; ~(1 &lt;&lt; p - 1);
+}
+inline int get(int s, int p) {return (s&lt;&lt;p - 1)&amp;1;}
+void dfs(int c, int ss) {
+    if (c &gt; m) s[++num] = ss;
+    else dfs(c + 1, ss), dfs(c + 3, set(ss, c, 1));
+}
+int main() {
+    freopen(file(in), &quot;r&quot;, stdin);
+    freopen(file(out), &quot;w&quot;, stdout);
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; i++) {
+        scanf(&quot;%s&quot;, buf + 1);
+        for (int j = 1; j &lt;= m; j++) rm[i] = set(rm[i], j, buf[j] == &#39;H&#39;);
+    }
+    dfs(1, 0);
+    for (int i = 1; i &lt;= n; i++) {
+        for (int s1 = 1; s1 &lt;= num; s1++) if (!(s[s1]&amp;rm[i]))
+            for (int s2 = 1; s2 &lt;= num; s2++) if (!(s[s2]&amp;rm[i - 1]) &amp;&amp; !(s[s1]&amp;s[s2]))
+                for (int s3 = 1; s3 &lt;= num; s3++) if (!(s[s2]&amp;s[s3]) &amp;&amp; !(s[s1]&amp;s[s3])) {
+                    if (i &gt; 2 &amp;&amp; (s[s3]&amp;rm[i - 2])) continue;
+                    int cc = __builtin_popcount(s[s1]);
+                    f[i][s1][s2] = std::max(f[i - 1][s2][s3] + cc, f[i][s1][s2]);
+                    ans = std::max(ans, f[i][s1][s2]);
+                }
+    }
+    printf(&quot;%d\n&quot;, ans);
+}
+</code></pre>
+<h3 id="2734-HNOI2012-集合选数"><a href="#2734-HNOI2012-集合选数" class="headerlink" title="2734 HNOI2012 集合选数"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2734" target="_blank" rel="noopener">2734 HNOI2012 集合选数</a></h3><pre><code class="lang-cpp">//hide 点击查看隐藏的题解
+//网上的题解还是挺多的。
+//需要注意的就是每一行应该是 x 4x 9x 27x, 这样减少了状态数。x 2x 4x 这样就会tle
+//还有就是很多题解说这是矩阵，然而并不是，明明是三角来着……
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+typedef long long ll;
+const int M = 1e9 + 1;
+int u;
+int f[2][int(1&lt;&lt;11)], ans = 1;
+bool vis[int(1e5) + 10];
+inline void calc(int d) {
+    memset(f, 0, sizeof(f));
+    int i, j, pj, x;
+    f[0][0] = 1;
+    for (i = 1, pj = 0; d &lt;= u; i++, d*=2, pj = j) {
+        for (j = 1, x = d; x &lt;= u; j++, x*=3) vis[x] = 1;
+        j--;
+        for (int s = 0; s &lt; 1 &lt;&lt; j; s++)
+            if ((s&amp;(s&gt;&gt;1)) == 0)
+            for (int ss = 0; ss &lt; 1 &lt;&lt; pj; ss++)
+                if ((s&amp;ss) == 0) f[i&amp;1][s] = (f[i&amp;1][s] + f[(i&amp;1)^1][ss])%M;
+        for (int s = 0; s &lt; 1 &lt;&lt; pj; s++) f[(i&amp;1)^1][s] = 0;
+    }
+    i--;
+    int c = 0;
+    for (int s = 0; s &lt; 1 &lt;&lt; pj; s++) c = (c + f[i&amp;1][s])%M;
+    ans = 1ll*ans*c%M;
+}
+int main() {
+//    freopen(&quot;input&quot;, &quot;r&quot;, stdin);
+    scanf(&quot;%d&quot;, &amp;u);
+    for (int i = 1; i &lt;= u; i++) if (!vis[i]) calc(i);
+    printf(&quot;%d&quot;, ans);
+}
+</code></pre>
+  </div>
+  <!--hightlight.js-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+<!--  <script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>-->
+	<script src="/js/hljs-line-number.js"></script>
+  <script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  </script>
+<!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+  <script>hljs.initHighlighting();</script> -->
+
+</article>
+
+<!-- 如果不是首页且没使用 `comments: false` 关闭评论，则尝试加载评论 -->
+
+    <!-- 配置中启用多说时，导入相应代码 -->
+    <!-- 以上皆关闭且 Hexo 配置中设置了 disqus_shortname 时，导入相应代码 -->
+    
+        <!-- 文件分离和变量的使用，使代码能较好的兼容 Hexo 主配置 -->
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'rapiz'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+    
+
+
+	</main>
+</div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+
+<script src=https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

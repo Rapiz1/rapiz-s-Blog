@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<head><meta name="generator" content="Hexo 3.9.0">
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>记录一些坑点 |  潮与雪 - Rapiz</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="/js/utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div id = "wrap">
+    <header id = "header">
+    <div id="nav">
+		<div id = "nav-items">
+      
+        <div class="underline-trans"><a href="/" >Home</a></div>
+      
+        <div class="underline-trans"><a href="/links" >Links</a></div>
+      
+        <div class="underline-trans"><a href="/portal" >Portal</a></div>
+      
+		</ul>
+	</div>
+</header>
+
+
+	<main class = 'main' onchange="FanfouFix();">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
+  <div class="post-title">
+    <h2 class="title">记录一些坑点</h2>
+  </div>
+   <div class="post-meta">
+         
+    <blockquote><p>I good vegetable</blockquote>
+    
+    
+    <span class="post-author">By Rapiz</span>
+    <span class="post-time">2017-02-11</span>
+  </div>
+  <div class="post-content">
+    </p>
+<hr>
+<p>注意无效值运算后能否保持无效值的性质。<br>比如 min (inf, inf + 负数) 就会得到一个有效值。无法得知这个状态是否是合法<br><em>2017/4/9</em></p>
+<hr>
+<p>1.<br>double x;<br>int y;<br>int a = x<em>y;<br>这样是不合适的取整。<br>应该改成<br>int a = x</em>y + 1e-8;</p>
+<p>2.底数等于模数，费马小定理不成立（如果用于快速幂降指数，判底数为0可以过掉）<br><em>2017/4/9</em></p>
+<hr>
+<p>BSGS 底数为0彻底失效，因为0在任意剩余系都不存在逆！！！此时要特判无解<br><em>2017/3/29</em></p>
+<hr>
+<p>2^64要用ull<br><em>2017/3/27</em></p>
+<hr>
+<p>按时间分治不用把算答案的那些东西放到节点上……只用存操作，在dfs的时候可以再算。否则又t又m</p>
+<p>1&lt;&lt;50毁一生<br>1ll&lt;&lt;50<br><em>2017/3/24</em></p>
+<hr>
+<p>如果你想在数组里处理一段有相同性质的元素（比如权值）<br>注意循环会不会处理第一个元素。<br>比较好的写法是先声明一个起始坐标 ‘int beg = i’<br>然后’while (i &lt;= n &amp;&amp; w[i] == w[beg]) {<br>  //something<br>  i++<br>}’<br>注意i结束时是超尾的，所以要么循环结束之后立刻i—，要么把外层循环的i增去掉</p>
+<p>还有一种写法</p>
+<pre><code>for (int i = 1, j; i &lt;= n; i = j) {
+    for (j = i; j &lt;= n &amp;&amp; w[j] == w[i]; j++) {
+      //something
+    }
+}
+</code></pre><p>看起来还是第二种比较好<br>垃圾垃圾真垃圾，模拟我都写不好<br><em>2013/3/22</em></p>
+<hr>
+<p>子串个数是很容易爆int的，sa求得时候要注意<br><em>2017/3/15</em></p>
+<hr>
+<p>后缀数组几个注意：</p>
+<ol>
+<li>m 初始化</li>
+<li>算前缀和的时候范围是 m</li>
+<li>分隔符不能用一样的</li>
+<li>cmp别写成s，应该写rk</li>
+<li>‘z’ 就是 122 了……很容易爆char的……</li>
+<li>因为用了越界rk为0的性质，所以要开两倍空间和初始化rk<br><em>2017/3/13</em></li>
+</ol>
+<hr>
+<p>200*200 = 40000结果是四个零不是三个零。。。</p>
+<p>心血来潮把共轭边和边的顺序写反了然后导致需要访问边的时候爆炸……</p>
+<p>影响范围不能压进状态里,导致影响范围重叠时不知道能不能放<br><em>2017/3/6</em></p>
+<hr>
+<p>打dinic不过脑子，经常写错的几点</p>
+<ol>
+<li>bfs不push(s)</li>
+<li>bfs队列循环内q.push(v), lv[v] = lv[u] + 1 u写成s……</li>
+<li>dfs不判lv[v] == lv[u] + 1</li>
+<li>sz = 1<br><em>2017/3/5</em></li>
+</ol>
+<hr>
+<p>括号位置错误，不等号进去了，参数大爆炸。<br><em>2017/2/25</em></p>
+<hr>
+<ul>
+<li>splay，线段树中的null节点不要影响答案！！特别是需要维护min和max的时候。第三次犯了！！<br><em>2017/2/20</em></li>
+</ul>
+<hr>
+<ul>
+<li>假如你数据生成器不小心造了超边界1的数据，你可能要调一上午。</li>
+<li>主席树的logn可能是权值的n</li>
+<li>并查集合并时先判是否已经在一个集合里。在不维护额外信息的状况下不影响正确性。但是（按秩）时间可以被卡掉。</li>
+</ul>
+<p><em>2017/2/14</em></p>
+<hr>
+<ul>
+<li>你到底要怎么切块</li>
+<li>离散化后没还原<br><em>2017/2/11</em></li>
+</ul>
+  </div>
+  <!--hightlight.js-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+<!--  <script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>-->
+	<script src="/js/hljs-line-number.js"></script>
+  <script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  </script>
+<!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+  <script>hljs.initHighlighting();</script> -->
+
+</article>
+
+<!-- 如果不是首页且没使用 `comments: false` 关闭评论，则尝试加载评论 -->
+
+    <!-- 配置中启用多说时，导入相应代码 -->
+    <!-- 以上皆关闭且 Hexo 配置中设置了 disqus_shortname 时，导入相应代码 -->
+    
+        <!-- 文件分离和变量的使用，使代码能较好的兼容 Hexo 主配置 -->
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'rapiz'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+    
+
+
+	</main>
+</div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+
+<script src=https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

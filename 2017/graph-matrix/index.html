@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<head><meta name="generator" content="Hexo 3.9.0">
+	
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>邻接矩阵乘法两则 |  潮与雪 - Rapiz</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="/js/utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div id = "wrap">
+    <header id = "header">
+    <div id="nav">
+		<div id = "nav-items">
+      
+        <div class="underline-trans"><a href="/" >Home</a></div>
+      
+        <div class="underline-trans"><a href="/links" >Links</a></div>
+      
+        <div class="underline-trans"><a href="/portal" >Portal</a></div>
+      
+		</ul>
+	</div>
+</header>
+
+
+	<main class = 'main' onchange="FanfouFix();">
+		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
+-->
+<article class="post markdown-body">
+  <div class="post-title">
+    <h2 class="title">邻接矩阵乘法两则</h2>
+  </div>
+   <div class="post-meta">
+         
+    <blockquote><p>随便写写</blockquote>
+    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#USACO-奶牛接力"><span class="toc-text">USACO 奶牛接力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SCOI2009-迷路"><span class="toc-text">SCOI2009 迷路</span></a></li></ol>
+    <span class="post-author">By Rapiz</span>
+    <span class="post-time">2017-02-27</span>
+  </div>
+  <div class="post-content">
+    <br>见08年论文矩阵乘法。</p>
+<h2 id="USACO-奶牛接力"><a href="#USACO-奶牛接力" class="headerlink" title="USACO 奶牛接力"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1470" target="_blank" rel="noopener">USACO 奶牛接力</a></h2><p>dp中涉及转移可以用邻接矩阵？<br>我还是迷迷糊糊不太会扩展。</p>
+<pre><code class="lang-c++">//奶牛接力
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+#define file(x) &quot;relays.&quot; #x
+const int N = 210;
+int n, m, a, b, f[N][N], t[N][N], l, li[1010];
+void mul(int a[N][N], int b[N][N]) {
+    static int c[N][N];
+    memset(c, 0x3f, sizeof(c));
+    for (int i = 1; i &lt;= l; i++) for (int j = 1; j &lt;= l; j++) for (int k = 1; k &lt;= l; k++)
+        c[i][j] = std::min(c[i][j], a[i][k] + b[k][j]);
+    for (int i = 1; i &lt;= l; i++) for (int j = 1; j &lt;= l; j++) a[i][j] = c[i][j];
+}
+inline void lisan(int&amp; x) {
+    if (!li[x]) li[x] = ++l;
+    x = li[x];
+}
+int main() {
+    freopen(file(in), &quot;r&quot;, stdin);
+    freopen(file(out), &quot;w&quot;, stdout);
+    scanf(&quot;%d%d%d%d&quot;, &amp;n, &amp;m, &amp;a, &amp;b);
+    lisan(a), lisan(b);
+    memset(f, 0x3f, sizeof(f));
+    while (m--) {
+        int u, v, w;scanf(&quot;%d%d%d&quot;, &amp;w, &amp;u, &amp;v);
+        lisan(u), lisan(v);
+        f[v][u] = f[u][v] = std::min(f[u][v], w);
+    }
+    memset(t, 0x3f, sizeof(t));
+    for (int i = 1; i &lt;= l; i++) t[i][i] = 0;
+    while (n) {
+        if (n&amp;1) mul(t, f);
+        n &gt;&gt;= 1, mul(f, f);
+    }
+    printf(&quot;%d\n&quot;, t[a][b]);
+}
+</code></pre>
+<h2 id="SCOI2009-迷路"><a href="#SCOI2009-迷路" class="headerlink" title="SCOI2009 迷路"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1297" target="_blank" rel="noopener">SCOI2009 迷路</a></h2><p>大家都会做边权为1。<br>然后这个问题也可以转化为边权为1。<br>我一开始把一个带权边拆成许多边权为1的边，可惜会超时。<br>然后这个题正解是<a href="http://blog.csdn.net/clove_unique/article/details/51492780" target="_blank" rel="noopener">看这个博客的图</a></p>
+<pre><code class="lang-c++">//SCOI2009 迷路
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+const int N = 1010, M = 2009;
+int n, t, r[N][N], f[N][N], tot;
+char buf[30];
+void mul(int a[N][N], int b[N][N]) {
+    static int c[N][N];
+    memset(c, 0, sizeof(c));
+    for (int i = 1; i &lt;= tot; i++) for (int j = 1; j &lt;= tot; j++) for (int k=1; k&lt;=tot; k++)
+        c[i][k] = (c[i][k] + a[i][j]*b[j][k])%M;
+    memcpy(a, c, sizeof(c));
+}
+int main(){
+//    freopen(&quot;input&quot;, &quot;r&quot;, stdin);
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;t);
+    tot = n*9;
+    for (int i = 1; i &lt;= n; i++) {
+        scanf(&quot;%s&quot;, buf + 1);
+        for (int j = 1; j &lt;= n; j++) {
+            int l = buf[j] - &#39;0&#39;;
+            f[i + (l - 1)*n][j] = 1;
+        }
+    }
+    for (int i = 1; i &lt;= n; i++) for (int l = 1; l &lt; 9; l++) f[i + (l-1)*n][i + l*n] = 1;
+    for (int i = 1; i &lt;= tot; i++) r[i][i] = 1;
+    while (t) {
+        if (t&amp;1) mul(r, f);
+        t&gt;&gt;=1, mul(f, f);
+    }
+    printf(&quot;%d\n&quot;, r[1][n]);
+}
+</code></pre>
+  </div>
+  <!--hightlight.js-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+<!--  <script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>-->
+	<script src="/js/hljs-line-number.js"></script>
+  <script>
+  hljs.initHighlightingOnLoad();
+  hljs.initLineNumbersOnLoad();
+  </script>
+<!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
+  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+  <script>hljs.initHighlighting();</script> -->
+
+</article>
+
+<!-- 如果不是首页且没使用 `comments: false` 关闭评论，则尝试加载评论 -->
+
+    <!-- 配置中启用多说时，导入相应代码 -->
+    <!-- 以上皆关闭且 Hexo 配置中设置了 disqus_shortname 时，导入相应代码 -->
+    
+        <!-- 文件分离和变量的使用，使代码能较好的兼容 Hexo 主配置 -->
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'rapiz'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+    
+
+
+	</main>
+</div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+
+<script src=https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
