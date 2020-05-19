@@ -5,6 +5,7 @@ quotes[2] = '杂 乱 诗 篇'
 quotes[3] = '勇气就是做你害怕的事。如果你不害怕，就谈不上勇气。'
 quotes[4] = '我们都会被迫遗忘'
 quotes[5] = '可怜我们所有人的记忆'
+quotes[6] = '编辑进化'
 
 function showSolution(str) {
   foo = document.getElementById(str);
