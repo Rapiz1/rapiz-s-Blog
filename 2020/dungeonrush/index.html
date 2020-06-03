@@ -2,15 +2,26 @@
 <html>
 <!DOCTYPE html>
 <head><meta name="generator" content="Hexo 3.9.0">
-	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>我的游戏登上了 GitHub Trending |  潮与雪 - Rapiz</title>
-	<link rel="stylesheet" href="/css/style.css">
-	<script src="/js/utils.js"></script>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><title>
+    我的游戏 Dungeon Rush |  潮与雪 - Rapiz
+  </title>
+  <link rel="stylesheet" href="/css/style.css"> <script src="/js/utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({ theme: "neutral" });
+    }
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
 </head>
 
 <body>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><div id = "wrap">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script src="https://cdn.bootcdn.net/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<div id = "wrap">
     <header id = "header">
     <div id="nav">
 		<div id = "nav-items">
@@ -31,27 +42,139 @@
 -->
 <article class="post markdown-body">
   <div class="post-title">
-    <h2 class="title">我的游戏登上了 GitHub Trending</h2>
+    <h2 class="title">我的游戏 Dungeon Rush</h2>
   </div>
    <div class="post-meta">
          
+    <blockquote><p>登上 v2ex 热榜、GitHub Trending 两天，收获 800+ Stars</blockquote>
     
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#需求分析"><span class="toc-text">需求分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图形需求"><span class="toc-text">图形需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏需求"><span class="toc-text">游戏需求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统设计"><span class="toc-text">系统设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ADT"><span class="toc-text">ADT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法和程序流程"><span class="toc-text">算法和程序流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块和接口"><span class="toc-text">模块和接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#界面设计"><span class="toc-text">界面设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统实现"><span class="toc-text">系统实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试与调试"><span class="toc-text">测试与调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#心得与体会"><span class="toc-text">心得与体会</span></a></li></ol>
     <span class="post-author">By Rapiz</span>
-    <span class="post-time">2020-03-07</span>
+    <span class="post-time">2020-05-03</span>
   </div>
   <div class="post-content">
-    <p><a href="https://www.v2ex.com/t/649194" target="_blank" rel="noopener">https://www.v2ex.com/t/649194</a></p>
+    </p>
+<p><img src="https://i.loli.net/2020/03/02/wd7DB1CUhsaPueZ.gif" alt="DungeonRush Logo"></p>
+<blockquote>
+<p>收集英雄，壮大队伍，收集武器，击败怪物，探索地牢</p>
+</blockquote>
+<p><a href="https://www.v2ex.com/t/649194">v2ex Post</a></p>
+<p><a href="https://github.com/Rapiz1/DungeonRush">Source Code</a></p>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><h3 id="图形需求"><a href="#图形需求" class="headerlink" title="图形需求"></a>图形需求</h3><ol>
+<li>显示 GUI 界面，开始游戏，选择关卡， 排行榜</li>
+<li>加载图片、文字</li>
+<li>显示一定时长的动画，可以单次或无限循环播放</li>
+<li>显示文字</li>
+<li>子弹飞行、爆炸动画</li>
+</ol>
+<h3 id="游戏需求"><a href="#游戏需求" class="headerlink" title="游戏需求"></a>游戏需求</h3><ol>
+<li>攻击判定 碰撞检测</li>
+<li>角色：血量，武器（攻速、攻击方式（单体/群体，近程/远程，动画效果））</li>
+<li>敌人AI：移动，自动攻击（方向）</li>
+<li>地图自动生成（元胞自动机）</li>
+<li>控制</li>
+<li>难度设定（移动速度，敌人血量、攻速，敌人数量、类型）</li>
+<li>地刺，收放动画</li>
+</ol>
+<h2 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h2><pre class="mermaid">classDiagram
+    LinkNode o-- LinkList
+    LinkList |>-- AnimationList
+    Animation o-- AnimationList
+    Texture *-- Animation
+    Effect *-- Animation
+    SDLTexture*-- Texture
+    class LinkNode {
+        void* element
+        LinkNode *nxt, *pre
+    }
+    class Animation {
+        renderAnimation()
+    }
+    class AnimationList {
+        render()
+    }
+    Weapon *-- Sprite
+    Sprite o-- Snake
+    LinkList *-- Snake
 
+    BaseUi |>-- MainUi
+    BaseUi |>-- RankListUi
+    RankListUi |>-- LocalRankListUi
+
+    Block |>-- Trap
+    Block |>-- Floor</pre>
+
+<h3 id="ADT"><a href="#ADT" class="headerlink" title="ADT"></a>ADT</h3><blockquote>
+<p>用 void* 实现泛型编程</p>
+</blockquote>
+<pre><code class="lang-c">struct _LinkNode {
+  void* element;
+  struct _LinkNode *pre, *nxt;
+};
+typedef struct _LinkNode LinkNode;
+typedef struct {
+  LinkNode *head, *tail;
+} LinkList;
+</code></pre>
+<h3 id="算法和程序流程"><a href="#算法和程序流程" class="headerlink" title="算法和程序流程"></a>算法和程序流程</h3><p>见图解</p>
+<h3 id="模块和接口"><a href="#模块和接口" class="headerlink" title="模块和接口"></a>模块和接口</h3><p>视图、业务逻辑分离</p>
+<p><code>res.c</code> 图形界面初始化和资源加载模块</p>
+<p><code>render.c</code> 渲染模块</p>
+<p><code>game.c</code> 游戏核心逻辑模块</p>
+<p><code>ai.c</code> AI 决策模块</p>
+<p><code>map.c</code> 地图（元胞自动机）模块</p>
+<p><code>helper.c</code> 数学函数和几何判定模块</p>
+<p><code>audio.c</code> 音效和 BGM 模块</p>
+<p><code>ui.c</code> UI 模块</p>
+<p><code>storage.c</code> 数据储存（记录排行榜）模块</p>
+<p><code>snake.c</code> 程序入口</p>
+<h2 id="界面设计"><a href="#界面设计" class="headerlink" title="界面设计"></a>界面设计</h2><p>调用渲染模块使用游戏中的元素直接渲染界面</p>
+<p>用函数递归调用模拟基类派生</p>
+<p>见 <code>ui.c</code></p>
+<h2 id="系统实现"><a href="#系统实现" class="headerlink" title="系统实现"></a>系统实现</h2><h2 id="测试与调试"><a href="#测试与调试" class="headerlink" title="测试与调试"></a>测试与调试</h2><p><code>vscode</code> + <code>valgrind</code> + <code>coredump</code></p>
+<h2 id="心得与体会"><a href="#心得与体会" class="headerlink" title="心得与体会"></a>心得与体会</h2><p>国庆节前后，我听说我们有一门贪吃蛇课设。我认为这是一次锻炼自己的很好的机会。参加算法竞赛让我积累了十几万行的代码经验，但缺乏中大型项目的实践经验。算法竞赛中最复杂的程序不过三四百行，并且不关心图形界面，只关心程序的运行效率、算法的时空复杂度。算法和数据结构是软件设计的核心，但绝不是全部。因此我决心写好一个界面美观、架构良好、符合工程规范的贪吃蛇。</p>
+<p>只写贪吃蛇太无趣，像素风手机游戏元气骑士给了我启发：贪吃蛇，是一些方块的队列。那我为什么不能让每一个方块都是一个角色，用角色的队列代替传统的蛇，让他们攻击怪物，探索地牢？</p>
+<p>首先我在 Google 上收集像素图片资源，找不到的就自己画、朋友画。游戏中的弓箭、法杖、能量球、冰锥等等都是原创。</p>
+<p>做好准备之后，可以开工了。</p>
+<p>我先学习了 SDL 提供给我的处理图形的方式，写出一个小人在地板上走来走去的 Demo 验证效果之后，开始思考如何架构程序。</p>
+<p>我想起我曾经听过的几句简短的程序设计思想：“强内聚，低耦合”、”业务逻辑和渲染分离”。其中对我早期设计架构影响最大的是后者。</p>
+<p>SDL 提供给我的功能有限，一次只能只能显示一张静态图片。我必须要写一个自己的游戏渲染引擎。网上的像素资源包一般是 Spritesheet 的形式（即所有帧排列到一张图片中）。所以我的引擎处理的最小对象是 Texture，它从一张静态图片中切割出帧并储存宽高，并且可以从对应文本文件中加载宽高、分割帧信息。</p>
+<p>但这样的抽象程度还不够。</p>
+<p>考虑到图片中的帧不一定对应实际游戏中的帧，比如一个8帧的行走动画用0.5秒播放完比较合适，也就是实际使用 30 帧播放，我们可以得出进一步的抽象应该含有一个 Texture 实际播放的时间。我认为这一层可以将游戏中的所有元素视作 一个特定的 Animation，拥有屏幕坐标，持续时间，循环类型（显然有些动画需要只播放一次，有些动画需要无限循环）。</p>
+<p>接着，我们想到游戏中的人物死亡时应该有死亡动画，比如颜色变深红之后逐渐消失。或者有些动画需要亮度闪烁。所以我们引入 Effect，储存关于 RGBA 通道系数的数组，然后进行线性插值，渲染时把对应通道值乘上系数。这样就可以实现动画的颜色+透明度变换动画。</p>
+<p>虽然我要写的是 2D 游戏，但实际上也需要实现 z 轴的遮挡关系。比如两个人物一上一下靠的很接近时，人物会出现重叠部分，我们需要让站的靠下的人显示在上方。但我们又不必要完全实现z轴，所以我把动画分为几层：</p>
+<ol>
+<li>地图地板</li>
+<li>人物</li>
+<li>子弹</li>
+<li>爆炸特效</li>
+<li>UI</li>
+</ol>
+<p>每一层实现一个动画链表，把不同的动画插入对应的层中。然后渲染时自底向上渲染，就自然实现了遮挡的效果。</p>
+<p><em>Dungeon Rush Pipeline</em></p>
+<div id="flowchart-0" class="flow-chart"></div>
+
+<p>此时渲染引擎基本写完。</p>
+<p>我认为我这次做的最有挑战性的工作是根据 SDL 的有限功能实现一个功能完整、易于使用的渲染引擎。前期的良好架构为我后期的开发提供了很多便利。</p>
+<p>实际上，我用了一个月构思大的架构，半个月思考并实现渲染引擎。最后，从只有测试接口的渲染引擎，到可以游玩的游戏，我只用了2天。整个游戏逻辑开发只用了半周。</p>
+<p>之后的工作只不过是寻找动画资源、增加武器和怪物数据。而接口都是写好的，每一个怪物和武器的设置不过对应几行代码。UI 界面也是直接调用渲染引擎，使用游戏中的墙壁和地板元素拼出。</p>
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">texture=>start: Texture
+ani=>operation: Animation
+eff=>operation: Effect
+list=>operation: Multiple animation lists
+img=>end: Final image
+ani->eff->list->img</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
   </div>
   <!--hightlight.js-->
+  <!--
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
   <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
-<!--  <script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>-->
 	<script src="/js/hljs-line-number.js"></script>
   <script>
   hljs.initHighlightingOnLoad();
   hljs.initLineNumbersOnLoad();
   </script>
+-->
 <!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
   <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
   <script>hljs.initHighlighting();</script> -->

@@ -2,15 +2,26 @@
 <html>
 <!DOCTYPE html>
 <head><meta name="generator" content="Hexo 3.9.0">
-	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>非典型分治 |  潮与雪 - Rapiz</title>
-	<link rel="stylesheet" href="/css/style.css">
-	<script src="/js/utils.js"></script>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><title>
+    非典型分治 |  潮与雪 - Rapiz
+  </title>
+  <link rel="stylesheet" href="/css/style.css"> <script src="/js/utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({ theme: "neutral" });
+    }
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
 </head>
 
 <body>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><div id = "wrap">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script src="https://cdn.bootcdn.net/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<div id = "wrap">
     <header id = "header">
     <div id="nav">
 		<div id = "nav-items">
@@ -44,7 +55,7 @@
   <div class="post-content">
     </p>
 <p>CDQ分治是分治（归并，逆序对），整体二分是二分查找。</p>
-<h2 id="CDQ-分治"><a href="#CDQ-分治" class="headerlink" title="CDQ 分治"></a>CDQ 分治</h2><p>cdq 在论文中以两道题来介绍了一类分治算法。<br>其核心在于计算左半部分对右半部分的影响。<br>按论文的介绍顺序可以粗糙地分为两类。<br>第一类和dp有关，参见<a href="../mono-dp">动态规划中的单调性优化的斜率优化部分</a>。当然计算凸壳并不是cdq分治做dp唯一的用处。比如可以写Hackerrank里101hack这个比赛的Maximizing Mission Points体会一下。<br>下面我们介绍第二类，用于替代裸数据结构题的分治。<br>先看下面这个讲解。<br><a href="http://blog.csdn.net/hbhcy98/article/details/50642773" target="_blank" rel="noopener">意识流</a><br>Hint:当前分治处理到的区间长度为 $L$, 那么清理外部数组的复杂度必须是 $O(N)$ 左右，否则总复杂度不是 $O(NlogN)$。可以储存下这次处理过的操作，递归结束时还原。</p>
+<h2 id="CDQ-分治"><a href="#CDQ-分治" class="headerlink" title="CDQ 分治"></a>CDQ 分治</h2><p>cdq 在论文中以两道题来介绍了一类分治算法。<br>其核心在于计算左半部分对右半部分的影响。<br>按论文的介绍顺序可以粗糙地分为两类。<br>第一类和dp有关，参见<a href="../mono-dp">动态规划中的单调性优化的斜率优化部分</a>。当然计算凸壳并不是cdq分治做dp唯一的用处。比如可以写Hackerrank里101hack这个比赛的Maximizing Mission Points体会一下。<br>下面我们介绍第二类，用于替代裸数据结构题的分治。<br>先看下面这个讲解。<br><a href="http://blog.csdn.net/hbhcy98/article/details/50642773">意识流</a><br>Hint:当前分治处理到的区间长度为 $L$, 那么清理外部数组的复杂度必须是 $O(N)$ 左右，否则总复杂度不是 $O(NlogN)$。可以储存下这次处理过的操作，递归结束时还原。</p>
 <p><em>下面开始胡说八道流</em><br>CDQ 分治的过程和归并排序很像。<br>考虑各个操作之间存在时间顺序和影响顺序。</p>
 <p>举个简单例子，对于一个数列，影响序的含义是修改2的点权会影响3的前缀和，而修改3的点权不影响2的前缀和。<br>时间序就不解释了。</p>
 <p>操作 A 对操作 B 实际上有贡献的充要条件是，时间序 A &lt; B, 影响序 A &lt; B。</p>
@@ -60,15 +71,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1176" target="_blank" rel="noopener">BZOJ1176 Mokia</a></td>
+<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1176">BZOJ1176 Mokia</a></td>
 <td>入门题</td>
 </tr>
 <tr>
-<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2716" target="_blank" rel="noopener">BZOJ2716 天使玩偶</a></td>
+<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2716">BZOJ2716 天使玩偶</a></td>
 <td>网上的题解很容易懂。</td>
 </tr>
 <tr>
-<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3295" target="_blank" rel="noopener">BZOJ3295 动态逆序对</a></td>
+<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3295">BZOJ3295 动态逆序对</a></td>
 <td>数列中第 x 个数 y 看成平面上一点 (x,y)</td>
 </tr>
 <tr>
@@ -76,15 +87,15 @@
 <td>答案的<strong>变化量</strong>是一个点左上角和右下角的点的数量。</td>
 </tr>
 <tr>
-<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2683" target="_blank" rel="noopener">BZOJ2683 简单题</a></td>
+<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2683">BZOJ2683 简单题</a></td>
 <td>双倍经验</td>
 </tr>
 <tr>
-<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1935" target="_blank" rel="noopener">1935 Tree 园丁的烦恼</a></td>
+<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1935">1935 Tree 园丁的烦恼</a></td>
 <td>三倍经验，意义不大</td>
 </tr>
 <tr>
-<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3262" target="_blank" rel="noopener">BZOJ3262 陌上花开</a></td>
+<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3262">BZOJ3262 陌上花开</a></td>
 <td>注意去重。第一次排序的时候三维都要比较，强行造出时间序</td>
 </tr>
 </tbody>
@@ -224,8 +235,8 @@ int main() {
     for (int i = 0; i &lt; n; i++) printf(&quot;%d\n&quot;, ans[i]);
 }
 </code></pre>
-<h3 id="See-Also"><a href="#See-Also" class="headerlink" title="See Also"></a>See Also</h3><p><a href="https://fancypei.github.io/2016/06/14/CDQ/#bzoj-2961-共点圆" target="_blank" rel="noopener">CDQ分治 by Fancy</a><br><a href="http://zyk1997.github.io/2015/06/22/CDQ/" target="_blank" rel="noopener">CDQ分治 by zyk1997</a></p>
-<h2 id="整体二分"><a href="#整体二分" class="headerlink" title="整体二分"></a>整体二分</h2><p><a href="http://www.cnblogs.com/zig-zag/archive/2013/04/18/3027707.html" target="_blank" rel="noopener">入门</a><br><a href="http://www.cnblogs.com/sagitta/p/5982251.html" target="_blank" rel="noopener">带修改</a></p>
+<h3 id="See-Also"><a href="#See-Also" class="headerlink" title="See Also"></a>See Also</h3><p><a href="https://fancypei.github.io/2016/06/14/CDQ/#bzoj-2961-共点圆">CDQ分治 by Fancy</a><br><a href="http://zyk1997.github.io/2015/06/22/CDQ/">CDQ分治 by zyk1997</a></p>
+<h2 id="整体二分"><a href="#整体二分" class="headerlink" title="整体二分"></a>整体二分</h2><p><a href="http://www.cnblogs.com/zig-zag/archive/2013/04/18/3027707.html">入门</a><br><a href="http://www.cnblogs.com/sagitta/p/5982251.html">带修改</a></p>
 <p>自己脑补吧。<br>带修改时天然时间序方便了很多，并且我们可以把修改只分到一侧。</p>
 <div class="table-container">
 <table>
@@ -237,11 +248,11 @@ int main() {
 </thead>
 <tbody>
 <tr>
-<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2527" target="_blank" rel="noopener">BZOJ2527 Meteors</a></td>
+<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2527">BZOJ2527 Meteors</a></td>
 <td>注意会爆long long…</td>
 </tr>
 <tr>
-<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3110" target="_blank" rel="noopener">BZOJ3110 K大数查询</a></td>
+<td><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3110">BZOJ3110 K大数查询</a></td>
 <td>还是会爆long long</td>
 </tr>
 </tbody>
@@ -249,14 +260,15 @@ int main() {
 </div>
   </div>
   <!--hightlight.js-->
+  <!--
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
   <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
-<!--  <script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>-->
 	<script src="/js/hljs-line-number.js"></script>
   <script>
   hljs.initHighlightingOnLoad();
   hljs.initLineNumbersOnLoad();
   </script>
+-->
 <!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
   <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
   <script>hljs.initHighlighting();</script> -->

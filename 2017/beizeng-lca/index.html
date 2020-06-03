@@ -2,15 +2,26 @@
 <html>
 <!DOCTYPE html>
 <head><meta name="generator" content="Hexo 3.9.0">
-	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>倍增LCA |  潮与雪 - Rapiz</title>
-	<link rel="stylesheet" href="/css/style.css">
-	<script src="/js/utils.js"></script>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><title>
+    倍增LCA |  潮与雪 - Rapiz
+  </title>
+  <link rel="stylesheet" href="/css/style.css"> <script src="/js/utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({ theme: "neutral" });
+    }
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
 </head>
 
 <body>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><div id = "wrap">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script src="https://cdn.bootcdn.net/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<div id = "wrap">
     <header id = "header">
     <div id="nav">
 		<div id = "nav-items">
@@ -45,7 +56,7 @@
     </p>
 <p>你可能遇到过这种情况，需要用到 LCA， 但是写一个 ST 表 + RMQ 多了一个欧拉序数组、一个<code>sz</code>变量、一个或两个函数，如果仅仅为 LCA 写树剖就太兴师动众了，这就很不爽。</p>
 <p>这时候你需要倍增 LCA。<br>而倍增 LCA 需要的信息仅仅是 <code>anc[][]</code> 和 <code>dep[]</code>，<code>anc[][]</code> 可以替换 <code>fa[]</code> 的位置, <code>dep[]</code> 往往是写不写 LCA 都要维护的常见量。</p>
-<p><a href="http://www.cnblogs.com/wuminye/p/3532397.html" target="_blank" rel="noopener">算法过程很简单, 想学看这里。</a><em>&lt;-这篇文章过程讲的很好，代码太长太丑。</em></p>
+<p><a href="http://www.cnblogs.com/wuminye/p/3532397.html">算法过程很简单, 想学看这里。</a><em>&lt;-这篇文章过程讲的很好，代码太长太丑。</em></p>
 <p>所以代码也很简单。<br>我们只多写了一行来维护<code>anc[]</code>。<br>LCA 还是要写一个函数的。</p>
 <pre><code class="lang-c++">void dfs(int u) {
     for (int i = 1; i &lt; K; i++) anc[u][i] = anc[anc[u][i - 1]][i - 1];
@@ -68,14 +79,15 @@ int lca(int u, int v) {
 </code></pre>
   </div>
   <!--hightlight.js-->
+  <!--
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
   <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
-<!--  <script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>-->
 	<script src="/js/hljs-line-number.js"></script>
   <script>
   hljs.initHighlightingOnLoad();
   hljs.initLineNumbersOnLoad();
   </script>
+-->
 <!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
   <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
   <script>hljs.initHighlighting();</script> -->

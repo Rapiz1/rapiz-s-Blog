@@ -2,15 +2,26 @@
 <html>
 <!DOCTYPE html>
 <head><meta name="generator" content="Hexo 3.9.0">
-	
-	<!-- hexo-inject:begin --><!-- hexo-inject:end --><title>邻接矩阵乘法两则 |  潮与雪 - Rapiz</title>
-	<link rel="stylesheet" href="/css/style.css">
-	<script src="/js/utils.js"></script>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><title>
+    邻接矩阵乘法两则 |  潮与雪 - Rapiz
+  </title>
+  <link rel="stylesheet" href="/css/style.css"> <script src="/js/utils.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({ theme: "neutral" });
+    }
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
 </head>
 
 <body>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><div id = "wrap">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script src="https://cdn.bootcdn.net/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<div id = "wrap">
     <header id = "header">
     <div id="nav">
 		<div id = "nav-items">
@@ -43,7 +54,7 @@
   </div>
   <div class="post-content">
     <br>见08年论文矩阵乘法。</p>
-<h2 id="USACO-奶牛接力"><a href="#USACO-奶牛接力" class="headerlink" title="USACO 奶牛接力"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1470" target="_blank" rel="noopener">USACO 奶牛接力</a></h2><p>dp中涉及转移可以用邻接矩阵？<br>我还是迷迷糊糊不太会扩展。</p>
+<h2 id="USACO-奶牛接力"><a href="#USACO-奶牛接力" class="headerlink" title="USACO 奶牛接力"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1470">USACO 奶牛接力</a></h2><p>dp中涉及转移可以用邻接矩阵？<br>我还是迷迷糊糊不太会扩展。</p>
 <pre><code class="lang-c++">//奶牛接力
 #include &lt;cstdio&gt;
 #include &lt;algorithm&gt;
@@ -82,7 +93,7 @@ int main() {
     printf(&quot;%d\n&quot;, t[a][b]);
 }
 </code></pre>
-<h2 id="SCOI2009-迷路"><a href="#SCOI2009-迷路" class="headerlink" title="SCOI2009 迷路"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1297" target="_blank" rel="noopener">SCOI2009 迷路</a></h2><p>大家都会做边权为1。<br>然后这个问题也可以转化为边权为1。<br>我一开始把一个带权边拆成许多边权为1的边，可惜会超时。<br>然后这个题正解是<a href="http://blog.csdn.net/clove_unique/article/details/51492780" target="_blank" rel="noopener">看这个博客的图</a></p>
+<h2 id="SCOI2009-迷路"><a href="#SCOI2009-迷路" class="headerlink" title="SCOI2009 迷路"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1297">SCOI2009 迷路</a></h2><p>大家都会做边权为1。<br>然后这个问题也可以转化为边权为1。<br>我一开始把一个带权边拆成许多边权为1的边，可惜会超时。<br>然后这个题正解是<a href="http://blog.csdn.net/clove_unique/article/details/51492780">看这个博客的图</a></p>
 <pre><code class="lang-c++">//SCOI2009 迷路
 #include &lt;cstdio&gt;
 #include &lt;cstring&gt;
@@ -118,14 +129,15 @@ int main(){
 </code></pre>
   </div>
   <!--hightlight.js-->
+  <!--
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
   <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
-<!--  <script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>-->
 	<script src="/js/hljs-line-number.js"></script>
   <script>
   hljs.initHighlightingOnLoad();
   hljs.initLineNumbersOnLoad();
   </script>
+-->
 <!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
   <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
   <script>hljs.initHighlighting();</script> -->
