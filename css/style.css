@@ -327,7 +327,6 @@ a:hover {
   margin: 0 0;
   padding: 10px 30px;
   min-height: 100px;
-  height: 100%;
 }
 .markdown-body {
   box-sizing: border-box;
@@ -389,6 +388,9 @@ code {
 }
 .underline-trans:hover:before {
   transform: scale(1);
+}
+#footer {
+  text-align: center;
 }
 .index.post-title-link {
   float: left;
@@ -452,7 +454,7 @@ a[href="http://fanfou.com/"] {
 #banner-text {
   text-align: center;
   user-select: none;
-  height: calc(100% - 40px);
+  height: calc(100vh - 40px);
   display: flex;
   flex-direction: column;
   justify-content: center;
