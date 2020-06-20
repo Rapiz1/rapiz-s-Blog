@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
 <!DOCTYPE html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><title>
     (浅谈)^2 线性代数 |  潮与雪 - Rapiz
   </title>
-  <link rel="stylesheet" href="/css/style.css"> <script src="/js/utils.js"></script>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+<link rel="stylesheet" href="/css/style.css">
+ 
+<script src="/js/utils.js"></script>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   
   <script src="https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js"></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({ theme: "neutral" });
     }
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </script>
   
-</head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 <body>
 <!-- hexo-inject:begin --><!-- hexo-inject:end --><script src="https://cdn.bootcdn.net/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
@@ -48,7 +52,7 @@
          
     <blockquote><p>标题的意思是比浅谈更浅谈</blockquote>
     
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">没写完呢还</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#线性相关和线性无关"><span class="toc-text">线性相关和线性无关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定理"><span class="toc-text">定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判定"><span class="toc-text">判定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向量组的秩"><span class="toc-text">向量组的秩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行列式"><span class="toc-text">行列式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义-1"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定理-1"><span class="toc-text">定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#排列"><span class="toc-text">排列</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text">没写完呢还</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#线性相关和线性无关"><span class="toc-text">线性相关和线性无关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定理"><span class="toc-text">定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判定"><span class="toc-text">判定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向量组的秩"><span class="toc-text">向量组的秩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行列式"><span class="toc-text">行列式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义-1"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定理-1"><span class="toc-text">定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#排列"><span class="toc-text">排列</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li></ol>
     <span class="post-author">By Rapiz</span>
     <span class="post-time">2017-02-11</span>
   </div>
@@ -68,7 +72,9 @@
   <!--
   <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
   <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
-	<script src="/js/hljs-line-number.js"></script>
+	
+<script src="/js/hljs-line-number.js"></script>
+
   <script>
   hljs.initHighlightingOnLoad();
   hljs.initLineNumbersOnLoad();
