@@ -71,7 +71,7 @@
 <p>即使做了端口映射，也必须访问 <code>192.168.99.100</code>。</p>
 <h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><h3 id="Dockerlization-容器化"><a href="#Dockerlization-容器化" class="headerlink" title="Dockerlization 容器化"></a>Dockerlization 容器化</h3><p>React 工程容器化</p>
 <p><a href="https://mherman.org/blog/dockerizing-a-react-app/">这里有一篇可以用来参考的文章</a>。需要注意的是 <code>react-scripts</code> 在近期（2020年）的几个版本导致 <code>docker</code> 需要额外配置才能启动 <code>react</code> 开发服务器。<a href="https://github.com/facebook/create-react-app/issues/8688">这里</a> 提到 <code>tty: true</code> 或者 <code>stdin_open: true</code> 都可以解决问题。</p>
-<h2 id="跨域制裁"><a href="#跨域制裁" class="headerlink" title="跨域制裁"></a>跨域制裁</h2><p>因为不熟 JS 所以调了半天 Promise 找不到自己哪里写炸了。有网络请求有返回值，但回调函数就没运行。最后突然想起来跨域了。在 FastAPI 里加了CORS中间件，解决。</p>
+<h2 id="跨域制裁"><a href="#跨域制裁" class="headerlink" title="跨域制裁"></a>跨域制裁</h2><p>因为不熟 JS 所以调了半天 Promise 找不到自己哪里写炸了。有网络请求有返回值，但回调函数就没运行。最后突然想起来跨域了。在 FastAPI 里加了 CORS 中间件，解决。</p>
   </div>
   <!--hightlight.js-->
   <!--
@@ -131,6 +131,22 @@
     </script>
 
 <!-- End Google Analytics -->
-</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+
+<script src=https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
