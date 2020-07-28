@@ -50,7 +50,7 @@
   </div>
    <div class="post-meta">
          
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Virtualization"><span class="toc-text">Virtualization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Process-API"><span class="toc-text">Process API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2"><span class="toc-text">2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7"><span class="toc-text">7</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8"><span class="toc-text">8</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VM-Intro"><span class="toc-text">VM Intro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VM-API"><span class="toc-text">VM API</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Virtualization"><span class="toc-text">Virtualization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Process-API"><span class="toc-text">Process API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2"><span class="toc-text">2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7"><span class="toc-text">7</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8"><span class="toc-text">8</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VM-Intro"><span class="toc-text">VM Intro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VM-API"><span class="toc-text">VM API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VM-Swap"><span class="toc-text">VM Swap</span></a></li></ol></li></ol>
     <span class="post-author">By Rapiz</span>
     <span class="post-time">2020-06-27</span>
   </div>
@@ -225,6 +225,10 @@ int main(int argc, char** argv) {
 <li>pass</li>
 <li>Invalid read 程序继续运行</li>
 <li>Invalid free. SIGABRT 程序终止</li>
+</ol>
+<h3 id="VM-Swap"><a href="#VM-Swap" class="headerlink" title="VM Swap"></a>VM Swap</h3><ol>
+<li>没看到 user time 有明显变化。。sys time 倒是增加了</li>
+<li>因为内存够大所以我禁用了swap。swpd 上啥都看不到。 free 的变化量反映了 ./mem 收集的</li>
 </ol>
   </div>
   <!--hightlight.js-->
