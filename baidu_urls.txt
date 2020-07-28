@@ -1,0 +1,10 @@
+http://rapiz.me/2020/network-topdown-notes/
+http://rapiz.me/2020/sep2020-bugs/
+http://rapiz.me/2020/os-threepieces-homework/
+http://rapiz.me/2020/os-threepieces/
+http://rapiz.me/2020/cs-courses/
+http://rapiz.me/2020/gsoc2020-archive/
+http://rapiz.me/2020/hou-lang/
+http://rapiz.me/2020/dungeonrush/
+http://rapiz.me/2020/migrate-arch/
+http://rapiz.me/2020/git-through-proxy/
