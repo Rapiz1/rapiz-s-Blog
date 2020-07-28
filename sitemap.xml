@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://rapiz.me/2020/dungeonrush/</loc>
+    
+    <lastmod>2020-07-28T14:23:31.746Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://rapiz.me/2020/os-threepieces/</loc>
     
     <lastmod>2020-07-28T14:09:53.905Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://rapiz.me/2020/cs-courses/</loc>
     
     <lastmod>2020-06-23T15:00:40.274Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://rapiz.me/2020/dungeonrush/</loc>
-    
-    <lastmod>2020-06-03T13:54:38.491Z</lastmod>
     
   </url>
   
@@ -296,13 +296,6 @@
   </url>
   
   <url>
-    <loc>http://rapiz.me/2017/songs-gogogo7188/</loc>
-    
-    <lastmod>2019-07-17T08:20:55.591Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://rapiz.me/2017/songs-living-in-twilight/</loc>
     
     <lastmod>2019-07-17T08:20:55.591Z</lastmod>
@@ -359,6 +352,13 @@
   </url>
   
   <url>
+    <loc>http://rapiz.me/2016/%E7%AE%80%E5%8D%95%E5%88%86%E5%9D%97/</loc>
+    
+    <lastmod>2019-07-17T08:20:55.591Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://rapiz.me/2016/%E5%85%B3%E4%BA%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/</loc>
     
     <lastmod>2019-07-17T08:20:55.591Z</lastmod>
@@ -366,7 +366,7 @@
   </url>
   
   <url>
-    <loc>http://rapiz.me/2016/%E7%AE%80%E5%8D%95%E5%88%86%E5%9D%97/</loc>
+    <loc>http://rapiz.me/2017/songs-gogogo7188/</loc>
     
     <lastmod>2019-07-17T08:20:55.591Z</lastmod>
     
