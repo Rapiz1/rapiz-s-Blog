@@ -85,11 +85,11 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>http://rapiz.me/2017/graph-matrix/</loc>
+    <loc>http://rapiz.me/2017/hello-world/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>http://rapiz.me/2017/hello-world/</loc>
+    <loc>http://rapiz.me/2017/graph-matrix/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
@@ -101,15 +101,11 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>http://rapiz.me/2017/mono-dp/</loc>
-    <lastmod>2019-07-17</lastmod>
-  </url>
-  <url>
     <loc>http://rapiz.me/2017/networkflow/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>http://rapiz.me/2017/sc-dp/</loc>
+    <loc>http://rapiz.me/2017/mono-dp/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
@@ -121,15 +117,19 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
+    <loc>http://rapiz.me/2017/sc-dp/</loc>
+    <lastmod>2019-07-17</lastmod>
+  </url>
+  <url>
     <loc>http://rapiz.me/2016/2-SAT/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>http://rapiz.me/2016/Splay/</loc>
+    <loc>http://rapiz.me/2017/WC2017/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>http://rapiz.me/2017/WC2017/</loc>
+    <loc>http://rapiz.me/2016/Splay/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
@@ -145,11 +145,11 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>http://rapiz.me/2017/link-cut-tree/</loc>
+    <loc>http://rapiz.me/2017/motao-shang-shu/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>http://rapiz.me/2017/motao-shang-shu/</loc>
+    <loc>http://rapiz.me/2017/link-cut-tree/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
@@ -157,11 +157,19 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
+    <loc>http://rapiz.me/2017/songs-living-in-twilight/</loc>
+    <lastmod>2019-07-17</lastmod>
+  </url>
+  <url>
     <loc>http://rapiz.me/2017/songs-gogogo7188/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>http://rapiz.me/2017/songs-living-in-twilight/</loc>
+    <loc>http://rapiz.me/2017/songs-mi-familia/</loc>
+    <lastmod>2019-07-17</lastmod>
+  </url>
+  <url>
+    <loc>http://rapiz.me/2017/songs-zai-yun-duan/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
@@ -177,11 +185,11 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>http://rapiz.me/2017/wa/</loc>
+    <loc>http://rapiz.me/2017/work-on-linux/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>http://rapiz.me/2017/work-on-linux/</loc>
+    <loc>http://rapiz.me/2017/wa/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
@@ -190,14 +198,6 @@
   </url>
   <url>
     <loc>http://rapiz.me/2016/%E7%AE%80%E5%8D%95%E5%88%86%E5%9D%97/</loc>
-    <lastmod>2019-07-17</lastmod>
-  </url>
-  <url>
-    <loc>http://rapiz.me/2017/songs-zai-yun-duan/</loc>
-    <lastmod>2019-07-17</lastmod>
-  </url>
-  <url>
-    <loc>http://rapiz.me/2017/songs-mi-familia/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
 </urlset> 
