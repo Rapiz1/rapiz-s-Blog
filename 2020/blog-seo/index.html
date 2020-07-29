@@ -4,7 +4,7 @@
 <head>
   
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><title>
-    Hexo SEO 之完全不懂指南 |  潮与雪 - Rapiz
+    Hexo SEO 之完全指北 |  潮与雪 - Rapiz
   </title>
   
 <link rel="stylesheet" href="/css/style.css">
@@ -57,13 +57,13 @@
 -->
 <article class="post markdown-body">
   <div class="post-title">
-    <h2 class="title">Hexo SEO 之完全不懂指南</h2>
+    <h2 class="title">Hexo SEO 之完全指北</h2>
   </div>
    <div class="post-meta">
          
     <blockquote><p>如果不是被仿冒，谁又愿意做 SEO 呢</blockquote>
     
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sitemap"><span class="toc-text">Sitemap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API-提交"><span class="toc-text">API 提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Metadata"><span class="toc-text">Metadata</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Appendix"><span class="toc-text">Appendix</span></a></li></ol>
     <span class="post-author">By Rapiz</span>
     <span class="post-time">2020-07-28</span>
   </div>
@@ -71,10 +71,13 @@
     </p>
 <p><a href="/2020/fake-rapiz">上篇博文讲述了不是技术网红的我也会被仿冒</a>的故事，由于关键字权重低所以我被不明真相的围观群众持续输出 : ( 而本正版博客的必应权重还不错，百度惨遭只收录主页还没排名。虽然我自己用必应，但是我感觉大部分人还是用的百度，这就表明他们很可能会认为 Rapiz 是个东百的二本的喜欢喷人的学生（（（</p>
 <p>所以我决定做点聊胜于无的 SEO。</p>
-<p>首先加 sitemap, 也许大概可能百度会根据这个收录本博的文章。<a href="https://blog.csdn.net/formemorywithyou/article/details/96478453">这篇文章</a> 讲了怎么用 Hexo 生成 google 和百度的 sitemap。</p>
-<p>对于百度来说可能<a href="https://www.jianshu.com/p/f37452d4978e">通过 API 向百度提交</a>最近更新是个更好的选择。</p>
-<p>然后我看了下别人的网站，<code>&lt;head&gt;</code> 里都有 <code>&lt;meta&gt;</code> 表明关键字和作者啥的。我觉得可能 <code>&lt;meta&gt;</code> 多了也利于收录？<a href="https://blog.csdn.net/alokka/article/details/78814674">这篇文章里</a>有挺多常用的标签，我加了 author, description, keywords，希望多少起点作用吧。</p>
-<p><em>救救 Rapiz 别让他再被假冒和风评被害了</em></p>
+<h2 id="Sitemap"><a href="#Sitemap" class="headerlink" title="Sitemap"></a>Sitemap</h2><p>首先加 Sitemap。Sitemap 类似于网站的一个地图，蜘蛛会定期根据这个地图遍历网站。也许大概可能百度会根据这个收录本博的文章。</p>
+<p><a href="https://blog.csdn.net/formemorywithyou/article/details/96478453">这篇文章</a> 讲了怎么用 Hexo 生成 google 和百度的 sitemap。</p>
+<p>你可以访问 <a href="https://rapiz.me/sitemap.xml">https://rapiz.me/sitemap.xml</a> <a href="https://rapiz.me/baidusitemap.xml">https://rapiz.me/baidusitemap.xml</a> 来查看本站的 google sitemap 和百度 sitemap。</p>
+<h2 id="API-提交"><a href="#API-提交" class="headerlink" title="API 提交"></a>API 提交</h2><p>相对于蜘蛛定期遍历 Sitemap 来抓取网站，还有一种方法就是每次更新博客时向百度提交更新后的网址。</p>
+<p>这里描述了 Hexo 中<a href="https://www.jianshu.com/p/f37452d4978e">通过 API 向百度提交</a>。</p>
+<h2 id="Metadata"><a href="#Metadata" class="headerlink" title="Metadata"></a>Metadata</h2><p>然后我看了下别人的网站，<code>&lt;head&gt;</code> 里都有 <code>&lt;meta&gt;</code> 表明关键字和作者啥的。我觉得可能 <code>&lt;meta&gt;</code> 多了也利于收录？<a href="https://blog.csdn.net/alokka/article/details/78814674">这篇文章里</a>有挺多常用的标签，我加了 author, description, keywords，希望多少起点作用吧。</p>
+<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><p><em>救救 Rapiz 别让他再被假冒和风评被害了</em></p>
   </div>
   <!--hightlight.js-->
   <!--

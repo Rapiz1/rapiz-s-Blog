@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://rapiz.me/2020/blog-seo/</loc>
+    
+    <lastmod>2020-07-29T04:11:41.170Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://rapiz.me/links/index.html</loc>
+    
+    <lastmod>2020-07-29T04:01:09.430Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://rapiz.me/2020/dungeonrush/</loc>
     
     <lastmod>2020-07-28T14:23:31.746Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://rapiz.me/2020/os-threepieces/</loc>
     
     <lastmod>2020-07-28T14:09:53.905Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://rapiz.me/2020/blog-seo/</loc>
-    
-    <lastmod>2020-07-28T13:44:48.960Z</lastmod>
     
   </url>
   
@@ -89,13 +96,6 @@
     <loc>http://rapiz.me/2020/vbox-integration/</loc>
     
     <lastmod>2020-02-21T09:06:54.619Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://rapiz.me/links/index.html</loc>
-    
-    <lastmod>2020-01-24T11:27:42.811Z</lastmod>
     
   </url>
   
