@@ -70,7 +70,7 @@
   </div>
   <div class="post-content">
     </p>
-<h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h2><p><a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=457&amp;page=show_problem&amp;problem=4254">原题面</a><br>我来概括一下：<br>给出 $n \in [1, 1e5]$ 个五元组，要求选出 $k \in [1, n]$ 个合成后权值最大。<br>我们定义一个五元组的权值为它的五个元素之和。<br>我们定义两个五元组的合成为他们对应元素取最大值后得到的一个五元组。<br>比如 $[1, 2, 3, 4, 5]$ 与 $[5, 4, 3, 2, 1]$ 的合成为 $[5, 4, 3, 4, 5]$，它的权值为 $5 + 4 + 3  4 + 5 = 21$</p>
+<h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h2><p><a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=457&amp;page=show_problem&amp;problem=4254" rel="external nofollow noreferrer">原题面</a><br>我来概括一下：<br>给出 $n \in [1, 1e5]$ 个五元组，要求选出 $k \in [1, n]$ 个合成后权值最大。<br>我们定义一个五元组的权值为它的五个元素之和。<br>我们定义两个五元组的合成为他们对应元素取最大值后得到的一个五元组。<br>比如 $[1, 2, 3, 4, 5]$ 与 $[5, 4, 3, 2, 1]$ 的合成为 $[5, 4, 3, 4, 5]$，它的权值为 $5 + 4 + 3  4 + 5 = 21$</p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>一个五元组对答案的贡献就是它里面的一些元素成为最大值。比如一个五元组的一、三元素在答案方案中为最大值，那么将它表示为10100。进一步的例子，一个答案的方案可能由两个五元组组成：<br>10100<br>01011<br>但是我们不清楚究竟是哪两个五元组。<br>所以不妨对所有的五元组都按10100的方式算出来对应位置元素的和，取他们的最大值。=<br>对01011也是这样。<br>把两个最大值加起来就是“假如答案这样组成”的答案。<br>所以我们枚举答案的组成方式即可。<br>也就是枚举11111的子集。<br>代码：</p>
 <pre><code class="lang-c++">#include &lt;cstdio&gt;
 #include &lt;cstring&gt;
@@ -137,7 +137,7 @@ int main() {
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="external nofollow noreferrer">comments powered by Disqus.</a></noscript>
 </section>
 
     
@@ -145,7 +145,7 @@ int main() {
 
 	</main>
   <div id = "typography-footer">
-    <p>Powered by Hexo | Themed by <a href="https://github.com/Rapiz1/typography">Typography</a> @ <a href="https://github.com/Rapiz1">Rapiz</a></p>
+    <p>Powered by Hexo | Themed by <a href="https://github.com/Rapiz1/typography" rel="external nofollow noreferrer">Typography</a> @ <a href="https://github.com/Rapiz1" rel="external nofollow noreferrer">Rapiz</a></p>
 </div>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 

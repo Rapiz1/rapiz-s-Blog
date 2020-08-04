@@ -72,7 +72,7 @@
     </p>
 <p>你可能遇到过这种情况，需要用到 LCA， 但是写一个 ST 表 + RMQ 多了一个欧拉序数组、一个<code>sz</code>变量、一个或两个函数，如果仅仅为 LCA 写树剖就太兴师动众了，这就很不爽。</p>
 <p>这时候你需要倍增 LCA。<br>而倍增 LCA 需要的信息仅仅是 <code>anc[][]</code> 和 <code>dep[]</code>，<code>anc[][]</code> 可以替换 <code>fa[]</code> 的位置, <code>dep[]</code> 往往是写不写 LCA 都要维护的常见量。</p>
-<p><a href="http://www.cnblogs.com/wuminye/p/3532397.html">算法过程很简单, 想学看这里。</a><em>&lt;-这篇文章过程讲的很好，代码太长太丑。</em></p>
+<p><a href="http://www.cnblogs.com/wuminye/p/3532397.html" rel="external nofollow noreferrer">算法过程很简单, 想学看这里。</a><em>&lt;-这篇文章过程讲的很好，代码太长太丑。</em></p>
 <p>所以代码也很简单。<br>我们只多写了一行来维护<code>anc[]</code>。<br>LCA 还是要写一个函数的。</p>
 <pre><code class="lang-c++">void dfs(int u) {
     for (int i = 1; i &lt; K; i++) anc[u][i] = anc[anc[u][i - 1]][i - 1];
@@ -131,7 +131,7 @@ int lca(int u, int v) {
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="external nofollow noreferrer">comments powered by Disqus.</a></noscript>
 </section>
 
     
@@ -139,7 +139,7 @@ int lca(int u, int v) {
 
 	</main>
   <div id = "typography-footer">
-    <p>Powered by Hexo | Themed by <a href="https://github.com/Rapiz1/typography">Typography</a> @ <a href="https://github.com/Rapiz1">Rapiz</a></p>
+    <p>Powered by Hexo | Themed by <a href="https://github.com/Rapiz1/typography" rel="external nofollow noreferrer">Typography</a> @ <a href="https://github.com/Rapiz1" rel="external nofollow noreferrer">Rapiz</a></p>
 </div>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 

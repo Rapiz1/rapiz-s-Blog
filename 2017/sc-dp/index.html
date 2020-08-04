@@ -71,7 +71,7 @@
   <div class="post-content">
     </p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>状态压缩 - 周伟</p>
-<h2 id="初级"><a href="#初级" class="headerlink" title="初级"></a>初级</h2><p><a href="http://218.28.19.228/cogs/problem/problem.php?pid=654">特殊方格棋盘</a><br>在n*n(n≤20)的方格棋盘上放置n 个车，某些格子不能放，求使它们不能互相攻击的方案总数。</p>
+<h2 id="初级"><a href="#初级" class="headerlink" title="初级"></a>初级</h2><p><a href="http://218.28.19.228/cogs/problem/problem.php?pid=654" rel="external nofollow noreferrer">特殊方格棋盘</a><br>在n*n(n≤20)的方格棋盘上放置n 个车，某些格子不能放，求使它们不能互相攻击的方案总数。</p>
 <pre><code class="lang-cpp">#include &lt;cstdio&gt;
 #define file(x) &quot;examone.&quot; #x
 const int N = 25, L = 1 &lt;&lt; 20 | 1;
@@ -98,7 +98,7 @@ int main() {
     printf(&quot;%lld\n&quot;, f[l - 1]);
 }
 </code></pre>
-<h2 id="中级"><a href="#中级" class="headerlink" title="中级"></a>中级</h2><p><a href="http://218.28.19.228/cogs/problem/problem.php?pid=657">657. 放棋子</a><br>给出一个 n x m 的棋盘 (n 、 m≤80,n x m ≤ 80) ，要在棋盘上放 k(k ≤ 20) 个棋子， 使得任意两个棋子不相邻。每次试验随机分配一种方案，求首次放置即出现合法方案的概率，答案用既约分数表示（格式是分母在前）。<br><em>预处理每行可能的状态再暴力dp</em><br>状态：i行状态s，所有总共放了j个棋子</p>
+<h2 id="中级"><a href="#中级" class="headerlink" title="中级"></a>中级</h2><p><a href="http://218.28.19.228/cogs/problem/problem.php?pid=657" rel="external nofollow noreferrer">657. 放棋子</a><br>给出一个 n x m 的棋盘 (n 、 m≤80,n x m ≤ 80) ，要在棋盘上放 k(k ≤ 20) 个棋子， 使得任意两个棋子不相邻。每次试验随机分配一种方案，求首次放置即出现合法方案的概率，答案用既约分数表示（格式是分母在前）。<br><em>预处理每行可能的状态再暴力dp</em><br>状态：i行状态s，所有总共放了j个棋子</p>
 <pre><code class="lang-cpp">#include &lt;cstdio&gt;
 #include &lt;algorithm&gt;
 #define file(x) &quot;examtwo.&quot; #x
@@ -144,7 +144,7 @@ int main() {
     printf(&quot;%lld/%lld\n&quot;, par/d, chi/d);
 }
 </code></pre>
-<h2 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h2><h3 id="1x2骨牌覆盖"><a href="#1x2骨牌覆盖" class="headerlink" title="1x2骨牌覆盖"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1518">1x2骨牌覆盖</a></h3><p>$f[i][s]$表示第i行覆盖状态为s，前i-1行完全覆盖的方案数</p>
+<h2 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h2><h3 id="1x2骨牌覆盖"><a href="#1x2骨牌覆盖" class="headerlink" title="1x2骨牌覆盖"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1518" rel="external nofollow noreferrer">1x2骨牌覆盖</a></h3><p>$f[i][s]$表示第i行覆盖状态为s，前i-1行完全覆盖的方案数</p>
 <p>怎么转移呢？<br>倒着$f[i-1]$不太好写。<br>所以找从$f[i][s]$出发能更新到的状态。</p>
 <p>dfs(当前列，第i行状态，第i+1行状态) 表示当前列左边的列都被完全覆盖<br>每次枚举在第i+1行的决策：竖着放，横着放，不放。<br>列数超出m时用出发时的状态更新i+1行状态。</p>
 <p>第一行的答案直接搜出。<br>利用1~n-1即可更新出2~n的答案。</p>
@@ -190,7 +190,7 @@ int main() {
     }
 }
 </code></pre>
-<h3 id="1x2-L型覆盖"><a href="#1x2-L型覆盖" class="headerlink" title="1x2 + L型覆盖"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1519">1x2 + L型覆盖</a></h3><p><em>L形可以旋转</em><br>基本上和上一题都一样。<br>但是dfs到c列的时候不再表示左边的列完全覆盖，而是表示c-2列及其左边的列完全覆盖。<br>这样最后更新答案(c=m + 1时)的时候需要判一下m-1是不是完全覆盖，如果是再加上。<br>因为存在 左右反转的「形 放置，所以最多影响到c-1列，因此我们定义了c-2列及左边完全覆盖。并且容易知道c-2列未覆盖时需要及时剪枝。因为怎么放置都影响不到它了。<br>代码和以上细节有出入。</p>
+<h3 id="1x2-L型覆盖"><a href="#1x2-L型覆盖" class="headerlink" title="1x2 + L型覆盖"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1519" rel="external nofollow noreferrer">1x2 + L型覆盖</a></h3><p><em>L形可以旋转</em><br>基本上和上一题都一样。<br>但是dfs到c列的时候不再表示左边的列完全覆盖，而是表示c-2列及其左边的列完全覆盖。<br>这样最后更新答案(c=m + 1时)的时候需要判一下m-1是不是完全覆盖，如果是再加上。<br>因为存在 左右反转的「形 放置，所以最多影响到c-1列，因此我们定义了c-2列及左边完全覆盖。并且容易知道c-2列未覆盖时需要及时剪枝。因为怎么放置都影响不到它了。<br>代码和以上细节有出入。</p>
 <pre><code class="lang-cpp">#include &lt;cstdio&gt;
 #include &lt;cassert&gt;
 #define file(x) &quot;examsix.&quot; #x
@@ -239,8 +239,8 @@ int main() {
     printf(&quot;%lld\n&quot;, f[n][(1 &lt;&lt; m) - 1]);
 }
 </code></pre>
-<h3 id="1-x-r-覆盖"><a href="#1-x-r-覆盖" class="headerlink" title="1 x r 覆盖"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1520">1 x r 覆盖</a></h3><p>恩……我前几题的做法貌似没法再做了。抄了萌帝的代码。<br>一次性枚举所有转移。</p>
-<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><h3 id="NOI2000-炮兵阵地"><a href="#NOI2000-炮兵阵地" class="headerlink" title="NOI2000 炮兵阵地"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=301">NOI2000 炮兵阵地</a></h3><p>先对每行搜出合法状态再开(i, 第i行状态，第i-1行状态)转移</p>
+<h3 id="1-x-r-覆盖"><a href="#1-x-r-覆盖" class="headerlink" title="1 x r 覆盖"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1520" rel="external nofollow noreferrer">1 x r 覆盖</a></h3><p>恩……我前几题的做法貌似没法再做了。抄了萌帝的代码。<br>一次性枚举所有转移。</p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><h3 id="NOI2000-炮兵阵地"><a href="#NOI2000-炮兵阵地" class="headerlink" title="NOI2000 炮兵阵地"></a><a href="http://218.28.19.228/cogs/problem/problem.php?pid=301" rel="external nofollow noreferrer">NOI2000 炮兵阵地</a></h3><p>先对每行搜出合法状态再开(i, 第i行状态，第i-1行状态)转移</p>
 <pre><code class="lang-cpp">#include &lt;cstdio&gt;
 #include &lt;algorithm&gt;
 #define file(x) &quot;cannon.&quot; #x
@@ -278,7 +278,7 @@ int main() {
     printf(&quot;%d\n&quot;, ans);
 }
 </code></pre>
-<h3 id="2734-HNOI2012-集合选数"><a href="#2734-HNOI2012-集合选数" class="headerlink" title="2734 HNOI2012 集合选数"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2734">2734 HNOI2012 集合选数</a></h3><pre><code class="lang-cpp">//hide 点击查看隐藏的题解
+<h3 id="2734-HNOI2012-集合选数"><a href="#2734-HNOI2012-集合选数" class="headerlink" title="2734 HNOI2012 集合选数"></a><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2734" rel="external nofollow noreferrer">2734 HNOI2012 集合选数</a></h3><pre><code class="lang-cpp">//hide 点击查看隐藏的题解
 //网上的题解还是挺多的。
 //需要注意的就是每一行应该是 x 4x 9x 27x, 这样减少了状态数。x 2x 4x 这样就会tle
 //还有就是很多题解说这是矩阵，然而并不是，明明是三角来着……
@@ -352,7 +352,7 @@ int main() {
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="external nofollow noreferrer">comments powered by Disqus.</a></noscript>
 </section>
 
     
@@ -360,7 +360,7 @@ int main() {
 
 	</main>
   <div id = "typography-footer">
-    <p>Powered by Hexo | Themed by <a href="https://github.com/Rapiz1/typography">Typography</a> @ <a href="https://github.com/Rapiz1">Rapiz</a></p>
+    <p>Powered by Hexo | Themed by <a href="https://github.com/Rapiz1/typography" rel="external nofollow noreferrer">Typography</a> @ <a href="https://github.com/Rapiz1" rel="external nofollow noreferrer">Rapiz</a></p>
 </div>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 

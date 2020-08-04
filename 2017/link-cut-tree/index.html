@@ -71,7 +71,7 @@
   <div class="post-content">
     </p>
 <h2 id="上手"><a href="#上手" class="headerlink" title="上手"></a>上手</h2><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>我写的东西都是为了补充这些资料，所以先浏览下这些  ：</p>
-<p>QTREE解法的一些研究 - Yang Zhe <em>一个论文，自己搜吧</em><br><a href="http://www.cnblogs.com/kuangbin/archive/2013/09/03/3300141.html">Kuangbin 写的这个模板题的代码</a><br><a href="http://blog.csdn.net/tgop_knight/article/details/44539555">语言还挺生动的。。</a><br><a href="http://www.cnblogs.com/zinthos/p/3900225.html">Yang Zhe 论文注解版</a></p>
+<p>QTREE解法的一些研究 - Yang Zhe <em>一个论文，自己搜吧</em><br><a href="http://www.cnblogs.com/kuangbin/archive/2013/09/03/3300141.html" rel="external nofollow noreferrer">Kuangbin 写的这个模板题的代码</a><br><a href="http://blog.csdn.net/tgop_knight/article/details/44539555" rel="external nofollow noreferrer">语言还挺生动的。。</a><br><a href="http://www.cnblogs.com/zinthos/p/3900225.html" rel="external nofollow noreferrer">Yang Zhe 论文注解版</a></p>
 <p>然后。。如果你发现你学不会。。就看<a href="#codea">代码</a>。。就能学会了。。。</p>
 <h3 id="改造-Splay"><a href="#改造-Splay" class="headerlink" title="改造 Splay"></a>改造 Splay</h3><p>哎。。感觉真的没什么讲的，主要是 access 的实现还有 rot 和 fa 的变异。<br>access 大家都能看懂了。。</p>
 <p>fa 和 splay 里的 fa 不一样了。一颗 splay 的根也可以有 fa，代表这棵 splay 维护的路径的最上端节点的fa。（这样做的主要原因是方便access)<br>原来我们认为一个节点没有 fa 就是根，现在都有 fa 了怎么办呢？就再开一个bool rt[]表示它是不是根<br><em>为了区别和 splay 的不同，我把 fa 改叫 pre 了</em><br>然后我们需要 <a href="../../2016/Splay">splay 里的代码</a> 把判根的方法从 fa[]是否空 改到 rt[]真假  (这点主要影响splay函数)，还要维护新fa的性质。</p>
@@ -94,7 +94,7 @@
 <p>为什么pre[]和up没这种关系我就不证了。如果理解lct的话就明白，不理解的话我解释一下这点反而会更迷？</p>
 <p>然后写的时候注意下改ch[]就要up就行, 也就是accees，cut和传统项目splay。</p>
 <h4 id="access"><a href="#access" class="headerlink" title="access"></a>access</h4><p>没啥难懂的。自己去看 kuangbin 代码吧。注意access里的每次pre都是跳到上一个链而不是在splay中移动就行。</p>
-<h3 id="维护边"><a href="#维护边" class="headerlink" title="维护边"></a>维护边</h3><p>把边也转化成点，见<a href="http://blog.csdn.net/t14t41t/article/details/47665627">水管局长</a></p>
+<h3 id="维护边"><a href="#维护边" class="headerlink" title="维护边"></a>维护边</h3><p>把边也转化成点，见<a href="http://blog.csdn.net/t14t41t/article/details/47665627" rel="external nofollow noreferrer">水管局长</a></p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><em>通过抄标程学算法（逃</em><br><span id="codea"></span>这种比较复杂的数据结构啊，说说真的是没啥用，详细描述过程也没用，还是看代码和写代码吧。<br>就像 splay 这种东西，没什么可讲的，就是看谁写的比较精妙。</p>
 <blockquote>
 <p>魔鬼在细节中</p>
@@ -114,7 +114,7 @@
 </tr>
 <tr>
 <td>3091 城市旅行</td>
-<td>本来早上起来想写道裸题休闲一下，结果随机抽中了一道数学期望…不会数学期望就去搜<a href="http://blog.csdn.net/leijp1430/article/details/50769777">题解</a>，<a href="http://blog.csdn.net/huzecong/article/details/8733618">题解2</a>吧</td>
+<td>本来早上起来想写道裸题休闲一下，结果随机抽中了一道数学期望…不会数学期望就去搜<a href="http://blog.csdn.net/leijp1430/article/details/50769777" rel="external nofollow noreferrer">题解</a>，<a href="http://blog.csdn.net/huzecong/article/details/8733618" rel="external nofollow noreferrer">题解2</a>吧</td>
 </tr>
 <tr>
 <td>2631-Tree</td>
@@ -752,7 +752,7 @@ int main() {
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="external nofollow noreferrer">comments powered by Disqus.</a></noscript>
 </section>
 
     
@@ -760,7 +760,7 @@ int main() {
 
 	</main>
   <div id = "typography-footer">
-    <p>Powered by Hexo | Themed by <a href="https://github.com/Rapiz1/typography">Typography</a> @ <a href="https://github.com/Rapiz1">Rapiz</a></p>
+    <p>Powered by Hexo | Themed by <a href="https://github.com/Rapiz1/typography" rel="external nofollow noreferrer">Typography</a> @ <a href="https://github.com/Rapiz1" rel="external nofollow noreferrer">Rapiz</a></p>
 </div>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 

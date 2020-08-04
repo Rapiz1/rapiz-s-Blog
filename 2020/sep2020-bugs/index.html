@@ -75,14 +75,14 @@
 <h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><p>一个队友用的是 Windows，一个队友用的 Linux 但是 Docker 的 Installation 有奇怪的权限问题……</p>
 <h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><h3 id="无法启动"><a href="#无法启动" class="headerlink" title="无法启动"></a>无法启动</h3><p>首先是 <code>docker-compose</code> 起不来。</p>
 <pre><code>ERROR: Windows named pipe error: The system cannot find the file specified. (code: 2)
-</code></pre><p><a href="https://github.com/docker/toolbox/issues/725">很多人都遇到过这个问题</a>。这个 Issue 下面 Comments 一大堆，解决方案花样百出。队友表示他看了他晕了。我大概看了一下，觉得 <code>docker-quickstart-terminal</code> 的解决方案最靠谱。这个程序首次启动需要从 GitHub 上抓取二进制镜像。而终端又不是很好代理。<a href="https://blog.csdn.net/qq_29660153/article/details/88708003">搜索得知</a>可以选择手动下载。<em>套路，这类软件搜索找到对应下载路径，手动下好放进去就行了。</em></p>
+</code></pre><p><a href="https://github.com/docker/toolbox/issues/725" rel="external nofollow noreferrer">很多人都遇到过这个问题</a>。这个 Issue 下面 Comments 一大堆，解决方案花样百出。队友表示他看了他晕了。我大概看了一下，觉得 <code>docker-quickstart-terminal</code> 的解决方案最靠谱。这个程序首次启动需要从 GitHub 上抓取二进制镜像。而终端又不是很好代理。<a href="https://blog.csdn.net/qq_29660153/article/details/88708003" rel="external nofollow noreferrer">搜索得知</a>可以选择手动下载。<em>套路，这类软件搜索找到对应下载路径，手动下好放进去就行了。</em></p>
 <p>启动这个终端就可以用了。</p>
 <h3 id="网络不通"><a href="#网络不通" class="headerlink" title="网络不通"></a>网络不通</h3><p><em>Windows 毒瘤</em></p>
-<p><a href="https://blog.csdn.net/ScanQ/article/details/101120250">Windows 下 docker 的外界还是虚拟机，所以端口映射不是在 localhost 上</a>。</p>
+<p><a href="https://blog.csdn.net/ScanQ/article/details/101120250" rel="external nofollow noreferrer">Windows 下 docker 的外界还是虚拟机，所以端口映射不是在 localhost 上</a>。</p>
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2ltZy9iVkNkYVk?x-oss-process=image/format,png" alt=""></p>
 <p>即使做了端口映射，也必须访问 <code>192.168.99.100</code>。</p>
 <h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><h3 id="Dockerlization-容器化"><a href="#Dockerlization-容器化" class="headerlink" title="Dockerlization 容器化"></a>Dockerlization 容器化</h3><p>React 工程容器化</p>
-<p><a href="https://mherman.org/blog/dockerizing-a-react-app/">这里有一篇可以用来参考的文章</a>。需要注意的是 <code>react-scripts</code> 在近期（2020年）的几个版本导致 <code>docker</code> 需要额外配置才能启动 <code>react</code> 开发服务器。<a href="https://github.com/facebook/create-react-app/issues/8688">这里</a> 提到 <code>tty: true</code> 或者 <code>stdin_open: true</code> 都可以解决问题。</p>
+<p><a href="https://mherman.org/blog/dockerizing-a-react-app/" rel="external nofollow noreferrer">这里有一篇可以用来参考的文章</a>。需要注意的是 <code>react-scripts</code> 在近期（2020年）的几个版本导致 <code>docker</code> 需要额外配置才能启动 <code>react</code> 开发服务器。<a href="https://github.com/facebook/create-react-app/issues/8688" rel="external nofollow noreferrer">这里</a> 提到 <code>tty: true</code> 或者 <code>stdin_open: true</code> 都可以解决问题。</p>
 <h2 id="跨域制裁"><a href="#跨域制裁" class="headerlink" title="跨域制裁"></a>跨域制裁</h2><p>因为不熟 JS 所以调了半天 Promise 找不到自己哪里写炸了。有网络请求有返回值，但回调函数就没运行。最后突然想起来跨域了。在 FastAPI 里加了 CORS 中间件，解决。</p>
   </div>
   <!--hightlight.js-->
@@ -122,7 +122,7 @@
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="external nofollow noreferrer">comments powered by Disqus.</a></noscript>
 </section>
 
     
@@ -130,7 +130,7 @@
 
 	</main>
   <div id = "typography-footer">
-    <p>Powered by Hexo | Themed by <a href="https://github.com/Rapiz1/typography">Typography</a> @ <a href="https://github.com/Rapiz1">Rapiz</a></p>
+    <p>Powered by Hexo | Themed by <a href="https://github.com/Rapiz1/typography" rel="external nofollow noreferrer">Typography</a> @ <a href="https://github.com/Rapiz1" rel="external nofollow noreferrer">Rapiz</a></p>
 </div>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 

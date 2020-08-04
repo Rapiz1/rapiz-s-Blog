@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rapiz.me/2017/switch-linux-kernel/</loc>
+    <loc>https://rapiz.me/2020/gsoc2020-archive/</loc>
     <lastmod>2020-08-04</lastmod>
   </url>
   <url>
     <loc>https://rapiz.me/2020/blog-seo/</loc>
-    <lastmod>2020-07-29</lastmod>
+    <lastmod>2020-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://rapiz.me/2017/switch-linux-kernel/</loc>
+    <lastmod>2020-08-04</lastmod>
   </url>
   <url>
     <loc>https://rapiz.me/2020/dungeonrush/</loc>
@@ -18,10 +22,6 @@
   </url>
   <url>
     <loc>https://rapiz.me/2020/fake-rapiz/</loc>
-    <lastmod>2020-07-28</lastmod>
-  </url>
-  <url>
-    <loc>https://rapiz.me/2020/gsoc2020-archive/</loc>
     <lastmod>2020-07-28</lastmod>
   </url>
   <url>
@@ -157,10 +157,6 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2017/oi-vim/</loc>
-    <lastmod>2019-07-17</lastmod>
-  </url>
-  <url>
     <loc>https://rapiz.me/2017/songs-gogogo7188/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
@@ -189,11 +185,11 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2017/work-on-linux/</loc>
+    <loc>https://rapiz.me/2017/wa/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2017/wa/</loc>
+    <loc>https://rapiz.me/2017/work-on-linux/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
@@ -202,6 +198,10 @@
   </url>
   <url>
     <loc>https://rapiz.me/2016/%E7%AE%80%E5%8D%95%E5%88%86%E5%9D%97/</loc>
+    <lastmod>2019-07-17</lastmod>
+  </url>
+  <url>
+    <loc>https://rapiz.me/2017/oi-vim/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
 </urlset> 

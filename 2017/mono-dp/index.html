@@ -76,7 +76,7 @@
 </blockquote>
 <p>anyway，单调队列能优化的方程一般都长这样：</p>
 <script type="math/tex; mode=display">f[i] = \max\{f[j] + c[j]\}, i - a \le j \le i - b</script><p>$f$ 是状态，$c$ 是一个常数数组。<br>如果你会滑动窗口肯定懂 $b=1$ 时怎么做，然后发现 $b \ne 1$ 时只需在每次循环开始时尝试入队往前数的第 b 个状态即可。<br>不懂滑动窗口就先去学那个。lrj 的书上不知道哪有来着。<br>然后需要说明的是题目的方程一般都不会长这么简洁，所以你一般需要把 $j$ 相关的量放到一起，再把 $i$ 相关的量放到一起。每次转移时仅与 $i$ 有关的量可以拿到 $\max$ 外面，于是就可以得到上面这种形式。</p>
-<h3 id="实例！"><a href="#实例！" class="headerlink" title="实例！"></a>实例！</h3><h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>还是举个例子更好。<br><em>为了抵制bzoj进行垄断，我选择链接cogs上相同的题！</em><br><a href="http://218.28.19.228/cogs/problem/problem.php?pid=773">USACO Open11 修剪草坪 from COGS</a></p>
+<h3 id="实例！"><a href="#实例！" class="headerlink" title="实例！"></a>实例！</h3><h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><p>还是举个例子更好。<br><em>为了抵制bzoj进行垄断，我选择链接cogs上相同的题！</em><br><a href="http://218.28.19.228/cogs/problem/problem.php?pid=773" rel="external nofollow noreferrer">USACO Open11 修剪草坪 from COGS</a></p>
 <blockquote>
 <p>简要题意：n 个数中选一些数，并且不能选连续的 k 个数，要求选的数和最大。n,k &lt;= 1e5, 数在 long long</p>
 </blockquote>
@@ -109,7 +109,7 @@ int main() {
     printf(&quot;%lld&quot;, ans);
 }
 </code></pre>
-<h3 id="实例！！"><a href="#实例！！" class="headerlink" title="实例！！"></a>实例！！</h3><p><a href="https://www.luogu.org/problem/show?pid=2569">SCOI2010 股票交易 from 洛谷</a><br><em>这些题bzoj都有，貌似都是权限</em></p>
+<h3 id="实例！！"><a href="#实例！！" class="headerlink" title="实例！！"></a>实例！！</h3><p><a href="https://www.luogu.org/problem/show?pid=2569" rel="external nofollow noreferrer">SCOI2010 股票交易 from 洛谷</a><br><em>这些题bzoj都有，貌似都是权限</em></p>
 <h4 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h4><p>题意自己看吧。<br>然后方程我懒得写了，又不难。<br>注意到这次变成二维了。股票交易<br>对于每一天都可以做两（买卖）次单调队列，第 i 天的窗口在 i - w - 1天上。</p>
 <h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><pre><code class="lang-cpp">//SCOI2010 股票交易
 #include &lt;cstdio&gt;
@@ -154,7 +154,7 @@ int main() {
 <h2 id="斜率优化"><a href="#斜率优化" class="headerlink" title="斜率优化"></a>斜率优化</h2><p><em>学斜率优化……主要是你需要克服公式恐惧症</em></p>
 <h3 id="初级"><a href="#初级" class="headerlink" title="初级"></a>初级</h3><p><strong>这方面的变形比较多，如果我写错了，或者你觉得哪里不太清楚，欢迎评论</strong><br>来几个水题爽爽。</p>
 <hr>
-<p><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1330">HNOI2008 玩具装箱</a><br>dp方程真的好写。</p>
+<p><a href="http://218.28.19.228/cogs/problem/problem.php?pid=1330" rel="external nofollow noreferrer">HNOI2008 玩具装箱</a><br>dp方程真的好写。</p>
 <script type="math/tex; mode=display">f[i] = \max_{j < i}\{f[j] + (i - j - 1 + s[i] - s[j] - l)^2\}</script><p>$f$是答案，$s$为前缀和。<br>然后找到 $i$ 点的两个决策 $j,k$ 使得 $j &lt; k$ 并且 $k$ 优于 $j$。<br>于是带入转移方程即得</p>
 <script type="math/tex; mode=display">f[j] + (i - j - 1 + s[i] - s[j] - l)^2 < f[k] + (i - k - 1 + s[i] - s[k] - l)^2</script><p>然后我们的工作就是要把它左边化成形如$\frac{y_j - y_k}{x_j - x_k}$的式子。<br>于是得到：</p>
 <script type="math/tex; mode=display">\frac{f[j] + (j + s[i])^2 - f[k] - (k + s[i])^2}{(j + s[j] -  k - s[k])} < 2(i + s[i] - l)</script><p><em>注意中间由于除数为负变了一次不等式方向</em><br>所以左边成为形如$(x + s[x], f[x] + (x + s[x])^2)$这样的两个点的斜率。<br>注意我们一直进行恒等变形。<br>也就是说，对于 $k$ 优于 $j$ 且 $j &lt; k$ 的的决策都满足上式。<br>下证有效决策集在一个下凸包上。</p>
@@ -225,7 +225,7 @@ int main() {
 </tbody>
 </table>
 </div>
-<h3 id="中等"><a href="#中等" class="headerlink" title="中等"></a>中等</h3><p><a href="http://218.28.19.228/cogs/problem/problem.php?pid=16">NOI2007 货币兑换cash</a><br>首先你要会cdq分治。<br>然后明白cdq分治本质是计算左半部分对右半部分的影响。</p>
+<h3 id="中等"><a href="#中等" class="headerlink" title="中等"></a>中等</h3><p><a href="http://218.28.19.228/cogs/problem/problem.php?pid=16" rel="external nofollow noreferrer">NOI2007 货币兑换cash</a><br>首先你要会cdq分治。<br>然后明白cdq分治本质是计算左半部分对右半部分的影响。</p>
 <p>如果你对cdq分治处理dp不太理解可以先做hackrank的一道题，101hack这个比赛的Maximizing Mission Points。<br>这个网站上有这个题的题解。</p>
 <p>然后你可以看cdq的那篇论文。</p>
 <p>然后你可以看看hzwer的代码。他的带注释。他的空间还比论文优一个log。<br>可惜他的状态定义不太优美，是a货币的数目。并且代码有些细节是错的。</p>
@@ -327,7 +327,7 @@ int main() {
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="external nofollow noreferrer">comments powered by Disqus.</a></noscript>
 </section>
 
     
@@ -335,7 +335,7 @@ int main() {
 
 	</main>
   <div id = "typography-footer">
-    <p>Powered by Hexo | Themed by <a href="https://github.com/Rapiz1/typography">Typography</a> @ <a href="https://github.com/Rapiz1">Rapiz</a></p>
+    <p>Powered by Hexo | Themed by <a href="https://github.com/Rapiz1/typography" rel="external nofollow noreferrer">Typography</a> @ <a href="https://github.com/Rapiz1" rel="external nofollow noreferrer">Rapiz</a></p>
 </div>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
