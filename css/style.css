@@ -1,3 +1,8 @@
+.markdown-body code {
+  display: inline-block;
+  max-width: 100%;
+  overflow: auto;
+}
 .markdown-body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -389,7 +394,7 @@ code {
 .underline-trans:hover:before {
   transform: scale(1);
 }
-#footer {
+#typography-footer {
   text-align: center;
 }
 .index.post-title-link {
@@ -454,10 +459,13 @@ a[href="http://fanfou.com/"] {
 #banner-text {
   text-align: center;
   user-select: none;
-  height: calc(100vh - 40px);
+  min-height: calc(100vh - 20px);
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.main {
+  padding-top: 0;
 }
 #banner-text h1 {
   margin: 0;
@@ -585,4 +593,18 @@ code {
 }
 .token.italic {
   font-style: italic;
+}
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #808080 #000;
+}
+code {
+  scrollbar-width: thin !important;
+}
+body::-webkit-scrollbar-track {
+  background: #000; /* color of the tracking area */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #808080; /* color of the scroll thumb */
+  border-radius: 0px; /* roundness of the scroll thumb */
 }

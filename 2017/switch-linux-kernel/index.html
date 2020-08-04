@@ -75,7 +75,12 @@
 <pre><code>initramfs-linux-lts.img
 vmlinuz-linux-lts
 </code></pre><h2 id="从新内核启动"><a href="#从新内核启动" class="headerlink" title="从新内核启动"></a>从新内核启动</h2><p>如果你使用 Grub，在启动项里或许已经能看到了。当然我不用 Grub 所以我也不知道:)<br>我之前一直使用 EFISTUB 直接启动内核，并且装了一个 rEFInd 以防万一。<br>所以接下来我将修改这两项使之指向新内核。</p>
-<h3 id="efibootmgr"><a href="#efibootmgr" class="headerlink" title="efibootmgr"></a>efibootmgr</h3><p>efibootmgr 可以设置从 EFISTUB 启动。<br>添加启动项的命令应该看起来像这样<br><code>sudo efibootmgr -d /dev/sdX -p Y -c -L &quot;Arch Linux&quot; -l /vmlinuz-linux -u &quot;root=/dev/sdBZ rw initrd=/initramfs-linux.img&quot;</code><br>/dev/sdX 和 Y 是 ESP 分区所在的硬盘名称和分区. 让 root= 指向你的root分区，如果你想用UUID指定可以写root=UUID=xxxxxxxx。-u 后面跟内核启动参数。<br>一般笔记本都会加一个 intel 微码的参数。如果你当时装过微码就肯定知道我在说什么。没有也无妨。<br>下面是我实际执行的命令。如果你不需要 intel 微码请把 <code>initrd=/intel-ucode.img</code> 删去。<br><code>sudo efibootmgr -d /dev/sda -p 1 -c -L &quot;Arch Linux with LTS kernel&quot; -l /vmlinuz-linux-lts -u &quot;root=UUID=xxxxxxxxxx rw quiet initrd=/intel-ucode.img initrd=/initramfs-linux-lts.img&quot;</code></p>
+<h3 id="efibootmgr"><a href="#efibootmgr" class="headerlink" title="efibootmgr"></a>efibootmgr</h3><p>efibootmgr 可以设置从 EFISTUB 启动。<br>添加启动项的命令应该看起来像这样</p>
+<pre><code class="lang-bash">sudo efibootmgr -d /dev/sdX -p Y -c -L &quot;Arch Linux&quot; -l /vmlinuz-linux -u &quot;root=/dev/sdBZ rw initrd=/initramfs-linux.img&quot;
+</code></pre>
+<p>/dev/sdX 和 Y 是 ESP 分区所在的硬盘名称和分区. 让 root= 指向你的root分区，如果你想用UUID指定可以写root=UUID=xxxxxxxx。-u 后面跟内核启动参数。<br>一般笔记本都会加一个 intel 微码的参数。如果你当时装过微码就肯定知道我在说什么。没有也无妨。<br>下面是我实际执行的命令。如果你不需要 intel 微码请把 <code>initrd=/intel-ucode.img</code> 删去。</p>
+<pre><code class="lang-bash">sudo efibootmgr -d /dev/sda -p 1 -c -L &quot;Arch Linux with LTS kernel&quot; -l /vmlinuz-linux-lts -u &quot;root=UUID=xxxxxxxxxx rw quiet initrd=/intel-ucode.img initrd=/initramfs-linux-lts.img&quot;
+</code></pre>
 <h3 id="rEFInd"><a href="#rEFInd" class="headerlink" title="rEFInd"></a>rEFInd</h3><p>只需要编辑 <code>/boot/refind_linux.conf</code> 把里面的 <code>initramfs-linux</code> 改成 <code>initramfs-linux-lts</code> 就好了。</p>
 <p>重启就可以进入新内核了。<br>执行 <code>uname -r</code> 查看现在到底在运行哪个内核。</p>
 <p>除了 <code>linux-lts</code> 外，还有众多的内核分支可供选择。<a href="https://wiki.archlinux.org/index.php/Kernels#Official_packages">打开了折腾的新天地</a>。</p>
@@ -125,8 +130,8 @@ vmlinuz-linux-lts
 
 
 	</main>
-  <div id = "footer">
-    <p>Powered by Hexo | Desgined by Rapiz</p>
+  <div id = "typography-footer">
+    <p>Powered by Hexo | Themed by <a href="https://github.com/Rapiz1/typography">Typography</a> @ <a href="https://github.com/Rapiz1">Rapiz</a></p>
 </div>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
@@ -139,6 +144,7 @@ vmlinuz-linux-lts
     </script>
 
 <!-- End Google Analytics -->
+
 </div>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({

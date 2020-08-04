@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://rapiz.me/2017/switch-linux-kernel/</loc>
+    
+    <lastmod>2020-08-04T03:25:12.013Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://rapiz.me/2020/blog-seo/</loc>
     
     <lastmod>2020-07-29T04:11:41.170Z</lastmod>
@@ -152,13 +159,6 @@
     <loc>http://rapiz.me/2017/beizeng-lca/</loc>
     
     <lastmod>2019-08-25T14:32:57.154Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://rapiz.me/2017/switch-linux-kernel/</loc>
-    
-    <lastmod>2019-07-17T08:25:23.380Z</lastmod>
     
   </url>
   
