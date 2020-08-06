@@ -97,15 +97,19 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2017/issues-on-linux/</loc>
-    <lastmod>2019-07-17</lastmod>
-  </url>
-  <url>
     <loc>https://rapiz.me/2017/kdtree/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
+    <loc>https://rapiz.me/2017/issues-on-linux/</loc>
+    <lastmod>2019-07-17</lastmod>
+  </url>
+  <url>
     <loc>https://rapiz.me/2017/mono-dp/</loc>
+    <lastmod>2019-07-17</lastmod>
+  </url>
+  <url>
+    <loc>https://rapiz.me/2017/networkflow/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
@@ -118,10 +122,6 @@
   </url>
   <url>
     <loc>https://rapiz.me/2017/untitled-starlight/</loc>
-    <lastmod>2019-07-17</lastmod>
-  </url>
-  <url>
-    <loc>https://rapiz.me/2017/networkflow/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
@@ -141,19 +141,19 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2017/linear-algebra/</loc>
-    <lastmod>2019-07-17</lastmod>
-  </url>
-  <url>
     <loc>https://rapiz.me/2017/learn-js/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2017/motao-shang-shu/</loc>
+    <loc>https://rapiz.me/2017/linear-algebra/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
     <loc>https://rapiz.me/2017/link-cut-tree/</loc>
+    <lastmod>2019-07-17</lastmod>
+  </url>
+  <url>
+    <loc>https://rapiz.me/2017/motao-shang-shu/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
@@ -165,11 +165,11 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2017/songs-mi-familia/</loc>
+    <loc>https://rapiz.me/2017/songs-living-in-twilight/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2017/songs-living-in-twilight/</loc>
+    <loc>https://rapiz.me/2017/songs-mi-familia/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
@@ -181,11 +181,11 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2017/untypical-divide-and-conquer/</loc>
+    <loc>https://rapiz.me/2017/uva1508/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2017/uva1508/</loc>
+    <loc>https://rapiz.me/2017/untypical-divide-and-conquer/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
@@ -197,11 +197,11 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2016/%E5%85%B3%E4%BA%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/</loc>
+    <loc>https://rapiz.me/2016/%E7%AE%80%E5%8D%95%E5%88%86%E5%9D%97/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2016/%E7%AE%80%E5%8D%95%E5%88%86%E5%9D%97/</loc>
+    <loc>https://rapiz.me/2016/%E5%85%B3%E4%BA%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
 </urlset> 
