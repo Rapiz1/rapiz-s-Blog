@@ -429,6 +429,22 @@ code {
 .fanfouReminder>span>a {
   cursor: pointer;
 }
+.page-nav {
+  list-style: none;
+  margin: 1em;
+  padding: 0;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+}
+.page-nav div {
+  -webkit-box-flex: 1;
+  text-align: center;
+}
+.page-nav a {
+  color: #000;
+  font-size: 1em;
+  text-transform: uppercase;
+}
 .fanfou_statuses ul li {
   border-bottom: 1px solid #ddd;
 }
