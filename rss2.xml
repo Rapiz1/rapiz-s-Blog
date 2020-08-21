@@ -6,7 +6,7 @@
     <title>潮与雪</title>
     <link>https://rapiz.me/</link>
     
-    <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://rapiz.me/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>凡人难以承受生活全部的真相，于是他们各执一端。</description>
     <pubDate>Fri, 21 Aug 2020 03:01:38 GMT</pubDate>
@@ -17,18 +17,24 @@
       <link>https://rapiz.me/2020/deepin-com-qq-office-fonts/</link>
       <guid>https://rapiz.me/2020/deepin-com-qq-office-fonts/</guid>
       <pubDate>Fri, 21 Aug 2020 02:21:40 GMT</pubDate>
-      <description>
       
         
         
-          &lt;p&gt;Noto Fonts 的字形是个老大难问题了。具体表现就是在有些程序上，会自动使用日文字形，导致“门”等字符显示的很奇怪。之前我使用 fontconfig 指定中日韩字形的使用顺序，可以解决绝大多数的问题。恩，是我见到的所有。&lt;/p&gt;
-&lt;p&gt;但最近的 Arch 更新导致 V
+      <description>&lt;p&gt;Noto Fonts 的字形是个老大难问题了。具体表现就是在有些程序上，会自动使用日文字形，导致“门”等字符显示的很奇怪。之前我使用 fontconfig 指定中日韩字形的使用顺序，可以解决绝大多数的问题。恩，是我见到的所有。&lt;/p&gt;
+&lt;p&gt;但最近的 Arch 更新导致 V</description>
         
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/ENV/">ENV</category>
+      
+      
+      <category domain="https://rapiz.me/tags/Linux-qq-Arch-Noto-Fonts/">Linux, qq, Arch, Noto Fonts</category>
       
       
       <comments>https://rapiz.me/2020/deepin-com-qq-office-fonts/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -36,14 +42,20 @@
       <link>https://rapiz.me/2020/blog-seo/</link>
       <guid>https://rapiz.me/2020/blog-seo/</guid>
       <pubDate>Tue, 28 Jul 2020 13:04:52 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;如果不是被仿冒，谁又愿意做 SEO 呢
+      <description>&lt;p&gt;如果不是被仿冒，谁又愿意做 SEO 呢</description>
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
+      
+      
+      <category domain="https://rapiz.me/tags/SEO/">SEO</category>
       
       
       <comments>https://rapiz.me/2020/blog-seo/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -51,14 +63,18 @@
       <link>https://rapiz.me/2020/fake-rapiz/</link>
       <guid>https://rapiz.me/2020/fake-rapiz/</guid>
       <pubDate>Tue, 28 Jul 2020 13:04:45 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;请认准中文互联网唯一正版 Rapiz
+      <description>&lt;p&gt;请认准中文互联网唯一正版 Rapiz</description>
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/LIFE/">LIFE</category>
+      
       
       
       <comments>https://rapiz.me/2020/fake-rapiz/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -66,14 +82,20 @@
       <link>https://rapiz.me/2020/network-topdown-notes/</link>
       <guid>https://rapiz.me/2020/network-topdown-notes/</guid>
       <pubDate>Thu, 16 Jul 2020 07:34:10 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;施工中
+      <description>&lt;p&gt;施工中</description>
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/Misc/">Misc</category>
+      
+      
+      <category domain="https://rapiz.me/tags/Network/">Network</category>
       
       
       <comments>https://rapiz.me/2020/network-topdown-notes/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -81,14 +103,18 @@
       <link>https://rapiz.me/2020/sep2020-bugs/</link>
       <guid>https://rapiz.me/2020/sep2020-bugs/</guid>
       <pubDate>Tue, 30 Jun 2020 06:29:54 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;Windows 毒瘤
+      <description>&lt;p&gt;Windows 毒瘤</description>
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
+      
       
       
       <comments>https://rapiz.me/2020/sep2020-bugs/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -96,14 +122,20 @@
       <link>https://rapiz.me/2020/os-threepieces/</link>
       <guid>https://rapiz.me/2020/os-threepieces/</guid>
       <pubDate>Sat, 27 Jun 2020 02:38:21 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;&lt;em&gt;Operating Systems: Three Easy Pieces&lt;/em&gt;
+      <description>&lt;p&gt;&lt;em&gt;Operating Systems: Three Easy Pieces&lt;/em&gt;</description>
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
+      
+      
+      <category domain="https://rapiz.me/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</category>
       
       
       <comments>https://rapiz.me/2020/os-threepieces/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -111,14 +143,18 @@
       <link>https://rapiz.me/2020/cs-courses/</link>
       <guid>https://rapiz.me/2020/cs-courses/</guid>
       <pubDate>Tue, 23 Jun 2020 14:58:58 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;Self-driven
+      <description>&lt;p&gt;Self-driven</description>
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
+      
       
       
       <comments>https://rapiz.me/2020/cs-courses/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -126,14 +162,20 @@
       <link>https://rapiz.me/2020/gsoc2020-archive/</link>
       <guid>https://rapiz.me/2020/gsoc2020-archive/</guid>
       <pubDate>Thu, 14 May 2020 04:34:41 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;An exciting summer
+      <description>&lt;p&gt;An exciting summer</description>
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
+      
+      
+      <category domain="https://rapiz.me/tags/GSoC/">GSoC</category>
       
       
       <comments>https://rapiz.me/2020/gsoc2020-archive/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -141,14 +183,16 @@
       <link>https://rapiz.me/2020/hou-lang/</link>
       <guid>https://rapiz.me/2020/hou-lang/</guid>
       <pubDate>Thu, 07 May 2020 09:56:32 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;这是后浪
+      <description>&lt;p&gt;这是后浪</description>
       
-      </description>
+      
+      
+      
       
       
       <comments>https://rapiz.me/2020/hou-lang/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -156,14 +200,20 @@
       <link>https://rapiz.me/2020/dungeonrush/</link>
       <guid>https://rapiz.me/2020/dungeonrush/</guid>
       <pubDate>Sat, 02 May 2020 16:36:03 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;登上 v2ex 热榜、GitHub Trending 两天，收获 800+ Stars
+      <description>&lt;p&gt;登上 v2ex 热榜、GitHub Trending 两天，收获 800+ Stars</description>
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
+      
+      
+      <category domain="https://rapiz.me/tags/C/">C</category>
       
       
       <comments>https://rapiz.me/2020/dungeonrush/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -171,18 +221,24 @@
       <link>https://rapiz.me/2020/migrate-arch/</link>
       <guid>https://rapiz.me/2020/migrate-arch/</guid>
       <pubDate>Fri, 28 Feb 2020 03:59:36 GMT</pubDate>
-      <description>
       
         
         
-          &lt;p&gt;128G 小盘实在不够用，每天都看还剩多少空间提心吊胆。我买了东芝 RC500 256G 把原厂盘换下来。128G 盘装进硬盘盒里当资源盘 / Win to go 还不是美滋滋？&lt;/p&gt;
-&lt;p&gt;首先大部分笔记本都没有俩M2槽，要想换成新盘就要把老盘上的系统转移过去，就必须能
+      <description>&lt;p&gt;128G 小盘实在不够用，每天都看还剩多少空间提心吊胆。我买了东芝 RC500 256G 把原厂盘换下来。128G 盘装进硬盘盒里当资源盘 / Win to go 还不是美滋滋？&lt;/p&gt;
+&lt;p&gt;首先大部分笔记本都没有俩M2槽，要想换成新盘就要把老盘上的系统转移过去，就必须能</description>
         
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/ENV/">ENV</category>
+      
+      
+      <category domain="https://rapiz.me/tags/Linux/">Linux</category>
       
       
       <comments>https://rapiz.me/2020/migrate-arch/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -190,14 +246,18 @@
       <link>https://rapiz.me/2020/git-through-proxy/</link>
       <guid>https://rapiz.me/2020/git-through-proxy/</guid>
       <pubDate>Fri, 21 Feb 2020 09:08:18 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;查了一大堆，说什么方法的都有……
+      <description>&lt;p&gt;查了一大堆，说什么方法的都有……</description>
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/ENV/">ENV</category>
+      
       
       
       <comments>https://rapiz.me/2020/git-through-proxy/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -205,18 +265,24 @@
       <link>https://rapiz.me/2020/vbox-integration/</link>
       <guid>https://rapiz.me/2020/vbox-integration/</guid>
       <pubDate>Fri, 21 Feb 2020 04:52:19 GMT</pubDate>
-      <description>
       
         
         
-          &lt;p&gt;一开始我想写个程序设置为 Windows 的默认浏览器。这样试图打开 URL 的时候，URL 会作为参数传给小程序。小程序通过 socket 转发到宿主机。宿主机上跑个 TCP 服务器不断打开传入的链接。&lt;/p&gt;
-&lt;p&gt;这样做主要有两个问题。一是有些网络设置的VBOX不能通
+      <description>&lt;p&gt;一开始我想写个程序设置为 Windows 的默认浏览器。这样试图打开 URL 的时候，URL 会作为参数传给小程序。小程序通过 socket 转发到宿主机。宿主机上跑个 TCP 服务器不断打开传入的链接。&lt;/p&gt;
+&lt;p&gt;这样做主要有两个问题。一是有些网络设置的VBOX不能通</description>
         
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/ENV/">ENV</category>
+      
+      
+      <category domain="https://rapiz.me/tags/Linux/">Linux</category>
       
       
       <comments>https://rapiz.me/2020/vbox-integration/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -224,14 +290,18 @@
       <link>https://rapiz.me/2019/square-spliting/</link>
       <guid>https://rapiz.me/2019/square-spliting/</guid>
       <pubDate>Mon, 16 Sep 2019 01:22:36 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;POJ2104 K-th Number ( NEEREC 2004 )&lt;br&gt;
+      <description>&lt;p&gt;POJ2104 K-th Number ( NEEREC 2004 )&lt;br&gt;</description>
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/OI/">OI</category>
+      
       
       
       <comments>https://rapiz.me/2019/square-spliting/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -239,14 +309,20 @@
       <link>https://rapiz.me/2019/pollard-rho/</link>
       <guid>https://rapiz.me/2019/pollard-rho/</guid>
       <pubDate>Sun, 15 Sep 2019 03:55:00 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;照着算导打就完了&lt;br&gt;
+      <description>&lt;p&gt;照着算导打就完了&lt;br&gt;</description>
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/OI/">OI</category>
+      
+      
+      <category domain="https://rapiz.me/tags/Math/">Math</category>
       
       
       <comments>https://rapiz.me/2019/pollard-rho/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -254,20 +330,26 @@
       <link>https://rapiz.me/2019/fix-mathjax-of-hexo/</link>
       <guid>https://rapiz.me/2019/fix-mathjax-of-hexo/</guid>
       <pubDate>Sun, 08 Sep 2019 09:58:47 GMT</pubDate>
-      <description>
       
         
         
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+      <description>&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;之前一直用 hexo-renderer-mathjax 插件渲染数学公式，最近发现它失效了。&lt;/p&gt;
 &lt;p&gt;找到 Github 项目发现已经很久没更新了，似乎由于内置的 CDN 失效而渲染失败。&lt;/p&gt;
-&lt;p&gt;然后在 Issue 里找到了
+&lt;p&gt;然后在 Issue 里找到了</description>
         
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
+      
+      
+      <category domain="https://rapiz.me/tags/Hexo/">Hexo</category>
       
       
       <comments>https://rapiz.me/2019/fix-mathjax-of-hexo/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -275,19 +357,25 @@
       <link>https://rapiz.me/2019/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9B%9B%E5%80%8D%E7%A9%BA%E9%97%B4/</link>
       <guid>https://rapiz.me/2019/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9B%9B%E5%80%8D%E7%A9%BA%E9%97%B4/</guid>
       <pubDate>Sun, 08 Sep 2019 04:40:10 GMT</pubDate>
-      <description>
       
         
         
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+      <description>&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;四倍空间&quot;&gt;&lt;a href=&quot;#四倍空间&quot; class=&quot;headerlink&quot; title=&quot;四倍空间&quot;&gt;&lt;/a&gt;四倍空间&lt;/h2&gt;&lt;p&gt;区间长：&lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;&lt;/p&gt;
-&lt;
+&lt;</description>
         
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/OI/">OI</category>
+      
+      
+      <category domain="https://rapiz.me/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">线段树</category>
       
       
       <comments>https://rapiz.me/2019/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9B%9B%E5%80%8D%E7%A9%BA%E9%97%B4/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -295,14 +383,20 @@
       <link>https://rapiz.me/2019/p2661/</link>
       <guid>https://rapiz.me/2019/p2661/</guid>
       <pubDate>Thu, 05 Sep 2019 14:42:32 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;忘了&lt;/p&gt;
+      <description>&lt;p&gt;忘了&lt;/p&gt;</description>
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/OI/">OI</category>
+      
+      
+      <category domain="https://rapiz.me/tags/tarjan-DFS/">tarjan, DFS</category>
       
       
       <comments>https://rapiz.me/2019/p2661/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -310,14 +404,20 @@
       <link>https://rapiz.me/2019/lock-and-suspend/</link>
       <guid>https://rapiz.me/2019/lock-and-suspend/</guid>
       <pubDate>Wed, 28 Aug 2019 08:14:29 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;适用于无电源管理服务且运行 xorg 的环境&lt;/p&gt;
+      <description>&lt;p&gt;适用于无电源管理服务且运行 xorg 的环境&lt;/p&gt;</description>
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/ENV/">ENV</category>
+      
+      
+      <category domain="https://rapiz.me/tags/Linux/">Linux</category>
       
       
       <comments>https://rapiz.me/2019/lock-and-suspend/#disqus_thread</comments>
+      
     </item>
     
     <item>
@@ -325,14 +425,20 @@
       <link>https://rapiz.me/2017/learn-js/</link>
       <guid>https://rapiz.me/2017/learn-js/</guid>
       <pubDate>Sun, 01 Oct 2017 08:43:54 GMT</pubDate>
-      <description>
       
-        &lt;p&gt;学点有用的。
+      <description>&lt;p&gt;学点有用的。</description>
       
-      </description>
+      
+      
+      
+      <category domain="https://rapiz.me/categories/Development/">Development</category>
+      
+      
+      <category domain="https://rapiz.me/tags/JavaScript/">JavaScript</category>
       
       
       <comments>https://rapiz.me/2017/learn-js/#disqus_thread</comments>
+      
     </item>
     
   </channel>

@@ -3,7 +3,7 @@
   <title>潮与雪</title>
   
   <subtitle>Rapiz</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <link href="https://rapiz.me/atom.xml" rel="self"/>
   
   <link href="https://rapiz.me/"/>
   <updated>2020-08-21T03:01:38.727Z</updated>
@@ -23,21 +23,19 @@
     <published>2020-08-21T02:21:40.000Z</published>
     <updated>2020-08-21T03:01:38.727Z</updated>
     
-    <summary type="html">
     
       
       
-        &lt;p&gt;Noto Fonts 的字形是个老大难问题了。具体表现就是在有些程序上，会自动使用日文字形，导致“门”等字符显示的很奇怪。之前我使用 fontconfig 指定中日韩字形的使用顺序，可以解决绝大多数的问题。恩，是我见到的所有。&lt;/p&gt;
-&lt;p&gt;但最近的 Arch 更新导致 V
+    <summary type="html">&lt;p&gt;Noto Fonts 的字形是个老大难问题了。具体表现就是在有些程序上，会自动使用日文字形，导致“门”等字符显示的很奇怪。之前我使用 fontconfig 指定中日韩字形的使用顺序，可以解决绝大多数的问题。恩，是我见到的所有。&lt;/p&gt;
+&lt;p&gt;但最近的 Arch 更新导致 V</summary>
       
     
-    </summary>
     
     
-      <category term="ENV" scheme="https://rapiz.me/categories/ENV/"/>
+    <category term="ENV" scheme="https://rapiz.me/categories/ENV/"/>
     
     
-      <category term="Linux, qq, Arch, Noto Fonts" scheme="https://rapiz.me/tags/Linux-qq-Arch-Noto-Fonts/"/>
+    <category term="Linux, qq, Arch, Noto Fonts" scheme="https://rapiz.me/tags/Linux-qq-Arch-Noto-Fonts/"/>
     
   </entry>
   
@@ -48,17 +46,15 @@
     <published>2020-07-28T13:04:52.000Z</published>
     <updated>2020-08-04T13:50:01.364Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;如果不是被仿冒，谁又愿意做 SEO 呢
-    
-    </summary>
+    <summary type="html">&lt;p&gt;如果不是被仿冒，谁又愿意做 SEO 呢</summary>
     
     
-      <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
+    
+    <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
     
     
-      <category term="SEO" scheme="https://rapiz.me/tags/SEO/"/>
+    <category term="SEO" scheme="https://rapiz.me/tags/SEO/"/>
     
   </entry>
   
@@ -69,14 +65,12 @@
     <published>2020-07-28T13:04:45.000Z</published>
     <updated>2020-07-28T13:36:09.179Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;请认准中文互联网唯一正版 Rapiz
-    
-    </summary>
+    <summary type="html">&lt;p&gt;请认准中文互联网唯一正版 Rapiz</summary>
     
     
-      <category term="LIFE" scheme="https://rapiz.me/categories/LIFE/"/>
+    
+    <category term="LIFE" scheme="https://rapiz.me/categories/LIFE/"/>
     
     
   </entry>
@@ -88,17 +82,15 @@
     <published>2020-07-16T07:34:10.000Z</published>
     <updated>2020-07-21T12:26:17.549Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;施工中
-    
-    </summary>
+    <summary type="html">&lt;p&gt;施工中</summary>
     
     
-      <category term="Misc" scheme="https://rapiz.me/categories/Misc/"/>
+    
+    <category term="Misc" scheme="https://rapiz.me/categories/Misc/"/>
     
     
-      <category term="Network" scheme="https://rapiz.me/tags/Network/"/>
+    <category term="Network" scheme="https://rapiz.me/tags/Network/"/>
     
   </entry>
   
@@ -109,14 +101,12 @@
     <published>2020-06-30T06:29:54.000Z</published>
     <updated>2020-06-30T08:56:40.515Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;Windows 毒瘤
-    
-    </summary>
+    <summary type="html">&lt;p&gt;Windows 毒瘤</summary>
     
     
-      <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
+    
+    <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
     
     
   </entry>
@@ -128,17 +118,15 @@
     <published>2020-06-27T02:38:21.000Z</published>
     <updated>2020-07-28T14:09:53.905Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;&lt;em&gt;Operating Systems: Three Easy Pieces&lt;/em&gt;
-    
-    </summary>
+    <summary type="html">&lt;p&gt;&lt;em&gt;Operating Systems: Three Easy Pieces&lt;/em&gt;</summary>
     
     
-      <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
+    
+    <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
     
     
-      <category term="操作系统" scheme="https://rapiz.me/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    <category term="操作系统" scheme="https://rapiz.me/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
@@ -149,14 +137,12 @@
     <published>2020-06-23T14:58:58.000Z</published>
     <updated>2020-06-23T15:00:40.274Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;Self-driven
-    
-    </summary>
+    <summary type="html">&lt;p&gt;Self-driven</summary>
     
     
-      <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
+    
+    <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
     
     
   </entry>
@@ -168,17 +154,15 @@
     <published>2020-05-14T04:34:41.000Z</published>
     <updated>2020-08-18T09:51:37.329Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;An exciting summer
-    
-    </summary>
+    <summary type="html">&lt;p&gt;An exciting summer</summary>
     
     
-      <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
+    
+    <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
     
     
-      <category term="GSoC" scheme="https://rapiz.me/tags/GSoC/"/>
+    <category term="GSoC" scheme="https://rapiz.me/tags/GSoC/"/>
     
   </entry>
   
@@ -189,11 +173,9 @@
     <published>2020-05-07T09:56:32.000Z</published>
     <updated>2020-05-07T09:59:32.153Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;这是后浪
+    <summary type="html">&lt;p&gt;这是后浪</summary>
     
-    </summary>
     
     
     
@@ -206,17 +188,15 @@
     <published>2020-05-02T16:36:03.000Z</published>
     <updated>2020-07-28T14:23:31.746Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;登上 v2ex 热榜、GitHub Trending 两天，收获 800+ Stars
-    
-    </summary>
+    <summary type="html">&lt;p&gt;登上 v2ex 热榜、GitHub Trending 两天，收获 800+ Stars</summary>
     
     
-      <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
+    
+    <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
     
     
-      <category term="C" scheme="https://rapiz.me/tags/C/"/>
+    <category term="C" scheme="https://rapiz.me/tags/C/"/>
     
   </entry>
   
@@ -227,21 +207,19 @@
     <published>2020-02-28T03:59:36.000Z</published>
     <updated>2020-03-06T16:39:37.119Z</updated>
     
-    <summary type="html">
     
       
       
-        &lt;p&gt;128G 小盘实在不够用，每天都看还剩多少空间提心吊胆。我买了东芝 RC500 256G 把原厂盘换下来。128G 盘装进硬盘盒里当资源盘 / Win to go 还不是美滋滋？&lt;/p&gt;
-&lt;p&gt;首先大部分笔记本都没有俩M2槽，要想换成新盘就要把老盘上的系统转移过去，就必须能
+    <summary type="html">&lt;p&gt;128G 小盘实在不够用，每天都看还剩多少空间提心吊胆。我买了东芝 RC500 256G 把原厂盘换下来。128G 盘装进硬盘盒里当资源盘 / Win to go 还不是美滋滋？&lt;/p&gt;
+&lt;p&gt;首先大部分笔记本都没有俩M2槽，要想换成新盘就要把老盘上的系统转移过去，就必须能</summary>
       
     
-    </summary>
     
     
-      <category term="ENV" scheme="https://rapiz.me/categories/ENV/"/>
+    <category term="ENV" scheme="https://rapiz.me/categories/ENV/"/>
     
     
-      <category term="Linux" scheme="https://rapiz.me/tags/Linux/"/>
+    <category term="Linux" scheme="https://rapiz.me/tags/Linux/"/>
     
   </entry>
   
@@ -252,14 +230,12 @@
     <published>2020-02-21T09:08:18.000Z</published>
     <updated>2020-02-21T09:13:33.294Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;查了一大堆，说什么方法的都有……
-    
-    </summary>
+    <summary type="html">&lt;p&gt;查了一大堆，说什么方法的都有……</summary>
     
     
-      <category term="ENV" scheme="https://rapiz.me/categories/ENV/"/>
+    
+    <category term="ENV" scheme="https://rapiz.me/categories/ENV/"/>
     
     
   </entry>
@@ -271,21 +247,19 @@
     <published>2020-02-21T04:52:19.000Z</published>
     <updated>2020-02-21T09:06:54.619Z</updated>
     
-    <summary type="html">
     
       
       
-        &lt;p&gt;一开始我想写个程序设置为 Windows 的默认浏览器。这样试图打开 URL 的时候，URL 会作为参数传给小程序。小程序通过 socket 转发到宿主机。宿主机上跑个 TCP 服务器不断打开传入的链接。&lt;/p&gt;
-&lt;p&gt;这样做主要有两个问题。一是有些网络设置的VBOX不能通
+    <summary type="html">&lt;p&gt;一开始我想写个程序设置为 Windows 的默认浏览器。这样试图打开 URL 的时候，URL 会作为参数传给小程序。小程序通过 socket 转发到宿主机。宿主机上跑个 TCP 服务器不断打开传入的链接。&lt;/p&gt;
+&lt;p&gt;这样做主要有两个问题。一是有些网络设置的VBOX不能通</summary>
       
     
-    </summary>
     
     
-      <category term="ENV" scheme="https://rapiz.me/categories/ENV/"/>
+    <category term="ENV" scheme="https://rapiz.me/categories/ENV/"/>
     
     
-      <category term="Linux" scheme="https://rapiz.me/tags/Linux/"/>
+    <category term="Linux" scheme="https://rapiz.me/tags/Linux/"/>
     
   </entry>
   
@@ -296,14 +270,12 @@
     <published>2019-09-16T01:22:36.000Z</published>
     <updated>2019-09-16T01:25:10.272Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;POJ2104 K-th Number ( NEEREC 2004 )&lt;br&gt;
-    
-    </summary>
+    <summary type="html">&lt;p&gt;POJ2104 K-th Number ( NEEREC 2004 )&lt;br&gt;</summary>
     
     
-      <category term="OI" scheme="https://rapiz.me/categories/OI/"/>
+    
+    <category term="OI" scheme="https://rapiz.me/categories/OI/"/>
     
     
   </entry>
@@ -315,17 +287,15 @@
     <published>2019-09-15T03:55:00.000Z</published>
     <updated>2019-09-15T04:00:28.151Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;照着算导打就完了&lt;br&gt;
-    
-    </summary>
+    <summary type="html">&lt;p&gt;照着算导打就完了&lt;br&gt;</summary>
     
     
-      <category term="OI" scheme="https://rapiz.me/categories/OI/"/>
+    
+    <category term="OI" scheme="https://rapiz.me/categories/OI/"/>
     
     
-      <category term="Math" scheme="https://rapiz.me/tags/Math/"/>
+    <category term="Math" scheme="https://rapiz.me/tags/Math/"/>
     
   </entry>
   
@@ -336,23 +306,21 @@
     <published>2019-09-08T09:58:47.000Z</published>
     <updated>2020-03-06T16:37:40.474Z</updated>
     
-    <summary type="html">
     
       
       
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;之前一直用 hexo-renderer-mathjax 插件渲染数学公式，最近发现它失效了。&lt;/p&gt;
 &lt;p&gt;找到 Github 项目发现已经很久没更新了，似乎由于内置的 CDN 失效而渲染失败。&lt;/p&gt;
-&lt;p&gt;然后在 Issue 里找到了
+&lt;p&gt;然后在 Issue 里找到了</summary>
       
     
-    </summary>
     
     
-      <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
+    <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
     
     
-      <category term="Hexo" scheme="https://rapiz.me/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://rapiz.me/tags/Hexo/"/>
     
   </entry>
   
@@ -363,22 +331,20 @@
     <published>2019-09-08T04:40:10.000Z</published>
     <updated>2019-09-09T09:54:23.560Z</updated>
     
-    <summary type="html">
     
       
       
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;四倍空间&quot;&gt;&lt;a href=&quot;#四倍空间&quot; class=&quot;headerlink&quot; title=&quot;四倍空间&quot;&gt;&lt;/a&gt;四倍空间&lt;/h2&gt;&lt;p&gt;区间长：&lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;&lt;/p&gt;
-&lt;
+&lt;</summary>
       
     
-    </summary>
     
     
-      <category term="OI" scheme="https://rapiz.me/categories/OI/"/>
+    <category term="OI" scheme="https://rapiz.me/categories/OI/"/>
     
     
-      <category term="线段树" scheme="https://rapiz.me/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    <category term="线段树" scheme="https://rapiz.me/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
   </entry>
   
@@ -389,17 +355,15 @@
     <published>2019-09-05T14:42:32.000Z</published>
     <updated>2020-08-20T02:33:33.691Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;忘了&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;p&gt;忘了&lt;/p&gt;</summary>
     
     
-      <category term="OI" scheme="https://rapiz.me/categories/OI/"/>
+    
+    <category term="OI" scheme="https://rapiz.me/categories/OI/"/>
     
     
-      <category term="tarjan, DFS" scheme="https://rapiz.me/tags/tarjan-DFS/"/>
+    <category term="tarjan, DFS" scheme="https://rapiz.me/tags/tarjan-DFS/"/>
     
   </entry>
   
@@ -410,17 +374,15 @@
     <published>2019-08-28T08:14:29.000Z</published>
     <updated>2019-08-28T09:30:37.965Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;适用于无电源管理服务且运行 xorg 的环境&lt;/p&gt;
-    
-    </summary>
+    <summary type="html">&lt;p&gt;适用于无电源管理服务且运行 xorg 的环境&lt;/p&gt;</summary>
     
     
-      <category term="ENV" scheme="https://rapiz.me/categories/ENV/"/>
+    
+    <category term="ENV" scheme="https://rapiz.me/categories/ENV/"/>
     
     
-      <category term="Linux" scheme="https://rapiz.me/tags/Linux/"/>
+    <category term="Linux" scheme="https://rapiz.me/tags/Linux/"/>
     
   </entry>
   
@@ -431,17 +393,15 @@
     <published>2017-10-01T08:43:54.000Z</published>
     <updated>2019-07-17T08:20:55.591Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;学点有用的。
-    
-    </summary>
+    <summary type="html">&lt;p&gt;学点有用的。</summary>
     
     
-      <category term="Development" scheme="https://rapiz.me/categories/Development/"/>
+    
+    <category term="Development" scheme="https://rapiz.me/categories/Development/"/>
     
     
-      <category term="JavaScript" scheme="https://rapiz.me/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://rapiz.me/tags/JavaScript/"/>
     
   </entry>
   
