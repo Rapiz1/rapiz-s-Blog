@@ -69,7 +69,7 @@
   </div>
   <div class="post-content">
     <p>Noto Fonts 的字形是个老大难问题了。具体表现就是在有些程序上，会自动使用日文字形，导致“门”等字符显示的很奇怪。之前我使用 fontconfig 指定中日韩字形的使用顺序，可以解决绝大多数的问题。恩，是我见到的所有。</p>
-<p>但最近的 Arch 更新导致 Virtualbox 不可用，作为代替，我安装了 <code>deepin.com.qq.office</code> 。这是一个使用 <code>deepin-wine</code> 封装 TIM 的包。问题来了，打开之后文字正常显示，但被日文字形困扰过的人一眼就能看出來，字体显示的不正常：门等汉字是日文字形。</p>
+<p>但最近的 Arch 更新导致 Virtualbox 不可用，作为代替，我安装了 <code>deepin.com.qq.office</code> 。这是一个使用 <code>deepin-wine</code> 封装 TIM 的包。问题来了，打开之后文字正常显示，但被日文字形困扰过的人一眼就能看出来，字体显示的不正常：门等汉字是日文字形。</p>
 <p>这是因为 <code>wine</code> 不读取 <code>fontconfig</code>，而打包者似乎配置了这个 wine 容器使用系统默认字体，也就是 Noto Sans，而又没有指定使用哪个地区的字形，于是根据 Arch 中 CJK 字体包的默认设置，自动使用了日文字形。</p>
 <p>于是我们修改 <code>fontconfig</code> 没有作用，或许可以通过修改容器注册表来指定使用 wqy-mircohei 这种只有中文的字形。但我不喜欢文泉驿微米黑，也不懂 Windows 注册表……</p>
 <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>所以还有另一种方案，使用默认字形为中文的 CJK 字体。<br>在<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.google.com/get/noto/help/cjk/">这里</a> 可以下载到默认中文的 Noto Sans 和 Noto Serif。</p>
