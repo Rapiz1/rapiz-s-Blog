@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rapiz.me/"/>
-  <updated>2020-08-04T13:50:01.364Z</updated>
+  <updated>2020-08-21T03:01:38.727Z</updated>
   <id>https://rapiz.me/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决 deepin.com.qq.office 使用 Noto 日文字形的问题</title>
+    <link href="https://rapiz.me/2020/deepin-com-qq-office-fonts/"/>
+    <id>https://rapiz.me/2020/deepin-com-qq-office-fonts/</id>
+    <published>2020-08-21T02:21:40.000Z</published>
+    <updated>2020-08-21T03:01:38.727Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Noto Fonts 的字形是个老大难问题了。具体表现就是在有些程序上，会自动使用日文字形，导致“门”等字符显示的很奇怪。之前我使用 fontconfig 指定中日韩字形的使用顺序，可以解决绝大多数的问题。恩，是我见到的所有。&lt;/p&gt;
+&lt;p&gt;但最近的 Arch 更新导致 V
+      
+    
+    </summary>
+    
+    
+      <category term="ENV" scheme="https://rapiz.me/categories/ENV/"/>
+    
+    
+      <category term="Linux, qq, Arch, Noto Fonts" scheme="https://rapiz.me/tags/Linux-qq-Arch-Noto-Fonts/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo SEO 之完全指北</title>
@@ -417,30 +442,6 @@
     
     
       <category term="JavaScript" scheme="https://rapiz.me/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记一次回滚 Arch 内核的过程</title>
-    <link href="https://rapiz.me/2017/switch-linux-kernel/"/>
-    <id>https://rapiz.me/2017/switch-linux-kernel/</id>
-    <published>2017-10-01T03:17:58.000Z</published>
-    <updated>2020-08-04T03:25:12.013Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这回&lt;code&gt;sudo pacman -Syu&lt;/code&gt;后发现 &lt;code&gt;shutdown&lt;/code&gt;, &lt;code&gt;suspend&lt;/code&gt; 这些操作都出问题了。我在&lt;code&gt;#archlinux-cn&lt;/code&gt;里问了下，得知很有可能是新内核出了 Bu
-      
-    
-    </summary>
-    
-    
-      <category term="Misc" scheme="https://rapiz.me/categories/Misc/"/>
-    
-    
-      <category term="Linux" scheme="https://rapiz.me/tags/Linux/"/>
     
   </entry>
   

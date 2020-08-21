@@ -9,8 +9,27 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>凡人难以承受生活全部的真相，于是他们各执一端。</description>
-    <pubDate>Tue, 04 Aug 2020 13:50:01 GMT</pubDate>
+    <pubDate>Fri, 21 Aug 2020 03:01:38 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>解决 deepin.com.qq.office 使用 Noto 日文字形的问题</title>
+      <link>https://rapiz.me/2020/deepin-com-qq-office-fonts/</link>
+      <guid>https://rapiz.me/2020/deepin-com-qq-office-fonts/</guid>
+      <pubDate>Fri, 21 Aug 2020 02:21:40 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;Noto Fonts 的字形是个老大难问题了。具体表现就是在有些程序上，会自动使用日文字形，导致“门”等字符显示的很奇怪。之前我使用 fontconfig 指定中日韩字形的使用顺序，可以解决绝大多数的问题。恩，是我见到的所有。&lt;/p&gt;
+&lt;p&gt;但最近的 Arch 更新导致 V
+        
+      
+      </description>
+      
+      
+      <comments>https://rapiz.me/2020/deepin-com-qq-office-fonts/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Hexo SEO 之完全指北</title>
@@ -314,24 +333,6 @@
       
       
       <comments>https://rapiz.me/2017/learn-js/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>记一次回滚 Arch 内核的过程</title>
-      <link>https://rapiz.me/2017/switch-linux-kernel/</link>
-      <guid>https://rapiz.me/2017/switch-linux-kernel/</guid>
-      <pubDate>Sun, 01 Oct 2017 03:17:58 GMT</pubDate>
-      <description>
-      
-        
-        
-          &lt;p&gt;这回&lt;code&gt;sudo pacman -Syu&lt;/code&gt;后发现 &lt;code&gt;shutdown&lt;/code&gt;, &lt;code&gt;suspend&lt;/code&gt; 这些操作都出问题了。我在&lt;code&gt;#archlinux-cn&lt;/code&gt;里问了下，得知很有可能是新内核出了 Bu
-        
-      
-      </description>
-      
-      
-      <comments>https://rapiz.me/2017/switch-linux-kernel/#disqus_thread</comments>
     </item>
     
   </channel>

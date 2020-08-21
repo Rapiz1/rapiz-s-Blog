@@ -4,7 +4,7 @@
 <head>
   
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><title>
-    Hexo SEO 之完全指北 |  潮与雪 - Rapiz
+    解决 deepin.com.qq.office 使用 Noto 日文字形的问题 |  潮与雪 - Rapiz
   </title>
   
 <link rel="stylesheet" href="/css/style.css">
@@ -15,8 +15,8 @@
   <meta name="robots" content="index,follow" />
   <meta name="author" content="Rapiz" />
   
-  <meta name="keywords" content="潮与雪,Rapiz,Rapiz,OI,ACM,HUST,乔羽佳,博客,Blog,算法,开源软件,题解,SEO,DEV" />
-  <meta name="description" content="潮与雪,Rapiz,凡人难以承受生活全部的真相，于是他们各执一端。,Rapiz,Hexo SEO 之完全指北,如果不是被仿冒，谁又愿意做 SEO 呢" />
+  <meta name="keywords" content="潮与雪,Rapiz,Rapiz,OI,ACM,HUST,乔羽佳,博客,Blog,算法,开源软件,题解,Linux, qq, Arch, Noto Fonts,ENV" />
+  <meta name="description" content="潮与雪,Rapiz,凡人难以承受生活全部的真相，于是他们各执一端。,Rapiz" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <script src="https://cdn.jsdelivr.net/npm/mermaid@8.5.1/dist/mermaid.min.js"></script>
@@ -59,29 +59,29 @@
 -->
 <article class="post markdown-body">
   <div class="post-title">
-    <h1 class="title">Hexo SEO 之完全指北</h1>
+    <h1 class="title">解决 deepin.com.qq.office 使用 Noto 日文字形的问题</h1>
   </div>
    <div class="post-meta">
          
-    <blockquote>如果不是被仿冒，谁又愿意做 SEO 呢</blockquote>
-    
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sitemap"><span class="toc-text">Sitemap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API-提交"><span class="toc-text">API 提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Metadata"><span class="toc-text">Metadata</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外链"><span class="toc-text">外链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Appendix"><span class="toc-text">Appendix</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载"><span class="toc-text">下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li></ol>
     <span class="post-author">By Rapiz</span>
-    <span class="post-time">2020-07-28</span>
+    <span class="post-time">2020-08-21</span>
   </div>
   <div class="post-content">
-    </p>
-<p><a href="/2020/fake-rapiz">上篇博文讲述了不是技术网红的我也会被仿冒</a>的故事，由于关键字权重低所以我被不明真相的围观群众持续输出 : ( 而本正版博客的必应权重还不错，百度惨遭只收录主页还没排名。虽然我自己用必应，但是我感觉大部分人还是用的百度，这就表明他们很可能会认为 Rapiz 是个东百的二本的喜欢喷人的学生（（（</p>
-<p>所以我决定做点聊胜于无的 SEO。</p>
-<h2 id="Sitemap"><a href="#Sitemap" class="headerlink" title="Sitemap"></a>Sitemap</h2><p>首先加 Sitemap。Sitemap 类似于网站的一个地图，蜘蛛会定期根据这个地图遍历网站。也许大概可能百度会根据这个收录本博的文章。</p>
-<p><a href="https://blog.csdn.net/formemorywithyou/article/details/96478453" rel="external nofollow noreferrer">这篇文章</a> 讲了怎么用 Hexo 生成 google 和百度的 sitemap。</p>
-<p>你可以访问 <a href="https://rapiz.me/sitemap.xml">https://rapiz.me/sitemap.xml</a> <a href="https://rapiz.me/baidusitemap.xml">https://rapiz.me/baidusitemap.xml</a> 来查看本站的 google sitemap 和百度 sitemap。</p>
-<h2 id="API-提交"><a href="#API-提交" class="headerlink" title="API 提交"></a>API 提交</h2><p>相对于蜘蛛定期遍历 Sitemap 来抓取网站，还有一种方法就是每次更新博客时向百度提交更新后的网址。</p>
-<p>这里描述了 Hexo 中<a href="https://www.jianshu.com/p/f37452d4978e" rel="external nofollow noreferrer">通过 API 向百度提交</a>。</p>
-<h2 id="Metadata"><a href="#Metadata" class="headerlink" title="Metadata"></a>Metadata</h2><p>然后我看了下别人的网站，<code>&lt;head&gt;</code> 里都有 <code>&lt;meta&gt;</code> 表明关键字和作者啥的。我觉得可能 <code>&lt;meta&gt;</code> 多了也利于收录？<a href="https://blog.csdn.net/alokka/article/details/78814674" rel="external nofollow noreferrer">这篇文章里</a>有挺多常用的标签，我加了 author, description, keywords，希望多少起点作用吧。</p>
-<h2 id="外链"><a href="#外链" class="headerlink" title="外链"></a>外链</h2><p><code>&lt;a&gt;</code> 标签的目标页面会分享页面权重。除了<a href="https://github.com/hexojs/hexo-filter-nofollow" rel="external nofollow noreferrer">Hexo 官方提供了一个插件</a> 会给所有出站链接加上 <code>no follow</code> 等属性，防止搜索引擎蜘蛛爬出站点，降低博客文章权重。</p>
-<p>注意把友链在插件设置里排除。我们希望通过友链和朋友交换权重。</p>
-<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><p><em>救救 Rapiz 别让他再被假冒和风评被害了</em></p>
+    <p>Noto Fonts 的字形是个老大难问题了。具体表现就是在有些程序上，会自动使用日文字形，导致“门”等字符显示的很奇怪。之前我使用 fontconfig 指定中日韩字形的使用顺序，可以解决绝大多数的问题。恩，是我见到的所有。</p>
+<p>但最近的 Arch 更新导致 Virtualbox 不可用，作为代替，我安装了 <code>deepin.com.qq.office</code> 。这是一个使用 <code>deepin-wine</code> 封装 TIM 的包。问题来了，打开之后文字正常显示，但被日文字形困扰过的人一眼就能看出來，字体显示的不正常：门等汉字是日文字形。</p>
+<p>这是因为 <code>wine</code> 不读取 <code>fontconfig</code>，而打包者似乎配置了这个 wine 容器使用系统默认字体，也就是 Noto Sans，而又没有指定使用哪个地区的字形，于是根据 Arch 中 CJK 字体包的默认设置，自动使用了日文字形。</p>
+<p>于是我们修改 <code>fontconfig</code> 没有作用，或许可以通过修改容器注册表来指定使用 wqy-mircohei 这种只有中文的字形。但我不喜欢文泉驿微米黑，也不懂 Windows 注册表……</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>所以还有另一种方案，使用默认字形为中文的 CJK 字体。<br>在<a href="https://www.google.com/get/noto/help/cjk/" rel="external nofollow noreferrer">这里</a> 可以下载到默认中文的 Noto Sans 和 Noto Serif。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>然后根据<a href="https://wiki.archlinux.org/index.php/Font" rel="external nofollow noreferrer">ArchWiki</a>中的方法手动安装字体。<br>把<code>*.otf</code>复制到<code>/usr/share/fonts</code>的任意子目录下即可。这里我选择 <code>/usr/share/fonts/noto-cjk</code>。</p>
+<pre><code class="lang-shell"># 解压字体文件后，进入解压缩后的字体文件目录
+sudo cp *.otf /usr/share/fonts/noto-cjk # 如果不存在目标目录 noto-cjk，可以自行创建
+sudo chmod 555 /usr/share/font/noto-cjk # 目标目录必须至少是 555 权限 (r-xr-xr-x)
+sudo chmod 444 /usr/share/font/noto-cjk/* # 字体文件必须至少是 444 权限 (r--r--r--)
+fc-cache -fv # 刷新字体缓存
+</code></pre>
+<p>然后注销桌面重新进入就可以了。</p>
+
   </div>
   <!--hightlight.js-->
   <!--
@@ -102,13 +102,9 @@
 
 <div class='page-nav'>
 
-  <div class='underline-trans'>
-  <a href="/2020/deepin-com-qq-office-fonts/">◀ 解决 deepin.com.qq.office 使用 Noto 日文字形的问题</a>
-  </div>
-
 
   <div class='underline-trans'>
-  <a href="/2020/fake-rapiz/">还没当成技术网红就被人仿冒了🙁 ▶</a>
+  <a href="/2020/blog-seo/">Hexo SEO 之完全指北 ▶</a>
   </div>
 
 </div>
