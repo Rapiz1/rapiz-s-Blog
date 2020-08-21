@@ -309,10 +309,10 @@
     
       
       
-    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+    <summary type="html">&lt;!--more---&gt;
 &lt;p&gt;之前一直用 hexo-renderer-mathjax 插件渲染数学公式，最近发现它失效了。&lt;/p&gt;
 &lt;p&gt;找到 Github 项目发现已经很久没更新了，似乎由于内置的 CDN 失效而渲染失败。&lt;/p&gt;
-&lt;p&gt;然后在 Issue 里找到了</summary>
+&lt;p&gt;然后在 Issue 里找到了 Fork</summary>
       
     
     
