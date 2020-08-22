@@ -55,9 +55,7 @@
 </header>
 
 	<main class = 'main' onchange="FanfouFix();">
-		<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.6/latest.js"></script>
--->
-<article class="post markdown-body">
+		<article class="post markdown-body">
   <div class="post-title">
     <h1 class="title">为通过 SSH 的 Git 配置代理</h1>
   </div>
@@ -76,21 +74,6 @@
     ProxyCommand            nc -x 127.0.0.1:1080 %h %p
 </code></pre><p>一直是啥密匙交换错误，无法解析主机啥的。<br>我一开始还以为是加密问题。<br>后来仔细一看，不对劲啊  <code>can&#39;t resolve host 127.0.0.1:1080</code><br>这主机都解析不了还指望解析啥……<br>然后又查了查，发现<code>ubuntu</code>的<code>netcat</code>不支持<code>-x</code>。但我寻思我用 <code>arch</code>啊。<code>man</code>了一下发现果然没有这个选项……<br><code>pacman -Ss netcat</code>发现有<code>openbsd-netcat</code>。换掉<code>gnu-netcat</code>，解决。</p>
   </div>
-  <!--hightlight.js-->
-  <!--
-  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/idea.min.css">
-  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
-	
-<script src="/js/hljs-line-number.js"></script>
-
-  <script>
-  hljs.initHighlightingOnLoad();
-  hljs.initLineNumbersOnLoad();
-  </script>
--->
-<!--  <link href="//cdn.bootcss.com/highlight.js/9.9.0/styles/monokai.min.css" rel="stylesheet">
-  <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
-  <script>hljs.initHighlighting();</script> -->
 </article>
 
 <div class='page-nav'>
@@ -154,6 +137,6 @@
     });
 </script>
 
-<script src=https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src=https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
