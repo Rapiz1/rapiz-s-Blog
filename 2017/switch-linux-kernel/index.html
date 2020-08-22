@@ -15,7 +15,7 @@
   <meta name="robots" content="index,follow" />
   <meta name="author" content="Rapiz" />
   
-  <meta name="keywords" content="潮与雪,Rapiz,Rapiz,OI,ACM,HUST,乔羽佳,博客,Blog,算法,开源软件,题解,Linux,Misc" />
+  <meta name="keywords" content="潮与雪,Rapiz,Rapiz,OI,ACM,HUST,乔羽佳,博客,Blog,算法,开源软件,题解,Linux,ENV,Linux内核,切换内核,Arch" />
   <meta name="description" content="潮与雪,Rapiz,凡人难以承受生活全部的真相，于是他们各执一端。,Rapiz" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
@@ -64,7 +64,13 @@
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%BC%96%E8%AF%91"><span class="toc-text">内核的安装和编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E6%96%B0%E5%86%85%E6%A0%B8%E5%90%AF%E5%8A%A8"><span class="toc-text">从新内核启动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#efibootmgr"><span class="toc-text">efibootmgr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rEFInd"><span class="toc-text">rEFInd</span></a></li></ol></li></ol>
     <span class="post-author">By Rapiz</span>
     <span class="post-time">2017-10-01</span>
-  </div>
+    <span class="post-tags">
+      <a class="article-tag-none-link" href="/tags/Linux/" rel="tag">Linux</a>
+      <span class="post-meta-keywords">
+      Linux内核,切换内核,Arch
+      </span>
+    </span>
+</div>
   <div class="post-content">
     <p>这回<code>sudo pacman -Syu</code>后发现 <code>shutdown</code>, <code>suspend</code> 这些操作都出问题了。我在<code>#archlinux-cn</code>里问了下，得知很有可能是新内核出了 Bug。所以我决定先回滚一下内核看问题能不能解决。</p>
 <h2 id="内核的安装和编译"><a href="#内核的安装和编译" class="headerlink" title="内核的安装和编译"></a>内核的安装和编译</h2><p>首先安装LTS内核，当然你选择其他内核也行（记得要把我命令中的<code>linux-lts</code>换成对应的名称）</p>

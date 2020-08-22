@@ -6,7 +6,7 @@
   <link href="https://rapiz.me/atom.xml" rel="self"/>
   
   <link href="https://rapiz.me/"/>
-  <updated>2020-08-22T15:20:12.807Z</updated>
+  <updated>2020-08-22T15:54:29.747Z</updated>
   <id>https://rapiz.me/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://rapiz.me/2020/deepin-com-qq-office-fonts/"/>
     <id>https://rapiz.me/2020/deepin-com-qq-office-fonts/</id>
     <published>2020-08-21T02:21:40.000Z</published>
-    <updated>2020-08-22T15:20:12.807Z</updated>
+    <updated>2020-08-22T15:54:29.747Z</updated>
     
     
       
@@ -35,7 +35,13 @@
     <category term="ENV" scheme="https://rapiz.me/categories/ENV/"/>
     
     
-    <category term="Linux, qq, Arch, Noto Fonts, TIM" scheme="https://rapiz.me/tags/Linux-qq-Arch-Noto-Fonts-TIM/"/>
+    <category term="Linux" scheme="https://rapiz.me/tags/Linux/"/>
+    
+    <category term="Arch" scheme="https://rapiz.me/tags/Arch/"/>
+    
+    <category term="Noto Fonts" scheme="https://rapiz.me/tags/Noto-Fonts/"/>
+    
+    <category term="TIM" scheme="https://rapiz.me/tags/TIM/"/>
     
   </entry>
   
@@ -152,7 +158,7 @@
     <link href="https://rapiz.me/2020/gsoc2020-archive/"/>
     <id>https://rapiz.me/2020/gsoc2020-archive/</id>
     <published>2020-05-14T04:34:41.000Z</published>
-    <updated>2020-08-18T09:51:37.329Z</updated>
+    <updated>2020-08-22T15:54:42.371Z</updated>
     
     
     <summary type="html">&lt;p&gt;An exciting summer</summary>
@@ -163,6 +169,8 @@
     
     
     <category term="GSoC" scheme="https://rapiz.me/tags/GSoC/"/>
+    
+    <category term="开源软件" scheme="https://rapiz.me/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"/>
     
   </entry>
   
@@ -186,7 +194,7 @@
     <link href="https://rapiz.me/2020/dungeonrush/"/>
     <id>https://rapiz.me/2020/dungeonrush/</id>
     <published>2020-05-02T16:36:03.000Z</published>
-    <updated>2020-07-28T14:23:31.746Z</updated>
+    <updated>2020-08-22T16:14:35.289Z</updated>
     
     
     <summary type="html">&lt;p&gt;登上 v2ex 热榜、GitHub Trending 两天，收获 800+ Stars</summary>
@@ -197,6 +205,8 @@
     
     
     <category term="C" scheme="https://rapiz.me/tags/C/"/>
+    
+    <category term="开源软件" scheme="https://rapiz.me/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"/>
     
   </entry>
   
@@ -353,7 +363,7 @@
     <link href="https://rapiz.me/2019/p2661/"/>
     <id>https://rapiz.me/2019/p2661/</id>
     <published>2019-09-05T14:42:32.000Z</published>
-    <updated>2020-08-20T02:33:33.691Z</updated>
+    <updated>2020-08-22T15:55:04.097Z</updated>
     
     
     <summary type="html">&lt;p&gt;忘了&lt;/p&gt;</summary>
@@ -363,7 +373,9 @@
     <category term="OI" scheme="https://rapiz.me/categories/OI/"/>
     
     
-    <category term="tarjan, DFS" scheme="https://rapiz.me/tags/tarjan-DFS/"/>
+    <category term="tarjan" scheme="https://rapiz.me/tags/tarjan/"/>
+    
+    <category term="DFS" scheme="https://rapiz.me/tags/DFS/"/>
     
   </entry>
   

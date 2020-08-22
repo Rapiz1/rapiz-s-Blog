@@ -9,7 +9,7 @@
     <atom:link href="https://rapiz.me/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>凡人难以承受生活全部的真相，于是他们各执一端。</description>
-    <pubDate>Sat, 22 Aug 2020 15:20:12 GMT</pubDate>
+    <pubDate>Sat, 22 Aug 2020 15:54:29 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -30,7 +30,13 @@
       <category domain="https://rapiz.me/categories/ENV/">ENV</category>
       
       
-      <category domain="https://rapiz.me/tags/Linux-qq-Arch-Noto-Fonts-TIM/">Linux, qq, Arch, Noto Fonts, TIM</category>
+      <category domain="https://rapiz.me/tags/Linux/">Linux</category>
+      
+      <category domain="https://rapiz.me/tags/Arch/">Arch</category>
+      
+      <category domain="https://rapiz.me/tags/Noto-Fonts/">Noto Fonts</category>
+      
+      <category domain="https://rapiz.me/tags/TIM/">TIM</category>
       
       
       <comments>https://rapiz.me/2020/deepin-com-qq-office-fonts/#disqus_thread</comments>
@@ -173,6 +179,8 @@
       
       <category domain="https://rapiz.me/tags/GSoC/">GSoC</category>
       
+      <category domain="https://rapiz.me/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/">开源软件</category>
+      
       
       <comments>https://rapiz.me/2020/gsoc2020-archive/#disqus_thread</comments>
       
@@ -210,6 +218,8 @@
       
       
       <category domain="https://rapiz.me/tags/C/">C</category>
+      
+      <category domain="https://rapiz.me/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/">开源软件</category>
       
       
       <comments>https://rapiz.me/2020/dungeonrush/#disqus_thread</comments>
@@ -392,7 +402,9 @@
       <category domain="https://rapiz.me/categories/OI/">OI</category>
       
       
-      <category domain="https://rapiz.me/tags/tarjan-DFS/">tarjan, DFS</category>
+      <category domain="https://rapiz.me/tags/tarjan/">tarjan</category>
+      
+      <category domain="https://rapiz.me/tags/DFS/">DFS</category>
       
       
       <comments>https://rapiz.me/2019/p2661/#disqus_thread</comments>
