@@ -4,7 +4,7 @@
 <head>
   
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><title>
-    tag: Hexo |  潮与雪 - Rapiz
+    提高 Hexo 加载速度 |  潮与雪 - Rapiz
   </title>
   
 <link rel="stylesheet" href="/css/style.css">
@@ -15,9 +15,16 @@
   <meta name="robots" content="index,follow" />
   <meta name="author" content="Rapiz" />
   
-  <meta name="keywords" content="潮与雪,Rapiz,Rapiz,OI,ACM,HUST,乔羽佳,博客,Blog,算法,开源软件,题解,Hexo" />
-  <meta name="description" content="潮与雪,Rapiz,凡人难以承受生活全部的真相，于是他们各执一端。,Rapiz,Hexo,提高 Hexo 加载速度,修复 Hexo 的 Mathjax 支持" />
+  <meta name="keywords" content="潮与雪,Rapiz,Rapiz,OI,ACM,HUST,乔羽佳,博客,Blog,算法,开源软件,题解,Hexo,DEV,PageSpeed Insights,disqus,懒加载" />
+  <meta name="description" content="潮与雪,Rapiz,凡人难以承受生活全部的真相，于是他们各执一端。,Rapiz,提高 Hexo 加载速度,提高 PageSpeed Insights 得分" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@8.5.1/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({ theme: "neutral" });
+    }
+  </script>
   
 <meta name="generator" content="Hexo 5.0.2"><link rel="alternate" href="/atom.xml" title="潮与雪" type="application/atom+xml">
 <link rel="alternate" href="/rss2.xml" title="潮与雪" type="application/rss+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -48,70 +55,49 @@
 </header>
 
 	<main class = 'main' onchange="FanfouFix();">
-		
+		<article class="post markdown-body">
+  <div class="post-title">
+    <h1 class="title">提高 Hexo 加载速度</h1>
+  </div>
+   <div class="post-meta">
+         
+    <blockquote>提高 PageSpeed Insights 得分</blockquote>
+    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+    <span class="post-author">By Rapiz</span>
+    <span class="post-time">2020-08-23</span>
+    <span class="post-tags">
+      <a class="article-tag-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>
+      
+      <span class="post-meta-keywords">
+      PageSpeed Insights,disqus,懒加载
+      </span>
+      
+    </span>
+</div>
+  <div class="post-content">
+    </p>
+<p>试了试 Google Search Console 里的 PageSpeed Insights 发现得分只有四十多——我还一直觉得自己网站加载挺快的呢。</p>
+<p>仔细一看基本上是 Disqus 拖累了网站的加载。 Sukka 写了一个懒加载 Disqus 的脚本，可以在屏幕滑倒评论框的时候再去加载 Disqus。复制粘贴之，手机版性能评分达到 40+， 电脑版达到 100。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://blog.skk.moe/post/prevent-disqus-from-slowing-your-site/">使 Disqus 不再拖累性能和页面加载</a></p>
+  </div>
+</article>
 
-  <h1>Tag: Hexo</h1>
+<div class='page-nav'>
 
 
-
-
-<section class="posts">
-<div class="fanfouReminder seriffont index post underline-trans">
-<span class="index post-excerpt" id="fanfouButton"><a><em>饭曰：</em></a></span>
-<span class="index post-time"></span>
-<script type="text/javascript">
-fanfou_name="rapiz";fanfou_count=5;fanfou_timeline="user";</script>
-
-<script src="/js/timeline.js"></script>
+  <div class='underline-trans'>
+  <a href="/2020/deepin-com-qq-office-fonts/">解决 deepin.com.qq.office 使用 Noto 日文字形的问题 ▶</a>
+  </div>
 
 </div>
-  
-  
-    <article class="index post underline-trans">
-      <div class="index post-title">
-        <a class="post-title-link" href="/2020/improve-pagespeed-insight/">提高 Hexo 加载速度</a>
-        <span class="index post-excerpt">提高 PageSpeed Insights 得分</span>
-      <span class="index post-time">2020-08-23</span>
-        <span class="index post-categories">
-          <a class="article-category-link" href="/categories/DEV/">DEV</a>
-        </span>
-        <span class="index post-tags">
-          <a class="article-tag-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>
-        </span>
-        <div class="clear"></div>
-      </div>
-      <!--
-    <div class="post-meta">
-        <span class="post-time">2020-08-23</span>
-      </div>
-    -->
-    </article>
+<!-- 如果不是首页且没使用 `comments: false` 关闭评论，则尝试加载评论 -->
 
-  
-    <article class="index post underline-trans">
-      <div class="index post-title">
-        <a class="post-title-link" href="/2019/fix-mathjax-of-hexo/">修复 Hexo 的 Mathjax 支持</a>
-        <span class="index post-excerpt"></span>
-      <span class="index post-time">2019-09-08</span>
-        <span class="index post-categories">
-          <a class="article-category-link" href="/categories/DEV/">DEV</a>
-        </span>
-        <span class="index post-tags">
-          <a class="article-tag-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>
-        </span>
-        <div class="clear"></div>
-      </div>
-      <!--
-    <div class="post-meta">
-        <span class="post-time">2019-09-08</span>
-      </div>
-    -->
-    </article>
-
-  
-  
-      <!-- 文件分离和变量的使用，使代码能较好的兼容 Hexo 主配置 -->
-      <section id="comments">
+    <!-- 配置中启用多说时，导入相应代码 -->
+    <!-- 以上皆关闭且 Hexo 配置中设置了 disqus_shortname 时，导入相应代码 -->
+    
+        <!-- 文件分离和变量的使用，使代码能较好的兼容 Hexo 主配置 -->
+        <section id="comments">
   <div id="disqus_thread">
     <script type="text/javascript">
     var disqus_shortname = 'rapiz'; // required: replace example with your forum shortname
@@ -122,8 +108,8 @@ fanfou_name="rapiz";fanfou_count=5;fanfou_timeline="user";</script>
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
       window.disqus_config = function () {
-        this.page.url = 'https://rapiz.me/tags/Hexo/index.html';
-        this.page.identifier = '/tags/Hexo/index.html';
+        this.page.url = 'https://rapiz.me/2020/improve-pagespeed-insight/';
+        this.page.identifier = '/2020/improve-pagespeed-insight/';
       };
       // 如果你和我一样在用 DisqusJS，loadDisqus() 里就应该是 DisqusJS 的初始化代码 new DisqusJS({...})
     }
@@ -162,8 +148,8 @@ fanfou_name="rapiz";fanfou_count=5;fanfou_timeline="user";</script>
   </div>
 </section>
 
-  
-</section>
+    
+
 
 	</main>
   <div id = "typography-footer">

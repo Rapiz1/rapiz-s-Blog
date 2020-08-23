@@ -6,7 +6,7 @@
   <link href="https://rapiz.me/atom.xml" rel="self"/>
   
   <link href="https://rapiz.me/"/>
-  <updated>2020-08-22T15:54:29.747Z</updated>
+  <updated>2020-08-23T03:25:01.725Z</updated>
   <id>https://rapiz.me/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>提高 Hexo 加载速度</title>
+    <link href="https://rapiz.me/2020/improve-pagespeed-insight/"/>
+    <id>https://rapiz.me/2020/improve-pagespeed-insight/</id>
+    <published>2020-08-23T03:20:45.000Z</published>
+    <updated>2020-08-23T03:25:01.725Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;提高 PageSpeed Insights 得分</summary>
+    
+    
+    
+    <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
+    
+    
+    <category term="Hexo" scheme="https://rapiz.me/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>解决 deepin.com.qq.office 使用 Noto 日文字形的问题</title>
@@ -395,25 +414,6 @@
     
     
     <category term="Linux" scheme="https://rapiz.me/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从 C 到 JavaScript 01</title>
-    <link href="https://rapiz.me/2017/learn-js/"/>
-    <id>https://rapiz.me/2017/learn-js/</id>
-    <published>2017-10-01T08:43:54.000Z</published>
-    <updated>2019-07-17T08:20:55.591Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;学点有用的。</summary>
-    
-    
-    
-    <category term="Development" scheme="https://rapiz.me/categories/Development/"/>
-    
-    
-    <category term="JavaScript" scheme="https://rapiz.me/tags/JavaScript/"/>
     
   </entry>
   
