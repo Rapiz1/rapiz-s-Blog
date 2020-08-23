@@ -6,7 +6,7 @@
   <link href="https://rapiz.me/atom.xml" rel="self"/>
   
   <link href="https://rapiz.me/"/>
-  <updated>2020-08-23T03:25:01.725Z</updated>
+  <updated>2020-08-23T03:28:56.907Z</updated>
   <id>https://rapiz.me/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://rapiz.me/2020/improve-pagespeed-insight/"/>
     <id>https://rapiz.me/2020/improve-pagespeed-insight/</id>
     <published>2020-08-23T03:20:45.000Z</published>
-    <updated>2020-08-23T03:25:01.725Z</updated>
+    <updated>2020-08-23T03:28:56.907Z</updated>
     
     
     <summary type="html">&lt;p&gt;提高 PageSpeed Insights 得分</summary>
@@ -30,6 +30,8 @@
     
     <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
     
+    
+    <category term="SEO" scheme="https://rapiz.me/tags/SEO/"/>
     
     <category term="Hexo" scheme="https://rapiz.me/tags/Hexo/"/>
     

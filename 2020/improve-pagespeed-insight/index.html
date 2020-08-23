@@ -15,7 +15,7 @@
   <meta name="robots" content="index,follow" />
   <meta name="author" content="Rapiz" />
   
-  <meta name="keywords" content="潮与雪,Rapiz,Rapiz,OI,ACM,HUST,乔羽佳,博客,Blog,算法,开源软件,题解,Hexo,DEV,PageSpeed Insights,disqus,懒加载" />
+  <meta name="keywords" content="潮与雪,Rapiz,Rapiz,OI,ACM,HUST,乔羽佳,博客,Blog,算法,开源软件,题解,SEO,Hexo,DEV,PageSpeed Insights,disqus,懒加载,百度爬虫,GitHub Pages" />
   <meta name="description" content="潮与雪,Rapiz,凡人难以承受生活全部的真相，于是他们各执一端。,Rapiz,提高 Hexo 加载速度,提高 PageSpeed Insights 得分" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
@@ -63,22 +63,25 @@
          
     <blockquote>提高 PageSpeed Insights 得分</blockquote>
     
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PageSpeed-Insights"><span class="toc-text">PageSpeed Insights</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%99%BE%E5%BA%A6%E7%88%AC%E8%99%AB"><span class="toc-text">百度爬虫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
     <span class="post-author">By Rapiz</span>
     <span class="post-time">2020-08-23</span>
     <span class="post-tags">
-      <a class="article-tag-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>
+      <a class="article-tag-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>, <a class="article-tag-none-link" href="/tags/SEO/" rel="tag">SEO</a>
       
       <span class="post-meta-keywords">
-      PageSpeed Insights,disqus,懒加载
+      PageSpeed Insights,disqus,懒加载,百度爬虫,GitHub Pages
       </span>
       
     </span>
 </div>
   <div class="post-content">
     </p>
-<p>试了试 Google Search Console 里的 PageSpeed Insights 发现得分只有四十多——我还一直觉得自己网站加载挺快的呢。</p>
+<h2 id="PageSpeed-Insights"><a href="#PageSpeed-Insights" class="headerlink" title="PageSpeed Insights"></a>PageSpeed Insights</h2><p>试了试 Google Search Console 里的 PageSpeed Insights 发现得分只有四十多——我还一直觉得自己网站加载挺快的呢。</p>
 <p>仔细一看基本上是 Disqus 拖累了网站的加载。 Sukka 写了一个懒加载 Disqus 的脚本，可以在屏幕滑倒评论框的时候再去加载 Disqus。复制粘贴之，手机版性能评分达到 40+， 电脑版达到 100。</p>
+<h2 id="百度爬虫"><a href="#百度爬虫" class="headerlink" title="百度爬虫"></a>百度爬虫</h2><p>顺带一提，还没优化前，PageSpeed Insights 给出的加载时间和百度爬虫的“爬取诊断”所耗时间差不多，我留心了一下。百度爬虫一直要用大概 3 秒的时间爬取页面。我还以为是因为百度服务器到 GitHub Pages 访问较慢的原因。但 GitHub Pages 最近加了几台服务器，在大陆的访问情况也挺好的，百度爬虫怎么就爬不好呢？其实还是 Disqus 加载速度太慢的原因。</p>
+<p>用了 Sukka 的脚本之后，再次爬取诊断，加载速度降低到 0.8s，效果拔群。</p>
+<p>我一直也觉得百度对本站收录一直非常少，也有加载速度慢的原因。以后再看看吧。</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://blog.skk.moe/post/prevent-disqus-from-slowing-your-site/">使 Disqus 不再拖累性能和页面加载</a></p>
   </div>
 </article>
