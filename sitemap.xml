@@ -445,7 +445,42 @@
   </url>
   
   <url>
+    <loc>https://rapiz.me/tags/Linux/</loc>
+    <lastmod>2020-08-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rapiz.me/tags/Arch/</loc>
+    <lastmod>2020-08-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rapiz.me/tags/Noto-Fonts/</loc>
+    <lastmod>2020-08-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rapiz.me/tags/TIM/</loc>
+    <lastmod>2020-08-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://rapiz.me/tags/C/</loc>
+    <lastmod>2020-08-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rapiz.me/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2020-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -488,13 +523,6 @@
   
   <url>
     <loc>https://rapiz.me/tags/%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2020-08-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rapiz.me/tags/Linux/</loc>
     <lastmod>2020-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -551,6 +579,20 @@
   
   <url>
     <loc>https://rapiz.me/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2020-08-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rapiz.me/tags/tarjan/</loc>
+    <lastmod>2020-08-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rapiz.me/tags/DFS/</loc>
     <lastmod>2020-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -628,48 +670,6 @@
   
   <url>
     <loc>https://rapiz.me/tags/%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA/</loc>
-    <lastmod>2020-08-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rapiz.me/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</loc>
-    <lastmod>2020-08-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rapiz.me/tags/Arch/</loc>
-    <lastmod>2020-08-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rapiz.me/tags/Noto-Fonts/</loc>
-    <lastmod>2020-08-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rapiz.me/tags/TIM/</loc>
-    <lastmod>2020-08-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rapiz.me/tags/tarjan/</loc>
-    <lastmod>2020-08-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rapiz.me/tags/DFS/</loc>
     <lastmod>2020-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

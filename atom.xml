@@ -189,9 +189,9 @@
     <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
     
     
-    <category term="GSoC" scheme="https://rapiz.me/tags/GSoC/"/>
-    
     <category term="开源软件" scheme="https://rapiz.me/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="GSoC" scheme="https://rapiz.me/tags/GSoC/"/>
     
   </entry>
   
