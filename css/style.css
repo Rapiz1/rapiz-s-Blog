@@ -446,10 +446,6 @@ code {
   font-size: 1em;
   text-transform: uppercase;
 }
-.post-meta-keywords {
-  color: #fff;
-  user-select: none;
-}
 .fanfou_statuses ul li {
   border-bottom: 1px solid #ddd;
 }

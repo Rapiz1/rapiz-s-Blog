@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://rapiz.me/2019/lock-and-suspend/</loc>
+    <lastmod>2020-08-23</lastmod>
+  </url>
+  <url>
     <loc>https://rapiz.me/2020/improve-pagespeed-insight/</loc>
     <lastmod>2020-08-23</lastmod>
   </url>
@@ -85,10 +89,6 @@
     <lastmod>2019-09-09</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2019/lock-and-suspend/</loc>
-    <lastmod>2019-08-28</lastmod>
-  </url>
-  <url>
     <loc>https://rapiz.me/2017/beizeng-lca/</loc>
     <lastmod>2019-08-25</lastmod>
   </url>
@@ -169,11 +169,11 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2017/songs-living-in-twilight/</loc>
+    <loc>https://rapiz.me/2017/songs-mi-familia/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2017/songs-mi-familia/</loc>
+    <loc>https://rapiz.me/2017/songs-living-in-twilight/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>

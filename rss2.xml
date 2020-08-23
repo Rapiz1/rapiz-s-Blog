@@ -435,7 +435,7 @@
     </item>
     
     <item>
-      <title>xss-lock, systemd 实现自动锁屏和挂起</title>
+      <title>xss-lock, systemd 实现自动锁屏和休眠</title>
       <link>https://rapiz.me/2019/lock-and-suspend/</link>
       <guid>https://rapiz.me/2019/lock-and-suspend/</guid>
       <pubDate>Wed, 28 Aug 2019 08:14:29 GMT</pubDate>

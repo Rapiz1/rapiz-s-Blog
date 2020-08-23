@@ -4,7 +4,7 @@
 <head>
   
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><title>
-    xss-lock, systemd 实现自动锁屏和挂起 |  潮与雪 - Rapiz
+    xss-lock, systemd 实现自动锁屏和休眠 |  潮与雪 - Rapiz
   </title>
   
 <link rel="stylesheet" href="/css/style.css">
@@ -15,8 +15,8 @@
   <meta name="robots" content="index,follow" />
   <meta name="author" content="Rapiz" />
   
-  <meta name="keywords" content="潮与雪,Rapiz,Rapiz,OI,ACM,HUST,乔羽佳,博客,Blog,算法,开源软件,题解,Linux,ENV" />
-  <meta name="description" content="潮与雪,Rapiz,凡人难以承受生活全部的真相，于是他们各执一端。,Rapiz,xss-lock, systemd 实现自动锁屏和挂起,适用于无电源管理服务且运行 xorg 的环境" />
+  <meta name="keywords" content="潮与雪,Rapiz,Rapiz,OI,ACM,HUST,乔羽佳,博客,Blog,算法,开源软件,题解,Linux,ENV,i3,xss-lock,电源管理,自动休眠" />
+  <meta name="description" content="潮与雪,Rapiz,凡人难以承受生活全部的真相，于是他们各执一端。,Rapiz,xss-lock, systemd 实现自动锁屏和休眠,适用于无电源管理服务且运行 xorg 的环境" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <script src="https://cdn.jsdelivr.net/npm/mermaid@8.5.1/dist/mermaid.min.js"></script>
@@ -57,13 +57,13 @@
 	<main class = 'main' onchange="FanfouFix();">
 		<article class="post markdown-body">
   <div class="post-title">
-    <h1 class="title">xss-lock, systemd 实现自动锁屏和挂起</h1>
+    <h1 class="title">xss-lock, systemd 实现自动锁屏和休眠</h1>
   </div>
    <div class="post-meta">
          
     <blockquote>适用于无电源管理服务且运行 xorg 的环境</blockquote>
     
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#systemd"><span class="toc-text">systemd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#logind"><span class="toc-text">logind</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xss-lock"><span class="toc-text">xss-lock</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i3"><span class="toc-text">i3</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#systemd"><span class="toc-text">systemd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#logind"><span class="toc-text">logind</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xss-lock"><span class="toc-text">xss-lock</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i3wm"><span class="toc-text">i3wm</span></a></li></ol>
     <span>
     In 
     <a class="post-category-link" href="/categories/ENV/">ENV</a>
@@ -73,23 +73,30 @@
     <span class="post-tags">
       <a class="article-tag-none-link" href="/tags/Linux/" rel="tag">Linux</a>
       
+      <span class="post-meta-keywords">
+      i3,xss-lock,电源管理,自动休眠
+      </span>
+      
     </span>
 </div>
   <div class="post-content">
-    <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ol>
+    <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>i3wm 没有电源管理，在其他桌面环境中的自动锁屏、自动休眠等设置需要用户自己通过其他软件实现。</p>
+<ol>
 <li>使用 systemd 执行挂起和自动挂起操作</li>
 <li>使用 xss-lock 在挂起前运行锁屏脚本</li>
 <li>使用 xset 禁用 DPMS</li>
 </ol>
 <h2 id="systemd"><a href="#systemd" class="headerlink" title="systemd"></a>systemd</h2><p><code>sudo systemctl suspend</code> 挂起</p>
-<h2 id="logind"><a href="#logind" class="headerlink" title="logind"></a>logind</h2><p><code>/etc/systemd/login.conf</code></p>
+<h2 id="logind"><a href="#logind" class="headerlink" title="logind"></a>logind</h2><p>配置 logind 能够在空闲一定时间后执行指定操作。</p>
+<p><code>/etc/systemd/login.conf</code></p>
 <pre><code>[Login]
 IdleAction=suspend
 IdleActionSec=10min
 </code></pre><p>空闲 10 分钟后挂起</p>
 <h2 id="xss-lock"><a href="#xss-lock" class="headerlink" title="xss-lock"></a>xss-lock</h2><p>能够在 systemd suspend 前自动运行锁屏脚本，并在 xset 设置的时间 dim 屏幕</p>
 <p>示例：<code>xss-locker -n dim-screen.sh -- locker</code></p>
-<h2 id="i3"><a href="#i3" class="headerlink" title="i3"></a>i3</h2><pre><code>exec --no-startup-id xset s 60 60
+<h2 id="i3wm"><a href="#i3wm" class="headerlink" title="i3wm"></a>i3wm</h2><p>启动 wm 时自动调用 <code>xset</code> 和 <code>xss-lock</code></p>
+<pre><code>exec --no-startup-id xset s 60 60
 exec --no-startup-id xset -dpms
 exec --no-startup-id xss-lock -n ~/Source/cmdlet/dim-screen.sh -- locker
 s
