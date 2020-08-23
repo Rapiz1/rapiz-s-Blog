@@ -308,12 +308,10 @@ int main() &amp;#123;
       s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
-      /*
       window.disqus_config = function () {
-        this.page.url = [你的页面 URL];
-        this.page.identifier = [你的页面的唯一辨识符];
+        this.page.url = 'https://rapiz.me/2017/untypical-divide-and-conquer/';
+        this.page.identifier = '/2017/untypical-divide-and-conquer/';
       };
-      */
       // 如果你和我一样在用 DisqusJS，loadDisqus() 里就应该是 DisqusJS 的初始化代码 new DisqusJS({...})
     }
 
