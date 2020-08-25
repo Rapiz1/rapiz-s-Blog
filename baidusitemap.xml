@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://rapiz.me/2020/gsoc2020-archive/</loc>
+    <lastmod>2020-08-23</lastmod>
+  </url>
+  <url>
     <loc>https://rapiz.me/2019/pollard-rho/</loc>
     <lastmod>2020-08-23</lastmod>
   </url>
@@ -22,10 +26,6 @@
   </url>
   <url>
     <loc>https://rapiz.me/2019/p2661/</loc>
-    <lastmod>2020-08-22</lastmod>
-  </url>
-  <url>
-    <loc>https://rapiz.me/2020/gsoc2020-archive/</loc>
     <lastmod>2020-08-22</lastmod>
   </url>
   <url>
