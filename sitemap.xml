@@ -452,6 +452,13 @@
   </url>
   
   <url>
+    <loc>https://rapiz.me/tags/openwrt/</loc>
+    <lastmod>2020-09-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://rapiz.me/tags/Linux/</loc>
     <lastmod>2020-09-06</lastmod>
     <changefreq>daily</changefreq>
@@ -677,13 +684,6 @@
   
   <url>
     <loc>https://rapiz.me/tags/%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA/</loc>
-    <lastmod>2020-09-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rapiz.me/tags/openwrt/</loc>
     <lastmod>2020-09-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

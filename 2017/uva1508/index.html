@@ -5,24 +5,24 @@ using std::max;
 const int N &#x3D; 1e5 + 1;
 int a[N][5], rec[1 &lt;&lt; 5], n, k, ans;
 void dfs(int p, int d, int s) &#123;
-    if (d &#x3D;&#x3D; k) ans &#x3D; max(ans, s);
-    else for (int i &#x3D; p; i; i &#x3D; (i-1)&amp;p)
-        dfs(p^i, d + 1, s + rec[i]);
+	if (d &#x3D;&#x3D; k) ans &#x3D; max(ans, s);
+	else for (int i &#x3D; p; i; i &#x3D; (i-1)&amp;p)
+		dfs(p^i, d + 1, s + rec[i]);
 &#125;
 int main() &#123;
-    int T; scanf(&quot;%d&quot;, &amp;T);
-    while (T--) &#123;
-        memset(rec, 0, sizeof(rec));
-        ans &#x3D; 0;
-        scanf(&quot;%d%d&quot;,&amp;n, &amp;k);
-        for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
-            for (int j &#x3D; 0; j &lt; 5; j++) scanf(&quot;%d&quot;, &amp;a[i][j]);
-            for (int c &#x3D; 0, s &#x3D; 0; c &lt; 1 &lt;&lt; 5; rec[c] &#x3D; max(rec[c], s), s &#x3D; 0, c++)
-                 for (int x &#x3D; 0; x &lt; 5; x++) s +&#x3D; ((c&amp;(1 &lt;&lt; x)) ? 1 : 0)*a[i][x];
-        &#125;
-        dfs(31, 0, 0);
-        printf(&quot;%d\n&quot;, ans);
-    &#125;
+	int T; scanf(&quot;%d&quot;, &amp;T);
+	while (T--) &#123;
+		memset(rec, 0, sizeof(rec));
+		ans &#x3D; 0;
+		scanf(&quot;%d%d&quot;,&amp;n, &amp;k);
+		for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+			for (int j &#x3D; 0; j &lt; 5; j++) scanf(&quot;%d&quot;, &amp;a[i][j]);
+			for (int c &#x3D; 0, s &#x3D; 0; c &lt; 1 &lt;&lt; 5; rec[c] &#x3D; max(rec[c], s), s &#x3D; 0, c++)
+			 	for (int x &#x3D; 0; x &lt; 5; x++) s +&#x3D; ((c&amp;(1 &lt;&lt; x)) ? 1 : 0)*a[i][x];
+		&#125;
+		dfs(31, 0, 0);
+		printf(&quot;%d\n&quot;, ans);
+	&#125;
 &#125;</code></pre></div></article><div class="page-nav"><div class="underline-trans"><a href="/2017/songs-living-in-twilight/">◀ Living in Twilight</a></div><div class="underline-trans"><a href="/2017/songs-zai-yun-duan/">在云端 ▶</a></div></div><section id="comments"><div id="disqus_thread"><script type="text/javascript">var disqus_shortname="rapiz";function loadDisqus(){var e=document,n=e.createElement("script");n.src="https://"+disqus_shortname+".disqus.com/embed.js",n.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(n),window.disqus_config=function(){this.page.url="https://rapiz.me/2017/uva1508/",this.page.identifier="/2017/uva1508/"}}var runningOnBrowser="undefined"!=typeof window,isBot=runningOnBrowser&&!("onscroll"in window)||"undefined"!=typeof navigator&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),supportsIntersectionObserver=runningOnBrowser&&"IntersectionObserver"in window;setTimeout(function(){var n;!isBot&&supportsIntersectionObserver?(n=new IntersectionObserver(function(e){e[0].isIntersecting&&(loadDisqus(),n.disconnect())},{threshold:[0]})).observe(document.getElementById("disqus_thread")):loadDisqus()},1)</script><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener external nofollow noreferrer" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div></section></main><div id="typography-footer"><p>Powered by <a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io/">Hexo</a> | <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Rapiz1/typography">Typography</a> designed by <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Rapiz1">Rapiz</a></p></div></div><script type="text/x-mathjax-config">MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ["$","$"], ["\\(","\\)"] ],

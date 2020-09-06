@@ -1,15 +1,130 @@
-<!DOCTYPE html><html><head><title>大整数素性测试和因子分解 | 潮与雪 - Rapiz</title><link rel="stylesheet" href="/css/style.css"><script src="/js/utils.js"></script><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="robots" content="index,follow"><meta name="author" content="Rapiz"><meta name="keywords" content="潮与雪,Rapiz,OI,ACM,HUST,乔羽佳,博客,Blog,算法,开源软件,题解,Math,OI"><meta name="description" content="潮与雪,Rapiz,凡人难以承受生活全部的真相，于是他们各执一端。,,大整数素性测试和因子分解,照着算导打就完了"><meta name="viewport" content="width=device-width,initial-scale=1"><script src="https://cdn.jsdelivr.net/npm/mermaid@8.5.1/dist/mermaid.min.js"></script><script>window.mermaid&&mermaid.initialize({theme:"neutral"})</script><link rel="canonical" href="https://rapiz.me/2019/pollard-rho/"><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="潮与雪" type="application/atom+xml"><link rel="alternate" href="/rss2.xml" title="潮与雪" type="application/rss+xml"></head><body><script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/components/prism-core.min.js"></script><script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"></script><div id="wrap"><header id="header"><div id="nav"><div id="nav-items"><div class="underline-trans"><a href="/">Home</a></div><div class="underline-trans"><a href="/links">Links</a></div><div class="underline-trans"><a href="/portal">About</a></div></div></div></header><main class="main" onchange="FanfouFix()"><article class="post markdown-body"><div class="post-title"><h1 class="title">大整数素性测试和因子分解</h1></div><div class="post-meta"><blockquote>照着算导打就完了</blockquote><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#include-lt-iostream-gt"><span class="toc-text">include &lt;iostream&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#include-lt-cstdio-gt"><span class="toc-text">include &lt;cstdio&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#include-lt-cmath-gt"><span class="toc-text">include &lt;cmath&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#include-lt-ctime-gt"><span class="toc-text">include &lt;ctime&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#include-lt-cstdlib-gt"><span class="toc-text">include &lt;cstdlib&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#include-lt-map-gt"><span class="toc-text">include &lt;map&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#include-lt-vector-gt"><span class="toc-text">include &lt;vector&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#include-lt-utility-gt"><span class="toc-text">include &lt;utility&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#include-lt-cassert-gt"><span class="toc-text">include &lt;cassert&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#include-lt-string-gt"><span class="toc-text">include &lt;string&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#define-xxx-x-cerr-lt-lt-x-lt-lt-quot-quot-lt-lt-x-lt-lt-endl"><span class="toc-text">define xxx(x) cerr&lt;&lt;(#x)&lt;&lt;&quot;: &quot;&lt;&lt;x&lt;&lt;endl;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#define-fastios-ios-sync-with-stdio-false-cin-tie-NULL-cout-tie-NULL"><span class="toc-text">define fastios ios::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);</span></a></li></ol><span>In <a class="post-category-link" href="/categories/OI/">OI</a> </span><span class="post-author">By Rapiz</span> <span class="post-time">2019-09-15</span> <span class="post-tags"><a class="article-tag-none-link" href="/tags/Math/" rel="tag">Math</a></span></div><div class="post-content"><br><strong>算导的 Pollard Rho 不保证能运行成功。如果出现 d == n 的情况，则直接返回n，说明分解失败，需要再次调用。详情看代码</strong><br>&lt;!—hexoPostRenderEscape:<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;*<p></p>
-<hr>
-<ul>
-<li>&#x2F; <strong> __</strong> <strong>_</strong>  (<em>)__</em></li>
-<li>&#x2F; &#x2F;<em>&#x2F; &#x2F; <strong> &#96;&#x2F; </strong> \&#x2F; &#x2F;</em>  &#x2F;</li>
-<li>&#x2F; <em>, </em>&#x2F; &#x2F;<em>&#x2F; &#x2F; &#x2F;</em>&#x2F; &#x2F; &#x2F; &#x2F; &#x2F;_</li>
-<li>&#x2F;<em>&#x2F; |</em>|_<em>,</em>&#x2F; .<strong><em>&#x2F;</em>&#x2F; &#x2F;_</strong>&#x2F;</li>
-<li>&#x2F;_&#x2F;             </li>
-<li>code@rapiz.me</li>
-<li>Sat, 14 Sep 2019 09:10:57 +0800<br>*&#x2F;<h1 id="include-lt-iostream-gt"><a href="#include-lt-iostream-gt" class="headerlink" title="include &lt;iostream&gt;"></a>include &lt;iostream&gt;</h1><h1 id="include-lt-cstdio-gt"><a href="#include-lt-cstdio-gt" class="headerlink" title="include &lt;cstdio&gt;"></a>include &lt;cstdio&gt;</h1><h1 id="include-lt-cmath-gt"><a href="#include-lt-cmath-gt" class="headerlink" title="include &lt;cmath&gt;"></a>include &lt;cmath&gt;</h1><h1 id="include-lt-ctime-gt"><a href="#include-lt-ctime-gt" class="headerlink" title="include &lt;ctime&gt;"></a>include &lt;ctime&gt;</h1><h1 id="include-lt-cstdlib-gt"><a href="#include-lt-cstdlib-gt" class="headerlink" title="include &lt;cstdlib&gt;"></a>include &lt;cstdlib&gt;</h1><h1 id="include-lt-map-gt"><a href="#include-lt-map-gt" class="headerlink" title="include &lt;map&gt;"></a>include &lt;map&gt;</h1><h1 id="include-lt-vector-gt"><a href="#include-lt-vector-gt" class="headerlink" title="include &lt;vector&gt;"></a>include &lt;vector&gt;</h1><h1 id="include-lt-utility-gt"><a href="#include-lt-utility-gt" class="headerlink" title="include &lt;utility&gt;"></a>include &lt;utility&gt;</h1><h1 id="include-lt-cassert-gt"><a href="#include-lt-cassert-gt" class="headerlink" title="include &lt;cassert&gt;"></a>include &lt;cassert&gt;</h1><h1 id="include-lt-string-gt"><a href="#include-lt-string-gt" class="headerlink" title="include &lt;string&gt;"></a>include &lt;string&gt;</h1><h1 id="define-xxx-x-cerr-lt-lt-x-lt-lt-quot-quot-lt-lt-x-lt-lt-endl"><a href="#define-xxx-x-cerr-lt-lt-x-lt-lt-quot-quot-lt-lt-x-lt-lt-endl" class="headerlink" title="define xxx(x) cerr&lt;&lt;(#x)&lt;&lt;&quot;: &quot;&lt;&lt;x&lt;&lt;endl;"></a>define xxx(x) cerr&lt;&lt;(#x)&lt;&lt;&quot;: &quot;&lt;&lt;x&lt;&lt;endl;</h1><h1 id="define-fastios-ios-sync-with-stdio-false-cin-tie-NULL-cout-tie-NULL"><a href="#define-fastios-ios-sync-with-stdio-false-cin-tie-NULL-cout-tie-NULL" class="headerlink" title="define fastios ios::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);"></a>define fastios ios::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);</h1>typedef long long ll;<br>using namespace std;<br>ll a, b;<br>ll gcd(ll a, ll b) &#123;a&#x3D;a&gt;0?a:-a;b&#x3D;b&gt;0?b:-b;return b ? gcd(b, a%b) : a;&#125;<br>inline ll qmul(ll a, ll b, ll mod) &#123;<br>ll d &#x3D; (ll)floor(a<em>(long double)b&#x2F;mod + 0.5);<br>ll ret &#x3D; a</em>b - d<em>mod;<br>if (ret &lt; 0) ret +&#x3D; mod;<br>return ret;<br>&#125;<br>inline ll randint(ll l, ll r) &#123;<br>return (((ll)rand())^rand())%(r - l + 1) + l;<br>&#125;<br>ll qpow(ll x, ll r, ll mod) &#123;<br>ll ret &#x3D; 1;<br>for(ll tmp &#x3D; x; r; r&gt;&gt;&#x3D;1) &#123;<br>if (r&amp;1) ret &#x3D; qmul(ret, tmp, mod);<br>tmp &#x3D; qmul(tmp, tmp, mod);<br>&#125;<br>return ret;<br>&#125;<br>bool witness(ll a, ll n) &#123;<br>int t;<br>ll m;<br>for (t &#x3D; 0, m &#x3D; n - 1; m &amp;&amp; !(m&amp;1);t++, m&gt;&gt;&#x3D;1) ;<br>ll x &#x3D; qpow(a, m, n);<br>for (int i &#x3D; 1; i &lt;&#x3D; t; i++) &#123;<br>ll nx &#x3D; qmul(x, x, n);<br>if (nx &#x3D;&#x3D; 1 &amp;&amp; x !&#x3D; 1 &amp;&amp; x !&#x3D; n - 1) return true;<br>x &#x3D; nx;<br>&#125;<br>return x !&#x3D; 1;<br>&#125;<br>bool primetest(ll n) &#123;<br>if (n &#x3D;&#x3D; 1) return false;<br>const int s &#x3D; 20;<br>for (int i &#x3D; 1; i &lt;&#x3D; s; i++) &#123;<br>ll a &#x3D; randint(1, n - 1);<br>if (witness(a, n)) return false;<br>&#125;<br>return true;<br>&#125;<br>ll rho(ll n) &#123;<br>if (n &#x3D;&#x3D; 1) return 1;<br>else if (n &#x3D;&#x3D; 0) return 0;<br>ll i, k;<br>ll x, y, c;<br>for (i &#x3D; 2, x &#x3D; randint(0, n - 1), y &#x3D; x, k &#x3D; 2, c &#x3D; rand(); 1; i++) &#123;<br>x &#x3D; (qmul(x, x, n) + c)%n;<br>ll d &#x3D; gcd(y - x, n);<br>if (d &gt; 1) &#123;<br>return d;<br>&#125;<br>if (i &#x3D;&#x3D; k) k&lt;&lt;&#x3D;1, y &#x3D; x;<br>&#125;<br>&#125;<br>map&lt;ll, int&gt; mm;<br>void resolve(ll n) &#123;<br>if (n &#x3D;&#x3D; 1) return;<br>if (primetest(n)) &#123;<br>mm[n]++;<br>&#125;<br>else &#123;<br>ll p &#x3D; n;<br>while (p &#x3D;&#x3D; n) &#123;<br>p &#x3D; rho(p);<br>&#125;<br>resolve(p);<br>resolve(n&#x2F;p);<br>&#125;<br>&#125;<br>vector&lt;pair&lt;ll, int&gt; &gt; fac;<br>double sum;<br>ll ans;<br>void dfs(int idx, ll x) &#123;<br>if (b&#x2F;x + x &lt; sum) &#123;<br>sum &#x3D; b&#x2F;x + x;<br>ans &#x3D; x;<br>&#125;<br>if (idx &gt;&#x3D; (int)fac.size()) return;<br>dfs(idx+1, x);<br>for (ll i &#x3D; 1; i &lt;&#x3D; fac[idx].second; i++, x </em>&#x3D; fac[idx].first);<br>dfs(idx+1, x);<br>&#125;<br>void solve() &#123;<br>mm.clear();<br>fac.clear();<br>sum &#x3D; 1e20;<br>b &#x2F;&#x3D; a;<br>ans&#x3D;1;<br>resolve(b);<br>for (map&lt;ll, int&gt;::iterator x &#x3D; mm.begin(); x !&#x3D; mm.end(); x++) &#123;<br>fac.push_back(<em>x);<br>&#125;<br>dfs(0, 1);<br>if (b&#x2F;ans &gt; ans) ans &#x3D; b&#x2F;ans;<br>cout &lt;&lt; (b&#x2F;ans</em>a) &lt;&lt; &quot; &quot; &lt;&lt; (ans*a) &lt;&lt; &quot; &quot;&lt;&lt;endl;<br>&#125;<br>int main() &#123;<br>&#x2F;&#x2F;srand(time(NULL));<br>fastios;<br>while (cin &gt;&gt; a &gt;&gt; b) &#123;<br>solve();<br>&#125;<br>&#125;&lt;/code&gt;&lt;/pre&gt;:hexoPostRenderEscape—&gt;</li>
-</ul>
-  </code></pre></div></article><div class="page-nav"><div class="underline-trans"><a href="/2019/square-spliting/">◀ 再谈分块</a></div><div class="underline-trans"><a href="/2019/fix-mathjax-of-hexo/">修复 Hexo 的 Mathjax 支持 ▶</a></div></div><section id="comments"><div id="disqus_thread"><script type="text/javascript">var disqus_shortname="rapiz";function loadDisqus(){var e=document,n=e.createElement("script");n.src="https://"+disqus_shortname+".disqus.com/embed.js",n.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(n),window.disqus_config=function(){this.page.url="https://rapiz.me/2019/pollard-rho/",this.page.identifier="/2019/pollard-rho/"}}var runningOnBrowser="undefined"!=typeof window,isBot=runningOnBrowser&&!("onscroll"in window)||"undefined"!=typeof navigator&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),supportsIntersectionObserver=runningOnBrowser&&"IntersectionObserver"in window;setTimeout(function(){var n;!isBot&&supportsIntersectionObserver?(n=new IntersectionObserver(function(e){e[0].isIntersecting&&(loadDisqus(),n.disconnect())},{threshold:[0]})).observe(document.getElementById("disqus_thread")):loadDisqus()},1)</script><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener external nofollow noreferrer" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div></section></main><div id="typography-footer"><p>Powered by <a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io/">Hexo</a> | <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Rapiz1/typography">Typography</a> designed by <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Rapiz1">Rapiz</a></p></div></div><script type="text/x-mathjax-config">MathJax.Hub.Config({
+<!DOCTYPE html><html><head><title>大整数素性测试和因子分解 | 潮与雪 - Rapiz</title><link rel="stylesheet" href="/css/style.css"><script src="/js/utils.js"></script><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="robots" content="index,follow"><meta name="author" content="Rapiz"><meta name="keywords" content="潮与雪,Rapiz,OI,ACM,HUST,乔羽佳,博客,Blog,算法,开源软件,题解,Math,OI"><meta name="description" content="潮与雪,Rapiz,凡人难以承受生活全部的真相，于是他们各执一端。,,大整数素性测试和因子分解,照着算导打就完了"><meta name="viewport" content="width=device-width,initial-scale=1"><script src="https://cdn.jsdelivr.net/npm/mermaid@8.5.1/dist/mermaid.min.js"></script><script>window.mermaid&&mermaid.initialize({theme:"neutral"})</script><link rel="canonical" href="https://rapiz.me/2019/pollard-rho/"><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="潮与雪" type="application/atom+xml"><link rel="alternate" href="/rss2.xml" title="潮与雪" type="application/rss+xml"></head><body><script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/components/prism-core.min.js"></script><script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"></script><div id="wrap"><header id="header"><div id="nav"><div id="nav-items"><div class="underline-trans"><a href="/">Home</a></div><div class="underline-trans"><a href="/links">Links</a></div><div class="underline-trans"><a href="/portal">About</a></div></div></div></header><main class="main" onchange="FanfouFix()"><article class="post markdown-body"><div class="post-title"><h1 class="title">大整数素性测试和因子分解</h1></div><div class="post-meta"><blockquote>照着算导打就完了</blockquote><span>In <a class="post-category-link" href="/categories/OI/">OI</a> </span><span class="post-author">By Rapiz</span> <span class="post-time">2019-09-15</span> <span class="post-tags"><a class="article-tag-none-link" href="/tags/Math/" rel="tag">Math</a></span></div><div class="post-content"><br><strong>算导的 Pollard Rho 不保证能运行成功。如果出现 d == n 的情况，则直接返回n，说明分解失败，需要再次调用。详情看代码</strong><br><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;*
+ *     ____              _    
+ *    &#x2F; __ \____ _____  (_)___
+ *   &#x2F; &#x2F;_&#x2F; &#x2F; __ &#96;&#x2F; __ \&#x2F; &#x2F;_  &#x2F;
+ *  &#x2F; _, _&#x2F; &#x2F;_&#x2F; &#x2F; &#x2F;_&#x2F; &#x2F; &#x2F; &#x2F; &#x2F;_
+ * &#x2F;_&#x2F; |_|\__,_&#x2F; .___&#x2F;_&#x2F; &#x2F;___&#x2F;
+ *            &#x2F;_&#x2F;             
+ *           code@rapiz.me
+ *          Sat, 14 Sep 2019 09:10:57 +0800
+ *&#x2F;
+#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+#include &lt;ctime&gt;
+#include &lt;cstdlib&gt;
+#include &lt;map&gt;
+#include &lt;vector&gt;
+#include &lt;utility&gt;
+#include &lt;cassert&gt;
+#include &lt;string&gt;
+#define xxx(x) cerr&lt;&lt;(#x)&lt;&lt;&quot;: &quot;&lt;&lt;x&lt;&lt;endl;
+#define fastios ios::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+using namespace std;
+ll a, b;
+ll gcd(ll a, ll b) &#123;a&#x3D;a&gt;0?a:-a;b&#x3D;b&gt;0?b:-b;return b ? gcd(b, a%b) : a;&#125;
+inline ll qmul(ll a, ll b, ll mod) &#123;
+  ll d &#x3D; (ll)floor(a*(long double)b&#x2F;mod + 0.5);
+  ll ret &#x3D; a*b - d*mod;
+  if (ret &lt; 0) ret +&#x3D; mod;
+  return ret;
+&#125;
+inline ll randint(ll l, ll r) &#123;
+  return (((ll)rand())^rand())%(r - l + 1) + l;
+&#125;
+ll qpow(ll x, ll r, ll mod) &#123;
+  ll ret &#x3D; 1;
+  for(ll tmp &#x3D; x; r; r&gt;&gt;&#x3D;1) &#123;
+    if (r&amp;1) ret &#x3D; qmul(ret, tmp, mod);
+    tmp &#x3D; qmul(tmp, tmp, mod);
+  &#125;
+  return ret;
+&#125;
+bool witness(ll a, ll n) &#123;
+  int t;
+  ll m;
+  for (t &#x3D; 0, m &#x3D; n - 1; m &amp;&amp; !(m&amp;1);t++, m&gt;&gt;&#x3D;1) ;
+  ll x &#x3D; qpow(a, m, n);
+  for (int i &#x3D; 1; i &lt;&#x3D; t; i++) &#123;
+    ll nx &#x3D; qmul(x, x, n);
+    if (nx &#x3D;&#x3D; 1 &amp;&amp; x !&#x3D; 1 &amp;&amp; x !&#x3D; n - 1) return true;
+    x &#x3D; nx;
+  &#125;
+  return x !&#x3D; 1;
+&#125;
+bool primetest(ll n) &#123;
+  if (n &#x3D;&#x3D; 1) return false;
+  const int s &#x3D; 20;
+  for (int i &#x3D; 1; i &lt;&#x3D; s; i++) &#123;
+    ll a &#x3D; randint(1, n - 1);
+    if (witness(a, n)) return false;
+  &#125;
+  return true;
+&#125;
+ll rho(ll n) &#123;
+  if (n &#x3D;&#x3D; 1) return 1;
+  else if (n &#x3D;&#x3D; 0) return 0;
+  ll i, k;
+  ll x, y, c;
+  for (i &#x3D; 2, x &#x3D; randint(0, n - 1), y &#x3D; x, k &#x3D; 2, c &#x3D; rand(); 1; i++) &#123;
+    x &#x3D; (qmul(x, x, n) + c)%n;
+   ll d &#x3D; gcd(y - x, n);
+    if (d &gt; 1) &#123;
+      return d;
+    &#125;
+    if (i &#x3D;&#x3D; k) k&lt;&lt;&#x3D;1, y &#x3D; x;
+  &#125;
+&#125;
+map&lt;ll, int&gt; mm;
+void resolve(ll n) &#123;
+  if (n &#x3D;&#x3D; 1) return;
+  if (primetest(n)) &#123;
+    mm[n]++;
+  &#125;
+  else &#123;
+    ll p &#x3D; n;
+    while (p &#x3D;&#x3D; n) &#123;
+      p &#x3D; rho(p);
+    &#125;
+    resolve(p);
+    resolve(n&#x2F;p);
+  &#125;
+&#125;
+vector&lt;pair&lt;ll, int&gt; &gt; fac;
+double sum;
+ll ans;
+void dfs(int idx, ll x) &#123;
+  if (b&#x2F;x + x &lt; sum) &#123;
+    sum &#x3D; b&#x2F;x + x;
+    ans &#x3D; x;
+  &#125;
+  if (idx &gt;&#x3D; (int)fac.size()) return;
+  dfs(idx+1, x);
+  for (ll i &#x3D; 1; i &lt;&#x3D; fac[idx].second; i++, x *&#x3D; fac[idx].first);
+  dfs(idx+1, x);
+&#125;
+void solve() &#123;
+  mm.clear();
+  fac.clear();
+  sum &#x3D; 1e20;
+  b &#x2F;&#x3D; a;
+  ans&#x3D;1;
+  resolve(b);
+  for (map&lt;ll, int&gt;::iterator x &#x3D; mm.begin(); x !&#x3D; mm.end(); x++) &#123;
+    fac.push_back(*x);
+  &#125;
+  dfs(0, 1);
+  if (b&#x2F;ans &gt; ans) ans &#x3D; b&#x2F;ans;
+  cout &lt;&lt; (b&#x2F;ans*a) &lt;&lt; &quot; &quot; &lt;&lt; (ans*a) &lt;&lt; &quot; &quot;&lt;&lt;endl;
+&#125;
+int main() &#123;
+  &#x2F;&#x2F;srand(time(NULL));
+  fastios;
+  while (cin &gt;&gt; a &gt;&gt; b) &#123;
+    solve();
+  &#125;
+&#125;</code></pre><p></p></div></article><div class="page-nav"><div class="underline-trans"><a href="/2019/square-spliting/">◀ 再谈分块</a></div><div class="underline-trans"><a href="/2019/fix-mathjax-of-hexo/">修复 Hexo 的 Mathjax 支持 ▶</a></div></div><section id="comments"><div id="disqus_thread"><script type="text/javascript">var disqus_shortname="rapiz";function loadDisqus(){var e=document,n=e.createElement("script");n.src="https://"+disqus_shortname+".disqus.com/embed.js",n.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(n),window.disqus_config=function(){this.page.url="https://rapiz.me/2019/pollard-rho/",this.page.identifier="/2019/pollard-rho/"}}var runningOnBrowser="undefined"!=typeof window,isBot=runningOnBrowser&&!("onscroll"in window)||"undefined"!=typeof navigator&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),supportsIntersectionObserver=runningOnBrowser&&"IntersectionObserver"in window;setTimeout(function(){var n;!isBot&&supportsIntersectionObserver?(n=new IntersectionObserver(function(e){e[0].isIntersecting&&(loadDisqus(),n.disconnect())},{threshold:[0]})).observe(document.getElementById("disqus_thread")):loadDisqus()},1)</script><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener external nofollow noreferrer" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div></section></main><div id="typography-footer"><p>Powered by <a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io/">Hexo</a> | <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Rapiz1/typography">Typography</a> designed by <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Rapiz1">Rapiz</a></p></div></div><script type="text/x-mathjax-config">MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ["$","$"], ["\\(","\\)"] ],
             skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],

@@ -7,16 +7,16 @@
 
 char target[]&#x3D;&quot;Z:\\.vm\\url&quot;; &#x2F;&#x2F; the path should be a file in the shared folder
 int main(int argc, char** argv) &#123;
-    using namespace std;    
-    ofstream fout(target);
-    fout &lt;&lt; argv[1] &lt;&lt; endl;
+	using namespace std;	
+	ofstream fout(target);
+	fout &lt;&lt; argv[1] &lt;&lt; endl;
 &#125;</code></pre><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">#!&#x2F;bin&#x2F;sh
 # should be run on host machine
 FILE&#x3D;~&#x2F;Downloads&#x2F;.vm&#x2F;url
 inotifywait -mq -e close_write $FILE | while read event
 do
-    cat $FILE
-    $BROWSER $(cat $FILE)
+	cat $FILE
+	$BROWSER $(cat $FILE)
 done</code></pre><p>设置一个程序为默认浏览器的过程并没有我想的那么简单，经过很多搜索之后在网上找到一段注册表。修改路径为你的程序的地址，保存为<code>.reg</code>导入。</p><pre class="line-numbers language-none"><code class="language-none">Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\WebMind]

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>可持久化数据结构 | 潮与雪 - Rapiz</title><link rel="stylesheet" href="/css/style.css"><script src="/js/utils.js"></script><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="robots" content="index,follow"><meta name="author" content="Rapiz"><meta name="keywords" content="潮与雪,Rapiz,OI,ACM,HUST,乔羽佳,博客,Blog,算法,开源软件,题解,数据结构,OI"><meta name="description" content="潮与雪,Rapiz,凡人难以承受生活全部的真相，于是他们各执一端。,,可持久化数据结构,英文名和中文名意思相反？！"><meta name="viewport" content="width=device-width,initial-scale=1"><script src="https://cdn.jsdelivr.net/npm/mermaid@8.5.1/dist/mermaid.min.js"></script><script>window.mermaid&&mermaid.initialize({theme:"neutral"})</script><link rel="canonical" href="https://rapiz.me/2017/temporal-data-structure/"><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="潮与雪" type="application/atom+xml"><link rel="alternate" href="/rss2.xml" title="潮与雪" type="application/rss+xml"></head><body><script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/components/prism-core.min.js"></script><script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"></script><div id="wrap"><header id="header"><div id="nav"><div id="nav-items"><div class="underline-trans"><a href="/">Home</a></div><div class="underline-trans"><a href="/links">Links</a></div><div class="underline-trans"><a href="/portal">About</a></div></div></div></header><main class="main" onchange="FanfouFix()"><article class="post markdown-body"><div class="post-title"><h1 class="title">可持久化数据结构</h1></div><div class="post-meta"><blockquote>英文名和中文名意思相反？！</blockquote><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="toc-text">可持久化线段树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="toc-text">可持久化并查集</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#include-lt-cstdio-gt"><span class="toc-text">include &lt;cstdio&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#include-lt-cstring-gt"><span class="toc-text">include &lt;cstring&gt;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#include-lt-algorithm-gt"><span class="toc-text">include &lt;algorithm&gt;</span></a> <span>In <a class="post-category-link" href="/categories/OI/">OI</a> </span><span class="post-author">By Rapiz</span> <span class="post-time">2017-02-13</span> <span class="post-tags"><a class="article-tag-none-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></span></li></div><div class="post-content"><p></p><blockquote><p>你有一棵线段树。<br>你还有一棵线段树。<br>Uhhhhhh……<br>你有一颗可持久化线段树</p></blockquote><p>可以访问任意时刻的数据结构。<br>我们一般对“时间”概念不感兴趣。<br>不如说是把很多数据版本搓到一起，节省出时空。</p><h2 id="可持久化线段树"><a href="#可持久化线段树" class="headerlink" title="可持久化线段树"></a>可持久化线段树</h2><div class="table-container"><table><thead><tr><th>Prob</th><th>Hint</th></tr></thead><tbody><tr><td>lydsy</td><td></td></tr><tr><td>3524-Poi2014-Couriers</td><td>其他数加起来出现的次数都没满足条件的数出现次数多</td></tr><tr><td>2588-Count on a tree</td><td>树状版本控制 <code>a + b - lca(a,b) - fa[lca(a, b)]</code></td></tr><tr><td>2741-【FOTILE模拟赛】L</td><td>31NM会T。需要一个比较喵的分块……很woc的一个题</td></tr><tr><td>3932-CQOI2015-任务查询系统</td><td><em>我调了一上午。悄悄问蒟蒻，logN是哪个N</em></td></tr></tbody></table></div><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;3933任务查询系统
+<!DOCTYPE html><html><head><title>可持久化数据结构 | 潮与雪 - Rapiz</title><link rel="stylesheet" href="/css/style.css"><script src="/js/utils.js"></script><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="robots" content="index,follow"><meta name="author" content="Rapiz"><meta name="keywords" content="潮与雪,Rapiz,OI,ACM,HUST,乔羽佳,博客,Blog,算法,开源软件,题解,数据结构,OI"><meta name="description" content="潮与雪,Rapiz,凡人难以承受生活全部的真相，于是他们各执一端。,,可持久化数据结构,英文名和中文名意思相反？！"><meta name="viewport" content="width=device-width,initial-scale=1"><script src="https://cdn.jsdelivr.net/npm/mermaid@8.5.1/dist/mermaid.min.js"></script><script>window.mermaid&&mermaid.initialize({theme:"neutral"})</script><link rel="canonical" href="https://rapiz.me/2017/temporal-data-structure/"><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="潮与雪" type="application/atom+xml"><link rel="alternate" href="/rss2.xml" title="潮与雪" type="application/rss+xml"></head><body><script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/components/prism-core.min.js"></script><script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"></script><div id="wrap"><header id="header"><div id="nav"><div id="nav-items"><div class="underline-trans"><a href="/">Home</a></div><div class="underline-trans"><a href="/links">Links</a></div><div class="underline-trans"><a href="/portal">About</a></div></div></div></header><main class="main" onchange="FanfouFix()"><article class="post markdown-body"><div class="post-title"><h1 class="title">可持久化数据结构</h1></div><div class="post-meta"><blockquote>英文名和中文名意思相反？！</blockquote><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="toc-text">可持久化线段树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="toc-text">可持久化并查集</span></a></li></ol><span>In <a class="post-category-link" href="/categories/OI/">OI</a> </span><span class="post-author">By Rapiz</span> <span class="post-time">2017-02-13</span> <span class="post-tags"><a class="article-tag-none-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></span></div><div class="post-content"><p></p><blockquote><p>你有一棵线段树。<br>你还有一棵线段树。<br>Uhhhhhh……<br>你有一颗可持久化线段树</p></blockquote><p>可以访问任意时刻的数据结构。<br>我们一般对“时间”概念不感兴趣。<br>不如说是把很多数据版本搓到一起，节省出时空。</p><h2 id="可持久化线段树"><a href="#可持久化线段树" class="headerlink" title="可持久化线段树"></a>可持久化线段树</h2><div class="table-container"><table><thead><tr><th>Prob</th><th>Hint</th></tr></thead><tbody><tr><td>lydsy</td><td></td></tr><tr><td>3524-Poi2014-Couriers</td><td>其他数加起来出现的次数都没满足条件的数出现次数多</td></tr><tr><td>2588-Count on a tree</td><td>树状版本控制 <code>a + b - lca(a,b) - fa[lca(a, b)]</code></td></tr><tr><td>2741-【FOTILE模拟赛】L</td><td>31NM会T。需要一个比较喵的分块……很woc的一个题</td></tr><tr><td>3932-CQOI2015-任务查询系统</td><td><em>我调了一上午。悄悄问蒟蒻，logN是哪个N</em></td></tr></tbody></table></div><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;3933任务查询系统
 
 #include &lt;cstdio&gt;
 #include &lt;cstring&gt;
@@ -61,7 +61,79 @@ int main() &#123;
         int k &#x3D; 1 + (a*ans + b)%c;
         printf(&quot;%lld\n&quot;, ans &#x3D; query(tt[x], k, 1, mxp));
     &#125;
-&#125;</code></pre><h2 id="可持久化并查集"><a href="#可持久化并查集" class="headerlink" title="可持久化并查集"></a>可持久化并查集</h2><p>看上去很厉害的样子，其实我们可以用主席树对它嘿嘿嘿。<br>把<code>fa[]</code>放到主席树里再按秩合并即可。</p><div class="table-container"><table><thead><tr><th>Porb</th><th>Hint</th></tr></thead><tbody><tr><td>lydsy</td><td></td></tr><tr><td>3673-可持久化并查集</td><td>嘿嘿嘿</td></tr><tr><td>3674-可持久化并查集加强版</td><td>嘿嘿嘿嘿</td></tr></tbody></table></div><p>注意一开始build会用去O(2n)个节点，所以nlogn是不够用的。<br>还有这个代码里没判已经联通的点的合并。如果不判，一个节点和自己不断合并可以破坏秩。<br><em>感谢nbc提高了我的姿势水平</em><br>&lt;!—hexoPostRenderEscape:<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;可持久化并查集加强版</code></pre></p><h1 id="include-lt-cstdio-gt"><a href="#include-lt-cstdio-gt" class="headerlink" title="include &lt;cstdio&gt;"></a>include &lt;cstdio&gt;</h1><h1 id="include-lt-cstring-gt"><a href="#include-lt-cstring-gt" class="headerlink" title="include &lt;cstring&gt;"></a>include &lt;cstring&gt;</h1><h1 id="include-lt-algorithm-gt"><a href="#include-lt-algorithm-gt" class="headerlink" title="include &lt;algorithm&gt;"></a>include &lt;algorithm&gt;</h1><p>const int N &#x3D; 2e5 + 10, NL &#x3D; N*20;<br>int n, m, sz, fa[NL], ch[NL][2], s[NL], rt[N], ans;<br>void build(int&amp; o, int l, int r) &#123;<br>o &#x3D; ++sz;<br>if (l &#x3D;&#x3D; r) &#123;<br>fa[o] &#x3D; l;<br>return;<br>&#125;<br>int mid &#x3D; (l + r) &gt;&gt; 1;<br>build(ch[o][0], l, mid);<br>build(ch[o][1], mid + 1, r);<br>&#125;<br>int get(int o, int l, int r, int x) &#123;<br>if (l &#x3D;&#x3D; r) return o;<br>int mid &#x3D; l + r &gt;&gt; 1;<br>if (x &lt;&#x3D; mid) return get(ch[o][0], l, mid, x);<br>else return get(ch[o][1], mid + 1, r, x);<br>&#125;<br>int find(int x, int o) &#123;<br>int i &#x3D; x;<br>do &#123;<br>x &#x3D; i;<br>i &#x3D; fa[get(o, 1, n, x)];<br>&#125;while (i !&#x3D; x);<br>return x;<br>&#125;<br>int q1, q2;<br>void change(int&amp; o, int p, int l, int r) &#123;<br>o &#x3D; ++sz;<br>if (l &#x3D;&#x3D; r) &#123;<br>fa[o] &#x3D; q2;<br>return;<br>&#125;<br>memcpy(ch[o], ch[p], sizeof(ch[p]));<br>s[o] &#x3D; s[p];<br>int mid &#x3D; (l + r) &gt;&gt; 1;<br>if (q1 &lt;&#x3D; mid) change(ch[o][0], ch[p][0], l, mid);<br>else change(ch[o][1], ch[p][1], mid + 1, r);<br>&#125;<br>int main() &#123;<br>scanf(&quot;%d%d&quot;, &amp;n, &amp;m);<br>build(rt[0], 1, n);<br>int now &#x3D; rt[0];<br>for (int i &#x3D; 1; i &lt;&#x3D; m; i++) &#123;<br>int t, x, y;<br>scanf(&quot;%d%d&quot;, &amp;t, &amp;x);<br>x ^&#x3D; ans;<br>if (t &#x3D;&#x3D; 1) &#123;<br>scanf(&quot;%d&quot;, &amp;y);<br>y ^&#x3D; ans;<br>x &#x3D; find(x, now), y &#x3D; find(y, now);<br>int px, py;<br>if (s[px &#x3D; get(now, 1, n, x)] &lt; s[py &#x3D; get(now, 1, n, y)]) std::swap(x, y);<br>else if (s[px] &#x3D;&#x3D; s[py]) s[px]++;<br>q1 &#x3D; y, q2 &#x3D; x;<br>change(rt[i], now, 1, n);<br>now &#x3D; rt[i];<br>&#125;<br>else if (t &#x3D;&#x3D; 2) &#123;<br>now &#x3D; rt[x];<br>&#125;<br>else &#123;<br>scanf(&quot;%d&quot;, &amp;y);<br>y ^&#x3D; ans;<br>printf(&quot;%d\n&quot;, ans &#x3D; (find(x, now) &#x3D;&#x3D; find(y, now)));<br>&#125;<br>rt[i] &#x3D; now;<br>&#125;<br>&#125;&lt;/code&gt;&lt;/pre&gt;:hexoPostRenderEscape—&gt;</p></div></article><div class="page-nav"><div class="underline-trans"><a href="/2017/kdtree/">◀ k-d Tree</a></div><div class="underline-trans"><a href="/2017/linear-algebra/">(浅谈)^2 线性代数 ▶</a></div></div><section id="comments"><div id="disqus_thread"><script type="text/javascript">var disqus_shortname="rapiz";function loadDisqus(){var e=document,t=e.createElement("script");t.src="https://"+disqus_shortname+".disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t),window.disqus_config=function(){this.page.url="https://rapiz.me/2017/temporal-data-structure/",this.page.identifier="/2017/temporal-data-structure/"}}var runningOnBrowser="undefined"!=typeof window,isBot=runningOnBrowser&&!("onscroll"in window)||"undefined"!=typeof navigator&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),supportsIntersectionObserver=runningOnBrowser&&"IntersectionObserver"in window;setTimeout(function(){var t;!isBot&&supportsIntersectionObserver?(t=new IntersectionObserver(function(e){e[0].isIntersecting&&(loadDisqus(),t.disconnect())},{threshold:[0]})).observe(document.getElementById("disqus_thread")):loadDisqus()},1)</script><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener external nofollow noreferrer" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div></section></main><div id="typography-footer"><p>Powered by <a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io/">Hexo</a> | <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Rapiz1/typography">Typography</a> designed by <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Rapiz1">Rapiz</a></p></div></div><script type="text/x-mathjax-config">MathJax.Hub.Config({
+&#125;</code></pre><h2 id="可持久化并查集"><a href="#可持久化并查集" class="headerlink" title="可持久化并查集"></a>可持久化并查集</h2><p>看上去很厉害的样子，其实我们可以用主席树对它嘿嘿嘿。<br>把<code>fa[]</code>放到主席树里再按秩合并即可。</p><div class="table-container"><table><thead><tr><th>Porb</th><th>Hint</th></tr></thead><tbody><tr><td>lydsy</td><td></td></tr><tr><td>3673-可持久化并查集</td><td>嘿嘿嘿</td></tr><tr><td>3674-可持久化并查集加强版</td><td>嘿嘿嘿嘿</td></tr></tbody></table></div><p>注意一开始build会用去O(2n)个节点，所以nlogn是不够用的。<br>还有这个代码里没判已经联通的点的合并。如果不判，一个节点和自己不断合并可以破坏秩。<br><em>感谢nbc提高了我的姿势水平</em><br><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;可持久化并查集加强版
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+const int N &#x3D; 2e5 + 10, NL &#x3D; N*20;
+int n, m, sz, fa[NL], ch[NL][2], s[NL], rt[N], ans;
+void build(int&amp; o, int l, int r) &#123;
+	o &#x3D; ++sz;
+	if (l &#x3D;&#x3D; r) &#123;
+		fa[o] &#x3D; l;
+		return;
+	&#125;
+	int mid &#x3D; (l + r) &gt;&gt; 1;
+	build(ch[o][0], l, mid);
+	build(ch[o][1], mid + 1, r);
+&#125;
+int get(int o, int l, int r, int x) &#123;
+	if (l &#x3D;&#x3D; r) return o;
+	int mid &#x3D; l + r &gt;&gt; 1;
+	if (x &lt;&#x3D; mid) return get(ch[o][0], l, mid, x);
+	else return get(ch[o][1], mid + 1, r, x);
+&#125;
+int find(int x, int o) &#123;
+	int i &#x3D; x;
+	do &#123;
+		x &#x3D; i;
+		i &#x3D; fa[get(o, 1, n, x)];
+	&#125;while (i !&#x3D; x);
+	return x;
+&#125;
+int q1, q2;
+void change(int&amp; o, int p, int l, int r) &#123;
+	o &#x3D; ++sz;
+	if (l &#x3D;&#x3D; r) &#123;
+		fa[o] &#x3D; q2;
+		return;
+	&#125;
+	memcpy(ch[o], ch[p], sizeof(ch[p]));
+	s[o] &#x3D; s[p];
+	int mid &#x3D; (l + r) &gt;&gt; 1;
+	if (q1 &lt;&#x3D; mid) change(ch[o][0], ch[p][0], l, mid);
+	else change(ch[o][1], ch[p][1], mid + 1, r);
+&#125;
+int main() &#123;
+	scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+	build(rt[0], 1, n);
+	int now &#x3D; rt[0];
+	for (int i &#x3D; 1; i &lt;&#x3D; m; i++) &#123;
+		int t, x, y;
+		scanf(&quot;%d%d&quot;, &amp;t, &amp;x);
+		x ^&#x3D; ans;
+		if (t &#x3D;&#x3D; 1) &#123;
+			scanf(&quot;%d&quot;, &amp;y);
+			y ^&#x3D; ans;
+			x &#x3D; find(x, now), y &#x3D; find(y, now);
+			int px, py;
+			if (s[px &#x3D; get(now, 1, n, x)] &lt; s[py &#x3D; get(now, 1, n, y)]) std::swap(x, y);
+			else if (s[px] &#x3D;&#x3D; s[py]) s[px]++;
+			q1 &#x3D; y, q2 &#x3D; x;
+			change(rt[i], now, 1, n);
+			now &#x3D; rt[i];
+		&#125;
+		else if (t &#x3D;&#x3D; 2) &#123;
+			now &#x3D; rt[x];
+		&#125;
+		else &#123;
+			scanf(&quot;%d&quot;, &amp;y);
+			y ^&#x3D; ans;
+			printf(&quot;%d\n&quot;, ans &#x3D; (find(x, now) &#x3D;&#x3D; find(y, now)));
+		&#125;
+		rt[i] &#x3D; now;
+	&#125;
+&#125;</code></pre></p></div></article><div class="page-nav"><div class="underline-trans"><a href="/2017/kdtree/">◀ k-d Tree</a></div><div class="underline-trans"><a href="/2017/linear-algebra/">(浅谈)^2 线性代数 ▶</a></div></div><section id="comments"><div id="disqus_thread"><script type="text/javascript">var disqus_shortname="rapiz";function loadDisqus(){var e=document,t=e.createElement("script");t.src="https://"+disqus_shortname+".disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t),window.disqus_config=function(){this.page.url="https://rapiz.me/2017/temporal-data-structure/",this.page.identifier="/2017/temporal-data-structure/"}}var runningOnBrowser="undefined"!=typeof window,isBot=runningOnBrowser&&!("onscroll"in window)||"undefined"!=typeof navigator&&/(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent),supportsIntersectionObserver=runningOnBrowser&&"IntersectionObserver"in window;setTimeout(function(){var t;!isBot&&supportsIntersectionObserver?(t=new IntersectionObserver(function(e){e[0].isIntersecting&&(loadDisqus(),t.disconnect())},{threshold:[0]})).observe(document.getElementById("disqus_thread")):loadDisqus()},1)</script><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener external nofollow noreferrer" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div></section></main><div id="typography-footer"><p>Powered by <a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io/">Hexo</a> | <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Rapiz1/typography">Typography</a> designed by <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Rapiz1">Rapiz</a></p></div></div><script type="text/x-mathjax-config">MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ["$","$"], ["\\(","\\)"] ],
             skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
