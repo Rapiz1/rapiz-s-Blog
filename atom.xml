@@ -6,7 +6,7 @@
   <link href="https://rapiz.me/atom.xml" rel="self"/>
   
   <link href="https://rapiz.me/"/>
-  <updated>2020-08-23T04:21:57.889Z</updated>
+  <updated>2020-09-06T03:09:55.833Z</updated>
   <id>https://rapiz.me/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>为特定版本的 OpenWrt 编译包</title>
+    <link href="https://rapiz.me/2020/compile-for-openwrt/"/>
+    <id>https://rapiz.me/2020/compile-for-openwrt/</id>
+    <published>2020-09-06T02:54:37.000Z</published>
+    <updated>2020-09-06T03:09:55.833Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;在阅读本文之前&quot;&gt;&lt;a href=&quot;#在阅读本文之前&quot; class=&quot;headerlink&quot; title=&quot;在阅读本文之前&quot;&gt;&lt;/a&gt;在阅读本文之前&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;你需要懂得如何编译一个最新版本的 OpenWrt 固件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 </summary>
+      
+    
+    
+    
+    <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
+    
+    
+    <category term="openwrt" scheme="https://rapiz.me/tags/openwrt/"/>
+    
+  </entry>
   
   <entry>
     <title>提高 Hexo 加载速度</title>
@@ -397,25 +422,6 @@
     <category term="tarjan" scheme="https://rapiz.me/tags/tarjan/"/>
     
     <category term="DFS" scheme="https://rapiz.me/tags/DFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>xss-lock, systemd 实现自动锁屏和休眠</title>
-    <link href="https://rapiz.me/2019/lock-and-suspend/"/>
-    <id>https://rapiz.me/2019/lock-and-suspend/</id>
-    <published>2019-08-28T08:14:29.000Z</published>
-    <updated>2020-08-23T03:48:42.946Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;适用于无电源管理服务且运行 xorg 的环境&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="ENV" scheme="https://rapiz.me/categories/ENV/"/>
-    
-    
-    <category term="Linux" scheme="https://rapiz.me/tags/Linux/"/>
     
   </entry>
   

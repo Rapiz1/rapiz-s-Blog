@@ -9,8 +9,35 @@
     <atom:link href="https://rapiz.me/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>凡人难以承受生活全部的真相，于是他们各执一端。</description>
-    <pubDate>Sun, 23 Aug 2020 04:21:57 GMT</pubDate>
+    <pubDate>Sun, 06 Sep 2020 03:09:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>为特定版本的 OpenWrt 编译包</title>
+      <link>https://rapiz.me/2020/compile-for-openwrt/</link>
+      <guid>https://rapiz.me/2020/compile-for-openwrt/</guid>
+      <pubDate>Sun, 06 Sep 2020 02:54:37 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;在阅读本文之前&quot;&gt;&lt;a href=&quot;#在阅读本文之前&quot; class=&quot;headerlink&quot; title=&quot;在阅读本文之前&quot;&gt;&lt;/a&gt;在阅读本文之前&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;你需要懂得如何编译一个最新版本的 OpenWrt 固件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 </description>
+        
+      
+      
+      
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
+      
+      
+      <category domain="https://rapiz.me/tags/openwrt/">openwrt</category>
+      
+      
+      <comments>https://rapiz.me/2020/compile-for-openwrt/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>提高 Hexo 加载速度</title>
@@ -431,27 +458,6 @@
       
       
       <comments>https://rapiz.me/2019/p2661/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>xss-lock, systemd 实现自动锁屏和休眠</title>
-      <link>https://rapiz.me/2019/lock-and-suspend/</link>
-      <guid>https://rapiz.me/2019/lock-and-suspend/</guid>
-      <pubDate>Wed, 28 Aug 2019 08:14:29 GMT</pubDate>
-      
-      <description>&lt;p&gt;适用于无电源管理服务且运行 xorg 的环境&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://rapiz.me/categories/ENV/">ENV</category>
-      
-      
-      <category domain="https://rapiz.me/tags/Linux/">Linux</category>
-      
-      
-      <comments>https://rapiz.me/2019/lock-and-suspend/#disqus_thread</comments>
       
     </item>
     
