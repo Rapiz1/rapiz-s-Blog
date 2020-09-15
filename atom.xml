@@ -6,7 +6,7 @@
   <link href="https://rapiz.me/atom.xml" rel="self"/>
   
   <link href="https://rapiz.me/"/>
-  <updated>2020-09-06T03:09:55.833Z</updated>
+  <updated>2020-09-15T03:40:17.132Z</updated>
   <id>https://rapiz.me/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MSYS2 介绍和 SDL2 编译指南</title>
+    <link href="https://rapiz.me/2020/compile-sdl-for-windows/"/>
+    <id>https://rapiz.me/2020/compile-sdl-for-windows/</id>
+    <published>2020-09-15T03:24:14.000Z</published>
+    <updated>2020-09-15T03:40:17.132Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近在给 DungeonRush 完善编译系统</summary>
+    
+    
+    
+    <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
+    
+    
+    <category term="SDL2, MSYS2, Windows, CMake, DungeonRush" scheme="https://rapiz.me/tags/SDL2-MSYS2-Windows-CMake-DungeonRush/"/>
+    
+  </entry>
   
   <entry>
     <title>为特定版本的 OpenWrt 编译包</title>
@@ -401,27 +420,6 @@
     
     
     <category term="线段树" scheme="https://rapiz.me/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>dfs 树复习</title>
-    <link href="https://rapiz.me/2019/p2661/"/>
-    <id>https://rapiz.me/2019/p2661/</id>
-    <published>2019-09-05T14:42:32.000Z</published>
-    <updated>2020-08-22T15:55:04.097Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;忘了&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="OI" scheme="https://rapiz.me/categories/OI/"/>
-    
-    
-    <category term="tarjan" scheme="https://rapiz.me/tags/tarjan/"/>
-    
-    <category term="DFS" scheme="https://rapiz.me/tags/DFS/"/>
     
   </entry>
   
