@@ -6,7 +6,7 @@
   <link href="https://rapiz.me/atom.xml" rel="self"/>
   
   <link href="https://rapiz.me/"/>
-  <updated>2020-09-15T03:40:17.132Z</updated>
+  <updated>2020-09-25T12:46:42.148Z</updated>
   <id>https://rapiz.me/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学习操作系统的一些资源</title>
+    <link href="https://rapiz.me/2020/os-resource/"/>
+    <id>https://rapiz.me/2020/os-resource/</id>
+    <published>2020-09-25T12:46:24.000Z</published>
+    <updated>2020-09-25T12:46:42.148Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://pdos.csail.mit.edu/6.828/2018/readings/i386/toc.htm&quot;&gt;https://pdos.csail.mit.edu/6.828/2018/readings/i386/toc.htm&lt;/a&gt;&lt;/p&gt;</summary>
+      
+    
+    
+    
+    <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
+    
+    
+    <category term="OS" scheme="https://rapiz.me/tags/OS/"/>
+    
+  </entry>
   
   <entry>
     <title>MSYS2 介绍和 SDL2 编译指南</title>
@@ -396,30 +418,6 @@
     
     
     <category term="Hexo" scheme="https://rapiz.me/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>线段树复习</title>
-    <link href="https://rapiz.me/2019/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9B%9B%E5%80%8D%E7%A9%BA%E9%97%B4/"/>
-    <id>https://rapiz.me/2019/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9B%9B%E5%80%8D%E7%A9%BA%E9%97%B4/</id>
-    <published>2019-09-08T04:40:10.000Z</published>
-    <updated>2019-09-09T09:54:23.560Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;四倍空间&quot;&gt;&lt;a href=&quot;#四倍空间&quot; class=&quot;headerlink&quot; title=&quot;四倍空间&quot;&gt;&lt;/a&gt;四倍空间&lt;/h2&gt;&lt;p&gt;区间长：&lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;&lt;/p&gt;
-&lt;</summary>
-      
-    
-    
-    
-    <category term="OI" scheme="https://rapiz.me/categories/OI/"/>
-    
-    
-    <category term="线段树" scheme="https://rapiz.me/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
   </entry>
   

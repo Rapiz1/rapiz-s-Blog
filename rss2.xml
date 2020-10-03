@@ -9,8 +9,32 @@
     <atom:link href="https://rapiz.me/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>凡人难以承受生活全部的真相，于是他们各执一端。</description>
-    <pubDate>Tue, 15 Sep 2020 03:40:17 GMT</pubDate>
+    <pubDate>Fri, 25 Sep 2020 12:46:42 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>学习操作系统的一些资源</title>
+      <link>https://rapiz.me/2020/os-resource/</link>
+      <guid>https://rapiz.me/2020/os-resource/</guid>
+      <pubDate>Fri, 25 Sep 2020 12:46:24 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;a href=&quot;https://pdos.csail.mit.edu/6.828/2018/readings/i386/toc.htm&quot;&gt;https://pdos.csail.mit.edu/6.828/2018/readings/i386/toc.htm&lt;/a&gt;&lt;/p&gt;</description>
+        
+      
+      
+      
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
+      
+      
+      <category domain="https://rapiz.me/tags/OS/">OS</category>
+      
+      
+      <comments>https://rapiz.me/2020/os-resource/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>MSYS2 介绍和 SDL2 编译指南</title>
@@ -430,32 +454,6 @@
       
       
       <comments>https://rapiz.me/2019/fix-mathjax-of-hexo/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>线段树复习</title>
-      <link>https://rapiz.me/2019/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9B%9B%E5%80%8D%E7%A9%BA%E9%97%B4/</link>
-      <guid>https://rapiz.me/2019/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9B%9B%E5%80%8D%E7%A9%BA%E9%97%B4/</guid>
-      <pubDate>Sun, 08 Sep 2019 04:40:10 GMT</pubDate>
-      
-        
-        
-      <description>&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;四倍空间&quot;&gt;&lt;a href=&quot;#四倍空间&quot; class=&quot;headerlink&quot; title=&quot;四倍空间&quot;&gt;&lt;/a&gt;四倍空间&lt;/h2&gt;&lt;p&gt;区间长：&lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;&lt;/p&gt;
-&lt;</description>
-        
-      
-      
-      
-      
-      <category domain="https://rapiz.me/categories/OI/">OI</category>
-      
-      
-      <category domain="https://rapiz.me/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">线段树</category>
-      
-      
-      <comments>https://rapiz.me/2019/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%9B%9B%E5%80%8D%E7%A9%BA%E9%97%B4/#disqus_thread</comments>
       
     </item>
     
