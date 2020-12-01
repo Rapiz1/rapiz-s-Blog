@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://rapiz.me/2020/dungeonrush/</loc>
+    <lastmod>2020-11-17</lastmod>
+  </url>
+  <url>
     <loc>https://rapiz.me/2020/os-resource/</loc>
     <lastmod>2020-09-25</lastmod>
   </url>
@@ -31,10 +35,6 @@
   <url>
     <loc>https://rapiz.me/2019/lock-and-suspend/</loc>
     <lastmod>2020-08-23</lastmod>
-  </url>
-  <url>
-    <loc>https://rapiz.me/2020/dungeonrush/</loc>
-    <lastmod>2020-08-22</lastmod>
   </url>
   <url>
     <loc>https://rapiz.me/2017/switch-linux-kernel/</loc>

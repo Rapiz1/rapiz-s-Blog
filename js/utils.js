@@ -6,6 +6,7 @@ quotes[3] = '勇气就是做你害怕的事。如果你不害怕，就谈不上�
 quotes[4] = '我们都会被迫遗忘'
 quotes[5] = '可怜我们所有人的记忆'
 quotes[6] = 'Do not go gentle into that good night'
+quotes[7] = '我像孩子一样，坚守着沙做的堡垒，抗拒着海浪的摧毁'
 
 function showSolution(str) {
   foo = document.getElementById(str);
