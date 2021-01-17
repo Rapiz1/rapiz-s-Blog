@@ -9,8 +9,29 @@
     <atom:link href="https://rapiz.me/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>凡人难以承受生活全部的真相，于是他们各执一端。</description>
-    <pubDate>Fri, 25 Sep 2020 12:46:42 GMT</pubDate>
+    <pubDate>Sun, 17 Jan 2021 11:04:04 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>TinyKV 踩坑记录</title>
+      <link>https://rapiz.me/2021/tinykv-hints/</link>
+      <guid>https://rapiz.me/2021/tinykv-hints/</guid>
+      <pubDate>Sun, 17 Jan 2021 10:39:35 GMT</pubDate>
+      
+      <description>&lt;p&gt;毁我青春，，</description>
+      
+      
+      
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
+      
+      
+      <category domain="https://rapiz.me/tags/TalentPlan/">TalentPlan</category>
+      
+      
+      <comments>https://rapiz.me/2021/tinykv-hints/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>学习操作系统的一些资源</title>
@@ -427,33 +448,6 @@
       
       
       <comments>https://rapiz.me/2019/pollard-rho/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>修复 Hexo 的 Mathjax 支持</title>
-      <link>https://rapiz.me/2019/fix-mathjax-of-hexo/</link>
-      <guid>https://rapiz.me/2019/fix-mathjax-of-hexo/</guid>
-      <pubDate>Sun, 08 Sep 2019 09:58:47 GMT</pubDate>
-      
-        
-        
-      <description>&lt;!--more---&gt;
-&lt;p&gt;之前一直用 hexo-renderer-mathjax 插件渲染数学公式，最近发现它失效了。&lt;/p&gt;
-&lt;p&gt;找到 Github 项目发现已经很久没更新了，似乎由于内置的 CDN 失效而渲染失败。&lt;/p&gt;
-&lt;p&gt;然后在 Issue 里找到了 Fork</description>
-        
-      
-      
-      
-      
-      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
-      
-      
-      <category domain="https://rapiz.me/tags/Hexo/">Hexo</category>
-      
-      
-      <comments>https://rapiz.me/2019/fix-mathjax-of-hexo/#disqus_thread</comments>
       
     </item>
     
