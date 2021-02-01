@@ -6,7 +6,7 @@
   <link href="https://rapiz.me/atom.xml" rel="self"/>
   
   <link href="https://rapiz.me/"/>
-  <updated>2021-01-21T17:45:40.322Z</updated>
+  <updated>2021-01-27T16:07:38.433Z</updated>
   <id>https://rapiz.me/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《C 专家编程》阅读笔记</title>
+    <link href="https://rapiz.me/2021/c-expert-programming/"/>
+    <id>https://rapiz.me/2021/c-expert-programming/</id>
+    <published>2021-01-27T15:59:41.000Z</published>
+    <updated>2021-01-27T16:07:38.433Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;第一章-C：穿越时空的迷雾&quot;&gt;&lt;a href=&quot;#第一章-C：穿越时空的迷雾&quot; class=&quot;headerlink&quot; title=&quot;第一章 C：穿越时空的迷雾&quot;&gt;&lt;/a&gt;第一章 C：穿越时空的迷雾&lt;/h2&gt;&lt;p&gt;这一章主要讲 C 的历史。由于成书年代早，讲的 K&amp;</summary>
+      
+    
+    
+    
+    
+    <category term="C" scheme="https://rapiz.me/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>TinyKV 踩坑记录</title>
@@ -393,25 +413,6 @@
     
     <category term="OI" scheme="https://rapiz.me/categories/OI/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>大整数素性测试和因子分解</title>
-    <link href="https://rapiz.me/2019/pollard-rho/"/>
-    <id>https://rapiz.me/2019/pollard-rho/</id>
-    <published>2019-09-15T03:55:00.000Z</published>
-    <updated>2020-08-23T04:31:39.702Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;照着算导打就完了&lt;br&gt;</summary>
-    
-    
-    
-    <category term="OI" scheme="https://rapiz.me/categories/OI/"/>
-    
-    
-    <category term="Math" scheme="https://rapiz.me/tags/Math/"/>
     
   </entry>
   
