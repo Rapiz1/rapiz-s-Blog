@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://rapiz.me/2021/tinykv-hints/</loc>
+    
+    <lastmod>2021-02-02</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://rapiz.me/links/index.html</loc>
     
     <lastmod>2021-02-01</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://rapiz.me/portal/index.html</loc>
     
     <lastmod>2021-01-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://rapiz.me/2021/tinykv-hints/</loc>
-    
-    <lastmod>2021-01-21</lastmod>
     
   </url>
   
@@ -480,7 +480,21 @@
   </url>
   
   <url>
+    <loc>https://rapiz.me/tags/C/</loc>
+    <lastmod>2021-02-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://rapiz.me/tags/openwrt/</loc>
+    <lastmod>2021-02-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://rapiz.me/tags/SDL2-MSYS2-Windows-CMake-DungeonRush/</loc>
     <lastmod>2021-02-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -509,13 +523,6 @@
   
   <url>
     <loc>https://rapiz.me/tags/TIM/</loc>
-    <lastmod>2021-02-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rapiz.me/tags/C/</loc>
     <lastmod>2021-02-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -620,6 +627,13 @@
   </url>
   
   <url>
+    <loc>https://rapiz.me/tags/OS/</loc>
+    <lastmod>2021-02-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://rapiz.me/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2021-02-02</lastmod>
     <changefreq>daily</changefreq>
@@ -712,20 +726,6 @@
   
   <url>
     <loc>https://rapiz.me/tags/%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA/</loc>
-    <lastmod>2021-02-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rapiz.me/tags/SDL2-MSYS2-Windows-CMake-DungeonRush/</loc>
-    <lastmod>2021-02-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://rapiz.me/tags/OS/</loc>
     <lastmod>2021-02-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
