@@ -9,8 +9,30 @@
     <atom:link href="https://rapiz.me/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>凡人难以承受生活全部的真相，于是他们各执一端。</description>
-    <pubDate>Wed, 27 Jan 2021 16:07:38 GMT</pubDate>
+    <pubDate>Wed, 03 Feb 2021 11:06:01 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>vscode 内核开发环境配置</title>
+      <link>https://rapiz.me/2021/kernel-vscode-configuration/</link>
+      <guid>https://rapiz.me/2021/kernel-vscode-configuration/</guid>
+      <pubDate>Wed, 03 Feb 2021 10:13:52 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;0&quot;&gt;&lt;a href=&quot;#0&quot; class=&quot;headerlink&quot; title=&quot;0&quot;&gt;&lt;/a&gt;0&lt;/h2&gt;&lt;p&gt;内核模块是用 Makefile 作为编译系统的，而 vscode 并不能自动从 Makefile 里读取出需要的信息，所以需要我们手动在 &lt;code</description>
+        
+      
+      
+      
+      
+      
+      <category domain="https://rapiz.me/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://rapiz.me/2021/kernel-vscode-configuration/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>《C 专家编程》阅读笔记</title>
@@ -430,25 +452,6 @@
       
       
       <comments>https://rapiz.me/2020/vbox-integration/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>再谈分块</title>
-      <link>https://rapiz.me/2019/square-spliting/</link>
-      <guid>https://rapiz.me/2019/square-spliting/</guid>
-      <pubDate>Mon, 16 Sep 2019 01:22:36 GMT</pubDate>
-      
-      <description>&lt;p&gt;POJ2104 K-th Number ( NEEREC 2004 )&lt;br&gt;</description>
-      
-      
-      
-      
-      <category domain="https://rapiz.me/categories/OI/">OI</category>
-      
-      
-      
-      <comments>https://rapiz.me/2019/square-spliting/#disqus_thread</comments>
       
     </item>
     
