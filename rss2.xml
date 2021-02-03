@@ -9,7 +9,7 @@
     <atom:link href="https://rapiz.me/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>凡人难以承受生活全部的真相，于是他们各执一端。</description>
-    <pubDate>Wed, 03 Feb 2021 11:06:01 GMT</pubDate>
+    <pubDate>Wed, 03 Feb 2021 14:05:49 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -25,6 +25,8 @@
       
       
       
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
       
       
       <category domain="https://rapiz.me/tags/Linux/">Linux</category>
@@ -47,6 +49,8 @@
       
       
       
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
       
       
       <category domain="https://rapiz.me/tags/C/">C</category>

@@ -6,7 +6,7 @@
   <link href="https://rapiz.me/atom.xml" rel="self"/>
   
   <link href="https://rapiz.me/"/>
-  <updated>2021-02-03T11:06:01.218Z</updated>
+  <updated>2021-02-03T14:05:49.518Z</updated>
   <id>https://rapiz.me/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://rapiz.me/2021/kernel-vscode-configuration/"/>
     <id>https://rapiz.me/2021/kernel-vscode-configuration/</id>
     <published>2021-02-03T10:13:52.000Z</published>
-    <updated>2021-02-03T11:06:01.218Z</updated>
+    <updated>2021-02-03T14:05:49.518Z</updated>
     
     
       
@@ -30,6 +30,8 @@
       
     
     
+    
+    <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
     
     
     <category term="Linux" scheme="https://rapiz.me/tags/Linux/"/>
@@ -41,7 +43,7 @@
     <link href="https://rapiz.me/2021/c-expert-programming/"/>
     <id>https://rapiz.me/2021/c-expert-programming/</id>
     <published>2021-01-27T15:59:41.000Z</published>
-    <updated>2021-02-02T13:35:27.891Z</updated>
+    <updated>2021-02-03T14:05:58.975Z</updated>
     
     
       
@@ -50,6 +52,8 @@
       
     
     
+    
+    <category term="DEV" scheme="https://rapiz.me/categories/DEV/"/>
     
     
     <category term="C" scheme="https://rapiz.me/tags/C/"/>
