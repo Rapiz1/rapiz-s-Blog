@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rapiz.me/2021/tinykv-hints/</loc>
-    <lastmod>2021-02-04</lastmod>
+    <loc>https://rapiz.me/2021/fix-wps-mime/</loc>
+    <lastmod>2021-04-13</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2021/c-expert-programming/</loc>
-    <lastmod>2021-02-03</lastmod>
+    <loc>https://rapiz.me/2021/hands-on-os-modern-toolchain/</loc>
+    <lastmod>2021-04-08</lastmod>
+  </url>
+  <url>
+    <loc>https://rapiz.me/2021/xv6-labs-hints/</loc>
+    <lastmod>2021-04-02</lastmod>
+  </url>
+  <url>
+    <loc>https://rapiz.me/2021/nju-ics-pa/</loc>
+    <lastmod>2021-02-25</lastmod>
   </url>
   <url>
     <loc>https://rapiz.me/2021/kernel-vscode-configuration/</loc>
-    <lastmod>2021-02-03</lastmod>
+    <lastmod>2021-02-10</lastmod>
+  </url>
+  <url>
+    <loc>https://rapiz.me/2021/tinykv-hints/</loc>
+    <lastmod>2021-02-04</lastmod>
   </url>
   <url>
     <loc>https://rapiz.me/2020/compile-for-openwrt/</loc>
@@ -19,10 +31,6 @@
   <url>
     <loc>https://rapiz.me/2020/dungeonrush/</loc>
     <lastmod>2020-11-17</lastmod>
-  </url>
-  <url>
-    <loc>https://rapiz.me/2020/os-resource/</loc>
-    <lastmod>2020-09-25</lastmod>
   </url>
   <url>
     <loc>https://rapiz.me/2020/compile-sdl-for-windows/</loc>
@@ -165,19 +173,11 @@
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
-    <loc>https://rapiz.me/2017/WC2017/</loc>
-    <lastmod>2019-07-17</lastmod>
-  </url>
-  <url>
     <loc>https://rapiz.me/2017/i-good-vegetable/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
     <loc>https://rapiz.me/2017/learn-js/</loc>
-    <lastmod>2019-07-17</lastmod>
-  </url>
-  <url>
-    <loc>https://rapiz.me/2017/linear-algebra/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>
@@ -222,10 +222,6 @@
   </url>
   <url>
     <loc>https://rapiz.me/2017/work-on-linux/</loc>
-    <lastmod>2019-07-17</lastmod>
-  </url>
-  <url>
-    <loc>https://rapiz.me/2016/%E5%85%B3%E4%BA%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/</loc>
     <lastmod>2019-07-17</lastmod>
   </url>
   <url>

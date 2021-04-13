@@ -9,8 +9,92 @@
     <atom:link href="https://rapiz.me/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>凡人难以承受生活全部的真相，于是他们各执一端。</description>
-    <pubDate>Wed, 03 Feb 2021 14:05:49 GMT</pubDate>
+    <pubDate>Tue, 13 Apr 2021 13:10:22 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>从烦人的 WPS &quot;打开方式不对&quot;到翻 Qt 源码</title>
+      <link>https://rapiz.me/2021/fix-wps-mime/</link>
+      <guid>https://rapiz.me/2021/fix-wps-mime/</guid>
+      <pubDate>Tue, 13 Apr 2021 12:16:25 GMT</pubDate>
+      
+      <description>&lt;p&gt;解决 Linux 下 WPS 打开方式问题</description>
+      
+      
+      
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
+      
+      
+      
+      <comments>https://rapiz.me/2021/fix-wps-mime/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>自己动手写操作系统-现代工具链</title>
+      <link>https://rapiz.me/2021/hands-on-os-modern-toolchain/</link>
+      <guid>https://rapiz.me/2021/hands-on-os-modern-toolchain/</guid>
+      <pubDate>Thu, 08 Apr 2021 14:29:26 GMT</pubDate>
+      
+      <description>&lt;p&gt;老树新芽</description>
+      
+      
+      
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
+      
+      
+      <category domain="https://rapiz.me/tags/OS/">OS</category>
+      
+      
+      <comments>https://rapiz.me/2021/hands-on-os-modern-toolchain/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>6.S081 xv6-labs-2020 笔记和提示</title>
+      <link>https://rapiz.me/2021/xv6-labs-hints/</link>
+      <guid>https://rapiz.me/2021/xv6-labs-hints/</guid>
+      <pubDate>Fri, 02 Apr 2021 08:48:14 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;Lab-Utilities&quot;&gt;&lt;a href=&quot;#Lab-Utilities&quot; class=&quot;headerlink&quot; title=&quot;Lab Utilities&quot;&gt;&lt;/a&gt;Lab Utilities&lt;/h2&gt;&lt;p&gt;熟悉系统调用，实现一些小工具，简单，略过。&lt;/p&gt;
+</description>
+        
+      
+      
+      
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
+      
+      
+      <category domain="https://rapiz.me/tags/xv6-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">xv6, 操作系统</category>
+      
+      
+      <comments>https://rapiz.me/2021/xv6-labs-hints/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>NJU ICS2020 PA4 的小坑</title>
+      <link>https://rapiz.me/2021/nju-ics-pa/</link>
+      <guid>https://rapiz.me/2021/nju-ics-pa/</guid>
+      <pubDate>Thu, 25 Feb 2021 06:48:49 GMT</pubDate>
+      
+      <description>&lt;p&gt;ICS PA 总体上还是很不错的。值得一做。</description>
+      
+      
+      
+      
+      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
+      
+      
+      
+      <comments>https://rapiz.me/2021/nju-ics-pa/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>vscode 内核开发环境配置</title>
@@ -37,30 +121,6 @@
     </item>
     
     <item>
-      <title>《C 专家编程》阅读笔记</title>
-      <link>https://rapiz.me/2021/c-expert-programming/</link>
-      <guid>https://rapiz.me/2021/c-expert-programming/</guid>
-      <pubDate>Wed, 27 Jan 2021 15:59:41 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;第一章-C：穿越时空的迷雾&quot;&gt;&lt;a href=&quot;#第一章-C：穿越时空的迷雾&quot; class=&quot;headerlink&quot; title=&quot;第一章 C：穿越时空的迷雾&quot;&gt;&lt;/a&gt;第一章 C：穿越时空的迷雾&lt;/h2&gt;&lt;p&gt;这一章主要讲 C 的历史。由于成书年代早，讲的 K&amp;</description>
-        
-      
-      
-      
-      
-      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
-      
-      
-      <category domain="https://rapiz.me/tags/C/">C</category>
-      
-      
-      <comments>https://rapiz.me/2021/c-expert-programming/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>TinyKV 学习体验</title>
       <link>https://rapiz.me/2021/tinykv-hints/</link>
       <guid>https://rapiz.me/2021/tinykv-hints/</guid>
@@ -78,30 +138,6 @@
       
       
       <comments>https://rapiz.me/2021/tinykv-hints/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>学习操作系统的一些资源</title>
-      <link>https://rapiz.me/2020/os-resource/</link>
-      <guid>https://rapiz.me/2020/os-resource/</guid>
-      <pubDate>Fri, 25 Sep 2020 12:46:24 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;&lt;a href=&quot;https://pdos.csail.mit.edu/6.828/2018/readings/i386/toc.htm&quot;&gt;https://pdos.csail.mit.edu/6.828/2018/readings/i386/toc.htm&lt;/a&gt;&lt;/p&gt;</description>
-        
-      
-      
-      
-      
-      <category domain="https://rapiz.me/categories/DEV/">DEV</category>
-      
-      
-      <category domain="https://rapiz.me/tags/OS/">OS</category>
-      
-      
-      <comments>https://rapiz.me/2020/os-resource/#disqus_thread</comments>
       
     </item>
     
@@ -412,50 +448,6 @@
       
       
       <comments>https://rapiz.me/2020/migrate-arch/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>为通过 SSH 的 Git 配置代理</title>
-      <link>https://rapiz.me/2020/git-through-proxy/</link>
-      <guid>https://rapiz.me/2020/git-through-proxy/</guid>
-      <pubDate>Fri, 21 Feb 2020 09:08:18 GMT</pubDate>
-      
-      <description>&lt;p&gt;查了一大堆，说什么方法的都有……</description>
-      
-      
-      
-      
-      <category domain="https://rapiz.me/categories/ENV/">ENV</category>
-      
-      
-      
-      <comments>https://rapiz.me/2020/git-through-proxy/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>实现虚拟机浏览器链接转发</title>
-      <link>https://rapiz.me/2020/vbox-integration/</link>
-      <guid>https://rapiz.me/2020/vbox-integration/</guid>
-      <pubDate>Fri, 21 Feb 2020 04:52:19 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;一开始我想写个程序设置为 Windows 的默认浏览器。这样试图打开 URL 的时候，URL 会作为参数传给小程序。小程序通过 socket 转发到宿主机。宿主机上跑个 TCP 服务器不断打开传入的链接。&lt;/p&gt;
-&lt;p&gt;这样做主要有两个问题。一是有些网络设置的VBOX不能通</description>
-        
-      
-      
-      
-      
-      <category domain="https://rapiz.me/categories/ENV/">ENV</category>
-      
-      
-      <category domain="https://rapiz.me/tags/Linux/">Linux</category>
-      
-      
-      <comments>https://rapiz.me/2020/vbox-integration/#disqus_thread</comments>
       
     </item>
     
